@@ -19,7 +19,7 @@ vector_db = PineconeVectorStore(index_name=index_name, embedding=embeddings, pin
 llm = Ollama(
     model="llama2", 
     temperature=0.0,
-    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+    #callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
 )
 
 retriever = vector_db.as_retriever()
@@ -42,7 +42,7 @@ qa_stuff = RetrievalQA.from_chain_type(
 # result = sources_chain.run(input_documents=docs, question=query)
 # print(result)
 
-query =  "What is Jeff?"
+query =  "What is Jeff doing to promote his brand?"
 #response = qa_stuff.run(query)
 response = qa_stuff.invoke(query)
 print(response)

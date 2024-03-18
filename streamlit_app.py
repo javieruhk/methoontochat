@@ -28,7 +28,7 @@ Pinecone.api_key = st.secrets["pinecode_api_secret"]
 llm = Ollama(
     model="llama2", 
     temperature=0.0,
-    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+    #callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
 )
 
 index_name = 'langchain-business-advisor-streamlit'
@@ -93,6 +93,7 @@ initial_messages = [
         AIMessage(content="Hello, I am Jeff Advisor for Mr Jeff, How may I help you?")
     ]
 
+#ver cómo comprobar si se ha escrito algun mensaje
 if "messages" not in st.session_state:
     st.session_state.messages = initial_messages
 else:
@@ -115,13 +116,10 @@ with input_container:
 
 def generate_response(prompts):
     # Before the QA Retrieval pluging - 
-    print("request")
-    print(prompts)
     prompt = " ".join([msg.content for msg in prompts])
-    #response = llm(prompt)
+    response = llm.invoke(prompt)
     # However, it has Memory Feature - https://github.com/openai/chatgpt-retrieval-plugin#memory-feature
-    response = qa_chatbot.invoke(prompt)
-    print(response)
+    #response = qa_chatbot.invoke(prompt)["result"]
     # approach step 1) obtener la info de los documentos; 2) usarla para generar el prompt de entrada al modelo
     ## Prompt construction / retrieval: 
     ## Prompt execution / inference:
@@ -133,13 +131,20 @@ with response_container:
         st.session_state.messages.append(HumanMessage(content=user_input))
         ## Constructing response
         response = generate_response(st.session_state.messages)
+        #print(response)
+        #print(st.session_state.messages)
         st.session_state.messages.append(AIMessage(content=response))
         
     # display message history
     if st.session_state["messages"]:
         messages = st.session_state.get('messages', [])
+
         for i, msg in enumerate(messages[1:]):
             if type (msg) == AIMessage: ## % 2 == 0:
                 message(msg.content, is_user=False, key=str(i) + '_ai')
             else:
                 message(msg.content, is_user=True, key=str(i) + '_user')
+
+
+##ver cómo maneja streamlit los mensajes
+##ver cómo utiliza el qa_chatbot los vectores de Pinecone
