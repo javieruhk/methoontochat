@@ -1,0 +1,6 @@
+streamlit
+streamlit-chat
+streamlit-extras
+langchain
+langchain_pinecone
+pinecone-client

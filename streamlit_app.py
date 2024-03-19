@@ -1,5 +1,3 @@
-import openai 
-
 import streamlit as st
 from streamlit_chat import message
 from streamlit_extras.colored_header import colored_header
