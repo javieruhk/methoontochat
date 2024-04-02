@@ -1,5 +1,3 @@
-import openai 
-
 import streamlit as st
 from streamlit_chat import message
 from streamlit_extras.colored_header import colored_header
@@ -18,15 +16,17 @@ from langchain_community.llms import Ollama
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain_community.embeddings import OllamaEmbeddings
+from langchain import globals
+
+globals.set_verbose(True)
 
 # Setting some variables 
 Pinecone.api_key = st.secrets["pinecode_api_secret"]
 
-##
 # SETTING SOME GLOBAL OBJECTS
 
 llm = Ollama(
-    model="llama2", 
+    model="llama2:7b", 
     temperature=0.0,
     #callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
 )
@@ -45,52 +45,62 @@ qa_chatbot = RetrievalQA.from_chain_type(
     retriever=vector_db.as_retriever(), 
     verbose=True
 )
-##
 
-st.set_page_config(page_title="Jeff Advisor for Mr Jeff - An LLM-powered app by Jeff")
-st.title("Jeff Advisor for Mr Jeff")
-st.subheader("An LLM-powered app by Jeff")
+st.set_page_config(page_title="Ontology copilot")
+st.title("Ontology copilot")
+#st.subheader("An ontology design assistant")
 
 with st.sidebar:
-    st.sidebar.image("resources/logo_mrjeff.png", use_column_width=True)
+    st.sidebar.image("resources/OEG.png", use_column_width=True)
     st.markdown('''
-    ## About
+    ## ¿Qué es Ontology copilot?
 
-    Jeff is a technology-driven company that offers a wide range of services through its various brands, including Mr Jeff for laundry and dry-cleaning. 
-    
-    Jeff operates through a franchise model, empowering entrepreneurs to run their own stores while benefiting from the support, expertise, and technology of the company.
+    Ontology copilot es una herramienta para ayudar en el proceso de diseño de ontologías. Algunas de las acciones que puede llevar a cabo son:
+	
+    - Especificación de requisitos de la ontología.
+	
+    - Buenas prácticas y estándares que debe cumplir la ontología.
+	
+    - Pruebas preliminares de la ontología generada con el obtetivo de comprobar si se cumplen las buenas prácticas y los estándares mencionados.
+	
+    - Emplear herramientas externas como [OOPS!](https://oops.linkeddata.es/) y [FOOPS!](https://foops.linkeddata.es/FAIR_validator.html) con el fin de evaluar y validar ontologías, detectando posibles errores y malas prácticas, además de recibir recomendaciones.
 
-    This Jeff Advisor for Mr Jeff, an smart guidance that gives entrepreneurs actionable insights to help them run their businesses. It is is a modified AI-powered chatbot built using:
-    - All the know-how of our training at **Jeff Academy**
-    - All the guidelines provided by the **Jeff Operation Handbook**
-    - All the metrics about performance from our partners in the **Jeff Platform**
-    
+    Como aclaración, esta herramienta no genera ontologías por sí misma, sino que está pensada como un asistente en el proceso de generación de ontologías.
     ''')
     add_vertical_space(5)
-    st.sidebar.image("resources/logo_jeff.png", use_column_width=False)
-    st.write('This is a Jeff product (c) 2023')
+    st.sidebar.image("resources/UPM.png", use_column_width=True)
+    st.write('''
+    ## Autor:
+    - Javier Gómez de Agüero Muñoz
+    ## Tutores:
+    - Elena Montiel Ponsoda 
+    - Carlos Ruiz Moreno
+    ''')
 
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            footer:after {content:'Made by Jeff team (crm, 2023)';visibility: visible;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+#ocultar menú de 3 puntos
+#hide_streamlit_style = """
+#            <style>
+#            #MainMenu {visibility: hidden;}
+#            footer {visibility: hidden;}
+#            footer:after {content:'Made by Jeff team (crm, 2023)';visibility: visible;}
+#            </style>
+#            """
+#st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # initialize message history
 initialSystemMessage = (
     """ 
-        You are Jeff Advisor, the helpful business assistant of the company Mr Jeff that guides and gives entrepreneurs actionable insights to help them run their businesses, simplifying the decision making process, and connecting with our technology, data, know-how and products available. "
-    
-        You create and adapt different business playbooks for the company's franchises to structure their business strategy with constant feedback on how each action impacts progress towards the goals
+        You are Ontology copilot, a tool designed to assist in the ontology design process. 
+        
+        Your main role is to specify the key requirements of an ontology, verify compliance with best practices and standards in the field, perform preliminary testing to ensure quality, and work in conjunction with external tools such as OOPS! and FOOPS! to evaluate, validate and provide recommendations on the ontologies generated. 
+        
+        Your purpose is to act as an assistant to ontology designers, providing guidance and support in the creation process, and never being the one to generate the ontology yourself.
     """
 )
 
 initial_messages = [
         SystemMessage(content=initialSystemMessage),
-        AIMessage(content="Hello, I am Jeff Advisor for Mr Jeff, How may I help you?")
+        AIMessage(content="Hello, I am an ontology design assistant. What can I do for you?")
     ]
 
 #ver cómo comprobar si se ha escrito algun mensaje
@@ -101,7 +111,7 @@ else:
 
 # Layout of input/response containers
 input_container = st.container()
-colored_header(label='', description='', color_name='blue-30')
+colored_header(label='', description='', color_name='blue-90')
 response_container = st.container()
 
 # User input
@@ -130,6 +140,9 @@ with response_container:
     if user_input:
         st.session_state.messages.append(HumanMessage(content=user_input))
         ## Constructing response
+        print("yeyeye")
+        print(st.session_state.messages)
+        print("yoyoy")
         response = generate_response(st.session_state.messages)
         #print(response)
         #print(st.session_state.messages)
@@ -144,7 +157,3 @@ with response_container:
                 message(msg.content, is_user=False, key=str(i) + '_ai')
             else:
                 message(msg.content, is_user=True, key=str(i) + '_user')
-
-
-##ver cómo maneja streamlit los mensajes
-##ver cómo utiliza el qa_chatbot los vectores de Pinecone
