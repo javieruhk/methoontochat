@@ -42,6 +42,14 @@ def construct_index(directory_path, index_name):
     directory_loader = DirectoryLoader(directory_path, glob="**/*.pdf", loader_cls=PDFMinerLoader)
     documents = directory_loader.load()
 
+    """
+    for file in os.listdir(directory_path):
+        if file.endswith('.pdf'):
+            pdf_path = os.path.join(directory_path, file)
+            loader = PyPDFLoader(pdf_path)
+            documents = loader.load()
+    """
+
     # Chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     chunks = text_splitter.split_documents(documents)
