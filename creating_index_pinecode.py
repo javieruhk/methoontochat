@@ -16,13 +16,14 @@ import os
 
 from pinecone import Pinecone, PodSpec
 from langchain.document_loaders.directory import DirectoryLoader
+#from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_pinecone import PineconeVectorStore
 
 PINECONE_API_KEY = "3a8a5a1b-bb75-4ace-8f34-75791988c1a0"
 
-index_name = 'langchain-business-advisor-streamlit'
+index_name = 'ontology-copilot'
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
@@ -36,17 +37,34 @@ def create_index_store(index_name):
                 environment="gcp-starter"
             )
         )
+#from langchain.document_loaders.pdf import PyMuPDFLoader
+#from langchain.document_loaders import PDFMinerLoader
+from langchain_community.document_loaders import PDFMinerLoader
+#from langchain_community.document_loaders import MathpixPDFLoader
+#from langchain_community.document_loaders import PyPDFium2Loader
+from langchain_community.document_loaders import PyPDFLoader
+
+import os
 
 def construct_index(directory_path, index_name):
     #indexo = pc.Index(index_name)
 
-    directory_loader = DirectoryLoader(directory_path, glob="**/*.txt")
+    directory_loader = DirectoryLoader(directory_path, glob="**/*.pdf", loader_cls=PDFMinerLoader)
     documents = directory_loader.load()
+
+    """
+    for file in os.listdir(directory_path):
+        if file.endswith('.pdf'):
+            pdf_path = os.path.join(directory_path, file)
+            loader = PyPDFLoader(pdf_path)
+            documents = loader.load()
+    """
+
     # Chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     chunks = text_splitter.split_documents(documents)
     # Embeddings
-    embeddings = OllamaEmbeddings(model="llama2", temperature=0.0)#base_url='http://localhost:11434'
+    embeddings = OllamaEmbeddings(model="llama2:7b", temperature=0.0)#base_url='http://localhost:11434'
     print(embeddings)
     print(chunks)
 

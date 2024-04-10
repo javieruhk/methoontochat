@@ -30,11 +30,25 @@ llm = Ollama(
     temperature=0.0,
     #callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
 )
+from langchain_community.llms import LlamaCpp
+from langchain_experimental.chat_models import Llama2Chat
+#añadir tags de caché streamlit
 
-index_name = 'langchain-business-advisor-streamlit'
+#model = LlamaCpp(
+#    model_path = "llama-2-7b-chat.Q4_K_M.gguf",
+#    n_ctx = 2048,#max entrada cambiable
+#    max_tokens = 256,#max respuesta
+#    temperature=0.75,
+#    n_gpu_layers = -1,
+#    n_batch = 512
+#)
+
+#llm = Llama2Chat(llm=model)#wrapper para prompt
+
+index_name = 'ontology-copilot'
 pc = Pinecone(api_key=Pinecone.api_key)
 
-embeddings = OllamaEmbeddings(model="llama2", temperature=0.0)
+embeddings = OllamaEmbeddings(model="llama2:7b", temperature=0.0)
 vector_db = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=Pinecone.api_key)
 
 # A notable feature of the Retrieval Plugin is its capacity to provide ChatGPT with memory. By utilizing the plugin's upsert endpoint, ChatGPT can save snippets from the conversation to the vector database for later reference (only when prompted to do so by the user). This functionality contributes to a more context-aware chat experience by allowing ChatGPT to remember and retrieve information from previous conversations. Learn how to configure the Retrieval Plugin with memory here.
@@ -53,26 +67,26 @@ st.title("Ontology copilot")
 with st.sidebar:
     st.sidebar.image("resources/OEG.png", use_column_width=True)
     st.markdown('''
-    ## ¿Qué es Ontology copilot?
+    ## What is Ontology copilot?
 
-    Ontology copilot es una herramienta para ayudar en el proceso de diseño de ontologías. Algunas de las acciones que puede llevar a cabo son:
+    Ontology copilot is a tool to help in the ontology design process. Some of the actions it can perform are:
 	
-    - Especificación de requisitos de la ontología.
+    - Specification of ontology requirements.
 	
-    - Buenas prácticas y estándares que debe cumplir la ontología.
+    - Best practices and standards to be met by the ontology.
 	
-    - Pruebas preliminares de la ontología generada con el obtetivo de comprobar si se cumplen las buenas prácticas y los estándares mencionados.
+    - Preliminary testing of the generated ontology in order to check if the mentioned good practices and standards are met.
 	
-    - Emplear herramientas externas como [OOPS!](https://oops.linkeddata.es/) y [FOOPS!](https://foops.linkeddata.es/FAIR_validator.html) con el fin de evaluar y validar ontologías, detectando posibles errores y malas prácticas, además de recibir recomendaciones.
+    - Use external tools such as [OOPS!](https://oops.linkeddata.es/) and [FOOPS!](https://foops.linkeddata.es/FAIR_validator.html) in order to evaluate and validate ontologies, detecting possible errors and bad practices, as well as receiving recommendations.
 
-    Como aclaración, esta herramienta no genera ontologías por sí misma, sino que está pensada como un asistente en el proceso de generación de ontologías.
+    As a clarification, this tool does not generate ontologies by itself, but is intended as an assistant in the ontology generation process.
     ''')
     add_vertical_space(5)
     st.sidebar.image("resources/UPM.png", use_column_width=True)
     st.write('''
-    ## Autor:
+    ## Author:
     - Javier Gómez de Agüero Muñoz
-    ## Tutores:
+    ## Tutors:
     - Elena Montiel Ponsoda 
     - Carlos Ruiz Moreno
     ''')
