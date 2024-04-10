@@ -11,12 +11,8 @@
 #https://api.python.langchain.com/en/latest/vectorstores/langchain_pinecone.vectorstores.PineconeVectorStore.html#langchain_pinecone.vectorstores.PineconeVectorStore.add_documents
 #https://docs.pinecone.io/v1/docs/langchain
 
-import sys
-import os
-
 from pinecone import Pinecone, PodSpec
 from langchain.document_loaders.directory import DirectoryLoader
-#from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_pinecone import PineconeVectorStore
@@ -37,28 +33,14 @@ def create_index_store(index_name):
                 environment="gcp-starter"
             )
         )
-#from langchain.document_loaders.pdf import PyMuPDFLoader
-#from langchain.document_loaders import PDFMinerLoader
-from langchain_community.document_loaders import PDFMinerLoader
-#from langchain_community.document_loaders import MathpixPDFLoader
-#from langchain_community.document_loaders import PyPDFium2Loader
-from langchain_community.document_loaders import PyPDFLoader
 
-import os
+from langchain_community.document_loaders import PDFMinerLoader
 
 def construct_index(directory_path, index_name):
     #indexo = pc.Index(index_name)
 
     directory_loader = DirectoryLoader(directory_path, glob="**/*.pdf", loader_cls=PDFMinerLoader)
     documents = directory_loader.load()
-
-    """
-    for file in os.listdir(directory_path):
-        if file.endswith('.pdf'):
-            pdf_path = os.path.join(directory_path, file)
-            loader = PyPDFLoader(pdf_path)
-            documents = loader.load()
-    """
 
     # Chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
