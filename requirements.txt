@@ -4,3 +4,4 @@ streamlit_extras
 langchain
 pinecone_client
 langchain_pinecone
+huggingface_hub
