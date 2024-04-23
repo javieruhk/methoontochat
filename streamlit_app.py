@@ -1,3 +1,4 @@
+from ast import Num
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 from pinecone import Pinecone
 import streamlit as st
@@ -27,7 +28,8 @@ from langsmith import Client
 client = Client()
 
 def load_model():
-	repo_id="tiiuae/falcon-7b-instruct"
+	#repo_id="tiiuae/falcon-7b-instruct"
+	repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1"
 	huggingfacehub_api_token = st.secrets["hugging_face_api_secret"]
 	
 	llm = HuggingFaceEndpoint(
@@ -43,7 +45,12 @@ def get_vector_db():
 	index_name = 'ontology-copilot'
 	pc = Pinecone(api_key=Pinecone.api_key)
 
-	embeddings = OllamaEmbeddings(model="llama2:7b", temperature=0.0)
+	from langchain_community.embeddings import HuggingFaceEmbeddings
+	model_name = "avsolatorio/GIST-small-Embedding-v0"
+	embeddings = HuggingFaceEmbeddings(model_name=model_name)
+
+
+	#embeddings = OllamaEmbeddings(model="llama2:7b", temperature=0.0)
 	vector_db = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=Pinecone.api_key)
 
 	return vector_db
@@ -60,24 +67,31 @@ def create_chain():
 	memory = ConversationBufferWindowMemory(memory_key="chat_history", k=10, return_messages=True)
 	
 	chatbot_initial_prompt = """ 
-        You are Ontology copilot, a tool designed to assist in the ontology design process. 
-        
-        Your main role is to specify the key requirements of an ontology, verify compliance with best practices and standards in the field, perform preliminary testing to ensure quality, and work in conjunction with external tools such as OOPS! and FOOPS! to evaluate, validate and provide recommendations on the ontologies generated. 
-        
-        Your purpose is to act as an assistant to ontology designers, providing guidance and support in the creation process, and never being the one to generate the ontology yourself.
+        You are talking with a human and it is important to respond to his questions in a helpful way, while being safe. If a question lacks coherence, clarify why rather than providing an inaccurate response. If you're unsure of an answer, it is best not to provide false information.
+
+		You are Ontology Copilot, a tool designed to assist in the ontology design process. 
+
+		Your main role is to specify the key requirements of an ontology, verify compliance with best practices and standards in the field, perform preliminary testing to ensure quality, and work in conjunction with external tools such as OOPS! and FOOPS! to evaluate, validate and provide recommendations on the ontologies generated. 
+
+		Your purpose is to act as an assistant to ontology designers, providing guidance and support in the creation process, and never being the one to generate the ontology yourself.
+		
+		Remember to answer the human, as well as you can, only once per question without creating a conversation on your own.
 		
 		{context}
 
 		{question}
     """
 	
+	
+	
 	combine_docs_prompt = PromptTemplate(template=chatbot_initial_prompt, input_variables=["context", "question"])
 
 	chain = ConversationalRetrievalChain.from_llm(
 		llm=st.session_state.llm,
-		retriever=vector_db.as_retriever(),
+		retriever=vector_db.as_retriever(),#poner dentro del paréntesis search_kwargs={"k":5} para indicar el número de partes de documentos a extraer
 		memory = memory,
 		combine_docs_chain_kwargs={"prompt": combine_docs_prompt}
+		#return_source_documents=True #para que devuelva los documentos de los que extrae la información
 		)
 	
 	return chain
@@ -139,12 +153,11 @@ def main():
 		
 	num_message = 0
 	for num_message, message_text in enumerate(st.session_state.chat_history):
-		if isinstance(message, AIMessage):
+		if isinstance(message_text, AIMessage):
 			message(message_text.content, is_user=False, key=str(num_message) + '_ai')
-		elif isinstance(message, HumanMessage):	
+		elif isinstance(message_text, HumanMessage):	
 			message(message_text.content, is_user=True, key=str(num_message) + '_user')
 
-	
 	if chat_input is not None and chat_input != "":
 		num_message+=1
 		message(chat_input, is_user=True, key=str(num_message) + '_user')
@@ -152,13 +165,18 @@ def main():
 		with st.spinner("Wait until I get the response..."):
 			#CHAIN
 			response = st.session_state.chain.invoke(chat_input)
-
+			print("response")
+			print(response)
+			answer = '\n'.join(linea.strip() for linea in response["answer"].split('\n'))
 			st.session_state.chat_history = response["chat_history"]
 			st.session_state.chat_history.append(HumanMessage(content=response["question"]))
-			st.session_state.chat_history.append(AIMessage(content=response["answer"]))
+			st.session_state.chat_history.append(AIMessage(content=answer))
+
+			#en principio se puede utilizar response['source_documents'] para obtener el documento del que se ha extraido la información
 			
 			num_message+=1
-			message(response["answer"], is_user=False, key=str(num_message) + '_ai')
+			print(answer)
+			message(answer, is_user=False, key=str(num_message) + '_ai')
 			
 
 			#LLM
