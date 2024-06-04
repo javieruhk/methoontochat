@@ -5,3 +5,5 @@ langchain
 pinecone_client
 langchain_pinecone
 huggingface_hub
+
+grobid-client-python
