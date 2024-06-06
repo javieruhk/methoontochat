@@ -6,5 +6,6 @@ pinecone_client
 langchain_pinecone
 huggingface_hub
 langchain_community
+sentence-transformers
 
 grobid-client-python
