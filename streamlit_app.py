@@ -46,7 +46,6 @@ def get_vector_db():
 	index_name = 'ontology-copilot'
 	pc = Pinecone(api_key=Pinecone.api_key)
 
-	
 	model_name = "avsolatorio/GIST-small-Embedding-v0"
 	embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
