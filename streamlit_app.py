@@ -15,6 +15,7 @@ from langchain.schema import (
     HumanMessage,
     AIMessage
 )
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 import os
 from uuid import uuid4
@@ -45,7 +46,7 @@ def get_vector_db():
 	index_name = 'ontology-copilot'
 	pc = Pinecone(api_key=Pinecone.api_key)
 
-	from langchain_community.embeddings import HuggingFaceEmbeddings
+	
 	model_name = "avsolatorio/GIST-small-Embedding-v0"
 	embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
