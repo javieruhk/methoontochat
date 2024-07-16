@@ -26,7 +26,10 @@ conda activate methoontochat
 pip install -r requirements.txt
 ```
 
-3) Add the necessary keys in `.streamlit/secrets.toml`.
+3) Add the necessary keys in `.streamlit/secrets.toml`. The keys are:
+* pinecone_api_secret
+* hugging_face_api_secret
+* langchain_api_secret
 
 4) Run the app:
 ```bash
