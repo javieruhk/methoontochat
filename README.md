@@ -26,7 +26,7 @@ conda activate methoontochat
 pip install -r requirements.txt
 ```
 
-3) Add the necessary keys in .streamlit/secrets.toml.
+3) Add the necessary keys in `.streamlit/secrets.toml`.
 
 4) Run the app:
 ```bash
@@ -36,16 +36,16 @@ streamlit run methoontochat_streamlit_app.py --server.port 70
 ### Instructions to preprocess files for RAG
 Note: It is assumed that the required dependencies are installed.
 
-1) Place your PDF corpus in a folder within data/input.
+1) Place your PDF corpus in a folder within `data/input`.
 
-2) Specify the folder containing the files you want to preprocess.
+2) Open the `preprocessing_corpus_files.py` script and specify the folder containing the files you want to preprocess.
 
-3) While running Docker in parallel with the image `lfoppiano/grobid:0.8.0`, use the command:
+3) While running Docker execute the following command to use the image `lfoppiano/grobid:0.8.0`:
 ```bash
 docker run --rm --init --ulimit core=0 -p 8070:8070 lfoppiano/grobid:0.8.0
 ```
 
-4) Execute the preprocessing_corpus_files script, specifying the folder to process.
+4) Execute the `preprocessing_corpus_files` script, specifying the folder to process.
 
 ### Instructions to upload preprocessed files to Pinecone
 
