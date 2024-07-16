@@ -1,3 +1,4 @@
+huggingface_hub==0.21.4
 grobid_client_python==0.0.8
 langchain==0.2.8
 langchain_community==0.2.7
@@ -6,7 +7,7 @@ langchain_experimental==0.0.62
 langchain_pinecone==0.1.1
 langsmith==0.1.86
 pinecone==4.0.0
-protobuf==5.27.2
+sentence-transformers
 streamlit==1.31.1
 streamlit_chat==0.1.1
 streamlit_extras==0.4.3
