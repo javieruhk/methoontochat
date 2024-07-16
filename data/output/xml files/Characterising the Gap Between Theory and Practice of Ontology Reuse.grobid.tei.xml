@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Characterising the Gap Between Theory and Practice of Ontology Reuse</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>ACM</publisher>
+				<availability status="unknown"><p>Copyright ACM</p>
+				</availability>
+				<date type="published" when="2021-12-02">2021-12-02</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Reham</forename><surname>Alharbi</surname></persName>
+							<email>r.alharbi@liverpool.ac.uk</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Computer Science</orgName>
+								<orgName type="institution">University of Liverpool Liverpool</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Valentina</forename><surname>Tamma</surname></persName>
+							<email>v.tamma@liverpool.ac.uk</email>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Computer Science</orgName>
+								<orgName type="institution">University of Liverpool Liverpool</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Floriana</forename><surname>Grasso</surname></persName>
+							<email>f.grasso@liverpool.ac.uk</email>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Computer Science</orgName>
+								<orgName type="institution">University of Liverpool Liverpool</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Characterising the Gap Between Theory and Practice of Ontology Reuse</title>
+					</analytic>
+					<monogr>
+						<title level="m">Proceedings of the 11th Knowledge Capture Conference</title>
+						<meeting>the 11th Knowledge Capture Conference						</meeting>
+						<imprint>
+							<publisher>ACM</publisher>
+							<date type="published" when="2021-12-02" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">E0CDA9039821F3CD5ED3954B1ED06501</idno>
+					<idno type="DOI">10.1145/3460210.3493568</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Ontology engineering, ontology reuse</term>
+					<term>ontology development methodologies</term>
+					<term>challenges to ontology reuse</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Ontology reuse is a complex process that requires the support of methodologies and tools to minimise errors and to keep the ontologies consistent and coherent. Although the vast majority of ontology engineering methodologies include a reuse phase, and reuse has been investigated for different tasks and purposes (e.g. ontology integration), this body of work does not seem to translate into practice, neither in the form of strict criteria for reuse, nor as a set of community proposed guidelines. In this paper we report the salient results from a study aimed at ontology developers and practitioners, whose objective is to gain an insight into the gap between the theory and the practice of ontology reuse. The focus of our study is to gain practitioners' views on: i) their preferred reuse approaches; ii) the types of ontologies they tend to reuse (e.g. specific domain ontologies or upper level ontologies) iii) what reporting information they deem useful when deciding which ontology to reuse; iv) what are the main reasons deterring them from reusing an ontology. Our findings confirm and extend established results from the literature, but in addition, the study provides a fresh view on the practice of reuse with an explicit focus on highly experienced developers and moderately experienced ones. The study corroborates the need for a comprehensive set of recommendations, that are widely accepted by the community, and are possibly implemented in development tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CCS CONCEPTS</head><p>• Information systems → Ontologies; Content analysis and feature selection.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>Ontology reuse is included as a fundamental step in most of ontology design methodologies, and is considered crucial because it both allows developers to save effort, and encourages the inclusion of ontological fragments that have been independently validated, hence improving on quality <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b17">18,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b25">26]</ref>. However, it has been observed that ontology reuse within a given domain is not as widespread <ref type="bibr" target="#b4">[5]</ref>. For instance, the practice of reuse among biomedical ontologies in Bioportal is quite limited (less than 5%) <ref type="bibr" target="#b10">[11]</ref>.</p><p>In addition, while different approaches to ontology reuse exist, the decision on which approach is more suitable for a given situation is usually taken by ontology engineers when bootstrapping a project <ref type="bibr" target="#b1">[2]</ref>. For example, ontology reuse is often not performed by means of importing the reused ontologies (hard reuse), but only by referencing the reused ontology elements URIs (soft reuse) <ref type="bibr" target="#b21">[22]</ref>. Also, reusing decision methods are often biased and shallow, as they are typically done on a case-by-case basis, therefore not necessarily adhering to the definition of 'shareable good practice' <ref type="bibr" target="#b1">[2]</ref>.</p><p>Effective reuse poses a significant challenge to the community, hampered by a variety of factors such as:</p><p>(1) possible deficiencies in ontologies' documentation make it difficult to find all ontologies suitable for reuse <ref type="bibr" target="#b15">[16]</ref>; (2) the lack of a standard way to verify the accuracy of Competency Questions (CQs) against an ontology, typically results in misconceptions in determining the reusability of a candidate ontology <ref type="bibr" target="#b32">[33]</ref>; (3) the lack of standardisation in designing an ontology through reuse can introduce future errors, for example, by failing to keep track of changes in reused ontologies <ref type="bibr" target="#b4">[5]</ref>; (4) insufficient information about the requirements that ontology engineers aim to satisfy makes it hard to assess candidate ontologies to reuse <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b15">16]</ref>. Some ontologies are reused more than others, possibly because they are better documented <ref type="bibr" target="#b20">[21]</ref>. The reusability of an ontology is affected by the perception of its quality with respect to some evaluation criteria. However, although much work has addressed the evaluation of such quality from the perspective of reuse <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b27">[28]</ref><ref type="bibr" target="#b28">[29]</ref><ref type="bibr" target="#b29">[30]</ref>, there are no definitive principles and practices, and, especially, there is no practical mechanism for providing developers with a qualitative and quantitative assessment of reusability.</p><p>The ultimate goal of our research is to develop a comprehensive framework for assessing ontologies for reuse, capturing the requirements for reusing ontologies, identifying the modalities of reuse, the ontology features, and any additional information that ontology engineers need to be aware of when selecting a candidate ontology to reuse.</p><p>To achieve this objective, we attempt to provide a more precise characterisation of the practice of reuse against the theory. We approach this task by producing a questionnaire aimed at ontology engineers and developers, based on an extensive review of the literature on ontology reuse. To the best of our knowledge this is the first study that investigates the motivations of this gap by consulting directly ontology developers, rather than analysing the existing literature. In particular, the goal of our study is to determine whether and to what extent different approaches to reuse depend on the expertise of the developers.</p><p>This paper reports on the results from the questionnaire responses, that address the following questions: Question 1. How do developers practically reuse? We want to find out how developers reuse in practice, what the preferred ontology reuse methods, definitions and functions are, or whether ontologists prefer to reuse domain specific ontologies or upperlevel ontologies.</p><p>Question 2. Which of information reported about ontologies are practically looked at? We want to find out what aspects of an ontology developers are searching for when deciding to reuse, and which ones they are less interested in. Question 3. What are the barriers to reuse? We want to know of any important empirical obstacles that have hampered reuse, and any essential features that might reduce ontology reusability.</p><p>The paper is organised as follows: after framing our research with a discussion on the background in Section 2, Section 3 presents the research methodology followed for our study. Section 4 reports on the results from the study while Section 5 offers a discussion of such results. Finally, conclusions and future trends are outlined in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">BACKGROUND</head><p>Ontology reuse has been extensively studied by the research community, who have contributed several definitions, methodologies, implementations, and evaluation approaches to reuse. In this section, rather than providing a general state of the art review, we focus on those efforts which have been most influential in shaping our study, whose aim is to characterise the gap between the principles and practice of ontology reuse.</p><p>One of the first analyses on ontology reuse presents different use cases as well as methods and tools <ref type="bibr" target="#b24">[25]</ref> and concludes that the choice of a reuse approach is a decision-making problem in which the developer's experience plays a crucial role. Nevertheless, the adoption of shareable good practices, even if only within the same community, has been shown to increase reusability. For example, in <ref type="bibr" target="#b8">[9]</ref>, the authors analyse reuse in 53 ontologies in the OBO Foundry<ref type="foot" target="#foot_0">1</ref> at three different time points (September 2009, March 2010, and September 2010). The results indicate that reuse among the OBO Foundry candidates increased during the study period but also that the nature of term reuse evolved over time, with an increased use of cross reference annotations in the first part of the studied period, whilst in the latter part of the study, most of the additional reuse consisted of terms using the same id.</p><p>Poveda and colleagues <ref type="bibr" target="#b21">[22]</ref> analyse soft (i.e. reuse by referring to element URIs) and hard (i.e. logical import of the ontology) reuse in the Linked Data context. This study involves 196 of the 265 vocabularies included in the LOV registry. The study shows that the proportion of reused elements was noticeably high (40.53%). In addition, at that time, hard reuse was more frequent than soft reuse, although soft reuse already represented one quarter of the total.</p><p>A more recent study from the same group <ref type="bibr" target="#b4">[5]</ref>, however, shows an opposite trend, with developers opting more for soft reuse. More than half of the ontologies on the LOV registry reuse either through import or through URIs reference, with and increase in the the proportion of soft reuse, reaching approximately half of the total.</p><p>Kamdar and colleagues <ref type="bibr" target="#b10">[11]</ref> focus on the BioPortal repository, and analyse reuse in 377 biomedical ontologies. As a general conclusion, reuse among biomedical ontologies is quite limited (less than 5%), which seems to be consistent also with <ref type="bibr" target="#b8">[9]</ref> who report a 3% cases of reuse in the OBO foundry. This percentage is much lower than that obtained by the above-mentioned studies focussing on LOVs <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b21">22]</ref>. Furthermore, Ochs and colleagues <ref type="bibr" target="#b19">[20]</ref> analyse the 355 ontologies in BioPortal, and conclude that 55% of the analysed ontologies includes elements (classes or properties) from other ontologies.</p><p>This work shows that knowledge reuse is especially widespread among the ontologies in the OBO Foundry and that the knowledge reused belongs to a small set of popular ontologies, which makes popularity one of the key practices in reuse, proposed by <ref type="bibr" target="#b10">[11]</ref> and addressed later by Schaible and colleagues <ref type="bibr" target="#b23">[24]</ref>, who carried out a survey to obtain rankings of diverse modelling examples. Participants in the survey took into account their understanding of the good reuse of vocabularies when ranking the models. This study shows that the trend has been to reuse popular terms from frequently-used ontologies. However, the statistical study presented in <ref type="bibr" target="#b4">[5]</ref>, argues that heterogeneity between the required conceptualisation and that of available ontologies, as well as the deficiencies in some of the reusable ontologies (e.g. poor documentation or licencing), are important obstacles to ontology reuse.</p><p>Finally, Carriero and colleagues <ref type="bibr" target="#b1">[2]</ref> survey the different approaches to ontology reuse with the aim to identify their motivations, strategies, benefits and limits. In their study they propose two prototypical use-cases and analyse them with respect to the benefits and limitations identified. They conclude that at the time of writing there are no effective solutions for supporting the decision making process supporting the choice of an ontology reuse strategy.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">RESEARCH METHODOLOGY</head><p>In order to answer the three questions mentioned in Section 1, we devised a study in form of a questionnaire, to be administered online to participants with experience in ontology engineering.</p><p>The complete set of questions is provided at https://www.allcounted. com/share?view=questions&amp;cid=etfbfn66ab4ja&amp;lang=en_US.</p><p>The responses were analysed statistically to identify any correlation with levels of expertise of the participants.</p><p>The questionnaire also included a set of open text questions, whose replied were used to inform a discussion on the analysis, as provided in Section 5.</p><p>In this section, we will describe the methodology we adopted to carry out each phase of the experiment, that comprises the following aspects:</p><p>(1) The identification of the selective variables to include in the survey (Section 3.1). ( <ref type="formula">2</ref>) The composition of the survey questions, and how they relate to the above variables (Section 3.2). ( <ref type="formula">3</ref>) The administration of the survey to participants (Section 3.3). ( <ref type="formula">4</ref>) A summary of the data analysis techniques we used, by means of mainly descriptive statistics (Section 3.4).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Identification of the variables to include in the survey</head><p>We reviewed the state of the art on reusing ontologies to identify several aspects of preferences related to each of the questions we wanted to address. We selected papers from three main standpoints: recognised efforts to define reuse from different perspectives <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b21">22,</ref><ref type="bibr" target="#b22">23]</ref>; proposals for meaningful guidelines/ recommendations for ontology selection aiming to increase the reusability of ontologies <ref type="bibr">[3-5, 16, 21, 24, 27, 28, 30]</ref>; finally, studies that highlighted difficulties and challenges of reuse ontologies <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b16">17]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1">Variables for Question 1.</head><p>In order to address the question How do developers actually reuse?, we distilled from the literature the following variables, representing reuse definitions and methods:</p><p>• Import the whole ontology (Hard reuse or As-is).</p><p>• Reference to the ontology elements URIs (Soft reuse).</p><p>• Reuse by removing some axioms (Extraction).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Reuse by adding new axioms (Extension).</head><p>• Reuse by merging several ontologies (Combination).</p><p>• Reuse by extracting/using Ontology Design Patterns (ODPs).</p><p>• Reuse by copying the ontology structure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.2">Variables for Question 2. In order to address the question</head><p>Which reported information about ontologies are practically looked at?, the following variables were identified from the literature, representing features that developers might want to investigate, and which might influence their decision to reuse, variables for which we asked participants to provide a ranking:</p><p>• Ontology purpose.</p><p>• Ontology scope.</p><p>• Target groups and intended uses of ontology.</p><p>• Ontology developers.</p><p>• The language used to express the ontology.</p><p>• Requirement specification document (RSD).</p><p>• Competency questions(CQs).</p><p>• Ontology design specifications (classes, properties and relationships).</p><p>3.1.3 Variables for Question 3. Finally, in order to address the question What are the barriers to reuse?, we identified the variables accounting for aspects that might hamper reuse, and again we asked participants for a ranking:</p><p>• Size.</p><p>• Number of imports (e.g. importing a number of ontologies, that in turn import other ontologies).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Complexity (large number of classes, axioms and properties).</head><p>• Versioning, the existence of different versions of the same ontology. • Known conflicts with other imported ontologies.</p><p>Other variables we extracted from the survey refer more specifically to reuse metrics, for which we again asked the survey participants for a ranking, from most to least preferred, with respect to the reuse of ontologies, and comprising łscheme metricsž <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b27">28,</ref><ref type="bibr" target="#b29">30]</ref>, łinstance metricsž <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b27">28,</ref><ref type="bibr" target="#b29">30]</ref>, łcommunity and social metricsž <ref type="bibr" target="#b15">[16,</ref><ref type="bibr" target="#b28">29]</ref>, and łdocumentation metricsž <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b28">29]</ref>.</p><p>Results from this further set of issues are not discussed in this paper and will be deferred to future reporting.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Composition of the survey</head><p>We evaluate the variables in relation to the expertise and background reported by the participants, as explained in the next section. In order to do so, we devised a set of tasks with the goal to aggregate and condense the participants' experience and 'gut-feeling' about empirical attitudes. The survey consisted of around 44 between questions and tasks, subdivided into five parts, and was designed to take between 30 to 45 minutes to complete:</p><p>(1) Background information;</p><p>(2) General features of the ontology;</p><p>(3) Ontology documentation; (4) Technical information about the ontology and its reuse;</p><p>(5) Conclusion.</p><p>The first round of this questionnaire was a validation process of the questions, mainly through a campaign that targeted specific ontology engineers and specialised groups. The received comments from this campaign have adjusted some questions for the next campaign.</p><p>We report here on the results from</p><p>(1) Popularity tasks we used to investigate the most popular definition of reuse that was used in practice, and how this differed on the basis of the participant's experience, in answer to our first question on how developers reuse, and (2) Ranking tasks covering different aspects of the engineers' decision-making process, in answer to the remaining two questions on what information they look at and what are the perceived obstacles to reuse.</p><p>In particular we considered:</p><p>(1) Popularity Task for Reuse wrt Experience, where participants select the most frequently used approaches for ontology reuse implementation from a list of the seven most popular ones. (2) Popularity Task for Ontology Type wrt Experience, where participants identify the type of ontologies been reused (upper-level ontologies vs. specific domain ontologies). (3) Ranking Task for Details wrt Experience, where participants rank ontology reporting details (as presented in the most popular metrics).</p><p>(4) Ranking Task for Obstacles wrt. Experience, where participants are asked to rank five obsttacles to ontology reuse taken from the literature.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Administration of the survey to participants</head><p>The target population of this study was the Semantic Web community in academia and industry. The questionnaire was disseminated during the period March to November 2020, both as direct invitation to selected contacts, and through calls for participation posted to relevant mailing lists and advertised at conferences (e.g. the 19th International Semantic Web Conference).</p><p>Overall, 78 participants took the survey, however a number were excluded from the analysis either because self reporting as having no ontology engineering experience or filtered out by the initial screening. In the end, N = 54 responses were included in the analysis. The geographical distribution of the responses originated primarily from Spain 15%, UK 13% and US 13%.</p><p>On average participants reported to have worked for 4 to 5 years in ontology engineering (M =4:26; SD=1:32), and rated their own expertise with ontology engineering quite high (M =3:87; SD =0.933) on a 5-point-Likert scale from 1 (none at all experienced) to 5 (expert). We divided the population into Highly Experienced (HE) participants (4 or 5 on the Likert-scale), which accounts for 65% of the population, and Moderate Knowledge (MK), that accounts for the remaining 35% of the population.</p><p>The participants reported a propensity for reusing ontologies (M =3:87; SD =0.991), measured on a 5-point-frequency scale from 1 (rarely) to 5 (always). About 68% of the participants considered reusing ontologies frequently (often to always on the Frequentscale) and none of the participants said they would never choose to consider reuse.</p><p>The frequency of reusing ontologies differs depending on the familiarity level with ontology engineering, a Mann-Whitney U test showed that there was a significant difference (U =200.500, p = 0.012) between the respondents. The highly experienced participants reuse ontologies more frequently than the moderate knowledge (MK 31.6% often, 15.8% always vs HE 35.3% often and 41.2% always).</p><p>Overall, the chosen sample is experienced in the field of ontology engineering, and is willing to reuse ontologies. This makes the results of our survey meaningful with respect to their validity for identifying good practices of reuse.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Tools for data analysis</head><p>The data analysis was carried out by means of descriptive statistics; for guidance, and to aid replicability, we list here the statistical tools used for different analysis purposes and variant data types:</p><p>(1) The Chi-square (𝜒 2 ) test is a statistical procedure used for popularity tasks to examine the differences between categorical variables. The test determines whether there is a statistically significant difference between the expected frequencies and the observed frequencies in one or more categories of a contingency table. The statistic is said to be "statistically significant" if the value of Asymp. Sig. (which is the p-value of the Chi-Square statistic) is less than .05 (which is the alpha level associated with a 95% confidence level). (2) The Friedman test is a non-parametric alternative to the one-way ANOVA with repeated measures used for ranking tasks as the answers (dependent variables) on an ordinal scale. The aim is to detect significant differences between aspects for each objective (with 𝛼 = .05).</p><p>(3) The Wilcoxon signed-rank tests is a non parametric hypothesis test, and is used, if significant differences are detected overall, to determine if two or more sets of pairs are statistically significantly different from one another. (4) The Dunn-Bonferroni correction is a post-hoc procedure to adjusts probability (p) values when making multiple statistical tests, and is used to correct the error rate following the analysis of variance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">RESULTS</head><p>We provide in this section the analysis of the responses to the various tasks listed in Section 3.2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Popularity Task for Reuse wrt Experience</head><p>The analysis showed that:</p><p>Finding 1. The most popular reuse approach across the board is Soft Reuse, while the least popular is Reuse by Copying the Ontology Structure.</p><p>The analysis showed that the Soft reuse approach was selected by 74.3% HE, and 47.4% MK, while the Reuse by Copying the Ontology Structure was selected 22.9% HE, and not selected by any MK.</p><p>When checking for how different approaches relate to participants' experience were, we found that: In more detail:</p><p>• The data analysis on approaches dependent on experiences was that:</p><p>(1) Hard Reuse was selected by 57.1% HE and 26.3% MK, 𝜒 2 (1, 𝑁 = 54) = 4.70, 𝑝 = .030) (2) Soft Reuse, as showed above, was selected by 74.3% HE, and 47.4% MK, (𝜒 2 (1, 𝑁 = 54) = 3.91, 𝑝 = .048) (3) Reuse by Copying the Ontology Structure was selected by 22.9% HE and no MK, (𝜒 2 (1, 𝑁 = 54) = 5.098, 𝑝 = .024). • The data analysis for the remaining approaches which showed no statistical relationship with respect to the participants' experience was, in descending order from the most selected approach to the least for each class of participants:</p><p>(1) Among the HE participants: Extension 51.4%, Using ODP 34.3%, Extraction 28.6%, and Combination 25.7%. (2) Among the MK participants: Extension 42.1%, Extraction and Combination both at 31.6%, and Using ODP 21.1%.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Popularity Task for Ontology Type wrt Experience</head><p>The analysis of the results for this task showed that:</p><p>Finding 3. The reuse of specific domain ontologies is the approach of choice by the developers with moderate knowledge.</p><p>Finding 4. The reuse of upper level ontologies is the approach of choice by the highly experienced developers.</p><p>In more detail: reusing specific domain ontologies was selected by 31% HE and 78% MK. In contrast, reusing upper level ontologies was selected by 74% HE and 21% MK.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Ranking Task for Details wrt Experience</head><p>In the analysis of how participants perceive the usefulness of ontology details when deciding to reuse we found that: Finding 5. The most relevant aspect of an ontology with respect to reuse is the ontology developer(s), both for medium and for highly experienced practitioners. Finding 6. The least informative detail about an ontology when deciding to reuse is: its scope for highly experienced practitioners, and its target group (intended use) for medium experienced practitioners.</p><p>Table <ref type="table" target="#tab_0">1</ref> provides the full ranking on each detail and for the two classes of participants, where 1 is the top/better ranked feature and 8 is the bottom/worse ranked feature. The table also provides the results of the Friedman test, showing that for both classes of respondents the differences in the ranking are significant.</p><p>To further confirm this difference, in other words to validate that the position occupied by the items in the ranking is indeed significant, we performed post-hoc tests, using Wilcoxon signedrank tests, with the Dunn-Bonferroni correction, among all pairs of features. Results confirmed that:</p><p>• For the HE, there is a significant difference between the rank on Ontology Developers (the top ranked feature) and five of the other features, with p respectively scoring as follows: with Ontology Scope (p=.000), with Ontology Design Specifications (p=.000), with Ontology Purpose (p=.000), with Ontology Language (p=.016), and with Target Group-Intended Uses (p=.050). • For the HE, there is also a significant difference between the rank on Scope (the bottom ranked feature) and five of the other features, with p respectively scoring as follows: with Ontology Developers (p=.000), with Ontology Language (p=.002), with Target group-Intended Use (p=.000), with CQs (p=.000), and with RSD (p=.000). • For MK, there is a significant difference between the rank on Ontology Developers (the top ranked feature) and three of the other features, with p respectively scoring as follows: with Target group-Intended use (p=.000), with Ontology Purpose (p=.001), and with Ontology Scope (p=.010). • For MK, there is a significant difference between the rank on Target Group-Intended Use (the bottom ranked feature) and three of the other features, with p respectively scoring as follows: with RSD (p=.052), with Ontology Language (p=.006), and with Ontology Developers (p=.000).</p><p>• For MK, there is a significant difference between the rank on Ontology Purpose (the second from the bottom ranked feature) and two of the other features with p respectively scoring as follows: with Ontology Language (p=.052), and with Ontology Developers (p=.001). • However, there were no significant differences between any other pair of features, in neither class. We are therefore more confident in the ranking of the top and bottom feature for each of the classes of participants.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Ranking Task for Obstacles wrt Experience</head><p>In the analysis of how participants perceive the ontology features that would hamper reuse we found that: Finding 7. The major obstacle to reuse, for both medium knowledge and highly experienced practitioners, is the presence of conflicts with other imported ontologies. The second major obstacle is complexity, and the third is the number of imports.</p><p>Finding 8. The least problematic obstacle to reuse for highly experienced developers is the presence of versioning, while for moderate experience developers is its size.</p><p>Table <ref type="table" target="#tab_1">2</ref> provides the full ranking on each obstacle and for the two classes of participants, where 1 is the top/most problematic ranked feature and 5 is the bottom/least problematic ranked feature. The table also provides the results of the Friedman test, showing that for both classes of respondents the differences in the ranking are significant.</p><p>Again, we performed post-hoc Wilcoxon signed-rank tests, with the Dunn-Bonferroni correction, among all pairs of features, to validate the choice of ranking the top obstacle (only) for both classes of practitioners. The results show that:</p><p>• For the HE, there is a significant difference between the rank on Conflicts with Other Imported Ontologies (the top ranked feature) and only one of the other features, Ontology Versioning (p=.032). • For the MK, N= 19, we found a significant difference between the rank on Conflicts with Other Imported Ontologies (the top ranked feature) and three of the other features with p scoring respectively as follows: with Number of Imports (p=.021), with Ontology Versioning (p=.001), and with Ontology Size (p=.000). • However, there were no significant differences between any other pair of obstacles for in neither class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">DISCUSSION</head><p>Ontology reuse has been the subject of several studies in the past 20 years, and up until recently <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b4">5]</ref>, due to its prominent role in the ontology engineering process, and to the fact that, as a practice, it is still not widely implemented. Indeed, ontology reuse is perceived as a subjective task that is frequently performed by experienced ontology engineers, who often determine a solution on a case-by-case basis, and possibly, contradict good practices <ref type="bibr" target="#b1">[2]</ref>.</p><p>The analysis of the results presented in the previous section confirms and complements the most recent surveys in the area, and offers some new insights on how the degree of competence in ontology engineering affects some of the choices made when reusing an ontology. In the reminder of this section we discuss these insights.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Preference for soft reuse</head><p>Ontology reuse is typically implemented with owl:imports (known as direct or hard reuse), whereby the semantics of the reused ontology is included into the new one; a method supported by many ontology editors, such as Protege. However, Findings 1 and 2 seem to suggest that, irrespective of the level of experience, ontology engineers seem to prefer soft reuse to formal imports. Only a fraction of the respondents expressed a preference for direct reuse. The participants free text comments highlight the adoption of mixed practices, e.g. łhybrid approach, reference to the ontology element URIs and copying the structure of an ontology, based on specific project's requirements (sic)ž, łmerging the soft reuse with the extension is common practicež, łmapping to show overlap and differencesž and łreference to specific objects via their name space and IRI ž. We can identify a number of reasons for preferring soft reuse:</p><p>(1) the complexity of hard reuse, that does not facilitate the customisation of the imports of ontologies, and might result in irrelevant concepts or conflicts with requirements in the local ontology <ref type="bibr" target="#b1">[2]</ref>; (2) incorrect consequences of imports, that can only become apparent when the imported and the reused ontology are in turn reused themselves <ref type="bibr" target="#b4">[5]</ref>;</p><p>(3) and finally, reused ontologies may become unavailable or evolve.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Reuse through ODPs</head><p>Ontology Design Patterns (ODPs) are concise ontological representations of reusable components, based on the corresponding notion in software engineering <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b22">23]</ref>. ODPs can be seen as a way to identify the cognitive requirements that become a primary source in the decisions taken as part of the development process <ref type="bibr" target="#b1">[2]</ref>. Whilst there is a significant research community that develop patterns and investigate the most effective ways to use them, the results in Finding 2 highlighted this as one of the least preferred approaches to ontology reuse. This finding confirms the results presented in <ref type="bibr" target="#b13">[14]</ref>, which showed that there is little evidence of the use of ODPs in certain domains, e.g. the biomedical one. However, given different levels of expertise, 34% of the more experienced developers will reuse ODPs. This seems to suggest that this method of reuse is still not considered mature or advanced enough to gain widespread adoption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Choice of ontologies to reuse</head><p>There are several types of ontologies that can be reused, whose scope ranges from specific domain ontologies to broader upperlevel ontologies. The analysis found a strong correlation between the level of expertise in ontology engineering and such choice. Ontology developers with moderate knowledge tend to choose domain ontologies, because, as indicated in the free text comments: łDomain-specific [ontology reuse] has more flexibilityž, łDomain-specific [ontology reuse] is easierž, ł[it is] easy to managež, and ł[it is] easy to understandž.</p><p>Conversely, more experienced ontology developers tend to reuse upper-level ontologies, because they think they provide the foundational basis for domain level ontologies, they model commonly used concepts, they promote interoperability and reduce the development cost.</p><p>This confirms and extends a similar result in <ref type="bibr" target="#b1">[2]</ref> whereby the authors found that ontology developers prefer to reuse either ontologies endorsed by the community base (e.g. W3C endorsed ontologies) or that are maintained by some well known organisation (as it is the case for many upper level ontologies).</p><p>A possible explanation for this finding is that experienced ontology developers are aware that reuse affects the structure and logical consequences derived in the new ontology, especially when reusing through imports, where the semantics of the reused terms is included. In this case, the issues of long-term access, maintenance, and preservation of the reused terms become critical factors in the decision over which ontology to reuse.</p><p>This observation is related to Finding 5, according to which the most important criteria for deciding whether to reuse an ontology is its ontology developers. Indeed, experienced ontology developers know that ontologies developed as use cases for academic publications and within projects tend not to be maintained regularly, if at all. Therefore, a determining factor in the choice of an ontology to reuse is the confidence in its developers. Similar conclusions are reached in <ref type="bibr" target="#b1">[2]</ref>, and some of the most comprehensive reporting guidelines (e.g. MIRO <ref type="bibr" target="#b15">[16]</ref>) require the inclusion of the ontology owner's details.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Obstacles to ontology reuse</head><p>Findings 7 and 8 look at the perceived importance of the reasons that can prevent developers from reusing an ontology. The three most important issues that prevent reuse are ranked equally by developers with different experience: conflicts with other imported ontologies, complexity, and number of imports.</p><p>These findings are correlated to Finding 1 and 2 and especially with respect to those consistency problems that arise from hard reuse. In addition, the participant to our study identified a number of other issues that may deter them from reusing ontologies, e.g. łMissing class and properties annotationsž, łUnstable availability, visible lack of maintenancež and łNo or few documentation (sic)ž.</p><p>Indeed, ontology engineering good practices recommend drawing terms from the same ontology rather than importing many ontologies. This ensures overall coherence, and allows more efficient reasoning <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b30">31]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Lack of flexible approaches to reuse</head><p>When analysing the text free responses to the questionnaire, and in particular when commenting on the importance of reusing only part of an ontology and having sufficient information to support reuse (question 41), many respondents voiced the need for more flexible reuse ways.</p><p>A number of respondents highlighted the lack of a comprehensive and systematic approaches to reuse: łThere should be clear method/guidelines for reuse. When to do import, soft, reusing some of the axioms, etc (sic)ž, łReusing ontologies is hard and tricky, a systematic approach is neededž, or łSome ways of reusing ontologies are well known, like imports, but others are not so described, and done more ad hoc, like reusing parts of an ontology.</p><p>Some respondents confirmed the need to reuse ontologies either in their entirety or through modularisation <ref type="bibr" target="#b14">[15]</ref> or atomic decomposition <ref type="bibr" target="#b31">[32]</ref>. This type of reuse is prevalent in the OBO Foundry community and tools are available for such task, e.g. Ontofox <ref type="bibr" target="#b33">[34]</ref> . However, even when such tools are available, they are deemed lack flexibility.</p><p>Many also identified the need for appropriate mechanisms for ontology discovery: ł[Having such systematic method] would facilitate ontology reuse and reduce the time to choose if and which ontology to reusež or łI think the current guidelines for reusing ontologies do not help much neither in choosing the ontology or implementing the reusež, which confirms the existence of a gap between theory and practice, and the need for a set of more comprehensive and flexible heuristics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">CONCLUSIONS AND FUTURE WORK</head><p>In this paper we presented a user study aimed at understanding how ontology developers reuse existing ontologies, what are the factors affecting their choices, and the issues that might deter them from reusing a specific ontology. Whilst ontology reuse has been extensively investigated in the literature, and the majority of ontology engineering methodologies proposed in the past 20 years include a reuse phase, there seems to be a gap between the theory and practice of reuse <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b4">5]</ref>.</p><p>To the best of our knowledge this is the first study that investigates the motivations of this gap by consulting directly ontology developers, rather than analysing the existing literature. In particular, our study aims to ascertain to what extent the choice of different approaches to reuse depends on the expertise of the developers.</p><p>This paper presents the methodology adopted to formulate the questions in the study, the analysis performed on the answers and the most salient results drawn from the data. Our results confirm and extend some of the findings in the literature. In particular, the referencing of URIs (also referred to as soft or indirect reuse) seems to be the most established way of reusing terms from other ontologies, irrespective of the expertise of the developers. However, the level of expertise plays a significant role when choosing the ontology to reuse: more experienced ontology developers tend to choose upper-level ontologies or those published by well known organisations (e.g. the W3C). This is because these ontologies are more likely to be maintained and evolved to reflect any changes in the domain.</p><p>Furthermore, ontology developers actively consult further information about the ontology in order to guide their decision, but they can be deterred if the ontology to reuse appears to be complex, i.e. if it appears to conflict with other imported ontologies, or has a significant number of imports.</p><p>The findings of our study further confirm the necessity to expand the current guidelines and tools that support ontology developers in properly documenting their ontologies (e.g. <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b15">16]</ref>), as well as the need for more comprehensive measures, possibly in the form of a developer toolbox included in ontology editors that is customisable and offers flexibility of choice. A further issue emerging from the questionnaire is the need for methods that allow developers to łfindž candidate ontologies to reuse.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Finding 2 .</head><label>2</label><figDesc>Rankings on Hard Reuse, Soft Reuse, and Reuse by Copying the Ontology Structure are significantly associated with experience. Rankings on all other methods show no significant relationship with experience.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Ranking of Ontology Reporting Details</figDesc><table><row><cell>Details</cell><cell>MK Median Rank</cell><cell>Friedman test on MK</cell><cell>HE Median Rank</cell><cell>Friedman test on HE</cell></row><row><cell>Ontology purpose</cell><cell>7</cell><cell></cell><cell>6</cell><cell></cell></row><row><cell>Ontology scope</cell><cell>6</cell><cell></cell><cell>8</cell><cell></cell></row><row><cell>Ontology target group (intended use)</cell><cell>8</cell><cell></cell><cell>4</cell><cell></cell></row><row><cell>Ontology developers</cell><cell>1</cell><cell>𝜒 2 (7, 𝑁 = 19) = 36.243,</cell><cell>1</cell><cell>𝜒 2 (7, 𝑁 = 35) = 66.482,</cell></row><row><cell>Ontology language</cell><cell>2</cell><cell>𝑝 &lt; 0.001</cell><cell>5</cell><cell>𝑝 &lt; 0.001</cell></row><row><cell>Requirement Specification Document</cell><cell>3</cell><cell></cell><cell>2</cell><cell></cell></row><row><cell>Competency questions</cell><cell>5</cell><cell></cell><cell>3</cell><cell></cell></row><row><cell>Ontology design</cell><cell>4</cell><cell></cell><cell>7</cell><cell></cell></row><row><cell>Details</cell><cell>MK Median Rank</cell><cell>Friedman test</cell><cell>HE Median Rank</cell><cell>Friedman test</cell></row><row><cell>Ontology size</cell><cell>5</cell><cell></cell><cell>4</cell><cell></cell></row><row><cell>Number of imports</cell><cell>3</cell><cell></cell><cell>3</cell><cell></cell></row><row><cell>Complexity</cell><cell>2</cell><cell>𝜒 2 (4, 𝑁 = 19) = 28.084,</cell><cell>2</cell><cell>𝜒 2 (4, 𝑁 = 35) = 13.305,</cell></row><row><cell>Ontology versioning</cell><cell>4</cell><cell>𝑝 &lt; 0.001</cell><cell>5</cell><cell>𝑝 &lt; 0.010</cell></row><row><cell>Known conflicts w. imported ontologies</cell><cell>1</cell><cell></cell><cell>1</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Ranking of Ontology Reusing Obstacles</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://www.obofoundry.org</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>ACKNOWLEDGEMENTS</head><p>We are grateful to our colleagues in the <rs type="institution">Department of Mathematical Sciences, University of Liverpool</rs> for their guidance on designing and configuring the statistical analysis.</p></div>
+			</div>			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Engineering Ontologies with Patterns-The eXtreme Design Methodology</title>
+		<author>
+			<persName><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hammar</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Presutti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontology Engineering with Ontology Design Patterns: Foundations and Applications</title>
+		<imprint>
+			<publisher>IOS Press</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="23" to="50" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">The Landscape of Ontology Reuse Approaches. In Applications and Practices in Ontology Design, Extraction, and Reasoning</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>V A Carriero</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Daquino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A G</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nuzzolese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Peroni</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tomasi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Studies on the Semantic Web</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="21" to="38" />
+			<date type="published" when="2020">2020</date>
+			<publisher>IOS Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">OQuaRE: A SQuaRE-Based Approach for Evaluating the Quality of oOtologies</title>
+		<author>
+			<persName><forename type="first">J T</forename><surname>Duque-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fernández-Breis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Stevens</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Aussenac-Gilles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Research and Practice in Information Technology</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="159" to="176" />
+			<date type="published" when="2011">2011. 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Methodological Guidelines for Reusing General Ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Data &amp; Knowledge Engineering</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page" from="242" to="275" />
+			<date type="published" when="2013">2013. 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Why are Ontologies not Reused Across the Same Domain</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>C Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Web Semantics</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page">100492</biblScope>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Ontology Evaluation and Validation: An Integrated Formal Model for the Quality Diagnostic Task</title>
+		<author>
+			<persName><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Catenacci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ciaramita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gil</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bolici</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Strignano</surname></persName>
+		</author>
+		<ptr target="http://www.loa.istc.cnr.it/old/Files/OntoEval4OntoDev_Final.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Laboratory of Applied Ontologies -CNR</title>
+		<imprint>
+			<biblScope unit="page" from="12" to="19" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Ontology Design Patterns</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Presutti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on ontologies</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="221" to="243" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">WIDOCO: A Wizard for Documenting Ontologies</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Garijo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web ś ISWC 2017</title>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="94" to="102" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">How Orthogonal are the OBO Foundry Ontologies</title>
+		<author>
+			<persName><forename type="first">Fridman</forename><surname>Ghazvinian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M A</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Semantics</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2011">2011. 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A Translation Approach to Portable Ontology Specifications</title>
+		<author>
+			<persName><forename type="first">T R</forename><surname>Gruber</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge acquisition</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="199" to="220" />
+			<date type="published" when="1993">1993. 1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A Systematic Analysis of Term Reuse and Term Overlap across</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>M R Kamdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M A</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomedical Ontologies. Semantic Web</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="853" to="871" />
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">What is Ontology Reuse?</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Katsumi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">FOIS 2016 -9th Conference on Formal Ontology in Information Systems (Frontiers in Artificial Intelligence and Applications</title>
+		<imprint>
+			<publisher>IOS Press</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">283</biblScope>
+			<biblScope unit="page" from="9" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Choosing Ontologies for Reuse</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Katsumi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Ontology</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="195" to="221" />
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Detecting Influences of Ontology Design Patterns in Biomedical Ontologies</title>
+		<author>
+			<persName><surname>Kindermann</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Parsia</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sattler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ISWC 2019 ś 18th International Semantic Web Conference</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">11778</biblScope>
+			<biblScope unit="page" from="311" to="328" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Formal Properties of Modularisation</title>
+		<author>
+			<persName><forename type="first">Boris</forename><surname>Konev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carsten</forename><surname>Lutz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dirk</forename><surname>Walther</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Wolter</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Modular Ontologies: Concepts, Theories and Techniques for Knowledge Modularization</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">5445</biblScope>
+			<biblScope unit="page" from="25" to="66" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">MIRO: Guidelines for Minimum Information for the Reporting of an Ontology</title>
+		<author>
+			<persName><surname>Matentzoglu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Malone</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Mungall</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Stevens</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of biomedical semantics</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">How to Select and Request Terms from Ontologies. Blog: Monkeying around with OWL</title>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Mungall</surname></persName>
+		</author>
+		<ptr target="https://douroucouli.wordpress.com/2021/07/03/how-select-and-request-terms-from-ontologies/" />
+		<imprint>
+			<date type="published" when="2021-07-03">2021. July 3, 2021 entry</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Enabling Technology for Knowledge Sharing</title>
+		<author>
+			<persName><forename type="first">R E</forename><surname>Neches</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Fikes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Gruber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Patil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W R</forename><surname>Senator</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Swartout</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AI magazine</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="36" to="56" />
+			<date type="published" when="1991">1991. 1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D L</forename><surname>Mcguinness</surname></persName>
+		</author>
+		<idno>KSL-01-05</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ontology Development</title>
+		<imprint>
+			<biblScope unit="volume">101</biblScope>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+		<respStmt>
+			<orgName>Knowledge Systems Laboratory, Stanford University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">An Empirical Analysis of Ontology Reuse in BioPortal</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ochs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Perl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Geller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Arabandi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M A</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Informatics</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page" from="165" to="177" />
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Ontology Selection Ranking Model for Knowledge Reuse</title>
+		<author>
+			<persName><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Oh</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ahn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems with Applications</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="5133" to="5144" />
+			<date type="published" when="2011">2011. 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The Landscape of Ontology Reuse in Linked Data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><surname>C Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EKAW 2012 Workshop on Ontology Engineering in a Data-driven World</title>
+		<imprint>
+			<publisher>OEDW</publisher>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Pattern-Based Ontology Design</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Daga</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gangemi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontology Engineering in a Networked World</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="35" to="64" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Survey on Common Strategies of Vocabulary Reuse in Linked Open Data Modeling</title>
+		<author>
+			<persName><surname>Schaible</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gottron</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Scherp</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web: Trends and Challenges 11th International Conference</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">8465</biblScope>
+			<biblScope unit="page" from="457" to="472" />
+		</imprint>
+	</monogr>
+	<note>ESWC 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Reusing Ontologies on the Semantic Web: A Feasibility Study</title>
+		<author>
+			<persName><surname>Simperl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Data &amp; Knowledge Engineering</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="page" from="905" to="925" />
+			<date type="published" when="2009">2009. 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">V R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Benjamins</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Fensel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge Engineering: Principles and Methods. Data &amp; Knowledge Engineering</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="161" to="197" />
+			<date type="published" when="1998">1998. 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">The NeOn methodology for ontology engineering</title>
+		<author>
+			<persName><forename type="first">M C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontology Engineering in a Networked World</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="9" to="34" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Characterizing Quality of Knowledge on Semantic Web</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Supekar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">17th International Florida Artificial Intelligence Research Society FLAIRS</title>
+		<imprint>
+			<publisher>AAAI Press</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="472" to="478" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">The Role of Community and Social Metrics in Ontology Evaluation: An Interview Study of Ontology Reuse</title>
+		<author>
+			<persName><forename type="first">M D</forename><surname>Talebpour</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sykora</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Jackson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">th International Joint Conference on Knowledge Discovery, Knowledge Engineering and Knowledge Management KEOD 2017</title>
+		<imprint>
+			<publisher>SCITEPRESS</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="119" to="127" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">OntoQA: Metric-Based Ontology Quality Analysis</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tartir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>B Arpinar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A P</forename><surname>Moore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sheth</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Aleman-Meza</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE ICDM Workshop on Knowledge Acquisition from Distributed, Autonomous, Semantically Heterogeneous Data and Knowledge Source</title>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="45" to="53" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Demystifying OWL for the Enterprise</title>
+		<author>
+			<persName><surname>Uschold</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>Morgan &amp; Claypool Publishers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Modular Structures and Atomic Decomposition in Ontologies</title>
+		<author>
+			<persName><forename type="first">Chiara</forename><surname>Del Vescovo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Horridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bijan</forename><surname>Parsia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Uli</forename><surname>Sattler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haoruo</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1613/jair.1.12151</idno>
+		<ptr target="https://doi.org/10.1613/jair.1.12151" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Artif. Intell. Res</title>
+		<imprint>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="page" from="963" to="1021" />
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Analysis of Ontology Competency Questions and their Formalizations in SPARQL-OWL</title>
+		<author>
+			<persName><surname>Wiśniewski</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Potoniec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C M</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Keet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Web Semantics</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="page">100534</biblScope>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">OntoFox: web-based support for ontology reuse</title>
+		<author>
+			<persName><forename type="first">Zuoshuang</forename><surname>Xiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mélanie</forename><surname>Courtot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ryan</forename><forename type="middle">R</forename><surname>Brinkman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alan</forename><surname>Ruttenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yongqun</forename><surname>He</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1756-0500-3-175</idno>
+		<ptr target="https://doi.org/10.1186/1756-0500-3-175" />
+	</analytic>
+	<monogr>
+		<title level="j">BMC Research Notes</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">175</biblScope>
+			<date type="published" when="2010">2010. 2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

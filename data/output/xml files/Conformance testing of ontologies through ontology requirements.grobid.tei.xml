@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Conformance testing of ontologies through ontology requirements</title>
+				<funder ref="#_4u8qgga">
+					<orgName type="full">unknown</orgName>
+				</funder>
+				<funder ref="#_zakpTtA">
+					<orgName type="full">I+D+i program</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2020-10-22">22 October 2020</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Alba</forename><surname>Fernández-Izquierdo</surname></persName>
+							<idno type="ORCID">0000-0003-2011-3654</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Raúl</forename><surname>García-Castro</surname></persName>
+							<idno type="ORCID">0000-0002-0421-452X</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Conformance testing of ontologies through ontology requirements</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Engineering Applications of Artificial Intelligence</title>
+						<title level="j" type="abbrev">Engineering Applications of Artificial Intelligence</title>
+						<idno type="ISSN">0952-1976</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">97</biblScope>
+							<biblScope unit="page">104026</biblScope>
+							<date type="published" when="2020-10-22">22 October 2020</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">F6EC67931197E0332B3F811B3A4ED023</idno>
+					<idno type="DOI">10.1016/j.engappai.2020.104026</idno>
+					<note type="submission">Received 16 April 2020; Received in revised form 18 September 2020; Accepted 15 October 2020</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Ontology conformance Ontology engineering Ontology testing Standard</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In recent years, several standard ontologies have been developed to maximise semantic interoperability in different domains; such standard ontologies ensure quality and integrity when describing a domain. Therefore, mechanisms to guarantee that developers build ontologies that conform to such standards are needed. However, while in fields such as Software Engineering or industry, conformance testing plays an essential role during product development, in the Ontology Engineering field there is a lack of techniques for this type of testing. This work introduces an ontology conformance testing method to analyse conformance between an ontology and a standard based on the standard requirements. Grounded on this method, the work also presents a minimum common knowledge identification method for analysing how a group of standards covers a particular domain and for identifying whether there are conflicts between them. This work has been validated by analysing the conformance between an ontology network and a set of standards on the Internet of Things domain, and by analysing the minimum common knowledge between such standards. This analysis shows that the conformance between ontologies and standards is mostly related to definition of classes. Furthermore, the analysis shows that although the analysed standards are related to the same domain, they are created to describe different areas of concern and, thus, there is a minimum overlap between them. Finally, it was concluded that the quality of the conformance analysis depends on the quality of the requirements specification: the more precise the requirements, the more precise the analysis between ontologies and standards.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In the Software Engineering field, conformance testing refers to techniques that determine to what extent an implementation of a particular standard conforms to the requirements of that standard <ref type="bibr" target="#b32">(Moseley et al., 2003)</ref>. Ensuring conformance plays an important role in systems across many domains and serves to ensure that a product, process, computer program or system meets a defined set of standards and thus is reliable and interoperable <ref type="bibr" target="#b18">(Graydon et al., 2012)</ref>.</p><p>Currently, several standardisation bodies are generating standard ontologies, i.e., ontological specifications that are published as a standard or as a part of one, to maximise semantic interoperability. A standard provides an agreed baseline approved by the community that can be used by other developers who want to describe the related area of concern. This standard can be used by developers to identify potential areas of conflict between the standard and their ontology as the result of embedded differences when describing the domain. Therefore, it should be possible to ensure that the ontologies of a particular domain conform to a particular standard, ensuring quality and interoperability when describing such domain. This analysis of conformance would reflect the absence of inconsistencies and the presence of overlaps according to the ontologies and the standard specification. As examples of standard specifications, on the Internet of Things To define this method, the translation between requirements from standards into tests was analysed to generate tests from a standard specification. These standard tests must be executed on ontologies that are not related to the standard specification. Therefore, such tests must be reusable. Moreover, it was also analysed which is the information related to the conformance testing process that must be included in the conformance report, allowing to identify the inconsistencies and overlaps found between an ontology and the standard.</p><p>Intending to analyse the overlap between a set of standards in a particular domain, this work also presents a method for identifying the minimum common knowledge between ontologies. Therefore, it enables to determine to what extent a set of standard ontologies represents the same knowledge and which are their differences. This approach for analysing ontology conformance through ontological requirements aims at addressing the following research questions to be aware about the shared knowledge between ontologies related to the same domain: RQ1. What is the level of overlap in terms of requirements between an ontology and a standard from the same domain? RQ2. Which types of requirements support interoperability, i.e., are shared by ontologies from the same domain?</p><p>The remainder of this paper is structured as follows. Section 2 presents the state of the art related to existing conformance testing methods. Section 3 describes the proposed method for conformance testing in Ontology Engineering. Section 4 describes the method to analyse the minimum common knowledge between ontologies, while Section 5 describes validation of the proposed research questions. Finally, Section 6 outlines some conclusions and future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">State of the art</head><p>This section presents the most well-known conformance testing approaches in the Software Engineering field, which are used as the basis for the work presented in this paper. Moreover, although in the Ontology Engineering field there is a lack of approaches for analysing conformance between ontologies and standards, this section also presents the most relevant ontology testing approaches, which can be considered as the basis of any ontology conformance method.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Conformance testing methods</head><p>The following sub-sections present a summary of the most relevant conformance testing approaches for industry and software, which are supported by several standardisation bodies and are used as the basis of this work. This section presents the norm for conformance testing as published by the International Organisation for Standardisation (ISO) and the International Electrotechnical Commission (IEC), as well as the conformance approaches developed by the ETSI and the W3C.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1.">Conformance testing by the ISO/IEC</head><p>ISO/IEC 9646 (ISO/IEC 9646-1, 1994) is a multi-part international standard which specifies a general methodology for testing the conformance of products to Open Systems Interconnection specifications. However, the concepts for testing their implementations have a broader applicability and can also be used in testing of other kinds of protocol systems. The standard also defines TTCN <ref type="bibr" target="#b29">(Kristoffersen and Walter, 1996)</ref>, a tree and tabular notation for a formal description of test cases whose language is independent of technology, operating system and implementation domain.</p><p>The process of conformance testing in this ISO/IEC norm begins with the collation and categorisation of the features and options to be tested into a tabular form which is normally referred to as the implementation conformance statement (ICS). All implemented capabilities supported by the implementation under test are listed by the implementer in the ICS, so that the tester knows which options have to be tested.</p><p>The next step is to collect the requirements. For each requirement, one or more tests should be identified and expressed in the form of test purposes (TP), which describe a well-defined objective of testing. The TP describe in plain language the actions required to reach a verdict on whether an implementation passes or fails the test. Then, the tests are classified into a number of groups to provide the test suite structure (TSS). The test cases are combined into an abstract test suite (ATS) using a specific testing language such as TTCN. It is worth mentioning that the test suite is abstract in the sense that the tests are developed independently of any implementation.</p><p>Based on the ATS, a set of executable test cases (ETS) is generated. Such ETSs are then verified against a number of implementations to test (IUT) for correct operation according to some agreed procedures. An implementation extra information for test (IXIT) associated to the ATS should be produced to help executing protocol conformance testing. The results of this verification process are documented in a conformance report. Fig. <ref type="figure" target="#fig_0">1</ref> summarises these activities.  <ref type="bibr" target="#b32">(Moseley et al., 2003)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2.">Conformance testing by the ETSI</head><p>The ETSI conformance testing specifications are developed according to the method described in the ISO/IEC 9646. The specification provided by the ETSI <ref type="bibr" target="#b32">(Moseley et al., 2003)</ref> is also focused on several artefacts, previously defined in the ISO/IEC 9646, namely, the Implementation Conformance Statement (ICS), the Implementation eXtra Information for Testing (IXIT), the Testing Purposes (TP), the Abstract Test Suite (ATS), and the Executable Test Suite (ETS). Fig. <ref type="figure" target="#fig_1">2</ref> shows the process development of test specifications.</p><p>Similarly as in the ISO/IEC 9646, the ATS represents the entire collection of test cases. In the ETSI conformance testing method, each test case specifies the detailed coding of the TP written using the standardised test specification language TTCN-3 <ref type="bibr" target="#b17">(Grabowski et al., 2003)</ref>, which is an updated version of TTCN. The ETS can be implemented from the ATS using the TTCN compilers available on testing platforms.</p><p>All the test specifications developed by ETSI are available online and can be searched and downloaded via the ETSI Work Programme application. <ref type="foot" target="#foot_0">1</ref> These specifications include a description of the tests in a human-readable format as well as the executable tests written following the TTCN language.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3.">Conformance testing by the W3C</head><p>The conformance testing approach presented by the W3C is focused on the requirements and good practices for including conformance in W3C specifications <ref type="bibr" target="#b9">(Dubost et al., 2005)</ref>. It emphasises the need of conformance clauses in order to develop successful interoperability of implementations, rather than on defining an homogeneous way to define tests for analysing conformance.</p><p>The W3C proposes conformance requirements such as the addition of conformance clauses in every specification and the identification of which conformance requirements are mandatory, recommended and optional. Additionally, it also requires to use a consistent style for conformance requirements and to explain how to distinguish them. An example of detailed conformance clauses following the W3C guidelines is included in the Scalable Vector Graphics 1.1 specification <ref type="bibr" target="#b6">(Dahlström et al., 2011)</ref>, which describes all the requirements that should be fulfilled.</p><p>Regarding good practices, the W3C proposes the definition of the specification conformance model and the specification of how to distinguish normative from informative content, as well as the description of the wording for conformance claims.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Ontology testing methods</head><p>In the Ontology Engineering field, there is active research on ontology evaluation <ref type="bibr" target="#b10">(Duque-Ramos et al., 2011;</ref><ref type="bibr" target="#b31">Lozano-Tello and Gómez-Pérez, 2004;</ref><ref type="bibr" target="#b35">Poveda-Villalón et al., 2014;</ref><ref type="bibr" target="#b20">Guarino and Welty, 2002;</ref><ref type="bibr" target="#b38">Suárez-Figueroa et al., 2012)</ref>. However, after analysing the literature looking for conformance approaches in this field, i.e., approaches for ensuring that an ontology satisfies the specification of a standard, it was concluded that in the state of the art there are no works which deal with the conformance perspective as it is presented in Section 2.1. Some initiatives that deal with ontology testing from requirements were found, which could be considered as the first step in a conformance analysis. Such approaches are described in the following sub-sections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1.">Blomqvist and colleagues' testing approach</head><p>Blomqvist and colleagues <ref type="bibr" target="#b4">(Blomqvist et al., 2012)</ref> presented an agile approach which includes a methodological background for testing and introduces three main types of tests based on the purpose of the test, namely, competency question verification, inference verification, and error provocation. The first type of test is oriented to the reformulation of the competency questions as SPARQL queries after adding test data related to the query to be reformulated, i.e., it does check classes and properties in the ontology. The second type verifies that the inference mechanisms are in place. Finally, the third one is intended to expose faults.</p><p>In order to keep tests separated from the ontology to be tested, this proposal represents a test case as an OWL ontology, which includes properties for describing each test case.</p><p>Although this methodology proposes different types of tests to verify requirements, which could be considered as a set of TPs, it does not describe the relation between such requirements and the tests. The tests in this approach are not abstract and, therefore, they cannot be executed on several ontologies, because the SPARQL query is not independent of the ontology from which it is extracted.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.">CQChecker</head><p>CQChecker<ref type="foot" target="#foot_1">2</ref>  <ref type="bibr" target="#b3">(Bezerra et al., 2014</ref>) is a tool proposed by Bezerra and colleagues which provides a mechanism to verify whether an ontology meets a set of competency questions by supporting both assertional and terminological queries. To accomplish that, the authors distinguish several types of competency questions such as competency questions which work over classes and their relations or competency questions which work over instances.</p><p>Unlike Blomqvist and colleagues, which proposed a set of the generic types of tests, the authors identified three types of requirements written as competency questions to be verified based on how they are specified:</p><p>• Competency questions which work over classes and their relations. • Decision problems expressed as competency questions. In this type, the answer permitted to the question can only be true or false. • Competency questions are expressed in an interrogative form which works only over instances.</p><p>This tool allows translating these three types of competency questions, which represent the ontology requirements, into SPARQL queries and executing them on an ontology. The set of SPARQL queries could represent a set of TPs associated to an ontology. Moreover, since the translation between the requirement and the SPARQL query is automatic depending on the ontology in which the SPARQL query is executed, the set of TPs can be considered abstract. However, authors are focused on the technological support to execute such tests rather on the methodology for performing the testing process. Therefore, there is a lack of a formal process to generate the tests and to analyse the obtained results. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.3.">Test-driven development of ontologies</head><p>Keet and Ławrynowicz proposed a test-driven development (TDD) of ontologies <ref type="bibr" target="#b28">(Keet and Ławrynowicz, 2016)</ref>, which is an ontology development method inspired by the test-driven development approach in Software Engineering <ref type="bibr" target="#b2">(Beck, 2003)</ref>. This TDD, which is based on the idea of writing a failing test before writing any code, ensures that what is added to the ontology does have the intended effect specified upfront.</p><p>The TDD method is supported by the TDDOnto tool,<ref type="foot" target="#foot_2">3</ref> which has been first introduced by <ref type="bibr" target="#b30">Lawrynowicz and Keet (2016)</ref> and further developed as TDDOnto2 <ref type="bibr" target="#b7">(Davies et al., 2017)</ref>. This tool checks whether a particular axiom is present in an ontology by using OWL Manchester Syntax axioms <ref type="bibr" target="#b24">(Horridge and Patel-Schneider, 2012)</ref> as tests.</p><p>This approach is oriented to the definition of a set of TPs and their execution on an ontology. A potential input to write such tests are the competency questions, i.e., the ontology requirements; however, how to write such tests from requirements and how to analyse the results are aspects that are out of scope of the method. The authors do not state whether the tests generated by the users are abstract and, therefore, reusable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.4.">Fernández-Izquierdo and García-Castro's testing method</head><p>The same authors of this paper presented an ontology testing method based on requirements <ref type="bibr" target="#b12">(Fernández-Izquierdo and García-Castro, 2018</ref>) that aims at systematising the generation and execution of tests cases extracted from ontology requirements. To that end, the authors proposed a testing process divided into three activities, i.e., test design, test implementation and test execution.</p><p>Ontology testing approaches are usually divided into two activities, i.e., test implementation and test execution. However, in this testing method the test design activity is needed due to the ambiguity and assumptions inherent to the natural language <ref type="bibr" target="#b8">(Dennis et al., 2017)</ref> and to the fact that different people may be in charge of the design and implementation of tests. Therefore, in this design activity the goal of each requirement is identified and specified using a test language. Fig. <ref type="figure" target="#fig_2">3</ref> summarises these activities, together with their inputs and outputs.</p><p>It is worth mentioning that the tests defined during the test design activity and that are written using the language proposed in this method do not include information related to the ontology from which the tests are extracted. Consequently, these tests can be considered as abstract, since they are independent of any ontology.</p><p>Moreover, this testing method proposes the storage of the results of each activity as RDF files that follow the Verification Test Case vocabulary. <ref type="foot" target="#foot_3">4</ref> This ontology defines the relation between requirements and tests, as well as the relation between tests and their implementations and between the implementations and their execution on an ontology. Therefore, traceability between requirements, tests and ontologies can be obtained. This testing method is focused on the definition of a set of TPs based the ontology requirements, as well as on their implementation and execution on particular ontology. The tests proposed in this testing method are abstract, since they do not depend on the ontology on which they will be executed and they can be executed on multiple ontologies. However, the process of how to extract tests from a set of requirements in order to be representative according to what must be defined in the ontology and, therefore, to what must be satisfied by an ontology that should be conformant with it, is out of scope of this method. Moreover, the analysis of the tests results obtained after the execution of the tests on an ontology, which in a conformance scenario identifies the inconsistencies and overlaps between an ontology and a standard, is also out of scope of this method.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Comparison between conformance testing approaches</head><p>Conformance testing approaches developed by standardisation bodies agree on the fact that conformance testing is a key activity for ensuring the quality of products and for increasing the confidence in the correct functioning of an implementation with respect to a given specification.</p><p>Table <ref type="table" target="#tab_0">1</ref> summarises the main characteristics of each approach, identifying their similarities and their differences. The symbol ''✓'' indicates that the characteristic is supported by the standardisation body.</p><p>Table <ref type="table" target="#tab_0">1</ref> shows that while the ISO/IEC 9464 and the ETSI approaches are focused on describing how to write and reuse tests, e.g., developing a particular testing language, the W3C is focused on providing guidelines on how to specify conformance clauses.</p><p>As it was previously mentioned, in the Ontology Engineering field there is a lack of works on analysing conformance to check whether an ontology is compliant with the specification of a standard. However, an initial step may be the different ontology testing methods that allow to execute tests on ontologies. Table <ref type="table" target="#tab_0">1</ref> summarises the main characteristics of the ontology testing approaches presented in this section. The symbol ''✓'' indicates that the characteristic is supported by the testing method.</p><p>Table <ref type="table" target="#tab_1">2</ref> shows that although the majority of these testing approaches propose the definition of testing activities, these activities are oriented to the implementation and execution of tests in order to verify whether an ontology satisfies certain conditions. The extraction of features to be tested and the associated requirements, the definition of abstract tests from the requirements, as well as the generation of the report with the result of the testing process, are out of scope of these testing methods. As it can be observed in the conformance testing approaches in the state of the art, these activities are crucial in an ontology conformance scenario in order to generate the tests that allow to build a conformance report. Such conformance report must show the results of the conformance testing process, identifying the inconsistencies and overlaps between the ontology and the standard.</p><p>The work presented in this paper is inspired by the conformance testing methods in the state of the art for Software Engineering and industry and, taking as input existing ontology testing methods, aims at providing a first step in analysing conformance in the Ontology Engineering field. Similarly to the ISO/IEC 9464 and the ETSI approaches, the ontology conformance testing and the minimum common identification methods proposed in this work are focused on the language definition for generating homogeneous tests and on their reusability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Method for ontology conformance testing</head><p>Borrowing the concept from the Software Engineering field <ref type="bibr" target="#b32">(Moseley et al., 2003)</ref>, the conformance testing of ontologies refers to the purpose of determining up to what extent a particular ontology conforms to the specification of a standard. In this context, the standards to be conformed to could be standard ontologies as well as data models defined in standards supported by standardisation bodies, such as the ISO/IEC norms.</p><p>Following the conformance concepts described in the already introduced ISO/IEC 9646, any ontology conformance testing approach should include a testing process for designing, implementing and executing tests associated with a standard. Such tests, which are extracted from the standard specification to check a set of selected features, should be abstract in the sense that they do not include any information about the ontology in which the test will be executed, being independent of any ontology and, consequently, reusable. In the context of Ontology Engineering, a separated activity for analysing the results should be included, in order to determine up to what extent an analysed ontology is conformant to a particular standard and to generate a conformance report with the results.</p><p>This paper advances the state of the art in conformance testing for ontologies by proposing a conformance testing for OWL ontologies method based on functional requirements.<ref type="foot" target="#foot_4">5</ref> Functional ontology requirements, usually written in the form of competency questions <ref type="bibr" target="#b19">(Grüninger and Fox, 1995)</ref> or statements, refer to the particular knowledge to be represented by an ontology <ref type="bibr" target="#b39">(Suárez-Figueroa et al., 2009)</ref>. Ontology developers that use this method must have knowledge about the OWL language <ref type="bibr" target="#b23">(Hitzler et al., 2009)</ref>, which is based on Description Logics <ref type="bibr" target="#b0">(Baader et al., 2003)</ref>, in order to identify relationships between concepts such as value restrictions, existential quantifications, or concepts inclusions and equivalences.</p><p>This ontology conformance testing method based on ontology requirements includes five activities, namely, functional ontology requirements extraction, test design, test implementation, test execution and test results analysis. Fig. <ref type="figure" target="#fig_3">4</ref> illustrates this method, together with the inputs and outputs of the different activities. This method starts with the extraction of functional ontology requirements from a standard, which are used to define the tests purposes. A test catalogue that lists all the supported tests is provided to help developers during the definition of test purposes. Once the developers have the test purposes defined, they have to implement them to be executed on a particular ontology. A glossary of terms of the ontology which maps each term in the test with each term in the ontology is also needed to execute such tests. Finally, the results obtained in the execution activity are analysed in the test analysis activity.</p><p>Since ontology verification methods already cover the design, implementation and execution of tests, this work builds on top of them. Hence, the ontology conformance testing approach proposed in this work is grounded on the existing testing method for ontology verification <ref type="bibr" target="#b12">(Fernández-Izquierdo and García-Castro, 2018)</ref> proposed by the same authors of this paper, which was described in Section 2.2. However, the focus of these two works are different: while in the ontology verification method the main goal is to verify whether an ontology satisfies the expected requirements, in the conformance testing method the main goal is to check up to what extent an ontology satisfies the specification of a standard, allowing the identification of overlaps and differences between them. Furthermore, when a standard is revised or errata are issued, tests must be updated accordingly and the conformance testing revised. Therefore, although the conformance testing method is based on the ontology testing method, it was adapted and extended to support the workflow required in a conformance scenario.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Activities within the conformance testing method</head><p>The following sub-sections detail the testing activities that should be carried out in the proposed conformance testing framework. The definition of the test design, test implementation and test execution activities are reused from the testing method for ontology verification proposed by the same authors of this work, which provides an automatic procedure to implement and execute tests. The activities related to the extraction of requirements, the analysis of the results and the conformance report are defined in this paper for supporting the conformance analysis.</p><p>The conformance testing method is supported by the online tool Themis (Fernández-Izquierdo and García-Castro, 2019), which allows test implementation and test execution on one or multiple ontologies. However, the requirements extraction, the test design and the analysis of the results should be done manually.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1.">Functional ontology requirements extraction</head><p>Functional ontology requirements extraction refers to the activity of collecting the functional ontology requirements that the standard specifies. These requirements should be related to the domain that the standard should model. To analyse conformance, they should define the concepts, relations and restrictions that must be defined in the domain described by the standard. This activity produces a set of functional ontology requirements that could be materialised in one of the following forms:</p><p>• Competency questions. This technique was proposed by <ref type="bibr" target="#b19">Grüninger and Fox (1995)</ref> and suggests establishing a set of queries that an ontology must be able to answer, e.g. ''What is an IoT gateway?''. • Natural language statements. In this case, the requirements are described by means of natural language statements, e.g., ''An IoT gateway is a digital entity''.</p><p>To ease the requirements proposal, the CORAL Corpus (Fernández-Izquierdo et al., 2019) can be used. CORAL includes a dictionary of lexico-syntactic patterns that identifies different types of ontology requirements and how they are specified, e.g., a requirement with the structure What is NP⟨class⟩?, asks about the existence of a class in the ontology named NP⟨class⟩. Moreover, CORAL also identifies a set of ambiguous expressions that can lead to multiple implementations in the ontology and, therefore, they should be avoided in the specification of requirements. As an example, the use of the verb ''to have'' in a requirement can be translated both as a datatype property and an object property in the ontology. In addition to these lexico-syntactic patterns, CORAL collects 834 requirements extracted from real-world ontologies that are annotated according to their lexico-syntactic patterns. Such requirements can be used as examples of how to write requirements.</p><p>Ontology requirements should be grouped in one or more topics related to them, e.g., the requirement ''What is a gateway?'' can be associated with the topic ''Gateway''. This grouping process facilitates the analysis of conformance once the test results are obtained, and allows to check conformance with regards to topics related to the ontology. To that end, each requirement should be tagged according to its associated topic.</p><p>Ontology developers must guarantee that the defined requirements are correct and complete since they will be used to check conformance with the associated ontology. However, the CORAL corpus shows that multiple requirements that are published online have ambiguous expressions that can lead to several implementations in an ontology. In that situation, the results obtained by the conformance analysis could be incorrect. Therefore, the following criteria defined by <ref type="bibr" target="#b19">Grüninger and Fox (1995)</ref> can be used to check the status of the set of ontology requirements. These criteria do not aim to be an exhaustive list:</p><p>• A set of requirements is correct if each requirement refers to some features of the ontology to be developed. • A set of requirements is internally consistent if no conflicts exist between them. • A set of requirements is concise if each and every requirement is relevant, and no duplicated or irrelevant requirements exist.</p><p>• A set of requirements is realistic if each and every requirement meaning makes sense in the domain. • Each requirement in the set of requirements is understandable to end-users and domain experts. • Each requirement in the set of requirements is unambiguous if it has only one meaning; that is, if it does not admit any doubt or misunderstanding.</p><p>In a conformance testing scenario, the higher the quantity of requirements and the more concise and unambiguous the requirements are, the more accurate the identification of overlaps and conflicts between the standard and the ontology to be analysed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.2.">Test design</head><p>During the test design activity, a set of test designs are created for each of the topics defined in the previous step. To that end, the desired behaviour of each standard requirement, i.e., their goal in the standard, is extracted and formalised into a set of supported test purposes (TPs), which describe the objective of testing. These TPs are defined without any information related to the ontology in which such TP will be executed, e.g., URIs or labels. Therefore, they can be considered as abstract TPs that allow their execution on multiple ontologies, including those that are not related to the standard from which they are extracted. Each test design includes the identifier, the TP, the requirement and the associated topic.</p><p>The set of test designs constitutes the Abstract Test Suite (ATS), which is the output of this test design activity. The ATS must be stored in an RDF file by using the Verification Test Case ontology,<ref type="foot" target="#foot_5">6</ref> which describes test suites and test designs, including all the information related to them, such as the requirement associated, the TPs, the tag according to the requirement topic and the standard associated with the test. This ATS should be published online so that developers can use it to check whether their ontologies pass such tests and, thus, are conformant to the standard. Moreover, published ATSs can also be understood as formal documentation of the standard.</p><p>To generate such ATS, each TP uses keywords that indicate its goal. These keywords are inspired by the software engineering approach called keyword-based testing <ref type="bibr" target="#b37">(Roth, 2013)</ref>. The idea behind keywordbased testing is to express each test as abstractly as possible, but precise enough to be executed and interpreted by a test execution tool. Therefore, based on the dictionary patterns identified by the CORAL Corpus, a set of keywords and TPs are identified to formalise the requirements provided the standards.</p><p>The complete set of TPs is presented in Table <ref type="table" target="#tab_2">3</ref>, which shows the identified goal of each TP and its corresponding syntax. In Table <ref type="table" target="#tab_2">3</ref>, those terms that are represented between brackets (e.g., ''[Class]'') correspond to those terms that should be completed by the user, while those terms italicised (e.g., type) correspond to the keywords that cannot be changed in the test expression. This set of TPs extends the one presented in the testing method for ontology verification (Fernández-Izquierdo and García-Castro, 2018) by adding new keywords. After analysing several standard specifications, e.g. the ISO/IEC 30141 (ISO/IEC 30141: <ref type="bibr" target="#b25">2017,</ref><ref type="bibr" target="#b25">2017)</ref> or the W3C SSN <ref type="bibr" target="#b22">(Haller et al., 2019)</ref>, it was found that current TPs (Fernández-Izquierdo and García-Castro, 2018) are not enough to formalise the requirements defined by them.</p><p>As an example, the requirement included in the ISO/IEC 30141 specification that states ''An IoT gateway is a digital entity'' is associated with the TP ''Gateway subClassOf DigitalEntity''. This TP has the goal of representing a subsumption relation between two classes, i.e., Gateway and DigitalEntity, as shown in Table <ref type="table" target="#tab_2">3</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.3.">Test implementation</head><p>The ATS defined during the test design activity must be implemented into queries or axioms to be executed on an ontology and to check whether it satisfies the standard requirement. The set of test implementations associated with the ATS constitutes the Executable Test Suite (ETS). The tests in the ETS are still abstract since they do not include any information about the ontology on which the tests are going to be executed; the same implementation can be executed on multiple ontologies.</p><p>The separation between the test design and the test implementation allows increasing the maintainability of tests. It is possible to change the implementation of tests without changing the test designs and, therefore, without changing the ATSs associated with standards. The ETS can also be stored in an RDF file by using the Verification Test Case ontology, which describes all the information related to how a test design is implemented.</p><p>The structure of the test implementation of each test design in the ATS is reused from the verification testing method <ref type="bibr" target="#b12">(Fernández-Izquierdo and García-Castro, 2018)</ref>. Each test implementation must include:</p><p>• A precondition, which is a SPARQL query that checks whether the terms involved in the test design are defined in the ontology to be analysed. This precondition allows to check whether the terms defined in the test design associated with the standard are defined in the ontology. If these terms are not defined in the ontology, then the test design is not satisfied. • A set of axioms to declare auxiliary terms, which are a set of temporary axioms added to the ontology to declare the auxiliary terms needed for executing the TP included in the test design. • A set of assertions to check whether the ontology behaves as determined in the test design, which are a set of pairs of axioms and expected results that represent different ontology scenarios.</p><p>For each pair, the axiom is temporary added to the ontology to force a scenario, after which a reasoner is executed. The expected result determines if the ontology status (i.e., inconsistent ontology, unsatisfiable class or consistent ontology) after the addition is the expected one in case the test design was satisfied. If the ontology status concurs with the expected status, then the test design is satisfied. This assertion allows to check whether the knowledge expected by the standard requirement is included in the ontology.</p><p>Table <ref type="table" target="#tab_3">4</ref> shows an example of test implementation for the standard requirement previously mentioned ''An IoT gateway is a digital entity'', which is associated with the TP ''Gateway subClassOf DigitalEntity''. The assertions are written using Description Logics syntax <ref type="bibr" target="#b1">(Baader et al., 2004)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.4.">Test execution</head><p>Once the ETS is generated, each test implementation can be executed on an ontology. This execution activity consists of three steps:</p><p>(1) the execution of the query that represents the preconditions, (2) the addition of the axioms which declare the auxiliary terms, and (3) the addition of the assertions. After the addition of each axiom, a reasoner is executed to report the status of the ontology, i.e., whether the ontology is consistent, inconsistent or has unsatisfiable classes. The addition of the auxiliary axioms needs to always lead to a consistent ontology. However, in the case of the assertions, the agreement between the reasoner status after the addition of all the axioms and the status indicated in the test implementation determines whether the ontology satisfies the TP.</p><p>During this activity, each test implementation in the ETS should be first completed with the information related to the ontology to be executed. To that end, a glossary of terms must be generated manually or automatically to map each term in the standard test with a term in the ontology. Therefore, the terms in the TP that are defined in the ontology in which the test implementation will be executed, e.g., Gateway, are collected and associated with a URI in the ontology, e.g., http://example.org/ontology#Gateway. Then, using these associations, the terms in the test implementation are translated into a term in the ontology. Consequently, the ETS can be executed on the ontology although it was extracted from a standard specification document.</p><p>Following the ontology verification testing method (Fernández-Izquierdo and García-Castro, 2018), the conformance testing method provides four possible results for each test implementation in the ETS and each ontology:</p><p>1. Passed: if the ontology passes the preconditions defined in the test implementation and the results of the assertions are the expected ones. This result indicates that the ontology satisfies the test design associated with the standard. 2. Undefined terms: if the ontology does not pass the preconditions.</p><p>This result indicates that the terms included in the test design associated with the standard are not defined in the ontology. 3. Absent relation: if the ontology passes the preconditions and the results of the assertion are not the expected ones but there are no conflicts in the ontology. This result indicates that there is a relation defined in the test design associated with the standard that is not defined in the ontology. 4. Conflict : if the ontology passes the preconditions and the results of the assertion are not the expected ones, and the addition of the axioms related to the test design included in the associated test design leads to a conflict in the ontology. This result indicates that there is a conflict between what is defined in the standard and what is defined in the ontology.</p><p>As an example, the test implementation described in Table <ref type="table" target="#tab_3">4</ref> can be executed on the ontology with URI http://example.org/ontology#. If the ontology defines the terms Gateway and DigitalEntity, as well as a subsumption relation between them, then the result of this execution should lead to the passed result and, therefore, the test design is passed and the associated standard requirement would be satisfied.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.5.">Test results analysis</head><p>To extract more information from the tests and to determine up to what extent an ontology conforms to a standard, a new activity is defined in this paper, i.e., test results analysis. During this activity, the results of the test execution are analysed to identify the degree of conformance of the ontology regarding the standard.   To analyse such conformance, the following information extracted from different artefacts involved in the verification process, i.e., the requirements, the tests and the ontology, can be obtained:</p><p>• How many tests included in the ATS associated with the standard are satisfied by the ontology. The Passed Test Percentage metric should be calculated to obtain this information. The higher the percentage of this metric, the greater the coverage of the ontology regarding the standard specification document. • How many terms defined in the ATS associated with the standard are out of scope of the ontology. The Undefined Test Percentage metric should be calculated to obtain this information. The higher the percentage of this metric, the greater the number of standard terms that are out of scope of the ontology. • How many relations in the ATS associated with the standard are not included in the ontology. The Absent Test Percentage metric should be calculated to obtain this information. The higher the percentage of this metric, the greater the absent relations and restrictions in the ontology.</p><p>• How many tests in the ATS associated with the standard are not passed by the ontology. The Failed Test Percentage metric should be calculated to obtain this information. The higher the percentage of this metric, the greater the conflicts between the standard and the ontology. • How many requirements in a standard specification document are satisfied by the ontology, since sometimes a requirement needs more than one test to be checked. The Covered Requirements Percentage metric should be calculated to obtain this information. The higher the Covered Requirements Percentage metric, the greater the coverage between the standard and the ontology. • How many requirements associated with a standard specification have a conflict with the ontology. The Requirements Fault Percentage metric should be calculated to obtain this information, which in this case refer to those requirements of the standard that have a conflict with the ontology. Similarly to the Test Failed Percentage metric, the higher the percentage of this metric, the greater the conflicts between the standard and the ontology.</p><p>• How many terms included in the standard are also defined in the ATS. In the conformance testing scenario, having this information helps analysing the completeness of the requirements specification used in the testing process. The Number of Tested Vocabulary Terms metric should be calculated in order to obtain this information. The higher the percentage of this metric, the more complete the requirements specification will be. However, it should be considered that due to modelling decisions or ontology design patterns <ref type="bibr" target="#b15">(Gangemi and Presutti, 2009)</ref> new terms can be added to the ontology but avoided in the requirements.</p><p>Using the previous metrics, the conformance degree can be determined through the following steps. Each step can be related to the requirements topics (topic level) or to the entire set of requirements (general level):</p><p>1. To identify the requirements of the standard whose tests are passed by the ontology, i.e., the coverage between the standard and the ontology. The Passed Test Percentage and Covered Requirements Percentage metrics facilitate the identification of such coverage. The Number of Tested Vocabulary Terms metric provides an overview of completeness of the requirements specification, which can also be included in the coverage analysis. 2. To identify the requirements whose tests result in undefined terms, i.e., requirements that include information that is included in the standard but is out of the scope of the ontology to be analysed. 3. To identify the requirements whose tests result in absence, i.e., requirements that include information related to restrictions and relations that are defined in the standard but not in the ontology.</p><p>The Absent Test Percentage metric provides an overview of the percentage of tests with absent relations. 4. To identify the requirements whose tests result in conflict, i.e., the incompatibilities between the standard and the ontology.</p><p>The Failed Test Percentage and Requirement Fault Percentage metrics identify the percentage of incompatible tests and requirements between the standard and the ontology to be analysed.</p><p>As an example of the degree of conformance that can be obtained with this information, if a set of requirements for a standard is divided into three topics, e.g., (1) Devices, (2) Users and (3) Services, it could be determined that the ontology to be analysed has a Covered Requirements Percentage of 60% for the first topic, but a 0% for the second and third topic. In this case and with this information it can be concluded that there is coverage between the standard and the ontology only for the specification of devices.</p><p>Based on these results, the conformance report is generated. The goal of this conformance report is to inform about the degree of conformance of a given ontology by using all the information obtained during the conformance analysis. Inspired by the ISO/IEC 9646, such report includes the following fields:</p><p>• The ontology to be analysed.</p><p>• The standard for which the analysis has been performed.</p><p>• The ATS together with its results.</p><p>• The ETS generated from the ATS.</p><p>• The glossary of terms used during the execution of the ETS.</p><p>• The obtained metrics for each topic or for the complete list of requirements. • A clause that states the conformance status, which could include the overall conformance and the conformance divided by topic. • A clause that provides information about those requirements related to the standard that are in conflict with the ontology.</p><p>The information provided by the conformance report can be used for requesting changes or for identifying conflicts between the developed ontology and the standard. Moreover, it can also be used to identify mappings and potential terms for reuse, as well as for guaranteeing interoperability between the standard, or standard topics, and the ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Minimum common knowledge identification method</head><p>When analysing a particular domain, it can be observed that several standards coexist. As an example, in the IoT field the ETSI developed the SAREF ontology for smart applications <ref type="bibr" target="#b11">(ETSI, 2017)</ref>, the W3C developed the SSN ontology for describing sensors, their observations, and related procedures <ref type="bibr" target="#b22">(Haller et al., 2019)</ref>, and the oneM2M organisation developed the oneM2M ontology for providing syntactic and semantic interoperability of oneM2M platforms with external systems (oneM2M, 2016). All these mentioned ontologies are related to the IoT domain; however, they are oriented to the description of different aspects in such domain.</p><p>Since reusing other ontologies is a key activity during ontology development, ontology developers should be aware of how a set of standards covers their domain, identifying their scope, their overlaps, their differences and their conflicts. This information is valuable for identifying potential mappings and needs that are not supported by existing standards or that are defined in more than one. To that end, this section introduces a method for common knowledge identification between a set of standards which identifies the overlaps that are shared among their specifications. These standards can be ontologies or non-ontological specification documents that define data models.</p><p>This minimum common knowledge identification method is grounded on the conformance testing method described in the previous section. The activities related to the test design, implementation and execution are reused from the testing method for ontology verification. However, the test execution activity is adapted to the particular scenario of minimum common knowledge identification to support the execution of all the ATSs on all the standards. The generation of ontologies for data models without an ontology associated, the generation of shared glossaries of terms and the analysis of the results are novel activities defined in this paper. A more detailed description related to the differences between these two methods is described in the following sub-sections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Activities within the minimum common knowledge identification method</head><p>To carry out this minimum common knowledge identification method, the functional ontology requirements associated with all the standards to be analysed should be extracted to generate an ATS from each of them. Then, these ATSs are executed on all the standards, and the obtained results are analysed to determine the overlaps and differences between them.</p><p>The overview of the method for identifying the minimum common knowledge between standards is summarised in Fig. <ref type="figure" target="#fig_5">5</ref>. This method is grounded on the conformance testing method presented in Section 3 and, consequently, the activities are similar. However, in this scenario, all the ATSs are executed on all the standards.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.1.">Generation of ontologies from data models</head><p>The main challenge of this method is to execute the ATSs on every standard, even on those without any associated ontology, e.g., data models described in ISO/IEC norms. Therefore, an ontology is built from the ATS related to the standards that are not specified through an ontology to solve this issue.</p><p>The goals of the supported TPs that can be included in an ATS (Table <ref type="table" target="#tab_2">3</ref>) and that indicate the knowledge that should be defined in the standard, such as a subsumption relation between two classes, were collected and analysed to be able to automatically build an ontology from an ATS. Based on this expected knowledge, a set of OWL axioms was associated with each supported TP. Table <ref type="table" target="#tab_4">5</ref> shows an example of an association between TPs and axioms for three different TPs.</p><p>These associations between a TP and a set of OWL axioms allows to automatically generate an ontology from an ATS for those standards that do not have an ontology related. The collection of all the OWL axioms retrieved by all the TPs in an ATS constitutes the ontology to be used in the method.</p><p>To support part of the method, an extension of Themis 7 has been developed that, before executing the tests, automatically generates ontologies from the associated ATS for those standards without a related ontology. This extension of Themis also generates automatically a shared glossary of terms that should be used for the execution of the ATSs. The requirements extraction, the test design and the analysis of the results are out of scope of this extension of Themis and should be performed manually.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.2.">Generation of a shared glossary of terms</head><p>A shared glossary of terms maps the terms in each TP included in the ATSs and the terms in each standard. This glossary of terms is required to automatically execute all ATSs on all the standards since it provides the required information to complete the abstract tests with the corresponding URIs for each standard. Table <ref type="table">6</ref> depicts an example of a shared glossary of terms.</p><p>This glossary of terms should be generated either automatically or manually by the person in charge of the conformance testing process, who has to ensure that the glossary of terms is correct because an incorrect glossary of terms can lead to mistakes in the method results. It should be noted that the glossary of terms is a crucial element in the minimum common knowledge identification method since it allows to map each term in the ATSs with the terms in the standard.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.3.">Analysis of the results</head><p>The output of the execution activity consists of the results obtained after the execution of each ATS in each standard. The amount of results hinders the test result analysis since more results have to be 7 The code and distribution of the extension are available in the GitHub repository: https://github.com/albaizq/ThemisForConformance. analysed. However, the same steps that were detailed in Section 3.1.5 can be followed for analysing those results. The adoption of this method allows the developers to identify different layers of knowledge between standards, namely <ref type="bibr" target="#b5">(Cuenca et al., 2019)</ref>:</p><p>• The common knowledge, which represents the knowledge shared by the set of analysed models. In this case, the common knowledge represents the requirements that are satisfied by all the ontologies to be analysed. • The variant-domain knowledge, which represents the knowledge that is common to more than one model, even though it is not shared by all of them. In this case, the variant-domain knowledge represents the requirements that are satisfied by more than two ontologies of the set of ontologies to be analysed. • The domain-task knowledge, which represents the lower and most specific knowledge. In this case, the domain-task knowledge represents the requirements that are satisfied by only one ontology of the set of ontologies to be analysed.</p><p>These layers determine the knowledge that is common and the knowledge that is particular for each standard, identifying the scope and the commonalities between a set of standards. In addition to these layers, during the analysis of results the requirements that create conflicts between standards can also be identified.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Validation</head><p>To provide an assessment of the conformance and the minimum common identification methods and to address the research questions presented in Section 1, an empirical analysis has been carried out in a concrete use case. From the research questions, two hypotheses have been proposed that aim to be validated with this analysis. Considering the numerous standards that are proposed for the same domain, and that each standard describes a particular area of such domain, the hypotheses to be validated state:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>H1. The common and variant-domain knowledge between ontologies</head><p>and standards related to the same domain represent a small percentage of the requirements in the requirement specification documents of the standards. To validate the hypotheses, two experiments were performed: (1) following the conformance testing method described in Section 3, it was analysed the conformance between an ontology and a set of standards related to the same domain; and (2) following the minimum common knowledge identification method proposed in Section 4, the minimum common knowledge between the aforementioned standards was analysed. The first experiment provided insights about the hypotheses, while the latter one confirmed them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Conformance testing</head><p>The goal of this experiment was to determine which type of requirements related to standards were satisfied by a given ontology. To that end, an ontology network already published on the Web was collected, together with a set of standards related to the same domain.</p><p>These standards needed to have associated requirements that identify the knowledge defined in them or documentation that allows extracting the requirements. However, the standards did not need to have an ontology associated. Afterwards, the tests related to these requirements were defined following the conformance testing method described in Section 3. Moreover, as explained in Section 3, these tests were abstract and did not have any information about ontologies, such as URIs, making them independent of the ontology from which they are extracted. Therefore, these tests can be executed on any ontology even though they were extracted from standards.</p><p>To analyse the type of shared requirements, the conformance testing method described in Section 3 was applied. In this method, tests associated with the requirements of each standard are executed on an ontology. Those requirements that are satisfied by the ontology are considered as shared requirements.</p><p>The following steps summarise the actions performed during the experiment:</p><p>1. To gather the functional requirements related to the standards. 2. To group them according to the topic associated, as described in Section 3.1.1. 3. To generate the ATS associated with these requirements following the testing process and testing language described in Section 3.1.2. 4. To group the tests designs in the ATS according to the type of TP and topic associated. 5. To execute the ATS on the ontology network. 6. To analyse the results in order to identify classes and properties that are shared between each standard and the ontology.</p><p>The following information was retrieved from the performance of these steps for each ontology in the ontology network:</p><p>• The types of the tests associated with the requirements of the standards that are passed by the ontology. • The topics related to the tests associated with the requirements of the standards that are passed by the ontology. • The results of the tests associated with the requirements of the standards that were executed on the ontology. • The classes and properties that are shared between each standard and the ontology to be analysed based on the results of the tests.</p><p>To support the execution of tests, the Themis tool was used. Themis executed all the tests associated with the standards on each ontology and identified which were the tests that were passed by the ontology and which were not. Afterwards, a manual analysis to identify the shared types, topics and terms was performed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.1.">Results</head><p>The ontology network that was developed in the European VICIN-ITY project was selected for this experiment.<ref type="foot" target="#foot_6">8</ref> This ontology network aims to provide interoperability in the IoT domain and includes five ontologies, i.e., the VICINITY Core (Core), the Web of Things (WoT), the WoT mappings (Mappings), the VICINITY Adapters (Adapters), and the Datatypes (Datatypes) ontologies. The Core ontology represents the information needed to exchange IoT descriptor data between peers through the VICINITY platform. The WoT ontology aims to model the Web of Things domain according to the W3C WoT Working Group's Things Description Model <ref type="bibr" target="#b27">(Kaebisch et al., 2020)</ref>. The Mappings ontology represents the mechanism for accessing the values provided by web things in the VICINITY platform. The Adapters ontology aims to model all the different types of devices and properties that can be defined in the VICINITY platform. Finally, the Datatypes ontology aims to model the required and provided datatypes that are used in the interaction patterns of the platform.</p><p>The VICINITY network is related to the IoT field. Therefore, the following IoT standards were selected for the experiment: (1) the ETSI SAREF ontology, which describes smart applications; (2) the W3C SSN ontology, which describes sensors, their observations, and related procedures; and (3) the oneM2M base ontology, which provides syntactic and semantic interoperability of oneM2M platforms with external systems. Moreover, the conformance with the following nonontological standard data models in the IoT field was analysed: (1) the ISO/IEC 30141: <ref type="bibr">2017</ref><ref type="bibr">(ISO/IEC 30141:2017</ref><ref type="bibr">, 2017)</ref>, which describes the IoT Reference Architecture for connecting systems; and (2) the OCF standard,<ref type="foot" target="#foot_7">9</ref> which describes devices and how they interact. It should be mentioned that neither the OCF standard nor the ISO/IEC 30141 have related ontologies. The requirements related to these standards were collected in the form of both competency questions and natural language statements, and the associated tests were defined by using the test catalogue depicted in Table <ref type="table" target="#tab_2">3</ref>. Table <ref type="table" target="#tab_5">7</ref> shows the list of standards, the provenance of the gathered requirements associated with such standards, and the number of ontological requirements and defined tests per standard. As it is shown, some of the requirements were extracted from official documentation, e.g., Technical Reports, while others were extracted from online specifications. The list of gathered requirements, as well as the test suites generated from them, are available in the VICINITY ontology portal. 10 In this use case, it was defined as one test per requirement. In total, 197 tests were specified.</p><p>The W3C SSN, the OCF and the ISO/IEC 30131 do not have requirements defined in their official documentation and specifications. Therefore, based on the documentation associated with the standards and following the process defined in Section 3.1.1, a set of requirements were extracted for each one. These requirements identified the classes, properties and relations between classes that are defined in each standard. For the W3C SSN standard, the requirements are mainly related to observation and actuation, therefore, not all the classes and properties defined in the standard are included in the list of requirements.</p><p>Themis was used to check whether the VICINITY ontology network satisfies the 197 tests defined for the IoT standards, which would indicate the conformance of the ontology network with regards to those standards. Since the tests of such standards were generated following the testing method proposed in Section 3, the tests are abstract and do not have any information of ontologies such as URIs, making them independent of the ontology from which they are extracted. Therefore, these tests can be executed on the five ontologies in the VICINITY ontology network. Table <ref type="table" target="#tab_6">8</ref> shows the testing results for each standard after the Themis execution.</p><p>From the results obtained by following this ontology conformance testing method, it can be deduced that the VICINITY ontology network passes 42 tests related to the standards, but does not take into consideration some concepts related to them as it is shown in the 138 requirements with the undefined term result, which determine those requirements that include concepts that are not defined in the ontology. However, it can also be concluded that there are no conflicts between the VICINITY ontology network and these standards since there are no tests with the conflict result, even though there are some absences, i.e., the terms specified in the standard are defined in the VICINITY ontology network but the relations between the terms are 10 http://vicinity.iot.linkeddata.es/vicinity/conformance.html.</p><p>not. Therefore, it can be concluded that there are no inconsistencies between the domain defined in the standards and the domain defined in the VICINITY ontology network.</p><p>Table <ref type="table" target="#tab_6">8</ref> also shows in parentheses the Passed Test Percentage, Undefined Test Percentage and Absent Test Percentage metrics for each standard, from which it can be observed that the majority of the tests result in undefined term. Those undefined terms in the tests identify the terms that are out scope of the VICINITY domain. As an example, the SAREF ontology has 89.7% of Undefined Test Percentage, which reflects that 89.7% of the requirements defined in the SAREF specification have terms that are not included in the domain described by VICINITY. Therefore, from this table, it can be concluded that the overlap between the VICINITY ontology network and SAREF is minimum and that they describe different aspects of the IoT domain. The same happens with the oneM2M ontology, which has 90.9% of Undefined Test Percentage.</p><p>In the case of the ISO/IEC 30141, the OCF and the W3C SSN the Passed Test Percentage is higher than 30%, indicating that there are overlaps between them and the VICINITY ontology network. It should be considered that the VICINITY ontology network imports the SOSA ontology, which is a module included in the SSN ontology and, therefore, there is more overlap between them.</p><p>Table <ref type="table" target="#tab_7">9</ref> was created to analyse the types of tests passed by the VICINITY ontology network. This table shows the Passed Test Percentage grouped according to the type of test, e.g., in the case of the SAREF ontology, the VICINITY ontology network passed 40% of tests related to the definition of classes. From this table it can be observed that the type of test with the highest Passed Test Percentage is the definition of classes, although there is a small number of this type of tests defined in the test suite. This occurs because in the requirements specifications there are only a small number of requirements related to the definition of classes. It can also be observed from Table <ref type="table" target="#tab_7">9</ref> that the ontology network also satisfies requirements related to subsumption and relation between classes, although to a lesser extent. Furthermore, the tests related to cardinality constraints were not passed by the VICINITY ontology. This information reflects that the ontology network and the standards are more interoperable at the terms level rather than at the constraints level.</p><p>Additionally, Table <ref type="table" target="#tab_8">10</ref> shows the topics related to the requirements<ref type="foot" target="#foot_8">11</ref> of the IoT standards and the percentage of passed tests by the VICINITY ontology network associated to the requirements of the topics of each standard. In this use case, each topic refers to a class of the ontology that can be extracted from each requirement together with its properties.</p><p>From Table <ref type="table" target="#tab_8">10</ref> it can also be observed that the VICINITY ontology network passed at least one test of the majority of the SSN and ISO/IEC 30141 topics. However, in the case of the SAREF ontology, the VICINITY ontology network only passes 10.86% of the tests related to devices. For the rest of standards, it can be observed that the majority of topics has 0% of Passed Test Percentage, i.e., none of the tests related to those topics were passed by the VICINITY ontology. However, there are some topics with 100% of Passed Test Percentage, which indicates that the ontology network is compliant with the requirements from the standards associated to such topics. Moreover, it can also be observed that the topics which had more passed tests are related to high-level terms, e.g., Device, Sensor, Actuator or Thing. These terms are used in the majority of scenarios in the IoT field, regardless of the area of concern to be described. However, those terms that are particular to a use case, e.g., Data store, Network or Metadata, were only included in those ontologies focused on that use case.</p><p>Finally, for illustrating the conformance between the VICINITY ontology network and the IoT standards, Fig. <ref type="figure" target="#fig_6">6</ref> was created, where arrows with white triangles on the top represent a subsumption relation between two classes. The origin of the arrow is the class to be declared as a subclass of the class at the destination of the arrow. Also, directed arrows are used to represent object properties between classes and parentheses represent cardinality restrictions. These figures show with dotted lines those properties and classes that are shared between each of the standard ontologies and the VICINITY ontology network. It is worth noting that the conceptualisations in Fig. <ref type="figure" target="#fig_6">6</ref> which represent the OCF and the ISO/IEC 30141 standards were generated from the functional requirements since there are no ontologies related to them.</p><p>After analysing all the results obtained by the conformance method, it can be concluded that there are several requirements shared between the analysed ontology and each standard. However, these shared requirements are mostly related to the definition of classes, as it is confirmed in Fig. <ref type="figure" target="#fig_6">6</ref>. The more specific requirements, such as those related to cardinalities, were only satisfied by the standard from which the requirements were extracted, although there can be some exceptions for example if an ontology imports a standard. Hence, the common knowledge between the ontology and the standards represents only 21.32% of the standards' requirements.</p><p>Not only those requirements related to the definition of tests are satisfied by the ontology, but also those related to relations between terms. However, the number of passed tests associated with these requirements is smaller. In this use case ontologies and standards share those simple requirements that are related to classes or relations. This situation can stem because more complex restrictions are defined for particular cases when describing a field, and, therefore, they are not common to any scenario of such field. Bear in mind that these results depend on the quality of the specification of requirements: the more requirements, the more accurate the conformance analysis.</p><p>To conclude, the results provided by Tables <ref type="table" target="#tab_6">8</ref> and<ref type="table" target="#tab_7">9</ref> indicate that the number of requirements shared by a set of standards and ontologies in the same domain is small. Moreover, these shared requirements are mostly related to the definition of classes, although requirements related to relations between terms are also shared. Table <ref type="table" target="#tab_6">8</ref> shows that only 21.32% of the tests associated with the requirements of the IoT standards are satisfied by the VICINITY ontology. Moreover, from Table <ref type="table" target="#tab_7">9</ref> it can be observed that the tests related to the definition of classes are the tests with the highest Passed Tests Percentage. With this, it could be observed that although a set of ontologies are related to the same domain they might not share the majority of their terms. Moreover, they might share the definition of some of their terms and relations, but not the particular restrictions associated with a particular use case. However, it is important to observe that, although they do not share all the requirements, they do not have conflicts between them.</p><p>These results can be considered both by ontology developers and by users that use the VICINITY ontology network since they can check that such ontology network conforms to the definitions of the terms of well-known standards and that no conflicts were found, which increases its interoperability. Moreover, they can also be informed about which topics of the standards are covered by the ontology network and which are not. As an example, while the VICINITY ontology is conforming to the device specification provided by the oneM2M ontology, it does not consider any term related to security, although it is a topic included in the standard.</p><p>The developers of the VICINITY ontology could also benefit from the conformance analysis to define new requirements for the ontology, taking into account that the more interoperable ones might be those related to the definition of classes and properties rather than those requirements that are more restrictive. However, as shown in Table <ref type="table" target="#tab_7">9</ref>, requirements related to the definition of classes are not common in requirements specification documents from standards.</p><p>The results gathered from this use case indicate that hypotheses H1 and H2 could be validated. However, to have more information to validate them, the minimum common knowledge analysis has been performed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.2.">Performance</head><p>To analyse the performance of the method, it was calculated the time spent loading and executing the tests using Themis. To only calculate the load and execution time, and not the time spent retrieving the data from the corresponding servers, both the tests and the VICINITY ontology were uploaded as files in Themis, rather than using the URIs. Fig. <ref type="figure" target="#fig_7">7</ref> depicts the total time spent loading and executing the test suite of each standard and how the number of tests influences such time.</p><p>The execution time of the ATS is divided into the execution time for those tests that result in undefined terms in the ontology and the execution time for those tests with full execution, i.e., those that result in passed by the ontology, absent or conflict. This division was made because those tests that result in undefined terms only execute the first of the three steps of the execution algorithm, i.e., the execution of the precondition, while the other ones execute the three steps.</p><p>To check the scalability of the method, a linear regression model <ref type="bibr" target="#b33">(Muggeo, 2008)</ref> was applied with a confidence level of 95%. Regarding the scalability of the test loading, the loading times adjusted the model with a p-value of 0.0038. To be a relevant result, its p-value should be below 0.05 due to the confidence level of 95%. Therefore, it can be concluded that the method for loading tests scaled linearly since its results fit a linear regression model when the number of tests in the ATS grew.</p><p>Concerning the scalability of the test execution, the execution times for the tests with full execution adjusted the linear model with a pvalue of 0.0121, while the execution times for the tests with undefined results adjusted the linear model with a p-value of 0.003. Since both p-values are lower than 0.05 and the confidence level is 95%, it can be concluded that the method scaled linearly for the test execution since its results fit a linear regression model when the number of tests grew. This linear behaviour can be observed thanks to the blue line depicted in Fig. <ref type="figure" target="#fig_7">7</ref>, which corresponds to the regression line adjusted to the method results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Minimum common knowledge between ontologies</head><p>In addition to the experiment related to the conformance of the VICINITY ontology network with regards to the IoT standards, it was also analysed the minimum common knowledge between them. The aim of this experiment was to identify the common knowledge shared by a set of standards to check whether there is an overlap in the domain they describe.</p><p>As for the previous experiment, the standards needed to have associated requirements that identify the knowledge defined in them or documentation that allows extracting the requirements. However, they do not need to have an ontology associated. As it was performed for the previous experiment, the tests associated with these requirements were defined following the testing process and the testing language described in Section 3. In this scenario, all the tests were also abstract, i.e., independent of the ontology from which they are extracted, and were executed on all the standards.</p><p>The following steps summarise the actions performed during the experiment:</p><p>1. To gather the functional requirements related to the standards. 2. To group them according to the topic associated, as described in Section 3.1.1. 3. To generate the ATS associated with these requirements following the conformance testing process and testing language described in Section 3.1.2. 4. To group the test designs in the ATS according to the type of TP and topic associated. 5. To execute all the ATSs of all the standards on all the standards. 6. To analyse the results to identify classes and properties that are shared between more than one standard.</p><p>The following information was retrieved from the performance of the previous steps:</p><p>• The requirements that are shared between more than one standard. • The types of the requirements shared between more than one standard. • The topics related to the requirements shared between more than one standard. • The classes and properties that are shared between more than one standard. These results allow to identify the layers of knowledge described in Section 4, namely, the common knowledge, which represents the knowledge shared by the set of analysed standards, and variant-domain knowledge, which represents the knowledge that is common to more than one standard.</p><p>To execute the tests, the extension of the tool Themis that automatically generates ontologies from their associated ATS for those standards without a related ontology was used. This automatic generation of ontologies allows the execution of the tests on any standard.</p><p>For this experiment, the IoT standards used in the previous experiment, i.e., the ETSI SAREF ontology, the W3C SSN ontology, the oneM2M base ontology, the ISO/IEC 30141 and the OCF standard, were selected to be analysed. As mentioned in the previous section, neither the OCF standard nor the ISO/IEC 30141 have related ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.1.">Results</head><p>After executing all the tests on all the IoT standards, the test results analysis activity was performed. During this test results analysis, it was checked which requirements, and from which type and topic, are shared among the standards.</p><p>This analysis showed that none of the requirements and no terms were shared by all of the standards, i.e., the common knowledge. However, the variant-domain knowledge, which refers to the knowledge shared by more than one standard, could be identified. The results of such analysis are summarised in Table <ref type="table" target="#tab_9">11</ref>, where the ontologies that satisfy each requirement are indicated, as well as the type and topic associated with it. This table only includes those requirements that are shared by more than one ontology.</p><p>Table <ref type="table" target="#tab_9">11</ref> shows that only 21 requirements out of 197, i.e., 10.65% of the requirements, are shared between the analysed standards. This confirms that only a small number of requirements are shared between standards and ontologies related to the same domain. These shared requirements represent the variant-domain knowledge related to the standards. Hence, hypothesis H1 is validated.</p><p>Moreover, from Table <ref type="table" target="#tab_9">11</ref> it can be observed that the majority of these requirements are related to the definition of classes (e.g., the  requirement ''What is a sensor?'' only checks that there is a Sensor in the ontology) and relationships between them (e.g., the requirement ''A device offers a service'' checks the relation between the classes Device and Service). This table also shows that only 8 topics have shared requirements. The requirements related to the rest of topics are defined to describe the particular area of concern of the associated standard, e.g., Profile in the case of SAREF, Sample in the case of SSN or Operation in the case of oneM2M.</p><p>To check if there are more classes and properties shared by the standards, but not included in the requirements, the shared glossary of terms was analysed. Table <ref type="table" target="#tab_10">12</ref> shows the ontologies that define each term included in such glossary. To improve the readability of the results, Table <ref type="table" target="#tab_10">12</ref> only includes the information shared by more than one ontology.</p><p>From Tables <ref type="table" target="#tab_9">11</ref> and<ref type="table" target="#tab_10">12</ref> it can be observed that in this scenario the majority of the shared requirements are related to either the definition of classes or relations, while restrictions such as cardinalities are not shared. Joining these tables with the information retrieved from Table <ref type="table" target="#tab_7">9</ref>, where the most shared type of requirement is the one related to the definition of classes, hypothesis H2 is also validated. With both experiments, it was concluded that the variant-domain knowledge between the standards is related to the less restrictive requirements in the requirement specification documents, such as those related to the definition of classes or relations between them.</p><p>Fig. <ref type="figure" target="#fig_8">8</ref> shows the classes shared by more than one standard. From this figure it can be observed that some of the standards are related to generic terms, e.g., a thing, while other standards describe more specific aspects of the domain, e.g., commands associated to functions performed by devices.</p><p>Based on the results obtained after the application of the method in this use case, ontology developers and users can be aware of how these different standards cover the IoT domain, as well as of which are their overlaps and which are their differences. Developers and users can employ these results for checking that there is a consensus between these standards regarding the terms they describe and that there are no conflicts between them. Moreover, developers could also benefit from these results for selecting which standard better fits the developers' needs in ontology reuse tasks. As an example, SAREF and oneM2M can be useful for the definition of functions related to a device, while SAREF and SSN can be useful for the definition of measurements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.2.">Performance</head><p>The time spent during the execution of all the test suites on each standard using Themis was calculated. Fig. <ref type="figure" target="#fig_9">9</ref> depicts the results and how the size of the standards, which is measured as the number of axioms in the ontology, influences the execution time. It is worth noting that in this scenario the same 197 tests are executed on each standard.</p><p>To check the scalability of the method, a linear regression model was also applied with a confidence level of 95%. As a result, the execution times adjusted the model with a p-value of 0.0042. As mentioned in Section 5.1.2, to be a relevant result, its p-value should be below 0.05 due to the confidence level of 95%. Therefore, it can be concluded that the method scaled linearly since its results fit a linear regression model when the size of the ontology grew. This linear behaviour can be observed thanks to the blue line depicted in Fig. <ref type="figure" target="#fig_9">9</ref>, which corresponds to the regression line adjusted to the method results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusions and future work</head><p>The adoption of conformance techniques in the Ontology Engineering field could help to ensure the quality of ontologies by verifying whether they conform to well-known standards. Nowadays, standardisation bodies develop and publish standard ontologies and data models, but they do not provide any method or technique to analyse conformance. As it is recommended by the W3C <ref type="bibr" target="#b9">(Dubost et al., 2005)</ref>, every specification of a standard should specify the conformance clauses and provide a method to analyse them. To that end, this work describes the first steps towards the analysis of conformance for ontologies based on functional ontology requirements.</p><p>In this paper, a method for analysing conformance between an ontology and a standard is proposed, which can be used by either ontology developers or users for checking the conformance of an ontology with regards to a standard ontology or to a non-ontological standard data model. Moreover, this method allows identifying areas of conflict between an ontology and such standard, as well as the topics of the standard that are not covered by the ontology. In terms of ontology reuse, the conformance testing method could also be used by ontology developers for identifying potential mappings or terms for reuse between the ontology and the standard.</p><p>Furthermore, this paper also proposed a method for determining the minimum knowledge shared by a set of standard ontologies and data models. This method can be used by ontology developers and users to analyse how a set of standards covers a particular domain, checking whether there is a consensus concerning the definition of such domain and whether there are conflicts between them.</p><p>Both methods were applied to a particular use case, where the ontology network developed in the VICINITY project was analysed regarding its conformance with a set of standard ontologies related to the IoT domain.</p><p>The analysis of conformance in this use case shows how the shared requirements between the ontology network and the standards, as well as the variant-domain knowledge between standards in a particular domain are mostly related to the definition of classes. Those restrictive requirements, e.g., those related to cardinalities, are only satisfied by the ontology or standard from which they are extracted. These restrictive requirements refer to domain-task knowledge that is defined for particular aspects of the described domain.</p><p>Besides, it has also been observed that the analysed standards in the IoT domain (i.e., the SAREF ontology, the SSN ontology, the oneM2M ontology, the ISO/IEC 30141 and the OCF standard) do not share any minimum commitment between all of them, i.e., common knowledge, although some of them share some terms and requirements. These results show that even though these IoT standards are related to the same domain, they were created to provide support to different areas of concern in the same IoT field and, therefore, there is a minimum overlap between them.</p><p>During the validation of the conformance and the minimum common identification methods, it was observed that the results depend on the quality of the requirements specification. Therefore, to provide an accurate conformance analysis, standardisation bodies should spend effort in providing precise requirements specifications. Moreover, although the requirements specification should include all the different types of requirements, standardisation bodies should also consider including requirements related to the definition of classes in their specifications, since there is a small number of them included.</p><p>Future work will be directed to provide guidelines on how to extract requirements from standard specifications, as well as to study the automatic translation from ontology requirements into tests, to ease the conformance testing process. Moreover, future work will be also directed to the adoption of certification practices in the Ontology Engineering field, to propose techniques to issue certificates for ontologies based on their conformance with standards.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Summary of ISO/IEC 9646 activities for conformance testing.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Development of ETSI test specifications<ref type="bibr" target="#b32">(Moseley et al., 2003)</ref>.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig.3. Testing activities during the testing process, together with their inputs and outputs<ref type="bibr" target="#b12">(Fernández-Izquierdo and García-Castro, 2018)</ref>.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Ontology conformance testing approach in Ontology Engineering.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>[ClassA] subClassOf [PropertyP] exactly [num] [ClassB] T12. Universal relation P between the union of two classes A and B [ClassA] [PropertyP] only [ClassB] or [ClassC] T13. Universal relation P between the intersection of two classes A and B [ClassA] [PropertyP] some [ClassB] and [ClassC] T14. The ontology contains the individual I [IndividualI] type [ClassA] T15. Multiple inheritance of class A [ClassA] subClassOf [ClassB] and [ClassC] T16. Subsumption and relation between classes [ClassA] subClassOf [ClassB] that [PropertyP] some [ClassC] T17. Minimum cardinality between classes A and B, and existential relation P between classes B and C [ClassA] subClassOf [PropertyP] min [num] [ClassB] and [ClassB] subClassOf [PropertyP] some [ClassC] T18. Minimum cardinality between classes A and B and universal relation P between classes B and C [ClassA] subClassOf [PropertyP] min [num] [ClassB] and [ClassB] [PropertyP] only [ClassC] T19. Subsumption relation between A and B, subsumption relation between A and C, and disjointness between B and C [ClassA] subClassOf [ClassB] and [ClassC] subClassOf [ClassB] that disjointWith [ClassA] T20. Participation ODP between classes A and B [ClassA] subClassOf [participates] some [ClassB] T21. CoParticipation ODP [ClassA] and [ClassB] subClassOf [participates] some [ClassC] T22. Part-whole relationship (existential restriction) [ClassA] subClassOf [isPartof] some [ClassB] T23. PartOf ODP between classes A and B (universal restriction) [ClassA] subClassOf [isPartof] only [ClassB] T22. Participation ODP between classes A and B [ClassA] subClassOf isParticipantIn-hasParticipant some [ClassB] T23. CoParticipation ODP [ClassA] and [ClassB] subClassOf isParticipantIn-hasParticipant some [ClassC] T24.PartOf ODP between classes A and B. Existential restriction [ClassA] subClassOf isPartof-hasPart some [ClassB] T25. PartOf ODP between classes A and B. Universal restriction [ClassA] subClassOf isPartof-hasPart only [ClassB] T26. Object-Role ODP between classes A and B. Existential restriction [ClassA] subClassOf isRoleOf-hasRole some [ClassB] T27. Object-Role ODP between classes A and B. Universal restriction [ClassA] subClassOf isRoleOf-hasRole only [ClassB]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Conformance approach for identifying the minimum commitment between ontologies.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Shared properties and classes between IoT standards and the VICINITY ontology network.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Time spent for the test suites related to the standards.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Overview of the shared terms between standards.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Time spent during the execution of the ATSs on each standard.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Comparison between the conformance testing approaches.</figDesc><table><row><cell>Characteristic</cell><cell>ISO/IEC</cell><cell>ETSI</cell><cell>W3C</cell></row><row><cell>Activities definition</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Language definition</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Reusability support</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Good practices for specifying</cell><cell></cell><cell></cell><cell></cell></row><row><cell>conformance clauses</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Conformance report</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Comparison between the ontology testing approaches.</figDesc><table><row><cell>Characteristic</cell><cell>Blomqvist and</cell><cell>CQChecker</cell><cell cols="2">TDD Fernández-Izquierdo</cell></row><row><cell></cell><cell>colleagues</cell><cell></cell><cell></cell><cell>and García-Castro</cell></row><row><cell>Activities definition</cell><cell>✓ a</cell><cell></cell><cell>✓ a</cell><cell>✓ a</cell></row><row><cell>Test execution</cell><cell>✓</cell><cell>✓</cell><cell>✓</cell><cell>✓</cell></row><row><cell>Language definition</cell><cell></cell><cell></cell><cell></cell><cell>✓</cell></row><row><cell>Traceability between</cell><cell>✓</cell><cell></cell><cell></cell><cell>✓</cell></row><row><cell>requirements and</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>tests</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Reusability support</cell><cell></cell><cell></cell><cell></cell><cell>✓</cell></row><row><cell>Conformance report</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="5">a These activities are focused on test implementation and execution, but they do not</cell></row><row><cell cols="5">support the entire workflow from requirements to results analysis.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc>List of the test purposes supported by the conformance testing method.</figDesc><table><row><cell>Goal of the test</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4</head><label>4</label><figDesc>Test implementation of a test for checking subsumption between the classes Gateway and DigitalEntity.</figDesc><table><row><cell>Requirement:</cell><cell>An IoT is a digital entity</cell></row><row><cell>Test purpose:</cell><cell>Gateway subClassOf DigitalEntity</cell></row><row><cell>Type:</cell><cell>T2. Subsumption between classes Related to: Classes</cell></row><row><cell>Test precondition</cell><cell>Test preparation</cell></row><row><cell>Class Gateway and Class DigitalEntity exist</cell><cell>(S 1.1) Declaration of ¬Gateway (S 1.2) Declaration of ¬DigitalEntity</cell></row><row><cell>Assertions to test the ontology behaviour</cell><cell></cell></row><row><cell>Axiom</cell><cell>Expected status after adding the axiom</cell></row><row><cell>(S 2) Gateway' ⊑ ¬Gateway ⊓ DigitalEntity</cell><cell>Consistent ontology</cell></row><row><cell>(S 3) Gateway' ⊑ Gateway ⊓ ¬DigitalEntity</cell><cell>Unsatisfiable class</cell></row><row><cell>(S 4) Gateway' ⊑ Gateway ⊓ DigitalEntity</cell><cell>Consistent ontology</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 5</head><label>5</label><figDesc>Example of association between tests and axioms.</figDesc><table><row><cell>Goal</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 7</head><label>7</label><figDesc>Summary of requirements information for the IoT standards.</figDesc><table><row><cell>Standard</cell><cell>Version</cell><cell>Requirements provenance</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 8</head><label>8</label><figDesc>Summary of testing results of the IoT standards for the VICINITY ontology network.</figDesc><table><row><cell>Standard</cell><cell>Test results</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Passed</cell><cell>Undefined term</cell><cell>Absent</cell><cell>Conflict</cell></row><row><cell>ISO/IEC 30141</cell><cell>12 (34.26%)</cell><cell>19 (54.28%)</cell><cell>4 (11.42%)</cell><cell>0</cell></row><row><cell>OCF</cell><cell>9 (33.33%)</cell><cell>17 (62.93%)</cell><cell>1 (3.70%)</cell><cell>0</cell></row><row><cell>oneM2M</cell><cell>2 (6.06%)</cell><cell>30 (90.90%)</cell><cell>1(3.03%)</cell><cell>0</cell></row><row><cell>SAREF</cell><cell>7 (10.29%)</cell><cell>61 (89.70%)</cell><cell>0</cell><cell>0</cell></row><row><cell>SSN</cell><cell>12 (35.29%)</cell><cell>11 (32.35%)</cell><cell>11 (32.35%)</cell><cell>0</cell></row><row><cell>Total</cell><cell>42 (21.32%)</cell><cell>138 (70.00%)</cell><cell>17 (8.63%)</cell><cell>0</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 9</head><label>9</label><figDesc>Summary of the types of tests passed by the VICINITY ontology.</figDesc><table><row><cell>Type of test</cell><cell>ISO 30141</cell><cell></cell><cell>OCF</cell><cell></cell><cell>oneM2M</cell><cell></cell><cell>SAREF</cell><cell></cell><cell>SSN</cell><cell></cell></row><row><cell></cell><cell>Total</cell><cell>Passed</cell><cell>Total</cell><cell>Passed</cell><cell>Total</cell><cell>Passed</cell><cell>Total</cell><cell>Passed</cell><cell>Total</cell><cell>Passed</cell></row><row><cell>Definition of classes</cell><cell>0</cell><cell>-</cell><cell>1</cell><cell>100%</cell><cell>6</cell><cell>16.67%</cell><cell>7</cell><cell>40%</cell><cell>8</cell><cell>87.5%</cell></row><row><cell>Subsumption between classes</cell><cell>7</cell><cell>85.71%</cell><cell>4</cell><cell>0%</cell><cell>4</cell><cell>0%</cell><cell>17</cell><cell>17.64%</cell><cell>3</cell><cell>66.67%</cell></row><row><cell>Relation between classes</cell><cell>23</cell><cell>26.08%</cell><cell>21</cell><cell>38.09%</cell><cell>20</cell><cell>5%</cell><cell>40</cell><cell>5%</cell><cell>20</cell><cell>15%</cell></row><row><cell>(universal and existential</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>restrictions)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Cardinalities</cell><cell>5</cell><cell>0%</cell><cell>1</cell><cell>0%</cell><cell>3</cell><cell>0%</cell><cell>6</cell><cell>0%</cell><cell>3</cell><cell>0%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 10</head><label>10</label><figDesc>Summary of the topics of each standard and the Passed Test Percentage of the VICINITY ontology network.</figDesc><table><row><cell>Ontology</cell><cell>Topic</cell><cell>N • requirements</cell><cell>Passed test percentage</cell></row><row><cell></cell><cell>Thing</cell><cell>9</cell><cell>60%</cell></row><row><cell></cell><cell>Accessibility</cell><cell>9</cell><cell>21.43%</cell></row><row><cell></cell><cell>Device</cell><cell>9</cell><cell>28.57%</cell></row><row><cell>ISO/IEC 30141</cell><cell>Service</cell><cell>8</cell><cell>25%</cell></row><row><cell></cell><cell>User</cell><cell>4</cell><cell>100%</cell></row><row><cell></cell><cell>Data store</cell><cell>2</cell><cell>0%</cell></row><row><cell></cell><cell>Actuator</cell><cell>1</cell><cell>100%</cell></row><row><cell></cell><cell>Device</cell><cell>14</cell><cell>35.71%</cell></row><row><cell></cell><cell>Resource</cell><cell>15</cell><cell>0%</cell></row><row><cell></cell><cell>Endpoint</cell><cell>3</cell><cell>33.33%</cell></row><row><cell></cell><cell>Thing</cell><cell>2</cell><cell>0%</cell></row><row><cell>OCF</cell><cell>Aspect Function</cell><cell>1 1</cell><cell>0% 0%</cell></row><row><cell></cell><cell>Link</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Maintenance</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Property</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Security</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Service</cell><cell>7</cell><cell>0%</cell></row><row><cell></cell><cell>Function</cell><cell>6</cell><cell>0%</cell></row><row><cell></cell><cell>Operation</cell><cell>6</cell><cell>0%</cell></row><row><cell></cell><cell>Device</cell><cell>5</cell><cell>100%</cell></row><row><cell></cell><cell>Accessibility</cell><cell>4</cell><cell>0%</cell></row><row><cell>oneM2M</cell><cell>Thing Aspect</cell><cell>3 2</cell><cell>33.33% 0%</cell></row><row><cell></cell><cell>Communication</cell><cell>2</cell><cell>0%</cell></row><row><cell></cell><cell>Task</cell><cell>2</cell><cell>0%</cell></row><row><cell></cell><cell>Metadata</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Network</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Profile</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Device</cell><cell>46</cell><cell>10.86%</cell></row><row><cell></cell><cell>Function</cell><cell>19</cell><cell>0%</cell></row><row><cell></cell><cell>Service</cell><cell>6</cell><cell>0%</cell></row><row><cell></cell><cell>Property</cell><cell>5</cell><cell>0%</cell></row><row><cell>SAREF</cell><cell>Building Command</cell><cell>4 3</cell><cell>25% 0%</cell></row><row><cell></cell><cell>Commodity</cell><cell>2</cell><cell>0%</cell></row><row><cell></cell><cell>Profile</cell><cell>2</cell><cell>0%</cell></row><row><cell></cell><cell>Price</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Time</cell><cell>1</cell><cell>0%</cell></row><row><cell></cell><cell>Property</cell><cell>7</cell><cell>100%</cell></row><row><cell></cell><cell>Stimulus</cell><cell>6</cell><cell>0%</cell></row><row><cell></cell><cell>System</cell><cell>6</cell><cell>40%</cell></row><row><cell></cell><cell>Feature of interest</cell><cell>5</cell><cell>40%</cell></row><row><cell></cell><cell>Procedure</cell><cell>5</cell><cell>33.33%</cell></row><row><cell>SSN</cell><cell>Sensor Observation</cell><cell>5 4</cell><cell>75% 20%</cell></row><row><cell></cell><cell>Results</cell><cell>4</cell><cell>0%</cell></row><row><cell></cell><cell>Deployment</cell><cell>3</cell><cell>50%</cell></row><row><cell></cell><cell>Observable Property</cell><cell>3</cell><cell>50%</cell></row><row><cell></cell><cell>Actuator</cell><cell>2</cell><cell>66.66%</cell></row><row><cell></cell><cell>Sample</cell><cell>2</cell><cell>0%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 11</head><label>11</label><figDesc>Shared requirements between the IoT standards.</figDesc><table><row><cell>Provenance</cell><cell>Requirement</cell><cell>Type of requirement</cell><cell>Topic</cell><cell>Standards that satisfy the requirement</cell></row><row><cell>ISO/IEC 30141</cell><cell>Actuators and sensors are kinds of IoT</cell><cell>Subsumption of classes</cell><cell>Device</cell><cell>ISO/IEC 30141, SAREF</cell></row><row><cell></cell><cell>device</cell><cell></cell><cell></cell><cell></cell></row><row><cell>OCF</cell><cell>A device is a logical entity</cell><cell>Definition of a class</cell><cell>Device</cell><cell>ISO/IEC 30141, OCF, oneM2M, SAREF</cell></row><row><cell>OCF</cell><cell>A device can be composed by other</cell><cell>Relation between classes</cell><cell>Device</cell><cell>OCF, oneM2M, SAREF</cell></row><row><cell></cell><cell>devices</cell><cell></cell><cell></cell><cell></cell></row><row><cell>OCF</cell><cell>A resource is a physical thing in the</cell><cell>Definition of a class</cell><cell>Thing</cell><cell>OCF, oneM2M</cell></row><row><cell></cell><cell>world</cell><cell></cell><cell></cell><cell></cell></row><row><cell>oneM2M</cell><cell>A controlling functionality represents a</cell><cell>Subsumption between</cell><cell>Function</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>functionality that has impacts on the</cell><cell>classes</cell><cell></cell><cell></cell></row><row><cell></cell><cell>real world, but does not gather data</cell><cell></cell><cell></cell><cell></cell></row><row><cell>oneM2M</cell><cell>A measuring functionality represents a</cell><cell>Subsumption between</cell><cell>Function</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>functionality that has no impacts on the</cell><cell>classes</cell><cell></cell><cell></cell></row><row><cell></cell><cell>real world, but only gathers data</cell><cell></cell><cell></cell><cell></cell></row><row><cell>oneM2M</cell><cell>A device can be composed of several</cell><cell>Relation between classes</cell><cell>Device</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>(sub-)devices</cell><cell></cell><cell></cell><cell></cell></row><row><cell>oneM2M</cell><cell>A thing is an entity that can be</cell><cell>Definition of a class</cell><cell>Thing</cell><cell>ISO/IEC 30141, oneM2M</cell></row><row><cell></cell><cell>identified in the oneM2M System.</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A device shall have a model property</cell><cell>Relation between terms</cell><cell>Device, Property</cell><cell>ISO/IEC 30141, OCF, oneM2M, SAREF</cell></row><row><cell>SAREF</cell><cell>What is a device?</cell><cell>Definition of a class</cell><cell>Device</cell><cell>ISO/IEC 30141, OCF, oneM2M, SAREF</cell></row><row><cell>SAREF</cell><cell>A device can optionally have a</cell><cell>Relation between terms</cell><cell>Device</cell><cell>ISO/IEC 30141, OCF, oneM2M, SAREF</cell></row><row><cell></cell><cell>description</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A device may consist of other devices</cell><cell>Relation between terms</cell><cell>Device</cell><cell>ISO/IEC 30141, oneM2M, SAREF</cell></row><row><cell>SAREF</cell><cell>A function represents the functionality</cell><cell>Relation between terms</cell><cell>Device, Function</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>necessary to accomplish the task for</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>which a device is designed</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A service is a representation of a</cell><cell>Relation between terms</cell><cell>Service, Function, Device</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>function to a network that makes this</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>function discoverable; registerable and</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>remotely controllable by other devices in</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>the network</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A device can be used for the purpose of</cell><cell>Relation between terms</cell><cell>Device, Function</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>sensing</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A device can be used for measuring a</cell><cell>Relation between classes</cell><cell>Device, Function</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>property</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A command can act upon a state to</cell><cell>Definition of a class</cell><cell>Command</cell><cell>oneM2M, SAREF</cell></row><row><cell></cell><cell>represent that the consequence of a</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>command can be a change of state of</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>the device</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SAREF</cell><cell>A device offers a service</cell><cell>Relation between terms</cell><cell>Device, Service</cell><cell>oneM2M, SAREF</cell></row><row><cell>SSN</cell><cell>What is a sensor?</cell><cell>Definition of a class</cell><cell>Sensor</cell><cell>ISO/IEC 30141, SAREF, SSN</cell></row><row><cell>SSN</cell><cell>What is an actuator?</cell><cell>Definition of a class</cell><cell>Actuator</cell><cell>ISO/IEC 30141, SAREF, SSN</cell></row><row><cell>SSN</cell><cell>What is a property?</cell><cell>Definition of a class</cell><cell>Property</cell><cell>OCF, SAREF, SSN</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 12</head><label>12</label><figDesc>Terms shared by the analysed standards.</figDesc><table><row><cell>Term</cell><cell>Standards that contain the term</cell></row><row><cell>ActuatingFunction</cell><cell>oneM2M (as ControllingFunction), SAREF</cell></row><row><cell>Actuator</cell><cell>ISO/IEC 30141, SAREF, SSN</cell></row><row><cell>Command</cell><cell>oneM2M, SAREF</cell></row><row><cell>Device</cell><cell>ISO/IEC 30141, OCF, oneM2M, SAREF</cell></row><row><cell>Function</cell><cell>oneM2M, SAREF</cell></row><row><cell>Measurement</cell><cell>SAREF, SSN (as Observation)</cell></row><row><cell>Network</cell><cell>ISO/IEC 30141, SAREF</cell></row><row><cell>Property</cell><cell>OCF, oneM2M, SAREF, SSN</cell></row><row><cell>Service</cell><cell>ISO/IEC 30141, oneM2M, SAREF</cell></row><row><cell>Thing</cell><cell>ISO/IEC 30141, oneM2M, SSN (as Feature of Interest)</cell></row><row><cell>Sensor</cell><cell>ISO/IEC 30141, SAREF, SSN</cell></row><row><cell>State</cell><cell>OCF, SAREF,</cell></row><row><cell>SensingFunction</cell><cell>oneM2M (as MeasuringFunction), SAREF</cell></row><row><cell>ConsistsOf</cell><cell>OCF, SAREF, oneM2M</cell></row><row><cell>Hosts</cell><cell>OCF, SSN</cell></row><row><cell>hasCommand</cell><cell>oneM2M, SAREF</cell></row><row><cell>hasFunction</cell><cell>oneM2M, SAREF</cell></row><row><cell>hasInput</cell><cell>oneM2M, SSN</cell></row><row><cell>hasManufacturer</cell><cell>OCF, SAREF,</cell></row><row><cell>hasOutput</cell><cell>oneM2M, SSN</cell></row><row><cell>hasProperty</cell><cell>OCF, SSN</cell></row><row><cell>hasValue</cell><cell>oneM2M, SAREF</cell></row><row><cell>Offers</cell><cell>oneM2M, SAREF</cell></row><row><cell>Represents</cell><cell>ISO/IEC 30141, SAREF, oneM2M</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>https://portal.etsi.org/webapp/WorkProgram/SimpleSearch/QueryForm. asp.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>CQChecker is available in the following URL: https://sourceforge.net/ projects/cqchecker. The last update was on December 5, 2016.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>The last version of TDDOnto is available in the following URL: https: //github.com/kierendavies/tddonto2. The last update was on August 23, 2018.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>https://w3id.org/def/vtc#.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>Through this paper functional ontology requirements are referred to as ontology requirements for clarity.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>https://w3id.org/def/vtc#.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_6"><p>http://vicinity.iot.linkeddata.es/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_7"><p>https://openconnectivity.org.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_8"><p>Note that a requirement can belong to one or more topics.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgements</head><p>This work is partially supported by the <rs type="projectName">H2020</rs> project <rs type="projectName">VICINITY: Open virtual neighbourhood network</rs> to connect intelligent buildings and smart objects (<rs type="grantNumber">H2020-688467</rs>) and by a <rs type="grantName">Predoctoral grant</rs> from the <rs type="funder">I+D+i program</rs> of the <rs type="institution">Universidad Politécnica de Madrid</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funded-project" xml:id="_4u8qgga">
+					<orgName type="project" subtype="full">H2020</orgName>
+				</org>
+				<org type="funded-project" xml:id="_zakpTtA">
+					<idno type="grant-number">H2020-688467</idno>
+					<orgName type="grant-name">Predoctoral grant</orgName>
+					<orgName type="project" subtype="full">VICINITY: Open virtual neighbourhood network</orgName>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of competing interest</head><p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">The Description Logic Handbook: Theory, Implementation and Applications</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Baader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Calvanese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mcguinness</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Patel-Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nardi</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<publisher>Cambridge university press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Description logics</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Baader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Sattler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on Ontologies</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="3" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Test-Driven Development: By Example</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Beck</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<publisher>Addison-Wesley Professional</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">CQChecker: A tool to check ontologies in OWL-DL using competency questions written in controlled natural language</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bezerra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Santana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Freitas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Learn. Nonlinear Model</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="115" to="129" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Ontology testing-methodology and tool</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Sepour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 18th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 18th International Conference on Knowledge Engineering and Knowledge Management<address><addrLine>Galway City, Ireland</addrLine></address></meeting>
+		<imprint>
+			<publisher>EKAW</publisher>
+			<date type="published" when="2012-09-08">2012. 2012. September 8-12, 2012</date>
+			<biblScope unit="page" from="216" to="226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Experiences on applying SPL engineering techniques to design a (Re) usable ontology in the energy domain</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cuenca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Larrinaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Curry</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of of the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)</title>
+		<meeting>of the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-07-10">2019. July 10-12, 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">E</forename><surname>Dahlström</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dengler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Grasso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lilley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccormack</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Schepers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Watt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ferraiolo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Jun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Jackson</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+	<note>Scalable Vector Graphics (SVG) 1.1 Specification. W3C</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">TDDonto2: A test-driven development plugin for arbitrary tbox and abox axioms</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Davies</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th European Semantic Web Conference</title>
+		<meeting>the 14th European Semantic Web Conference<address><addrLine>Portoroz, Slovenia</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017-05-28">2017. 2017. May 28-June 1, 2017</date>
+			<biblScope unit="page" from="120" to="125" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Computing authoring tests from competency questions: Experimental validation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dennis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Van Deemter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dell'aglio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Pan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th International Semantic Web Conference</title>
+		<meeting>the 16th International Semantic Web Conference<address><addrLine>Vienna, Austria</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-10-21">2017. 2017. October 21-25, 2017</date>
+			<biblScope unit="page" from="243" to="259" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">QA Framework: specification guidelines</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Dubost</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rosenthal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hazaël-Massieux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Henderson</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>W3C Recomm</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">OQuaRE: A square-based approach for evaluating the quality of ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Duque-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Fernández-Breis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stevens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Aussenac-Gilles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Res. Pract. Inf. Technol</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">159</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">ETSI TS 103 264 V2.1.1. SmartM2M; Smart Applications; Reference Ontology and oneM2M Mapping</title>
+		<author>
+			<persName><surname>Etsi</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Requirements behaviour analysis for ontology testing</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 21st International Conference on Knowledge Engineering and Knowledge Management (EKAW 2018)</title>
+		<meeting>the 21st International Conference on Knowledge Engineering and Knowledge Management (EKAW 2018)<address><addrLine>Nancy, France</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2018-11-12">2018. November 12-26, 2018</date>
+			<biblScope unit="page" from="114" to="130" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Themis: A tool for validating ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)</title>
+		<meeting>the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-07-10">2019. July 10-12, 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">CORAL: a corpus of ontological requirements annotated with lexico-syntactic patterns</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th European Semantic Web Conference (ESWC 2019)</title>
+		<meeting>the 16th European Semantic Web Conference (ESWC 2019)<address><addrLine>Portoroz, Slovenia</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019-06-02">2019. June 2-6, 2019</date>
+			<biblScope unit="page" from="443" to="458" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Ontology design patterns</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on Ontologies</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="221" to="243" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Benchmarking Semantic Web Technology</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<date type="published" when="2009">2009</date>
+			<publisher>IOS Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">An introduction to the testing and test control notation (TTCN-3)</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Grabowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hogrefe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Réthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Schieferdecker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wiles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Willcock</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Netw</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="375" to="403" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Arguing conformance</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Graydon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Habli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hawkins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Knight</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Softw</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="50" to="57" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Methodology for the Design and Evaluation of Ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Fox</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<publisher>Citeseer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Evaluating ontological decisions with ontoclean</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Welty</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Commun. ACM</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="61" to="65" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">V</forename><surname>Janowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cox</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Le Phuoc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lefrançois</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Atkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lieberman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stadler</surname></persName>
+		</author>
+		<title level="m">Semantic sensor network ontology. W3C Recomm</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The modular SSN ontology: A joint w3c and OGC standard specifying the semantics of sensors, observations, sampling, and actuation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Janowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Cox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lefrançois</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Le Phuoc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lieberman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Atkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stadler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semant. Web</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="9" to="32" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hitzler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krötzsch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Parsia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Patel-Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rudolph</surname></persName>
+		</author>
+		<title level="m">OWL 2 web ontology language primer. W3C Recomm</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">OWL 2 Web Ontology Language Manchester Syntax</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Horridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Patel-Schneider</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>W3C Working Group Note</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Internet of Things (IoT) -Reference Architectures</title>
+		<author>
+			<persName><surname>Iso</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Organization for Standardization</title>
+		<imprint>
+			<biblScope unit="volume">30141</biblScope>
+			<date type="published" when="2017">2017</date>
+			<pubPlace>Geneva, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
+	<note>IEC</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m">ISO/IEC 9646-1: Information Technology -Open Systems Interconnection -Conformance Testing Methodology and Framework</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+	<note>International Organization for Standardization</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">Web of things (WoT) thing description</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kaebisch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kamiya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mccool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Charpenay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kovatsch</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<publisher>W3C Recomm</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Test-driven development of ontologies</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th International Semantic Web Conference (ISWC 2016)</title>
+		<meeting>the 15th International Semantic Web Conference (ISWC 2016)<address><addrLine>Kobe, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-10-17">2016. October 17-21, 2016</date>
+			<biblScope unit="page" from="642" to="657" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">TTCN: Towards a formal semantics and validation of test suites</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Kristoffersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Walter</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Netw. ISDN Syst</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="15" to="47" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">The TDDonto tool for test-driven development of DL knowledge bases</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lawrynowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 29th International Workshop on Description Logics (DL 2016)</title>
+		<meeting>the 29th International Workshop on Description Logics (DL 2016)<address><addrLine>Cape Town, South Africa</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-04-22">2016. April 22-25, 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Ontometric: A method to choose the appropriate ontology</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lozano-Tello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Database Manag</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Experience within ETSI of the combined roles of conformance testing and interoperability testing</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Moseley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Randall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wiles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 33rd Conference on European Solid-State Device Research (ESSDERC 2003)</title>
+		<meeting>the 33rd Conference on European Solid-State Device Research (ESSDERC 2003)<address><addrLine>Estoril, Portugal</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2003-09-16">2003. September 16-18, 2003</date>
+			<biblScope unit="page" from="177" to="189" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Segmented: an r package to fit regression models with broken-line relationships</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">M</forename><surname>Muggeo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">R news</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="20" to="25" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">TS-0012 oneM2M Base Ontology</title>
+		<author>
+			<persName><forename type="first">M</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">OOPS! (ontology pitfall scanner!): An on-line tool for ontology evaluation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Semant. Web Inf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="7" to="34" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Sparql query language for rdf</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Prud'hommeaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Seaborne</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>W3C Recomm</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Keyword based software testing system and method</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Roth</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">US Patent</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">214</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">The NeOn methodology for ontology engineering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ontology Engineering in a Networked World</title>
+		<imprint>
+			<biblScope unit="page" from="9" to="34" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">How to write and use the ontology requirements specification document</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Villazón-Terrazas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 8th International Conference on Ontologies, DataBases, and Applications of Semantics</title>
+		<meeting>the 8th International Conference on Ontologies, DataBases, and Applications of Semantics<address><addrLine>Vilamoura, Portugal</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009-11-03">2009. 2009. November 3-4, 2009</date>
+			<biblScope unit="page" from="966" to="982" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

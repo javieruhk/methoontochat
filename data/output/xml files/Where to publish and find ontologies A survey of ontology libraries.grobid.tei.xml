@@ -1,0 +1,1383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Where to publish and find ontologies? A survey of ontology libraries</title>
+				<funder ref="#_Yx7XPrF">
+					<orgName type="full">National Center for Biomedical Ontology</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">National Institutes of Health</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2011-09-10">10 September 2011</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Mathieu</forename><surname>D’aquin</surname></persName>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Natalya</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+							<email>noy@stanford.edu</email>
+							<affiliation key="aff1">
+								<orgName type="department">Stanford Center for Biomedical Informatics Research</orgName>
+								<orgName type="institution">Stanford University</orgName>
+								<address>
+									<settlement>Stanford</settlement>
+									<region>CA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Where to publish and find ontologies? A survey of ontology libraries</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Journal of Web Semantics</title>
+						<title level="j" type="abbrev">Journal of Web Semantics</title>
+						<idno type="ISSN">1570-8268</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">11</biblScope>
+							<biblScope unit="page" from="96" to="111"/>
+							<date type="published" when="2011-09-10">10 September 2011</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">E704C9536E4BD4A6D8692AE2B5B9307D</idno>
+					<idno type="DOI">10.1016/j.websem.2011.08.005</idno>
+					<note type="submission">Received 23 April 2010 Received in revised form 24 August 2011 Accepted 24 August 2011</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Ontology Survey Ontology library</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>One of the key promises of the Semantic Web is its potential to enable and facilitate data interoperability. The ability of data providers and application developers to share and reuse ontologies is a critical component of this data interoperability: if different applications and data sources use the same set of well defined terms for describing their domain and data, it will be much easier for them to ''talk'' to one another. Ontology libraries are the systems that collect ontologies from different sources and facilitate the tasks of finding, exploring, and using these ontologies. Thus ontology libraries can serve as a link in enabling diverse users and applications to discover, evaluate, use, and publish ontologies. In this paper, we provide a survey of the growing-and surprisingly diverse-landscape of ontology libraries. We highlight how the varying scope and intended use of the libraries affects their features, content, and potential exploitation in applications. From reviewing 11 ontology libraries, we identify a core set of questions that ontology practitioners and users should consider in choosing an ontology library for finding ontologies or publishing their own. We also discuss the research challenges that emerge from this survey, for the developers of ontology libraries to address.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">The need for ontology libraries</head><p>Semantic Web standards enable data interoperability by creating a vast, distributed data space where users and software agents can publish and access information from many different sources. They can use, integrate, and aggregate this information, regardless of its provenance and physical location. The use of standard formats such as RDF guarantees interoperability at a syntactic level, making it possible for applications to reuse data and to link diverse data. Ontologies represent the essential technology that enables and facilitates interoperability at the semantic level, providing a formal conceptualization of the data which can be shared, reused, and aligned. As the result, the current explosion in the amount of data published on the Semantic Web <ref type="bibr" target="#b20">[25]</ref> is accompanied by a rapid increase in the number of ontologies that are being developed and made available online <ref type="bibr" target="#b26">[31,</ref><ref type="bibr" target="#b32">36]</ref>. Naturally, it is more cost-effective for data providers to reuse existing, preferably well-established and well-tested ontologies to describe their data, rather than to develop ontologies from scratch. Furthermore, ontology reuse significantly facilitates data interoperability: if different data providers use the same ontology to describe their data, they can integrate the data much more easily.</p><p>In the last few years, we have witnessed several notable successes of ontology reuse. For example, the FOAF ontology <ref type="bibr" target="#b21">[26]</ref> is commonly used to describe data in social networking, and the GoodRelations ontology <ref type="bibr" target="#b40">[44]</ref> is quickly becoming the standard for describing products and offerings from commercial organizations. Communities of workers in specific domains have also reached agreement on foundational ontologies, achieving a high level of reuse for these specific ontologies. For example, many biomedical researchers use the Gene Ontology <ref type="bibr" target="#b37">[41]</ref> to annotate their data.</p><p>However, these examples of reuse are still rather isolated. Indeed, in order for ontologies to perform their role-facilitating interoperability between different systems and datasets-users must be able to find relevant ontologies quickly and easily. They also must be able to share their ontologies in such a way that others can easily discover, access, and reuse them. Today, a user who needs to find an ontology that is appropriate for her application faces a number of significant challenges. First, she must find the ontologies that deal with her subject domain. Second, she must sift through the ontologies that she finds and determine which ones cover the domain sufficiently well for her to be able to use the ontology in her application, and she also must somehow evaluate the quality of the ontology to help her determine if the ontology will work for her application. Third, she often must be able to access the ontology in a specific format that works with her application (e.g., download an OWL file, perform a SPARQL query, use Web service calls to access ontology content, and so on). Finally, if she ends up extending an existing ontology or creating her own, she might want to share it with her colleagues or with the broader research community. The growing number of online ontology libraries are beginning to address these challenges, enabling users to find, reuse, and publish ontologies, and thus facilitating eventual data interoperability on the Semantic Web.</p><p>Researchers have used many different names to refer to systems for collecting ontologies and making them available: ontology directory, ontology repository, ontology library, ontology archive. We will use the term ontology library to refer to these systems. We broadly define an ontology library as a Web-based system that provides access to an extensible collection of ontologies with the primary purpose of enabling users to find and use one or several ontologies from this collection. While we explicitly mention ''Web-based'' as part of the definition, to the best of our knowledge, all ontology libraries that exist or existed in the past, are accessible through the Web. We also specify that ontology libraries should contain a collection of ontologies, to distinguish from ontology search engines such as Swoogle <ref type="bibr" target="#b32">[36]</ref> or Watson <ref type="bibr" target="#b29">[34]</ref>, which automatically crawl the Web to index ontologies rather than collect them. Our definition discusses extensible collections and thus excludes the sites where there is no expectation of significantly broadening the collection with time (e.g., the set of SWEET ontologies <ref type="bibr">[15]</ref> for environmental sciences). Our definition identifies the primary purpose of the collection as enabling users to find and use ontologies. Thus we exclude from our survey the collections that focus on data, such as the Linked Open Data collection of datasets <ref type="bibr" target="#b20">[25]</ref>.</p><p>Many researchers and developers have identified the availability of ontology libraries as a crucial component of the Semantic Web infrastructure <ref type="bibr" target="#b18">[23]</ref>. Systems such as the Ontolingua server <ref type="bibr" target="#b35">[39]</ref>, the DAML ontology library <ref type="bibr" target="#b25">[30]</ref>, the Protégé ontology library <ref type="bibr" target="#b9">[12]</ref>, the Ontaria ontology directory [62], and SchemaWeb <ref type="bibr" target="#b11">[14]</ref> pioneered the idea of ontology libraries and created the first ontology collections. Many of these early systems are no longer actively supported or maintained. However, a new generation of ontology libraries is replacing them. These libraries provide more advanced features and are able to handle the rapidly increasing number of ontologies that are becoming available.</p><p>In this paper, we provide a survey of this growing-and surprisingly diverse-landscape of ontology libraries. Our investigation shows that the libraries that exist today are created for different purposes and thus provide greatly varying functionalities and have very different scope. Therefore, a user who wants to reuse an ontology from the set of hundreds or thousands of ontologies available on the Web, must not only be able to use an ontology library to help her sort through this variety, but also must know which ontology library to use. We identify the common elements of the libraries and the different features that are affected by their design goals and scope. Depending on the user's requirements, she can determine which library would be the most appropriate one for her. We use our survey of 11 ontology libraries to identify a set of questions that ontology practitioners and users can ask in order to choose an appropriate ontology library to use. Our survey will also help ontology developers determine where they can publish their ontologies, how they can publish them, and which libraries they should use to expose their ontologies to other users in their communities. We believe that our survey will also be useful to the developers and maintainers of the ontology-library systems: it can serve as a reference, identifying reusable (positive and negative) experiences, as well as the remaining technological and research challenges related to the publication and reuse of ontologies.</p><p>We start this paper by discussing related work (Section 2). We briefly describe each system that we included in our survey in Section 3. Section 4 provides an overview of the features that we consider in our comparison. We discuss these features in detail in the context of the 11 ontology libraries in Sections 5-7. Specifically, Section 5 compares the purposes for which these systems were created and their coverage. In Section 6, we characterize the content of the libraries. We discuss the key functions that the libraries provide to their users in Section 7. After comparing all the systems, we discuss the implications for ontology practitioners and system developers in Section 8. We provide conclusions in Section 9. We include an Appendix with more details on various features of the ontology libraries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Related work</head><p>Ding and Fensel published one of the earliest surveys of ontology libraries in 2001 <ref type="bibr" target="#b33">[37]</ref>. That survey focused on a small number of features and included nine libraries. At the time, the libraries supported a heterogeneous and often non-overlapping collection of ontology languages (W3C standards, such as RDFS and OWL, were not widely adopted yet). Interestingly, some of the themes that Ding and Fensel identified almost ten years ago are present in today's ontology libraries: support for ontology versioning is lacking in many of them; many do not support ontology editing (and it is still not clear whether or not they should). Searching and browsing has come a long way, as has the scale of the libraries in terms of the number of ontologies and their size.</p><p>A later survey <ref type="bibr" target="#b15">[20]</ref> presented a different set of libraries, mostly focusing on the ''server'' functionalities of the libraries: what is the type of access that they provide and what stages in the ontology lifecycle they support. The survey did not focus on the type of content the libraries have or how the content is collected or maintained.</p><p>Many of the systems that these and other earlier surveys include, are no longer actively maintained. Indeed, almost none of the systems that we survey here are included in the earlier surveys. While many of the dimensions that these surveys included are important for comparing today's ontology libraries (and we use them in this paper), the newer systems bring up a new set of issues that the earlier surveys do not address. These issues include the need for ontology evaluation and ranking, and ontology metrics; the social mechanisms for creating and maintaining the content of the ontology libraries and the corresponding metadata; the need to create and maintain mappings between ontologies, as more and more overlapping ontologies become available; the infrastructure requirements to enable interoperability with other data on the Semantic Web; service-oriented architecture; scalability in terms of the sizes of the ontologies, etc. Furthermore, the advances in the Web-browser technology enabled a far richer set of user-interaction and visualization features than were possible several years ago. Many of the newer ontology libraries take full advantage of these developments.</p><p>In 2008, the Ontolog forum-a community of ontology practitioners-has launched the Open Ontology Repository Initiative (OOR) <ref type="bibr" target="#b18">[23]</ref>. The members of the initiative work together on identifying desiderata and requirements for an ontology repository (ontology library, in our terms), with the main focus on the openness of content. The scope of OOR goes beyond ontologies, to include database schemas and XML schemas. A number of dimensions that we discuss in this survey were fleshed out during our discussions with the OOR members.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Ontology libraries</head><p>We selected 11 ontology libraries from a new generation of ontology libraries that has emerged recently. As we will see later, these systems vary in many ways, including their size, purpose, the formats they handle, the features they provide, or the way they give access to the collected ontologies. Before analyzing these differences, we give a brief description of each of the systems that we included in this survey.</p><p>BioPortal <ref type="bibr" target="#b46">[50]</ref> is a library of biomedical ontologies developed by the National Center for Biomedical Ontology. BioPortal focuses on community-based features for ontology annotation and evaluation, enabling users to provide comments and reviews on ontologies, contribute mappings between ontologies, and custom-tailored views on ontologies. BioPortal provides visualization of ontologies, search across all ontologies, and REST service access to the ontologies and their metadata. There are two other libraries that are built on the BioPortal code base and thus share most of the features of BioPortal: The Marine Metadata Initiative (MMI) is an e-science community supported by NSF that has adopted BioPortal as its ontology library. The MMI Ontology Registry ad Repository [5] extends the BioPortal code base with several functionalities, such as more extensive support for mappings, and access using query language SPARQL. The OOR community maintains another BioPortal clone <ref type="bibr" target="#b4">[6]</ref> that is not limited to biomedical ontologies but is rather a generic ontology library. Cupboard <ref type="bibr" target="#b28">[33]</ref>, created as part of the NeOn Project, is built around the idea of spaces, enabling each user to create her own ontology space, containing and relating the ontologies she has selected. Cupboard provides a number of functionalities in the context of these ontology spaces, supporting ontology developers in publishing and sharing their ontologies, ontology users in finding and reusing ontologies, and application developers in using ontologies in their applications. In particular, Cupboard provides users with the ability to search in dedicated ontology spaces and across the entire library, to rate and comment ontologies, and to relate ontologies in an ontology space through alignments. In addition, a plugin for the NeOn Toolkit ontology editor <ref type="bibr" target="#b30">[35]</ref> allows ontology developers to reuse elements of shared ontologies directly within the ontology engineering environment. The OBO Foundry initiative <ref type="bibr" target="#b54">[58]</ref> aims at creating a set of welldocumented and well-defined biomedical ontologies that are designed to work with one another. The OBO Foundry has an editorial process defining which ontologies become part of that collection. In order for an ontology to be included in the library as an OBO Foundry candidate, the editors must approve the ontology, verifying, among other things, that it is publicly available, has plurality of users, is documented properly, uses an appropriate identification scheme, that its content does not overlap with other ontologies, or the authors are committed to remove overlap. The OBO Foundry repository does not have a dedicated software platform; it uses a sourceforge repository to maintain ontologies and ontology versions. oeGov <ref type="bibr" target="#b6">[9]</ref> is a an initiative dedicated to the creation and collection of ontologies used for e-Government, run by TopQuadrant. oeGov relies on a blog system to publish ontologies, comment on them, and review them. OLS <ref type="bibr" target="#b24">[29]</ref>, the Ontology Lookup Service, developed at the European Bioinformatics Institute, is a library of biomedical ontologies, with the main goal of providing query and browsing access to a set of ontologies used for annotating biomedical data. OLS contains ontologies in the OBO format <ref type="bibr" target="#b38">[42]</ref>. It provides search features to find descriptions of entities in these ontologies. It also provides Web services access (through SOAP services) to the ontologies. A number of large biomedical projects use OLS as their main source of terms. OntologyDesignPatterns.org (ODP) <ref type="bibr" target="#b7">[10]</ref> is a portal for a catalogue of ontology design patterns. While it does not contain large domain ontologies per se, many of the ontology patterns in ODP are in fact ontologies themselves, or components that are integrated into other ontologies. For example, there are patterns for representing climactic zones or observations. Therefore, we include ODP as one of the ontology libraries in our survey as a bona fide ontology library. As part of its role of collecting and publishing ontology design patterns, ODP provides ontology library capabilities, including the provision of rich metadata and the automatic generation of documentation for ontology design patterns. The portal is supported by a quality committee, reviewing and approving candidate design patterns for inclusion to the catalogue. OntoSelect <ref type="bibr" target="#b22">[27]</ref> is an ontology library that provides advanced search mechanisms (by keywords and by topic), with ranking mechanisms based on a set of measures on the ontologies (e.g., number of imports, number of languages included). Onto-Select focuses on providing ontologies and related services that facilitate annotation and natural-language processing in multiple languages, supporting searches that are restricted to a particular language.</p><p>OntoSearch2 <ref type="bibr" target="#b56">[60]</ref> focuses on providing efficient querying mechanisms across hundreds of ontologies. It implements these querying mechanisms as an extension of the SPARQL language, reducing the set of ontologies into the DL-Lite formalism to enable the use of inferences in real time, during the querying process. It also provides a simple keyword-based search mechanism over its collection of ontologies. The ONKI ontology server <ref type="bibr" target="#b41">[45]</ref> supports the Semantic Web infrastructure run by the Finnish government. The server contains the ontologies used to support several government-run services. Ontologies on the ONKI server cover areas of business, public administration, culture, geography, and also include several international thesauri. There are also upper ontologies, which define fundamental distinctions in the domain and many ontologies in the library link to them. Many ontologies are available in multiple languages (e.g., Swedish and Finnish).</p><p>The ONKI server provides a Web service and API access to its ontologies. The TONES repository <ref type="bibr" target="#b13">[18]</ref> is designed as a library of OWL ontologies that might be of use to tool developers for testing purposes. Thus, its maintainers collected ontologies that span the range of expressive power, particularly for the DL ontologies, vary in size, and exhibit different features. The interface provides browsing features based on OWLSight <ref type="bibr" target="#b8">[11]</ref> and the ability to sort ontologies according to parameters that determine their complexity (e.g., the DL expressivity and the number of logical axioms). Schema-Cache <ref type="bibr" target="#b10">[13]</ref> developed by Talis, is a simple online system for searching and browsing a collection of RDF vocabularies, based on the Talis platform. It provides keyword search and navigation mechanisms in a manually gathered collection of ontologies (schemas) and which can be accessed in a variety of formats.</p><p>Note that the list above is not exhaustive. We limited our selection to the libraries that (1) are active; (2) focus on providing access to ontologies; and (3) are non-trivial in scope. Given that this field is developing very fast, it is possible that our survey misses some of the most recent developments. However, we hope that the comparison framework that we provide would enable readers to apply it to evaluating new ontology libraries that become available.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Characteristics of ontology libraries</head><p>Our survey of ontology libraries shows that the features of the libraries vary greatly. These features are often driven by the scope and purpose of the library, the specific user requirements that the library developers were addressing, and by the maturity of the software. In this section, we outline the features that we will use to compare and contrast the ontology libraries through the rest of the paper. Our main goal for the survey is to help users understand what are the different types of ontology libraries that exist today and which libraries are appropriate for which task. Hence, we selected the features that help us achieve that goal, by looking at the content and key functions of the libraries.</p><p>Fig. <ref type="figure">1</ref> summarizes these features. We organize our feature review into three main themes:</p><p>Purpose and coverage: While the general goal of all ontology libraries is to provide access to a set of ontologies, the specific goals for this access, the coverage required by the users, and the size of the library vary greatly. Ontology libraries can be limited to a particular domain (e.g., biomedicine), type of ontologies (e.g., OWL ontologies), or be rather general. Also, the libraries are often designed with specific types of applications in mind, determining the type of access to the content that they provide (Section 5). Content: A key feature of any ontology library is, naturally, its content (Section 6). We specifically look at the way the content is collected and selected for each library, at specific characteristics of this content (size, format), and whether the library includes content other than the ontologies, such as ontology metadata and mappings. Key functions: We consider the key functions that the library provides to its users, such as the ability to find and evaluate ontologies, facilities to search and browse, and to access ontologies and other library content programmatically (Section 7).</p><p>Our Appendix includes comparison of a variety of other features that may be of interest to those who develop similar tools or to those who would like to find out more details about the libraries (e.g., support for ontology versioning, user management, and technological infrastructure).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Purpose and coverage</head><p>Through the rest of this paper, we detail the great variety of characteristics of various ontology libraries. Much of this variety comes from the different scope and purpose for which the libraries were designed. This initial set of characteristics addresses the questions of who are the target audience for the library, what is the user community that the library is addressing, what are the main use cases and tasks that the library can be used for. Specifically, we characterize the purpose and domain coverage of an ontology library (Table <ref type="table" target="#tab_0">1</ref>):</p><p>Purpose: What is the primary intended use of the ontology library? A library may be designed, for example, to assist users in finding an ontology of interest, to provide an easy access point for using ontologies in applications, to provide a social space for ontology developers, to provide a set of ontologies for testing reasoners, and so on. These design decisions greatly affect the content of the library (Section 6) and the set of functions that it provides (Section 7 and the Appendix). TONES, for example, aims to provide a broad set of ontologies that exercise all the possible features of the OWL language and their combination so that developers of inference engines can use the ontologies in the library for comprehensive tests of their reasoners. Thus, TONES focuses on the breadth of the OWL features rather than content and provides statistics, characteristics of the reasoning complexity, and access to the full ontologies for download. In OntoSearch2, the focus is on providing fast and scalable query access to the ontologies, while OntoSelect intends to support ontology-based annotation, in particular by providing language related information about the collected ontologies, as well as text-based search for ontologies. Domain coverage: Is the ontology library designed to serve the needs of users in a particular domain? Most of the libraries in our survey are not limited to a specific domain (Table <ref type="table" target="#tab_0">1</ref>), several, however, are domain-specific. For instance, BioPortal focuses on biomedical ontologies, while oeGov contains the ontologies in the e-Government domain. The domain addressed by a library determines not only the content, but also the set of features as it is often custom-tailored to a particular user community.</p><p>As we can see from Table <ref type="table" target="#tab_0">1</ref>, the domain of biomedicine clearly dominates among the domain-specific libraries. This finding is not surprising, since biomedical informatics has adopted ontologies more readily and has developed and used more ontologies than Fig. <ref type="figure">1</ref>. The summary of the ontology-library features that we discuss in this survey. We discuss purpose and coverage in Section 5, library content in Section 6, main functions in Section 7, and other features in the Appendix. most other fields <ref type="bibr" target="#b51">[55]</ref>. Indeed, the field even has a specific conference focussing on the ontologies in the domain-the International Conference on Biomedical Ontology, ICBO <ref type="bibr" target="#b3">[4]</ref>. However, with ontologies becoming more and more popular in other domains such as e-Government, this dominance of biomedical ontologies and their libraries might be only temporary.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Library content</head><p>The core aspect of any ontology library is its content. Several characteristics determine the content of the library, including how the content gets into the library, who controls the addition of the content, which quality controls are applied before an ontology is added to the library, and what type of content does the library include.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.">Collecting ontologies</head><p>The methods for collecting and updating ontologies range from manually adding ontologies to the collection, to federating content from other libraries, or from the Web.</p><p>Table <ref type="table" target="#tab_1">2</ref> shows a summary of the methods that ontology libraries use to collect their content. Most libraries allow manual inclusion of ontologies. In some libraries, such as oeGov and TONES, the prerogative of deciding what to include lies with the library administrators. There is no direct mechanism for the broader community of users to contribute ontologies directly to these libraries. In most libraries in our survey, however, users (who usually need to register with the library) can submit ontologies to be added to the collection through a dedicated user interface. In the case of Cupboard, each user can manage her own ontology space (or set of ontology spaces) that represents the set of ontologies she is controlling, with each ontology space contributing to the overall library.</p><p>OntoSelect is an example of a library that collects ontologies automatically from the Web and OLS constructs its collection by pulling it from the OBO Foundry. As the result the OLS content is a subset of the OBO Foundry content.</p><p>Several libraries use a hybrid approach for collecting ontologies, both manual and automatic. For example, in addition to user-submitted ontologies, BioPortal federates the ontologies from the OBO Foundry collection, and Cupboard federates ontologies from ODP, by pulling them regularly from their original repositories.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.">Level of gatekeeping</head><p>Closely related to the question of how the ontologies get into the library is the level of gatekeeping that the library maintains. The level of gatekeeping is determined by the criteria that are applied to decide whether an ontology should be in the library, the process for this initial assessment, and the workflow for making the decision (Table <ref type="table" target="#tab_1">2</ref>).</p><p>On the one end of the spectrum are libraries, such as Cupboard, and Schema-Cache that do not impose any quality control or any limitation on the ontologies that are included in the library. Both, however, require that the ontology is syntactically correct and can be processed by an RDF or OWL parser. In BioPortal, any registered user can submit an ontology and it immediately appears in the collection. There is a minimal level of curation, with regular review of the ontologies by BioPortal administrators, who occasionally need to remove ontologies that are clearly ''toy'' ontologies or are clearly out of scope. ODP has a two-tiered approach, originating from its purpose of providing good, reusable practices in ontology design. In ODP, registered users submit ontology design patterns (ODPs) and add then to the list of ODPs to be validated by the ''quality committee.'' The quality committee then evaluates and validates the submitted ODPs and adds them to the official ''catalogue.'' However, both the list of submitted and validated ODPs are visible to all the users. At the other end of the spectrum is the OBO Foundry library (and, consequently, OLS, which federates from it), which has an explicit editorial policy that lists specific quality requirements for ontologies to be included in the OBO Foundry collection. The requirements range from syntactic ones, such as documentation and unique ID across the whole collection, to the level of usage, requiring a plurality of users, to content: if authors of an ontology want the ontology to be included as an OBO Foundry candidate, they must work to remove any overlap with other ontologies that are already there. The OBO Foundry does not formally define the workflow for determining conformance to these principles. However, there is a group of dedicated curators who engage the authors in mailing list discussions and maintain the listing on the library site. These curators informally decide on the inclusion of the ontologies. Finally, the libraries where administrators are the only ones making decisions on what to include, usually do not have well defined gatekeeping policies and the administrators decide on an ad-hoc basis which ontologies to include, usually based on the purpose and scope of the library (Section 5).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.">Content characteristics</head><p>A number of characteristics of an ontology library are easy to evaluate and they can often give a good idea of the amount and quality of content in the library, as well as of the type of content that is allowed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.1.">Size</head><p>Size is a seemingly straightforward measure that we can use to assess coverage of an ontology library. Note, however, that the notion of what an ontology is differs from one library to the next, and the way libraries measure the number of ontologies that they contain is not consistent throughout the set of libraries in our survey. For example, in providing the number of ontologies that it includes, the OBO Foundry counts only the latest version of each ontology; Cupboard counts each version as one ontology (see Appendix for the discussion of version management). We used the following approach to determine the numbers of ontologies in each library that we summarize in Table <ref type="table" target="#tab_2">3</ref>: if the ontology library reports the number of ontologies that it includes, we used that number. Otherwise, we determined the number of ontologies ourselves by studying the listing of the ontologies that the libraries provide. We also indicate if, based on our observations over a period of a few months, the number of ontologies is currently growing, or if it is staying relatively stable.</p><p>As can be expected, general ontology libraries that do not restrict their content to a specific domain tend to contain more ontologies than domain specific ones, with the exception of relatively ''young'' and still growing systems such as Cupboard.</p><p>It is also worth noting that OntoSelect clearly stands out in terms of the number of ontologies it contains. This difference stems from the way OntoSelect gets its content: many of the ontologies are added as the result of a crawl that looks for specific types of documents. Thus, on the one hand, there is no gatekeeping, and on the other, there is no implicit temporal filter as in other ontology libraries: if someone needs to add an ontology to the library manually (even if the library takes all comers), this ontology is unlikely to be very outdated, whereas an ontology picked up in a crawl may have been unused for a while.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.4.">Types of content</head><p>Ontologies themselves are, naturally, the focal point of the content that the ontology libraries provide. However, a number of libraries in our survey maintain additional content that links ontologies together. We focus on two types of the additional content: (1) mappings between ontologies and (2) ontology-level relationships.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.4.1.">Ontology mappings</head><p>In most ontology libraries, ontologies inevitably overlap in coverage. Some libraries include mappings between ontologies. In this context, a mapping is any explicitly asserted relationship between entities in different ontologies.</p><p>Of the libraries in our survey, only BioPortal, Cupboard, and the OBO Foundry include ontology mappings. BioPortal allows users both to create mappings interactively and to upload large sets of mappings created elsewhere <ref type="bibr" target="#b43">[47]</ref>. Users can search mappings and download a set of mappings, filtered according to their specification (e.g., all mappings between two specific ontologies created by a specific user). BioPortal also stores extensive metadata on mappings, including details on how the mapping was created, as well as comments that other users can add to the mapping.</p><p>Cupboard relies on the Alignment Server <ref type="bibr" target="#b34">[38]</ref> to provide ways for users to create and store mappings <ref type="bibr" target="#b27">[32]</ref>. The Alignment Server implements a set of services for the storage, manipulation and export of ontology alignments (i.e., sets of mappings). It also includes a library of ontology matching methods which users can invoke to create new mappings between ontologies automatically. It stores simple metadata about the alignments and can export the alignments to a variety of formats (OWL, C-OWL, SWRL, etc.).</p><p>There are also other repositories that are dedicated specifically to storing mappings between ontologies, such as the OntoMediate system <ref type="bibr" target="#b23">[28]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.4.2.">Ontology-level relations</head><p>Ontologies are not isolated artifacts: they may be related to one another, with the relations ranging from simple import to modularization, incompatibility, and so on <ref type="bibr" target="#b17">[22]</ref>. The mappings that we described in the previous section are entity-level mappings. Here we focus on ontology-level relations. The most common ontology-level relation between ontologies is dependency, supported through the import relation in OWL. Surprisingly, only a few of the ontology libraries we have studied provide such information and the ability to navigate through the ontologies using this relation (Cupboard).</p><p>Versioning is another such relation commonly appearing in ontology libraries. In Appendix, we describe more precisely the mechanisms used in some of the ontology libraries to keep track of the different versions of each individual ontology, allowing to retrieve its whole history, or just the most up-to-date version.</p><p>Some libraries also provide the ability to share views or subsets of ontologies. For instance, the library can have a large ontology, such as the Foundational Model of Anatomy (FMA), as one of its entries. FMA is widely used in biomedical ontology community, but it is extremely large (more than 80 K classes). Thus, many users have created custom-tailored subsets of FMA. For instance, a subset may be a specific subtree of an ontology <ref type="bibr" target="#b53">[57]</ref>. BioPortal, for example, includes such views or subsets as part of its collection, allowing users to reuse the customizations of ontologies that others have created.</p><p>Finally, ODP also provides a set of simple, predefined relations that can be specified within the metadata of an ontology (or an  <ref type="bibr" target="#b17">[22]</ref>, today's libraries do not support navigation of their collections through the relationships other than the ones we have described in this section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.">Ontology metadata</head><p>Ontology metadata is an essential part of many ontology libraries. The type of metadata that one can often find in an ontology library includes ontology name and domain; who created it and when; versioning policy; licensing policy; additional links and references. Elements of metadata are often directly attached to the ontology, for example, through ontology properties in OWL. Ontology libraries can include mechanisms to extract and integrate these metadata, and use it to represent and store additional elements directly within the ontology. However, the metadata that ontology authors usually include as part of the OWL file is often rather minimal and contains only the most essential information, such as the ontology authors, its name and description.</p><p>The libraries where ontology authors can submit their ontologies usually include a form-based interface that allows authors to provide the pertinent metadata about the ontology and its provenance information.</p><p>Because there is no standard format to represent metadata about ontologies, there is no uniformity in metadata support among libraries. There are emerging schemes for representing such metadata, with the Ontology Metadata Vocabulary (OMV) as one of the more extensive schemes for that <ref type="bibr" target="#b39">[43]</ref>. However, OMV has not been tested yet and others have reported on the need to extend it when applied in a large-scale ontology library <ref type="bibr" target="#b48">[52]</ref>. BioPortal and Cupboard currently support this format.</p><p>Other libraries do not provide any structured metadata (OLS, OntoSearch2), while some implement ad-hoc representations, either machine processable, API-based or only human-readable. For example, ONKI only provides a textual description of the ontologies it contains, but makes use of additional metadata (subject, status, structure, publisher) for browsing the repository, and oeGov gives basic information about the ontologies (description, namespaces) in a manually built table. The OBO Foundry, which uses sourceforge, stores metadata about ontologies in a separate XML file that is available in a specific place in the sourceforge repository and ODP uses the form mechanism provided by (Semantic)Media-Wiki. OntoSelect and TONES show basic features extracted from the ontology files (such as number of entities, dependencies, languages, labels and expressivity of the underlying description logic). Schema-Cache provides an RDF description of the ontologies it indexes, based on a variety of generic vocabularies (DublinCore, FOAF, etc.).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Key functions</head><p>In this section, we compare the key functions that the ontology libraries provide to their users. Specifically, we focus on the way the libraries enable users to find and evaluate the ontologies, to browse them, and to access them programmatically.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.1.">Search</head><p>Search mechanisms are the core features of ontology libraries. They define the way ontologies are found, navigated and discovered in potentially large collections. While, at first glance, the support for such features can appear quite straightforward, we observed a lot of variation in the way different ontology libraries implement them, along the following dimensions:</p><p>Search within ontologies enables users to find elements in a specific ontology (classes, properties, individuals).</p><p>Search across ontologies provides a global search for terms within all ontologies in a library. Some libraries allow users to select a specific set of ontologies to search. Structured search enables users to query for ontologies or elements of ontologies that have specific properties. For example, such search can be implemented through the use of a SPARQL query engine. Advanced search correspond to the similar set of options that can be provided to many search engines to refine the search space.</p><p>Table <ref type="table">4</ref> provides a summary of the search capabilities for the libraries in the survey. Some libraries provide search only for ontology names in the list-the OBO Foundry and TONES are in this category. ODP and oeGov go a step further, enabling search through the metadata of the ontologies, using the underlying wiki and blog search mechanisms, respectively, to search through ontology descriptions. Schema-Cache and ONKI provide the simple form of search for ontologies, while OLS enables users to search preferred names and synonyms of ontology terms. BioPortal and Cupboard provide advanced search capabilities within and across ontologies, enabling users to specify where in the ontologies to <ref type="bibr">Table 4</ref> Search mechanisms supported by ontology libraries. The second column indicates whether the library provides search capabilities for ontology metadata. The third column describes the search capabilities within a single ontology that the user specifies. The final column lists the search capabilities across ontologies (such as searching for a term in a set of ontologies or all the ontologies in the library).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Library</head><p>Search metadata Search within ontology Search across ontologies BioPortal Yes Yes, with autocomplete Advanced search (attributes, restrict to category); search for the keywords, and which ontologies to include in the search. OntoSearch2 provides SPARQL queries enabling users to pose detailed structured queries to the libraries in the collection.</p><p>When provided, advanced search mechanisms generally consist of options to restrict the search space (e.g., search within a category in BioPortal, only for certain types of entities in Cupboard, only certain languages in OntoSelect). If available, the mechanism for searching inside ontologies also benefits from these search options (BioPortal, Cupboard). Finally, OntoSelect enables users to find ontologies that are relevant to the main topic of a particular webpage or wikipedia article.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.2.">Browsing</head><p>While a number of ontology libraries focus on providing a listing of ontologies (TONES, oeGov, ODP) and, perhaps, a uniform way to download them (e.g., TONES), others provide the additional capabilities for browsing the content of the ontology collection (Table 5).</p><p>Ontology browsers can take many different forms. In general, an ontology library should provide a way to browse a set of ontologies, whether it is the entire collection or selected sub-sets. Here, important distinguishing aspects between the browsing features provided by ontology libraries include:</p><p>Navigation criteria correspond to the elements that are used to order and link the ontologies with each other for the purpose of supporting navigation in the collection. A few systems allow to navigate through the ontologies by following links they share (Cupboard, ODP and Schema-Cache). In particular, Cupboard and BioPortal provide an interface that allows users to navigate from ontology to ontology, following shared entities, import links, or mappings between them. ONKI provides faceted browsing of its list of ontologies, including browsing by subject, publisher, and type of ontology. Sub-spaces can also be provided, allowing to browse not only the entire collection, but also pre-defined subsets (e.g., Cupboard). Browsing ontologies is a feature sometimes provided, allowing users to browse the content of ontologies within the library system, and not only the ontology collection. Browsing inside an ontology can take different forms: BioPortal, for example, provides a variety of ways to visualize ontologies. ONKI and Cupboard display a hyperlinked representation of the entities, which users can navigate. OLS provides a tree representation of the ontology, which gives access to the complete description of each of the entities it contains.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.3.">Selecting and evaluating ontologies</head><p>One of the primary functions of many ontology libraries is to assist ontology users in selecting the ontologies that they need for their applications. The libraries use different approaches in helping users assess the size, complexity, and scope of the ontologies and evaluate their applicability in various circumstances (Table <ref type="table" target="#tab_4">6</ref>).</p><p>Computable ontology metrics: There are a number of metrics that tools can compute on an ontology when it is uploaded to the library. The metrics can include simple quantitative information such as the number of classes, properties, restrictions (e.g., BioPortal, Cupboard, and OntoSelect all provide such metrics). Other metrics include the import relationships between ontologies, the DL sublanguage that an OWL DL ontology falls into, or the auditing information, such as the number of classes with no documentation, authors who have contributed to the ontology, and so on. For example, the TONES repository provides more than 30 metrics on each ontology, including the number of times the ontology uses different OWL features, such as disjointness, the number of elements of different types, the number of symmetric, reflexive, and transitive properties, and other OWL features. BioPortal adds auditing metrics that indicate how well an ontology conforms to best practices of ontology design <ref type="bibr" target="#b44">[48]</ref>, such as the number of classes with a single subclass, classes with large number of direct subclasses (often indications of poor modeling choices), and number of classes with no textual definitions. OntoSelect focuses on metrics that related to the use of natural languages in ontologies.</p><p>Comments and reviews: As elsewhere on the web, some ontology libraries are harvesting the power of the community to augment their functionality. For instance, in addition to submitting ontologies to the library, users may be able to comment on ontologies or their components, describe their experiences with using ontologies, make suggestions and requests for changes. The ontology libraries in our survey differ in the types of community-based comments and reviews that they have. Ontology level comments, ratings and reviews: Users can provide ratings and reviews on ontologies as a whole, usually indicating how good they think an ontology is, how appropriate it is for a specific task, what is the level of support provided by developer, which parts of the ontology are developed better than others, and so on. The ontologylevel reviews are usually geared towards helping other users to evaluate the ontology and its appropriateness for a task. The libraries may differ on who can provide reviews, whether or not they support the discussion of reviews and ratings of the reviews themselves (for example, enabling users to answer the question ''Was this review helpful to you?''). Developers of some ontology libraries, such as Cupboard and BioPortal, have proposed integrating web of trust mechanisms and other ways of aggregating reviews. The OBO Foundry takes a different approach in helping users assess which reviews to trust: it has the ''editorial board'' model, where a group of experts evaluated the ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Class-level comments and notes:</head><p>The libraries that provide detailed visualization of ontologies (e.g., BioPortal, ONKI), may allow users to comment on specific classes in ontologies. One can imagine a variety of uses for these types of comments and indeed a structure to them, such as passing the feedback on the classes to the ontology authors, suggesting changes and corrections, requesting new items, discussing class definitions among a group of contributors, and providing additional information about a class, such as references, images, or supporting documentation. The OBO Foundry, for example, includes an issue tracker that allows users to request new terms. BioPortal supports notes on classes.</p><p>The notes usually have provenance information, such as who created them and when. It is worth mentioning here however that, while several libraries provide mechanisms for users to comment on and review ontologies, these mechanisms are generally scarcely used. In BioPortal and Cupboard for example, there are no reviews for a large majority of ontologies, and it is rare for an ontology to have more than one review (e.g., there is only one ontology with two reviews in BioPortal at the time of writing). In BioPortal, the main use of the comments feature for users is to request new terms. Indeed, BioPortal provides a form of structured notes to create such term requests <ref type="bibr" target="#b16">[21]</ref>.</p><p>Ontology ranking: In addition to providing ''static'' information about ontologies, such as metrics and reviews, ontology libraries may also provide ranking of ontologies, usually in response to a user query. The ranking indicates which ontology is the most appropriate for the query, for example, by covering better the keywords specified in the query, using standard information retrieval measures such as TF.IDF (term frequency-inverse document frequency <ref type="bibr" target="#b52">[56]</ref>) in Cupboard.</p><p>As with other metadata, standard representation for metrics, reviews, notes, and ranking can enable sharing of the metrics that one tool computes with other libraries. For instance, metric information can be part of the ontology metadata represented in OMV. Then, sharing the metadata this way enables sharing the evaluation data as well.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.4.">Programmatic access to ontologies</head><p>An ontology library may be geared primarily for interactive browsing or it may provide programmatic access to its content. Programmatic access enables application developers to use the content of the ontology library ''live'' in their applications. Most ontology libraries that do provide programmatic access provide it through Web service protocols, such as SOAP and REST. The Web services usually provide access to different types of content, including metadata about the ontologies, search functionalities, ontology content, and query access, such as a SPARQL endpoint.</p><p>Table <ref type="table" target="#tab_5">7</ref> summarizes availability of programmatic access to the content of ontology libraries. BioPortal, Cupboard and ONKI provide REST service access to the content. In all three cases, there are services to access most of the content that the user interface presents, including the metadata about ontologies in the library, the ontology content, details of specific concepts, and, in the case of BioPortal and Cupboard, mappings between ontologies. OLS provides access to its content through SOAP services. BioPortal and Cupboard also provide REST services to add content to the library. ONKI and OLS provide service only to look up the information but not to alter it or to add new information. A number of libraries provide SPARQL endpoints.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Discussion</head><p>In this paper, we have presented a comprehensive survey of active ontology libraries, their similarities and distinctions. We now step back from the detailed analysis of each property to consider the practical implications from this survey for ontology users and Semantic Web practitioners, to discuss what the survey tells us about the current state of the ontology-library technology, and what should be the next steps in developing this technology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.1.">Different types of ontology libraries</head><p>One of the key conclusion that we can draw from our survey is that the set of applications that we describe using the generic term ontology library cover several different types of systems, with different goals and target audiences. This large variety of features and the numerous differences in approaches can be confusing to a user new to the area. Indeed, while on the surface all ontology libraries appear similar, there is little in common between, for example, the OBO Foundry and OntoSearch2. The one common feature is that all the libraries that we discussed provide means for discovering and accessing a set of ontologies-they all serve as ontology repositories. By collecting a number of ontologies in a single place, these systems facilitate the task of discovering ontologies and selecting ontologies that the user needs. They all provide some ways to access the information in the ontologies or to download them, and different mechanisms for finding relevant ontologies.</p><p>Besides the repository function, we can distinguish the following broad categories of ontology libraries, with each category targeting a different set of users: (1) curated ontology directories;</p><p>(2) ontology registries that serve as ontology-publishing platforms for users; and (3) application platforms, that provide programmatic access to ontology content. While these categories have distinct descriptions, several systems are designed to handle several of these generic usage scenarios.</p><p>We now describe these categories in more detail.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Libraries of curated ontologies (ontology directories).</head><p>Perhaps surprisingly, many of the ontology libraries we have studied are not general purpose, domain-independent collections of ontologies, but are explicitly focusing on a particular field and specific usage scenarios. This category includes such systems as the OBO Foundry, ODP, TONES, oeGov, and ONKI. A particular aspect of these libraries is that they put an emphasis on the content of the carefully curated collection of ontologies they provide, rather than on the features of the system. Indeed, most of them are populated manually by the administrators of the system, without the possibility for other users to contribute. In this category, where users can contribute their own content, the systems include strong validation and quality-assurance mechanisms in their process. The goal of these ontology directories is therefore to provide reference ontologies in a particular domain (biomedicine, e-Government, ontology design) with a certain level of guarantee on the validity of these ontologies. Ontology-publishing platforms (ontology registries). Another role an ontology library can play, in contrast with the previous category, is to provide a platform for ontology developers to publish and share their ontologies in a convenient, valid, and efficient way. As a larger variety of practitioners create more and more ontologies, these registries provide platforms for them to publish their ontologies and to make them available to others. The availability of these platforms is crucial in ensuring that ontologies can be distributed and reused across communities, without the ontology developers having to set up their own infrastructure to support them. This type of systems thus focus on providing mechanisms for these ontology developers to register and publish their ontologies easily, sometimes providing specific spaces for different users or different categories of ontologies. Such systems are generally open for any user to contribute (as long as the users are registered) and apply only limited validation mechanisms on the submitted ontologies. These systems put a particular emphasis on the features that support the management of ontologies, including the ability to keep track of versions of ontologies and to include mappings between them. However, while such features seem crucial, considering the growing popularity of the Semantic Web, from the libraries in our survey, only BioPortal and Cupboard seem to be designed to act as ontology registries. Libraries providing technical infrastructures for re-using and using ontologies (application platforms). A final category includes ontology libraries that are dedicated to supporting application developers in using the content of the ontologies to build applications. These applications will often use multiple ontologies and access them directly through the library. We called such systems application platforms as they focus on providing a technical infrastructure to support programmatic access to information, both about the ontologies and the content of the ontologies. This access is provided through querying mechanisms, as well as search and exploration services. Providing such support is a key component of several systems, such as Cupboard, BioPortal, SchemaCache, and OntoSearch2. In this category more than in others, the scalability, robustness, and performance of the underlying technological infrastructure are crucial to guarantee reasonable access for a possibly large number of demanding applications.</p><p>Table <ref type="table">8</ref> provides an overview of these categories and shows where the systems in our survey fall. Understanding what are the different categories and what is the functionality of the systems in each category enables Semantic Web developers to understand which ontology library they need to use for their specific task. More specifically, it helps formulating the criteria to choose a library that would best fit a particular need. For example, an ontology developer who wants to publish an ontology could ask the following questions:</p><p>Is the goal of publishing the ontology to support its broad adoption and reuse? In such cases, the focus for the ontology library system should be on the features it provides to search and browse ontologies, as well as additional information, and evaluation to support users in finding and adopting the ontology. The ontology developer should consider in priority libraries that fall into the ontology registries category. Is the goal of publishing the ontology to ensure some level of endorsement from a particular community? While of course this question relates to the previous one (i.e., endorsement might be thought as a way to support adoption and reuse), here the emphasis should be on libraries that provide an appropriate level of validation of the ontologies they include, and that preferably target the considered community, therefore favouring ontology directories. Is the goal of using a library to provide shared online access to the ontology? Depending on whether the emphasis is on access by humans or applications, different features might be considered. In the case of applications, the programmatic access provided by application platforms seems an important criterion to consider. However, in the case collaboration between developers and users of the ontology is important, the features of application platforms are still relevant as they allow for the ontology to be easily integrated in various software environments. In such cases, libraries combining features from ontology registries and application platforms might be considered.</p><p>Similarly, an ontology user looking for an appropriate ontology library might consider the following questions:</p><p>Is it important for ontologies to be validated by a given community? The level of validation and endorsement by a particular community for an ontology can be very important in scenarios where the user of the ontology library cannot assess the adequacy of the ontology herself, and when the usage of the ontology should comply with some kind of community practices. Ontology directories are naturally more appropriate in such cases, especially if the ontologies obtained from the library should all relate to the same domain.</p><p>Would ontologies relate to one particular domain, one particular format, or will heterogeneous ontologies be considered? In cases where the ontologies to be obtained from the library might come from a variety of sources, covering different domains and formats, the generic search and browsing facilities provided by ontology registries have an advantage, especially in cases where additional content is available, such as ontology metadata and mappings. Would ontologies be used in applications and integrated with other software environments? It is often assumed that ontologies would be found in a library and downloaded to be used locally. However, in scenarios where the ontologies from the library should be integrated in applications and other software environments, the programmatic access provided by application platforms to both the content of the ontologies and to features such as search and metadata retrieval represent a natural advantage.</p><p>We hope that the details that our survey provides will help both ontology developers and users navigate the landscape of ontology libraries using the questions above as starting point.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.2.">Open issues</head><p>We outlined the key features that today's ontology library provide, and gave an overview of the range of available systems.</p><p>However, our analysis also highlights issues that are not sufficiently addressed by current systems, missing features and, broadly, gaps in this landscape that should inform the developers of ontology libraries and researchers interested in ontology publishing.</p><p>From a broad perspective, a question to be asked is whether ontology libraries are successful. We argued that ontology libraries should support the activity of ontology reuse, which involve facilitating the discovery and integration of ontologies. There is no data yet to show that publishing ontologies in the ontology libraries is actually an effective way to support users in finding and reusing ontologies. Indeed, the current proliferation of systems and approaches might actually be a symptom of the lack of efficient methods to address the problem of discovering relevant ontologies. Some of the systems rely on the metadata attached to ontologies to help users in understanding their content, and assessing their relevance. Others provide visualizations of the whole content of an ontology, or of a meaningful summary. However, a number of questions cannot be directly answered using these tools: ''where has an ontology been used before?'' or ''is this ontology compatible with mine?'' Looking at the current state of ontology libraries, one might therefore ask whether or not they are actually relevant. Indeed, it can be easily argued that most ontology practitioners reuse ontologies without necessarily using ontology libraries. However, this fact alone does not necessarily imply that ontology libraries are irrelevant, but rather that both the systems and the practices for ontology reuse are not mature enough yet. Ontology reuse is becoming a more difficult task, with the proliferation of ontologies that constantly appear on the Semantic Web. Ontology practitioners often rely on their social network to find and select ontologies to reuse. However, in addition to not being very scalable, this approach does not address new ontology practitioners who might not share any connection with ontology developers in their community. Ontology libraries have a role to play, but as the social practices of ontology reuse evolve, the systems also need to evolve to include these social practices. Indeed, it appears as an anomaly that most of the systems we have considered in our survey do not provide ways for ontology practitioners to connect to the developers and other users of ontologies, and none of them integrate the otherwise omnipresent social networking features that would enable more contemporary ways to engage in the communities related to ontologies.</p><p>To a large extent, there is a parallel between ontology libraries and online code sharing environment, especially in the open source world. In both cases, the goal is to publish online an engineering artifact so that others can reuse it. The two types of repositories address different types of users and use cases. For example, most users of source-code repositories use these repositories to extend or reuse the code. Many users who look for ontologies in the ontology libraries do not plan to extend them by writing their own ontologies (akin to their own code) but rather to use the exiting ontologies in their applications. <ref type="foot" target="#foot_0">1</ref> At the same time, looking at the features of mature source-code repositories highlights open issues that ontology-library developers must still address: Documentation and Licensing Information. We can achieve a higher level of ontology reuse only if users can access the details on the conditions under which an ontology can be reused. We mentioned that several systems include metadata describing certain characteristics of ontologies such as their provenance. However, such metadata does not generally include characteristics that directly affect the possible reuse of the ontology. Licensing for ontologies in particular is an area that have been given little attention in all the systems we reviewed. Access Privileges. In all the systems that we studied in this survey, all ontologies are available to all users. Because not all ontologies are available to everyone without restrictions-and this situation will be exacerbated as more commercial entities start developing proprietary ontologies-functionalities related to access control will become critical. Interactions between Contributors and Contributions. As more libraries enable their users to review content, and to provide notes, mappings, and other metadata, they must address the interaction between the users and the content that they contribute. For instance, none of the libraries has clear policies on who can delete or change a note or a mapping that a user has created, who can change the metadata about an ontology and who can create mappings for ontologies. As libraries support different types of contributions, a larger number of these questions will have to be addressed. Evolution of Ontologies. Ontologies on the Semantic Web evolve and authors publish new versions. Ontology libraries must maintain all the metadata and user-contributed content through this evolution process. Users add the metadata for specific ontology versions, and, in theory, any metadata can become invalid when a new version is published. For example, if a class definition changes, a mapping may become invalid; or a note, requesting a change to a class, could become irrelevant. Similarly, a review that indicates some problems with an ontology may no longer be adequate after the ontology has been fixed. At the same time, we do not want to invalidate all usercontributed content linked to an ontology once a new version of that ontology is uploaded: Our earlier research shows that only a small fraction, usually 1-4%, of ontologies changes from one version to the next <ref type="bibr" target="#b45">[49]</ref>. Libraries that we surveyed take different approaches to this problem. For instance, BioPortal uses a hybrid approach: all metadata, such as comments, mappings, reviews, are attached to a specific ontology version. The same is true for reviews in ODP. However, the metadata also references the global ontology ID and the user interface exposes the metadata when users access a newer ontology version. ODP users can also link new versions of ontologies to the reviews that the version addresses. To Edit or not to Edit? None of the ontology libraries in our survey provides a way for users to edit the ontologies themselves. However, many papers that describe these libraries talk about support for ontology editing as the natural next step in their evolution. Developers have not yet determined what are the workflows for such editing: Who should be allowed to edit? How frequently are the new versions created? What are the processes for reaching consensus and resolving conflicts? Indeed, is support for ontology editing even a reasonable feature to have in a library or should a library link to other tools that support ontology editing? Finally, one question that none of the libraries is addressing yet is the following: how can ontology libraries interoperate? We have discussed 11 different systems, and we can clearly see many redundancies in these systems, both in their content and in their features. Besides the duplication of effort, it seems to be contradicting the very goal of ontology libraries that a user would have to use of several different systems to find ontologies to reuse, generally having to adapt to the specifics of each system and to the way to interact with them. Furthermore, we must develop ways to aggregate user-contributed content, such as comments, reviews, and mappings. The pool of contributors of such content is rather small, and it is unlikely that users would enter the same review, or the same piece of metadata, for the same ontology across all the available systems. Our community must develop recommendations specifying standard ways for users and tools to access, communicate and contribute to ontology libraries, creating a more homogeneous experience for users, and the possibility for ontology library systems to network and exchange content with one another.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.">Conclusions</head><p>There are different reasons to create an ontology library and many different reasons to use one. As a result, the number of such systems has grown dramatically, in a way that could appear confusing to ontology practitioners wishing to publish their ontologies, to find existing ones to reuse, or to exploit existing ontologies efficiently.</p><p>In this paper, we have presented a comprehensive survey on 11 currently available ontology-library systems. Our survey has demonstrated a large variability among the ontology libraries. The libraries' initial purpose and domain as well as projected usage significantly affect the type of content that the library contains and the set of key functional features that it provides. While it is still hard for users to understand which ontologies have been used more actively in applications and what are the trade-offs of using or extending specific ontologies, the ontology libraries that we surveyed are beginning to address these needs, giving users a place to start.</p><p>Many libraries do not consider version management important for their aims and store only a single version of each ontology. When a new version is added, it replaces the current version in the library. These libraries include oeGov, OLS, OntoSelect, Onto-Search2, TONES, and ONKI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.2. Infrastructure and technology</head><p>Users do not often think of infrastructure and technologies that are at the core of a particular ontology library when deciding which library to use to search for or to publish ontologies. However, these elements can have an important influence on certain characteristics of the systems such as their scalability and robustness, in some cases making them inadequate for particular scenarios. The technology is particularly important for the libraries that must deal with a large number of ontologies or extremely large ontologies, such as some ontologies in the biomedical domain. For example, the Foundational Model of Anatomy has more than 80,000 concepts, the National Cancer Institute's Thesaurus is an OWL ontology with 50,000 classes, and numerous restrictions for each class, and the Gene Ontology has more than 20,000 classes. An ontology library that supports such large ontologies must use reliable and scalable infrastructure and robust technologies.</p><p>The following aspects can give us an insight into the technical infrastructure that ontology libraries deploy:</p><p>Underlying Infrastructure Components: Many ontology libraries use existing software components as part of their core infrastructure, such as software-engineering tools (e.g., CVS) or ontology tools (e.g., the Alignment Server, Watson, Protégé). The types of tools that are at the core of an ontology library often influence the types of features that the library can support. Ontology Storage: Whether ontology libraries store the ontologies in their collections locally and how they do it, is critical to the performance of the system and the range of use cases that it can support. Not all ontology libraries actually store the ontologies in their collection. In some cases, they index the ontologies for searching or store only the ontology metadata. Architectural Design: Most of the ontology library systems rely on a single server to support their operations. However, there can be different forms of distribution, for the purposes of performance, reliability or to separate different components of the system. While distribution adds to the complexity of the library system as a whole, it can also facilitate its ability to grow to a large number of ontologies.</p><p>Table <ref type="table">A</ref>.1 summarizes the technological infrastructures underlying the ontology libraries in our study. Many of these systems reuse existing, well established components within their basic architecture. For example, the OBO Foundry is almost entirely based on Sourceforge <ref type="bibr" target="#b12">[16]</ref>, benefitting not only from the features provided by this system (version control, issue-tracker, etc.), but also from its maturity. Both oeGov and ODP reuse common content publishing systems (blogs in one case and wikis in the other). ODP implements many adaptations to and extensions of the original MediaWiki platform <ref type="bibr" target="#b5">[7]</ref> to fit it to the task of ontology publication, while oeGov uses Wordpress <ref type="bibr" target="#b14">[19]</ref> with almost no modification. Schema-Cache is developed by Talis and relies entirely on the Talis platform [17], which is an efficient RDF Storage and manipulation platform provided as an online service, in the spirit of cloud-based applications. Indeed, by relying on the Talis platform, Schema-Cache can abstract from any physical infrastructure and from aspects such as storage and communication scale. Finally, Cupboard is a system built collaboratively (as part of the NeOn project [8]) and that includes several components for managing ontologies. At the core of the system is the Watson Semantic Web search engine, used to index all the ontologies provided by the users, to implement the search mechanisms and to act as a base for the provided services and APIs. Cupboard also integrates the Alignment Server to create and manipulate alignments. It relies on the Oyster peer2peer ontology metadata registry <ref type="bibr" target="#b49">[53]</ref> as a key component for manipulating ontology metadata in OMV, and on the TS-ORS <ref type="bibr" target="#b42">[46]</ref> ontology review and rating system for user evaluation. OntoSearch2 relies on a specially designed query engine and reasoner developed by the same team: TrOWL (Tractable reasoning infrastructure for OWL 2 <ref type="bibr" target="#b55">[59]</ref>). BioPortal relies in part on the previous developments from the same team including the Protégé ontology editor <ref type="bibr" target="#b2">[3]</ref> and the LexGrid framework for biomedical terminologies and ontologies <ref type="bibr" target="#b50">[54]</ref>. TONES relies essentially the OWL API <ref type="bibr">[2]</ref> for managing ontologies in the OWL language, and on the OWLSight <ref type="bibr" target="#b8">[11]</ref> ontology visualization tool. OLS uses the OBO API <ref type="bibr" target="#b0">[1]</ref> for the OBO language.</p><p>The mechanisms for ontology storage are influenced both by the features that each system provides and by the technical characteristics of these systems. Several systems rely on generic storage mechanisms such as databases (OLS, BioPortal) or the local file system (Cupboard, ODP, oeGov, ONKI). Other systems (OntoSearch2, Schema-Cache, TONES) use storage mechanisms specially designed for RDF data (triple stores) or for OWL ontologies (OWL API). Finally, whenever the system supports such features as advanced search, ontology browsing, representation of ontology metadata, or ontology mappings, it must deploy additional storage facilities (e.g., indexes, metadata registries).</p><p>In terms of deployment architecture, many of the ontology library simply rely on a single Web server to deliver their functionalities. Some of the systems rely on simple Web services (in a RESTful manner <ref type="bibr" target="#b36">[40]</ref>) to distribute and interface their components (Cupboard, TONES, BioPortal). The OBO Foundry appears here as an exception as it relies on the CVS-based architecture of Sourceforge.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.3. Integration with the Semantic Web infrastructure</head><p>We can consider ontologies in an ontology library to be part of the greater Semantic Web. There are several aspects to this relationship between an ontology library (even a Web-based one) and the collection of ontologies that are available on the Web.</p><p>Providing ''web space'' for ontologies: Many users (particularly domain experts) develop their ontologies locally. They may use an ontology library to give their ontology a Web presence. In this case, the ontology library must provide unique URIs for the ontology, and, preferably, to specific resources-classes, properties, individuals, axioms-in that ontology. In the case where an ontology library maintains versions of an ontology, a version of such URIs may resolve to the latest version (along with a version-specific URI). Some libraries, on the contrary, require that the ontology is already accessible through a URI in order to be included in a library. Providing machine-readable URIs for ontology components: In addition to links to HTML pages that are designed for browsing, one can also have pages for ontology components that are designed for consumption by Semantic Web agents. For instance, an HTML page for a class may have RDFa embedded in it or there may be a separate URI that brings up the RDF version of the same class. The W3C outlines several best practices for publishing vocabularies <ref type="bibr" target="#b19">[24]</ref>, which differ in their choices of hash vs slash approach, and RDF vs RDFa. We distinguish ontology libraries by which of these schemes they support.</p><p>BioPortal provides URI access to ontology and pages that visualize specific ontology classes and their details. It mints its own URIs and can also generate purls that will resolve to the corresponding BioPortal pages. ODP can point to patterns elsewhere on the Web or have the users deposit patterns as OWL files on the site. ONKI stores ontologies locally and provides a URL. The OBO Foundry provides a URL for downloading the ontology. oeGov, OntoSelect, OntoSearch2, Schema-Cache link to the ontologies by their URLs; thus the ontologies must have independent Web presence to be included in the library. OLS does not provide URI-based access to ontologies. At the time of adding an ontology to the library, Cupboard gives the choice to the user either to use its original URI, or to create a new URI within the Cupboard space. This functionality is very useful in the cases where Cupboard is used as the primary publication platform for the ontology, so that entities' URIs in the published ontology can resolve into physical URIs in the Cupboard system. In addition, Cupboard employs basic Content Negotiation mechanisms, with the ontology URI showing either an HTML description of the ontology (metadata) or providing its RDF representation depending on the request. BioPortal uses a different URI for the HTML page of a class and for its RDF page.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.4. Formats</head><p>At a technical level, the representation formats that an ontology library accepts is a crucial element to be considered. Here we discuss the format of the ontology itself and the languages to which it can be exported using the tools available in the library. Supported ontology formats can include standard Semantic Web representation languages, such as RDF(S) and OWL, and more specialized ontology representation formalisms such as OBO, a format common for representing biomedical ontologies and terminologies, and RRF, a format in which the US National Library of Medicine distributes the terminologies in the Unified Medical Language System (UMLS). Some libraries can also support only a subset of a given language, such as OWL-DL. Export can be an important additional feature of an ontology library. Indeed, while most of the libraries in our survey allow users to download an ontology only in its original format, some provide transformation facilities allowing to obtain the same ontology translated in another ontology language. Table A.2 summarizes the ontology formats that the libraries support. For the libraries that provide transformation capabilities, the last column in the table includes the target ontology languages. Ontologies that use Semantic Web standards for representation are widely accepted by most libraries with some accepting any RDFbased representation, while others limiting to OWL or OWL-DL (TONES). The OBO Format is commonly used for representing biomedical ontologies and so the three libraries that focus on this domain (BioPortal, OBO Foundry, and OLS) accept ontologies in this format.</p><p>For the export format, Cupboard and OntoSearch2 provide a SPARQL endpoint access to their content. The OBO Foundry provides a transformation from the OBO format to OWL. Schema-Cache has a large variety of converters, while most of the others only provide the ontologies in their original format.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.5. Features of the library</head><p>Finally, we discuss the features that various libraries provide that ensure the value to the users-both human users accessing the collection through their Web browsers, and computer programs. We discuss the following groups of salient features:</p><p>Reasoning support: Reasoning is an essential component of using many OWL ontologies. A number of libraries provide reasoning support or contain metadata that describes the level of inference that was used to create an inferred version of an ontology (Section A.5.1). User management: Any library that enables users to contribute content must have some level of user management, including such aspects as the ability to manage access control, provide different spaces for different users, and possibly different roles (Section A.5.2). Notification and syndication: Some libraries enable their users to subscribe to receive notifications of changes in the library's collection, or in the ontologies themselves (Section A.5.3). Libraries may provide mechanisms to invoke reasoning engines on ontologies in the collection. Users may request reasoning on demand, or the library software may invoke some reasoning procedures when a new ontology is loaded. For instance, one can imagine that any time a new OWL-DL ontology is loaded, the loader calls a classifier to provide an inferred version of the ontology. The library maintainers must decide what to do with ontologies that do not classify (e.g., take them down or have a flag that shows that the ontology does not classify). At this point, there is also significant variability in classifiers in terms of the features that they support. Inference information may be part of ontology metadata that the library provides. Ontology authors may be able to indicate in this metadata which inference engine they used to verify or classify their ontology. Also, for DL ontologies, the authors might want to submit both versions, an asserted version and an inferred version (e.g., some ontology authors in BioPortal take this approach 2 ). The TONES repository performs classification on the fly, when the user starts ontology browsing. The repository calls the Pellet reasoner and uses OWLSight for ontology browsing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.5.2. User management</head><p>Any library that enables users to contribute content must have some level of user management. Users can have different roles. In a number of libraries in our survey, only library maintainers contribute content and users do not. Thus, for these libraries user management is not an issue: The OBO Foundry, oeGov, OLS, OntoSearch2, and TONES. OntoSelect allows users to upload an ontology, but does not require them to create an account. BioPortal, Cupboard, and ODP all require users to create accounts in order to submit an ontology. There are two levels of users in ODP: reviews by the members of the ''quality committee'' are presented separately from the reviews by other users. Other libraries do not distinguish between different types of users.</p><p>Access control: In most ontology libraries that we surveyed, all users have access to all ontologies in the library. However, one can imagine the need for restricted access to some ontologies, perhaps during certain stages of their development. For instance, a group may want to make an ontology available to a limited set of users, who need to log in order to access it, at the stage of collecting feedback from the collaborators. Ontology may become publicly available later. Similarly, there is significant interest in having libraries of proprietary ontologies, and we are sure such libraries must exist, but we did not have access to them when writing this paper. Of the libraries in our survey, however, only Cupboard provides varying level of access to ontologies, based on the notion of ontology spaces. Indeed, depending on whether the user is logged in and owns a particular ontology space, different features are activated in Cupboard (e.g., the ability to create mappings between ontologies is only available to the owner of the ontology space which contains the ontologies).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.5.3. Notification and syndication</head><p>Few of the libraries that we studied currently provide active notifications. In BioPortal users can subscribe to RSS feeds for all changes in one ontology (new notes or mappings, new versions), a set of ontologies, or all ontologies. Users can also subscribe to the RSS feed of the underlying blog system in oeGov. The OBO Foundry project uses the bug tracking mechanism that comes with the CVS software that they use to manage the ontologies and ontology versions. The bug tracking software provides notification mechanisms, where users can subscribe to receive emails about bugs (feature and term requests) in specific projects.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,158.74,528.78,283.67,201.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Domain coverage and intended use of an ontology library. The second column describes the domain of the ontologies in the library. ''General'' domain indicates that there are no domain restrictions on the content. The third column describes the intended use of the library.</figDesc><table><row><cell>Library</cell><cell>Domain</cell><cell>Intended use</cell></row><row><cell>BioPortal</cell><cell>Biomedical</cell><cell>General ontology access and community</cell></row><row><cell></cell><cell></cell><cell>evaluation</cell></row><row><cell>Cupboard</cell><cell>General</cell><cell>General ontology access and community</cell></row><row><cell></cell><cell></cell><cell>evaluation</cell></row><row><cell>OBO</cell><cell>Biomedical</cell><cell>Collaboration space to develop a coherent</cell></row><row><cell>Foundry</cell><cell></cell><cell>set of ontologies</cell></row><row><cell>oeGov</cell><cell>e-Government</cell><cell>Access to a list and description of ontologies</cell></row><row><cell>OLS</cell><cell>Biomedical</cell><cell>Programmatic access and search capabilities</cell></row><row><cell>ODP</cell><cell>General</cell><cell>Support for ontology design through pattern</cell></row><row><cell></cell><cell></cell><cell>reuse</cell></row><row><cell>OntoSelect</cell><cell>General</cell><cell>Use of ontologies for text annotation</cell></row><row><cell cols="2">OntoSearch2 General</cell><cell>Search and query of ontology content</cell></row><row><cell>ONKI</cell><cell>Business,</cell><cell>General ontology access</cell></row><row><cell></cell><cell>geography</cell><cell></cell></row><row><cell></cell><cell>cultural</cell><cell></cell></row><row><cell></cell><cell>heritage,</cell><cell></cell></row><row><cell>Schema-</cell><cell>General</cell><cell>Access to a list and description of ontologies</cell></row><row><cell>Cache</cell><cell></cell><cell></cell></row><row><cell>TONES</cell><cell>General</cell><cell>Tool testing and profiling</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Content collection and gatekeeping mechanisms. The second column lists where the ontologies in the library come from and who can submit them. The third column describes the validation that is performed when the ontology is submitted to the library and the gatekeeping rules that determine what ontologies the library can include.</figDesc><table><row><cell>Library</cell><cell>Collection</cell><cell>Gatekeeping</cell></row><row><cell>BioPortal</cell><cell>Submitted by registered</cell><cell>Manual curation and</cell></row><row><cell></cell><cell>users; federation from OBO</cell><cell>automatic syntax validation</cell></row><row><cell></cell><cell>Foundry; import from CVS</cell><cell></cell></row><row><cell></cell><cell>and SVN</cell><cell></cell></row><row><cell>Cupboard</cell><cell>Submitted by registered</cell><cell>Automatic syntax validation</cell></row><row><cell></cell><cell>users; import form other</cell><cell></cell></row><row><cell></cell><cell>libraries</cell><cell></cell></row><row><cell>OBO</cell><cell>Submitted by users</cell><cell>Developers must conform to</cell></row><row><cell>Foundry</cell><cell></cell><cell>OBO Foundry principles; an</cell></row><row><cell></cell><cell></cell><cell>editorial committee must</cell></row><row><cell></cell><cell></cell><cell>Recommend inclusion</cell></row><row><cell>oeGov</cell><cell>Added by administrators</cell><cell>Performed by administrators</cell></row><row><cell></cell><cell>through a blog post</cell><cell></cell></row><row><cell>OLS</cell><cell>Federated from OBO Foundry</cell><cell>Same as OBO Foundry</cell></row><row><cell></cell><cell>and added by administrators</cell><cell></cell></row><row><cell>ODP</cell><cell>Submitted by registered</cell><cell>Validation by committee and</cell></row><row><cell></cell><cell>users</cell><cell>registered users</cell></row><row><cell>OntoSelect</cell><cell cols="2">Crawling; submitted by users Automatic syntax validation</cell></row><row><cell cols="2">OntoSearch2 Submitted by administrators</cell><cell>Automatic syntax validation</cell></row><row><cell></cell><cell>and users</cell><cell></cell></row><row><cell>ONKI</cell><cell>Administrators</cell><cell>Manual curation and</cell></row><row><cell></cell><cell></cell><cell>automatic syntax</cell></row><row><cell></cell><cell></cell><cell>validation</cell></row><row><cell>Schema-</cell><cell>Submitted by users (no need</cell><cell>Automatic syntax validation</cell></row><row><cell>Cache</cell><cell>to register)</cell><cell></cell></row><row><cell>TONES</cell><cell>Submitted by administrators</cell><cell>Performed by administrators</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc>Size of the libraries. The second column lists the number of ontologies in each library. The third column indicates whether this number is stable or growing. Extracted From or Specialization Of. The use of such ontology relations is still, however, very limited.While researchers have identified other types of ontology-level relations</figDesc><table><row><cell>Library</cell><cell>Number of ontologies</cell><cell>Dynamics</cell></row><row><cell>BioPortal</cell><cell>270</cell><cell>Growing</cell></row><row><cell>Cupboard</cell><cell>150</cell><cell>Growing</cell></row><row><cell>OBO Foundry</cell><cell>86</cell><cell>Stable</cell></row><row><cell>oeGov</cell><cell>31</cell><cell>Growing</cell></row><row><cell>OLS</cell><cell>79</cell><cell>Stable</cell></row><row><cell>ODP</cell><cell>125</cell><cell>Growing</cell></row><row><cell>OntoSelect</cell><cell>1530</cell><cell>Stable</cell></row><row><cell>OntoSearch2</cell><cell>200</cell><cell>Stable</cell></row><row><cell>ONKI</cell><cell>78</cell><cell>Stable</cell></row><row><cell>Schema-Cache</cell><cell>157</cell><cell>Stable</cell></row><row><cell>TONES</cell><cell>231</cell><cell>Stable</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 5</head><label>5</label><figDesc>Browsing mechanisms supported by ontology libraries. The second column describes the different ways in which the users can order and navigate the listing of the ontologies in the library. The second column contains ''yes'' if the library provides browsing capabilities for the content of the ontologies themselves and ''no'' of it does not.</figDesc><table><row><cell>Library</cell><cell>Navigation criteria</cell><cell>Browsing ontologies</cell></row><row><cell>BioPortal</cell><cell>Ordered by name, author, version, etc.</cell><cell>Yes</cell></row><row><cell>Cupboard</cell><cell>Ordered by date, linked through references</cell><cell>Yes</cell></row><row><cell>OBO Foundry</cell><cell>Ordered by name, domain, etc.</cell><cell>No</cell></row><row><cell>oeGov</cell><cell>Ordered by publication date</cell><cell>No</cell></row><row><cell>OLS</cell><cell>Ordered by name</cell><cell>Yes</cell></row><row><cell>ODP</cell><cell>Ordered by name, domains, etc.</cell><cell>No</cell></row><row><cell>OntoSelect</cell><cell>Ordered by metrics</cell><cell>No</cell></row><row><cell>OntoSearch2</cell><cell>No navigation available</cell><cell>No</cell></row><row><cell>ONKI</cell><cell>Faceted browsing (subject, structure, publisher, etc.)</cell><cell>Yes</cell></row><row><cell>Schema-Cache</cell><cell>No specific ordering</cell><cell>Yes</cell></row><row><cell>TONES</cell><cell>Ordered by metrics</cell><cell>No</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 6</head><label>6</label><figDesc>Ontology evaluation mechanisms. The second column lists the types of metrics that the library provides. Most libraries provide syntactic metrics such as the number of classes, properties, and axioms. Empty cells in this table indicate that there is no evaluation mechanism present. The third column lists the types of user feedback and evaluation that the library collects. It highlights whether users can provide the feedback at the level of ontology as a whole (''ontology-level'') or at the level of a single class (''class-level''). The final column links the mechanism, if any, that the library uses to rank the ontologies.</figDesc><table><row><cell>Library</cell><cell>Metrics</cell><cell>Comments and reviews</cell><cell>Ranking</cell></row><row><cell>BioPortal</cell><cell>Syntactic and conformance to</cell><cell>Ontology-level and class-level</cell><cell></cell></row><row><cell></cell><cell>best practices</cell><cell></cell><cell></cell></row><row><cell>Cupboard</cell><cell>Syntactic, DL expressivity</cell><cell>Ontology-level</cell><cell>TF.IDF</cell></row><row><cell>OBO Foundry</cell><cell>Syntactic</cell><cell>Ontology-level (CVS term tracker for each ontology)</cell><cell></cell></row><row><cell>oeGov</cell><cell></cell><cell>Ontology-level (blog-based)</cell><cell></cell></row><row><cell>OLS</cell><cell></cell><cell></cell><cell></cell></row><row><cell>ODP</cell><cell></cell><cell>Ontology-level</cell><cell></cell></row><row><cell>OntoSelect</cell><cell>Syntactic</cell><cell></cell><cell>Metric-based</cell></row><row><cell>OntoSearch2</cell><cell></cell><cell></cell><cell></cell></row><row><cell>ONKI</cell><cell></cell><cell>Ontology-and entity-level</cell><cell></cell></row><row><cell>Schema-Cache</cell><cell>Syntactic</cell><cell></cell><cell></cell></row><row><cell>TONES</cell><cell>Syntactic; DL expressivity</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 7</head><label>7</label><figDesc>Programmatic access, Web services, and APIs. The second column lists the types of Web-service access, if any, that the library supports. The third column indicates whether or not the library provides a SPARQL endpoint for its content. The fourth column lists the type of content that is accessible through the API. The column is blank if the library does not provide Web service access. The final column indicates whether there are Web services to update the library content (''write'') or only to query it (''read''). The column is blank if neither read nor write is available.</figDesc><table><row><cell cols="3">Table 8 Classification of ontology libraries in different categories</cell><cell>p means ''belongs to the</cell></row><row><cell cols="4">category'', means ''provides some of the features related to this category''. Blank</cell></row><row><cell cols="3">means ''does not belong to the category.''</cell><cell></cell></row><row><cell></cell><cell>Ontology</cell><cell>Ontology</cell><cell>Application</cell></row><row><cell></cell><cell>directory</cell><cell>registry</cell><cell>platform</cell></row><row><cell>BioPortal Cupboard OBO Foundry oeGov OLS ODP</cell><cell>p p p p</cell><cell>p p</cell><cell>p p</cell></row><row><cell>OntoSelect OntoSearch2 ONKI Schema-</cell><cell>p</cell><cell></cell><cell>p p p</cell></row><row><cell>Cache TONES</cell><cell>p</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table A . 1</head><label>A1</label><figDesc>Technological infrastructures underlying ontology libraries. The second column lists the key components of the technology infrastructure. The third column describes the storage mechanism. The final column describes the architecture, and specifically whether the library supports distributed architecture (and the type of communication, if yes) or whether it has a single-server model. The ontology formats that the libraries support. The second column lists the type of file formats that the library can accept successfully. The last column lists the type of file formats that the library exports to. A blank cell in the last column indicates that the ontology is available only in its original format.</figDesc><table><row><cell>A.5.1. Reasoning</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Library</cell><cell>Components</cell><cell>Storage</cell><cell>Architecture</cell></row><row><cell>BioPortal</cell><cell>Protégé, LexGrid</cell><cell>Databases; indexes;</cell><cell>Single server</cell></row><row><cell></cell><cell></cell><cell>OMV metadata</cell><cell cols="2">REST-based communication</cell></row><row><cell>Cupboard</cell><cell>Watson, Alignment Server, Oyster, TS-ORS</cell><cell>Local file; indexes</cell><cell cols="2">Distributed components REST-based communication</cell></row><row><cell>OBO Foundry</cell><cell>Sourceforge</cell><cell>CVS repository</cell><cell>CVS-based</cell></row><row><cell>oeGov</cell><cell>Wordpress</cell><cell>Local files, links to originals</cell><cell>Single server</cell></row><row><cell>OLS</cell><cell>OBO API</cell><cell>Database</cell><cell>Single server</cell></row><row><cell>ODP</cell><cell>MediaWiki</cell><cell>Local file</cell><cell>Single Server</cell></row><row><cell>OntoSelect</cell><cell>Ad-hoc</cell><cell>Links to original ontologies</cell><cell>Single server</cell></row><row><cell>OntoSearch2</cell><cell>TrOWL</cell><cell>Triple store</cell><cell>Single server</cell></row><row><cell>ONKI</cell><cell>Ad-hoc</cell><cell>Local files; indexes</cell><cell>Single server</cell></row><row><cell>Schema-Cache</cell><cell>Talis platform</cell><cell>Triple store</cell><cell>Cloud-based</cell></row><row><cell>TONES</cell><cell>OWL API, OWLSight</cell><cell>OWL API</cell><cell>REST-based</cell></row><row><cell></cell><cell></cell><cell>Table A.2</cell><cell></cell></row><row><cell></cell><cell></cell><cell>Library</cell><cell>Accepted formats</cell><cell>Exports to formats</cell></row><row><cell></cell><cell></cell><cell>BioPortal</cell><cell>OWL, RDF, OBO, RRF</cell></row><row><cell></cell><cell></cell><cell>Cupboard</cell><cell>Any RDF-based,</cell><cell>SPARQL interface</cell></row><row><cell></cell><cell></cell><cell></cell><cell>RDF/XML</cell></row><row><cell></cell><cell></cell><cell>OBO</cell><cell>OBO, OWL</cell><cell>OWL</cell></row><row><cell></cell><cell></cell><cell>Foundry</cell><cell></cell></row><row><cell></cell><cell></cell><cell>oeGov</cell><cell>OWL (RDF, N3)</cell></row><row><cell></cell><cell></cell><cell>OLS</cell><cell>OBO</cell></row><row><cell></cell><cell></cell><cell>ODP</cell><cell>OWL</cell></row><row><cell></cell><cell></cell><cell>OntoSelect</cell><cell>Any RDF-based</cell></row><row><cell></cell><cell></cell><cell cols="2">OntoSearch2 OWL-DL</cell><cell>SPARQL interface</cell></row><row><cell></cell><cell></cell><cell>ONKI</cell><cell>RDF</cell></row><row><cell></cell><cell></cell><cell>Schema-</cell><cell>Any RDF-based,</cell><cell>RDF/XML, RSS 1.0, turtle, JSON, SPARQL</cell></row><row><cell></cell><cell></cell><cell>Cache</cell><cell>RDF/XML</cell><cell>interface</cell></row><row><cell></cell><cell></cell><cell>TONES</cell><cell>OWL-DL, OWL2</cell><cell>RDF/XML, OWL/XML</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>While a number of ontology projects use sourceforge to track requests, there are serious limitations to this approach<ref type="bibr" target="#b57">[61]</ref> and a number of these communities are moving to BioPortal.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgment</head><p>This research was supported in part by the <rs type="funder">National Center for Biomedical Ontology</rs>, under roadmap-initiative Grant <rs type="grantNumber">U54 HG004028</rs> from the <rs type="funder">National Institutes of Health</rs>.</p><p>The authors of this paper are actively involved in the development of two systems in the survey: <rs type="institution">Cupboard and BioPortal</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_Yx7XPrF">
+					<idno type="grant-number">U54 HG004028</idno>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix A. Additional features</head><p>The appendix contains our discussion and comparison of the features of different libraries that might be of interest to more specialized audience. Specifically, we discuss version management for ontologies, technology infrastructure that underpins the libraries, the way the library integrates with the Semantic Web infrastructure in general, and other library features.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.1. Version management</head><p>Ontologies available on the Web (and in the libraries) often continue to evolve and their authors publish new versions of the ontologies. Thus, some libraries provide versioning mechanisms that enable users and developers to keep track of updates. Specifically, BioPortal, Cupboard, and the OBO Foundry store successive versions of the ontologies. The OBO Foundry uses the Sourceforge infrastructure for its version management. BioPortal and Cupboard implement their own version management. Cupboard always shows the latest version of an ontology in a given ontology space, while BioPortal provides two ways to access each ontology version: there is a version-specific access that resolves to a specific ontology version that the user request. There is also ontology-level access that resolves to the latest ontology version. For instance, an ontology-level URL to access a concept in an ontology will resolve to that concept's page in the latest version of the ontology.</p><p>BioPortal also provides a structural diff between successive versions of OWL ontologies in its collection, using the PromptDiff tool <ref type="bibr" target="#b47">[51]</ref>. The OBO Foundry provides a textual diff through Sourceforge.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Gene</forename><surname>Ontology</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">-Obo</forename><surname>Edit</surname></persName>
+		</author>
+		<ptr target="&lt;http://sourceforge.net/projects/geneontology/&gt;" />
+		<imprint/>
+	</monogr>
+	<note>including an OBO API</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<ptr target="&lt;http://owlapi.sourceforge.net/&gt;" />
+		<title level="m">The OWL API</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">The Protégé ontology editor and knowledge acquisition system</title>
+		<ptr target="&lt;http://protege.stanford.edu/&gt;" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<ptr target="&lt;http://precedings.nature.com/collections/icbo-2009&gt;" />
+		<title level="m">International Conference on Biomedical Ontology (Nature Proceedings</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Open Ontology Repository</title>
+		<author>
+			<persName><surname>Ontologwiki</surname></persName>
+		</author>
+		<ptr target="http://ontolog.cim3.net/cgi-bin/wiki.pl?OpenOntologyRepository" />
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Mediawiki</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Org</surname></persName>
+		</author>
+		<ptr target="&lt;http://www.mediawiki.org&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Ontologies for e-government</title>
+		<ptr target="&lt;http://oegov.org/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title/>
+		<ptr target="&lt;http://ontologydesignpatterns.org&gt;" />
+	</analytic>
+	<monogr>
+		<title level="j">Ontology Design Patterns.org</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Owlsight</surname></persName>
+		</author>
+		<ptr target="&lt;http://pellet.owldl.com/ontology-browser/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<ptr target="&lt;http://protegewiki.stanford.edu/wiki/Protege_Ontology_Library&gt;" />
+	</analytic>
+	<monogr>
+		<title level="j">Protégé ontology library</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Schema-Cache</surname></persName>
+		</author>
+		<ptr target="&lt;http://schemacache.test.talis.com/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Schemaweb</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Info</surname></persName>
+		</author>
+		<ptr target="&lt;http://www.schemaweb.info/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">net: Find and develop open source software</title>
+		<author>
+			<persName><surname>Sourceforge</surname></persName>
+		</author>
+		<ptr target="&lt;http://sourceforge.net/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Repository</forename><surname>Tones Ontology</surname></persName>
+		</author>
+		<ptr target="&lt;http://owl.cs.manchester.ac.uk/repository/&gt;" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<ptr target="&lt;http://wordpress.org/&gt;" />
+		<title level="m">Wordpress: Blog tool and publishing platform</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Managing ontologies:a comparative study of ontology servers</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">N</forename><surname>Ahmad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Colomb</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ADC &apos;07: Proceedings of the Eighteenth Conference on Australasian Database</title>
+		<meeting><address><addrLine>Darlinghurst, Australia</addrLine></address></meeting>
+		<imprint>
+			<publisher>Australian Computer Society, Inc</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="13" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">I</forename><surname>Nyulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Whetzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+		<title level="m">International Workshop on Semantic Technologies for Information-Integrated Collaboration (STIIC 2011)</title>
+		<meeting><address><addrLine>Philadelphia, PA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+	<note>Semantic infrastructure to enable collaboration in ontology development</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Door -towards a formalization of ontology relations</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Allocca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First Conference on Knowledge Engineering and Ontology Development</title>
+		<editor>
+			<persName><forename type="first">L</forename><forename type="middle">G</forename><surname>Jan</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Dietz</surname></persName>
+		</editor>
+		<meeting>the First Conference on Knowledge Engineering and Ontology Development</meeting>
+		<imprint>
+			<publisher>INSTICC Press</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="13" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Baclawski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schneider</surname></persName>
+		</author>
+		<title level="m">Workshop on Collaborative Construction, Management and Linking of Structured Knowledge at ISWC 2009</title>
+		<meeting><address><addrLine>Chantilly, VA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>The open ontology repository initiative: requirements and research challenges</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Best practice recipes for publishing RDF vocabularies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Berrueta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Phipps</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>W3C Working Group Note</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Linked data -the story so far</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bizer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Heath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Berners-Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal on Semantic Web Information Systems</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Brickley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Miller</surname></persName>
+		</author>
+		<title level="m">FOAF Vocabulary Specification 0.9. Namespace document, FOAF Project</title>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">OntoSelect: a dynamic ontology library with support for ontology selection</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Eigner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Declerck</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Demo Session at the ISWC 04</title>
+		<meeting>the Demo Session at the ISWC 04<address><addrLine>Hiroshima, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004-11">November 2004. 2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A community based approach for managing ontology alignments</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Correndo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Alani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Smart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Third International Workshop on Ontology Matching at ISWC 2008</title>
+		<meeting><address><addrLine>Karlsruhe, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">The Ontology Lookup Service: more data and better tools for controlled vocabulary queries</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Côté</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Martens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Apweiler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Hermjakob</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucleic Acids Research</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="372" to="376" />
+			<date type="published" when="2008">2008</date>
+			<publisher>Web-Server-Issue</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Daml</forename><surname>Daml Ontology</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Library</surname></persName>
+		</author>
+		<ptr target="&lt;http://www.daml.org/ontologies/&gt;" />
+		<imprint>
+			<date type="published" when="2000">2000-2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Characterizing knowledge on the Semantic Web with Watson</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Baldassarre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gridinoc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Angeletou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sabou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Evaluation of Ontologies and Ontology-based tools (EON)</title>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Sharing and reusing aligned ontologies with cupboard</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Euzenat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Le Duc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lewen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Demo, International Conference on Knowledge</title>
+		<imprint>
+			<date type="published" when="2009">2009. 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Cupboard-a place to expose your ontologies to applications and the community</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lewen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of European Semantic Web Conference</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<meeting>European Semantic Web Conference</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009. 2009</date>
+			<biblScope unit="volume">5554</biblScope>
+			<biblScope unit="page" from="913" to="918" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">more than a semantic web search engine</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Watson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semantic Web Journal</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="55" to="63" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Reusing knowledge from the Semantic Web with the Watson plugin</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sabou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Angeletou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gridinoc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zablith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Semantic Web Conference</title>
+		<imprint>
+			<publisher>Demo</publisher>
+			<date type="published" when="2008">2008. 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<ptr target="http://bioportal.bioontology.org/ontologies/virtual/1083" />
+		<title level="m">URL</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Characterizing the Semantic Web on the Web</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Semantic Web Conference</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="volume">4273</biblScope>
+			<biblScope unit="page" from="242" to="257" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Ontology library systems. The key to successful ontology reuse</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fensel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">First Semantic Web Working Symposium</title>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="page" from="93" to="112" />
+		</imprint>
+		<respStmt>
+			<orgName>Stanford University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Euzenat</surname></persName>
+		</author>
+		<title level="m">Third International Semantic Web Conference (ISWC 2004)</title>
+		<meeting><address><addrLine>Hiroshima, Japan</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="698" to="712" />
+		</imprint>
+	</monogr>
+	<note>An API for ontology alignment</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The Ontolingua Server: a tool for collaborative ontology construction</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Farquhar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fikes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rice</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Human-Computer Studies</title>
+		<imprint>
+			<biblScope unit="page" from="707" to="727" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Principled design of the modern web architecture</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">T</forename><surname>Fielding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">N</forename><surname>Taylor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Internet Technology (TOIT)</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="115" to="150" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">The Gene Ontology</title>
+		<author>
+			<persName><forename type="first">Gene</forename><surname>Ontology</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Consortium</forename></persName>
+		</author>
+		<ptr target="&lt;http://www.geneontology.org&gt;" />
+		<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Golbreich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Horridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Motik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Shearer</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Obo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Owl</surname></persName>
+		</author>
+		<title level="m">Leveraging Semantic Web Technologies for the Life Sciences</title>
+		<imprint>
+			<publisher>The Semantic Web</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="169" to="182" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hartmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Haase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Palma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Del</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omv -Ontology Metadata</forename><surname>Vocabulary</surname></persName>
+		</author>
+		<title level="m">Ontology Patterns for the Semantic Web Workshop</title>
+		<editor>
+			<persName><forename type="first">Chris</forename><surname>Welty</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Galway, Ireland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">GoodRelations: an ontology for describing products and services offers on the web</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hepp</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 16th International Conference on Knowledge Engineering and Knowledge Management</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008">2008. 2008</date>
+			<biblScope unit="page" from="332" to="347" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Building a national semantic web ontology and ontology service infrastructure -the FinnONTO approach</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hyvönen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Viljanen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tuominen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Seppälä</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web: Research and Applications: Proceedings of the European Semantic Web Conference</title>
+		<imprint>
+			<publisher>ESWC</publisher>
+			<date type="published" when="2008">2008. 2008</date>
+			<biblScope unit="page" from="95" to="109" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">TopicSpecific Trust and Open Rating Systems: an approach for ontology evaluation</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Supekar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fourth International EON Workshop -Evaluation of Ontologies for the Web, Located at the 15th International World Wide Web Conference WWW 2006</title>
+		<meeting>the Fourth International EON Workshop -Evaluation of Ontologies for the Web, Located at the 15th International World Wide Web Conference WWW 2006</meeting>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Collecting community-based mappings in an ontology repository</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Griffith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Seventh International Semantic Web Conference (ISWC 2008)</title>
+		<meeting><address><addrLine>Karlsruhe, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Mcguinness</surname></persName>
+		</author>
+		<idno>KSL-01-05</idno>
+	</analytic>
+	<monogr>
+		<title level="m">A Guide to Creating Your First Ontology</title>
+		<title level="s">Stanford Medical Informatics</title>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="volume">101</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+	<note>also available as KSL</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Ontology versioning in an ontology-management framework</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="6" to="13" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Bioportal: ontologies and integrated data resources at the click of a mouse</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">H</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>Whetzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dorf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Griffith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jonquet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Rubin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Storey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G</forename><surname>Chute</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/nar/gkp440</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nucleic Acids Research</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Promptdiff: a fixed-point algorithm for comparing ontology versions</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 18th National Conference Artificial Intelligence (AAAI-2002</title>
+		<meeting>the 18th National Conference Artificial Intelligence (AAAI-2002<address><addrLine>Edmonton, Alberta</addrLine></address></meeting>
+		<imprint>
+			<publisher>AAAI Press</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">I</forename><surname>Nyulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Dorf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicholas</forename><surname>Griffith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+		<title level="m">Ontologydriven software: what we learned from using ontologies as infrastructure for software</title>
+		<meeting><address><addrLine>Chantilly, VA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>Fifth International Workshop on Semantic Web Enabled Software Engineering at ISWC 2009</note>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Oyster: sharing and re-using ontologies in a peer-to-peer community</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Palma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Haase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">As</forename><surname>Gomez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the World Wide Web Conference</title>
+		<meeting>the World Wide Web Conference</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2006">2006. 2006</date>
+			<biblScope unit="page" from="1009" to="1010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">LexGrid: a framework for representing, storing, and querying biomedical terminologies from simple to sublime</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pathak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">R</forename><surname>Solbrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Buntrock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G</forename><surname>Chute</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the American Medical Informatics Association</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="305" to="315" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Biomedical ontologies: a functional perspective</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Rubin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">H</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Briefings in Bioinformatics</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="75" to="90" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Term-weighting approaches in automatic text retrieval</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Salton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Buckley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Information Processing &amp; Management</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Generating application ontologies from reference ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Detwiler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">F</forename><surname>Brinkley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Suciu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">AMIA Annual Symposium</title>
+		<meeting><address><addrLine>Washington, DC</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">The OBO Foundry: coordinated evolution of ontologies to support biomedical data integration</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ashburner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rosse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Ceusters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Bug</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">J</forename><surname>Goldberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Eilbeck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Mungall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ireland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Leontis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rocca-Serra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ruttenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-A</forename><surname>Sansone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">H</forename><surname>Scheuermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>Whetzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Biotechnology</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1251" to="1255" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ren</surname></persName>
+		</author>
+		<title level="m">The Proceedings of the Extended Semantic Web Conference (ESWC2010)</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+	<note>TrOWL: Tractable OWL 2 Reasoning Infrastructure</note>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">ONTOSEARCH2: Searching Ontologies Semantically</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sleeman</surname></persName>
+		</author>
+		<ptr target="&lt;http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS/" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the OWLED 2007 Workshop on OWL: Experiences and Directions</title>
+		<meeting>the OWLED 2007 Workshop on OWL: Experiences and Directions</meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="volume">258</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Supporting collaborative ontology development in protege</title>
+		<author>
+			<persName><forename type="first">Tania</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Natalya</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samson</forename><surname>Tu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Seventh International Semantic Web Conference (ISWC 2008)</title>
+		<meeting><address><addrLine>Karlsruhe, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

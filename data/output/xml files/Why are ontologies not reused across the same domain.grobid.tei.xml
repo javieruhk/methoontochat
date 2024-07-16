@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Why are ontologies not reused across the same domain?</title>
+				<funder ref="#_5dZKDkv">
+					<orgName type="full">Ministerio de Economía, Industria y Competitividad</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2018-12-27">27 December 2018</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Mariano</forename><surname>Fernández-López</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Escuela Politécnica Superior</orgName>
+								<orgName type="institution">Universidad San Pablo CEU</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">María</forename><surname>Poveda-Villalón</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Escuela Técnica Superior de Ingenieros Informáticos</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mari</forename><forename type="middle">Carmen</forename><surname>Suárez-Figueroa</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Asunción</forename><surname>Gómez-Pérez</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Escuela Técnica Superior de Ingenieros Informáticos</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Why are ontologies not reused across the same domain?</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Journal of Web Semantics</title>
+						<title level="j" type="abbrev">Journal of Web Semantics</title>
+						<idno type="ISSN">1570-8268</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">57</biblScope>
+							<biblScope unit="page">100492</biblScope>
+							<date type="published" when="2018-12-27">27 December 2018</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">4169BAF8835A8F50C40E3E2D988DBD57</idno>
+					<idno type="DOI">10.1016/j.websem.2018.12.010</idno>
+					<note type="submission">Received 19 December 2017 Received in revised form 15 October 2018 Accepted 18 December 2018</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Ontology reuse Ontology reliability Ontology heterogeneity Percentage of reuse Reuse patterns Drawbacks for reuse</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Even though one of the main characteristics of ontologies has always been claimed to be their reusability, throughout this paper it will be shown that ontology reuse across a given domain is not a consolidated practice. We have carried out a statistical study on ontology reuse in the ontologies collected in Linked Open Vocabularies (LOV), in addition to a particular analysis of a use case. The results of the present work show that, when building an ontology, the heterogeneity between the needed conceptualization and that of available ontologies, as well as the deficiencies in some of such ontologies (concerning documentation, licensing, etc.) are important obstacles for reusing ontologies of the same domain of the ontology under development. A possible approach to lessen these problems could be the creation of communities similar to open software ones in charge of developing and maintaining ontologies.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The reuse potential of ontologies and its benefits has been one of the main claims for ontology development since the first studies in the ontological field ( [1-3], etc.). This vision and argument has driven research to reach the point in which ontology registries (e.g. BioPortal <ref type="bibr" target="#b4">1</ref> and LOV 2 ) are available where ontologies are published regardless the applications in which they are meant to be used and the data they are supposed to annotate [4]. However, long experience in ontological engineering led the authors to suspect that ontology reuse within a given domain does not seem to be widespread. This intuition has been reinforced by the work carried out by Kamdar and colleagues [5], focused on BioPortal, which states, as one of their conclusions, that the reuse among biomedical ontologies is quite limited.</p><p>In addition, as presented in [6], ontology reuse is often not performed by means of importing the reused ontologies (hard reuse), but just by referencing the reused ontology elements URIs (soft reuse). Fig. <ref type="figure" target="#fig_0">1</ref> shows the difference between both ways of reuse. For example, given that OntoC:E3 has been reused by means of soft reuse, the constraints established on it in OntoC are outside OntoA, and therefore, it is not possible to reason with them when reasoning with OntoA. However, in the case of hard reuse, all the triples belonging to OntoB as well as all the triples belonging to the ontologies imported by this ontology belong to OntoA, Thus, when reasoning with this ontology, such triples are also taken into account. Note that, given the transitivity property of importation, if OntoB imports another ontology, the triples in the latter become triples of OntoA as well.</p><p>Advocates of the soft reuse claim that the imported ontology may become unavailable on the web. It is also argued that, frequently, the union of the reused ontology and the reusing one is inconsistent if a hard reuse is performed. <ref type="bibr" target="#b6">3</ref> Note that if the closure of OntoA and OntoC is inconsistent, while each ontology is consistent, and a soft reuse of terms of OntoC is carried out in OntoA, then no ontology could import both ontologies at the same time without provoking an inconsistency.</p><p>There are intermediate situations between hard and soft reuse. For example, a sub-tree of the reused ontology may be copied in the reusing one. In contrast to hard reuse, the update of the reused ontology is not propagated to the reusing one. Katsumi and Grüninger's [7] work is useful to understand the different situations that may arise in reuse. These authors define reuse as the application of a series of operations to the ontology to be reused with the purpose of axiomatizing the intended conceptualization. The operations identified by Katsumi and Grüninger are presented below:</p><p>1. as_is: reuse of an ontology without modifying it. This operation is equivalent to hard reuse without modifying the imported ontology. 2. extraction: reuse by removing some original axioms. This operation is equivalent to hard reuse removing some axioms.</p><p>In the extreme case, that is, if all the axioms are removed, and just some terms are taken to be reused, the operation is equivalent to soft reuse. 3. extension: reuse by adding new axioms to the ontology. This operation is equivalent to hard reuse adding new axioms to the imported ontology. Another way of reuse is the extraction of Ontology Design Patterns (ODPs) [8]. For example, it is possible not to reuse any SSN term, but to reuse its Sensor, Observation, Sample, and Actuator (SOSA) pattern. This case of reuse is outside the scope of this paper.</p><p>Based on our experience, we also detected a set of ontologies (FOAF, <ref type="bibr" target="#b7">4</ref> Dublin Core,<ref type="foot" target="#foot_1">5</ref> etc.) that are reused in most of the ontologies. Along this work, it was checked whether such a phenomenon takes place in LOV ontologies.</p><p>Consequently, and in order to provide an analysis of the ontology reuse, the following objectives were defined:</p><p>• Obj 1: Measure reuse, hard reuse and soft reuse: the questions associated with this objective are the following: what is the proportion of entities reused by another ontology (reuse)?; what is the proportion of imported entities (hard reuse)?; what is the proportion of neither imported nor defined entities (soft reuse)? Do these proportions vary depending on whether they are calculated focusing just on classes or just on properties? Is there a set of ontologies that is reused in most of LOV ontologies?</p><p>• Obj 2: Measure reuse across the same domain: this objective is focused on the question: what is the proportion of ontologies that reuse other ontologies belonging to the same domain ?</p><p>• Obj 3: Identify factors that hamper reuse: given that the essential feature of ontologies is their reuse potential, it is critical to answer the following question: what are the main obstacles when reusing ontologies across the same domain?</p><p>Objective 1 is an update on Poveda and colleague's work [6], which is mainly focused on hard and soft reuse, but it does not deepen in the rest of the objectives.</p><p>LOV [9] is a general purpose ontology registry, and, as such, it includes ontologies from very different domains. Before adding a new ontology into the registry, LOV curators carry out a verification process in order to guarantee that it contains human and machine readable information, that some minimal metadata is provided, etc. By July 2016, LOV had registered around 500 ontologies in different domains . Therefore, throughout this study LOV is considered to be a good source to acquire the data needed in order to reach the above-mentioned objectives 1 and 2, and to provide ontologies to analyze in order to reach Objective 3. The data extraction from LOV was performed by an ad-hoc developed Java code based on the OWL-API. <ref type="bibr" target="#b9">6</ref> These data were afterwards aggregated with the statistic suite R. <ref type="bibr" target="#b10">7</ref> To achieve Objective 3, a particular use case was defined, involving (1) the development of an ontology in the academic domain and (2) the identification of the main obstacles for the reuse of LOV ontologies of this domain. Then, taking data from all LOV ontologies, the extend to which the conclusions of this use case are generalizable was studied.</p><p>The remaining sections of this paper are organized as follows. Section 2 dwells on the research methodology we followed for the study. Section 3 provides the obtained results during the study while Section 4 offers a discussion of such results. Section 5 focuses on related work. Finally, conclusions and future trends are outlined in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Research methodology</head><p>An empirical approach was followed to reach the objectives mentioned above. Since objectives 1 and 2 can be approached in a quantitative way, they were addressed in statistical terms. In contrast, Objective 3 required a qualitative approach and, therefore, was achieved basing on the authors' experience in a real ontology development use case. Once the use case has been analyzed, the generalization study was carried out computationally checking if the obstacles found in candidate ontologies to reuse in the use case were present in other LOV ontologies.</p><p>For objectives 1 and 2, the particular steps carried out are presented below:</p><p>1. Definition of outstanding variables. 2. Evaluation of the variables by means of data collection. 3. Data analysis by means of (mainly) descriptive statistics.</p><p>The following sections (from Section 2.1 to Section 2.3) show how each one of these steps were performed. The last section, Section 2.4 shows the methodology followed to attain Objective 3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Definition of variables</head><p>To carry out this step, authors took into account that, according to their experience, reuse is different in classes and in properties. This led to a distinction between reuse in classes, object properties and data properties. The variables defined below are evaluated for each ontology.</p><p>The following variables represent the size of the ontology:</p><p>• Number of classes (c).</p><p>• Number of object properties (op).</p><p>• Number of data properties (dp).</p><p>• Total number of entities (total = c + op + dp).</p><p>The following variables account for the entities that had been hard reused in the ontology:</p><formula xml:id="formula_0">• Number of imported classes (ic).</formula><p>• Number of imported object properties (iop).</p><p>• Number of imported data properties (idp).</p><p>• Total number of imported entities (ti = ic + iop + icp).</p><p>These other variables account for the entities that had been soft reused in the ontology:</p><p>• Number of neither defined nor imported classes (ndnic). They are the classes that are in the ontology by means of soft reuse.</p><p>• Number of neither defined nor imported object properties (ndnop).</p><p>• Number of neither defined nor imported data properties (ndndp).</p><p>• Total number of neither defined nor imported entities (tndni = ndnic + ndnop + ndndp). For the total reuse, the following variable was defined:</p><p>• Total number the reused entities (total_reuse = ti + tndni).</p><p>Out of the former variables, the following percentages of reuse are calculated:</p><p>• Percentage of reused classes (per_reuse_c = (ic + ndnic) * 100/c). </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Percentage of hard reuse (per_i = ti/total_reuse)</head><p>The specific variables for Objective 3 are applied to the whole population of ontologies, and they are those shown below:</p><p>• Number of ontologies that reuse ontologies of the same domain (total_reuse_same_domain).</p><p>• Percentage of ontologies that reuse ontologies of the same domain (per_reuse_same_domain = total_reuse_same_domain * 100/total_reuse).</p><p>Let us note that denominators may be zero for some ontologies. In such a case, the percentages are not defined. Note also that the percentages of reuse do not necessarily show which of the reused entities are relevant for the future use of the ontology. This fact specially applies to hard reuse. That is, it is possible that OntoA imports OntoB, but most of OntoB entities are not present in applications based on OntoA. For example, univ-ontology, 8 a vocabulary about universities, imports FOAF. The only FOAF terms appearing in univ-ontology definitions are just foaf:Person, foaf:firstName and foaf:lastName. Hence, to calculate the percentage of reuse, an option would be to consider only these three terms as reused from FOAF. In fact, foaf:yahooChatID, also belonging to FOAF, but referred in no univ-ontology definition, could be considered as not relevant. However, all the terms of FOAF (including foaf:yahooChatID) really belong to univ-ontology and, consequently it is possible to reason with them when this ontology is queried. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Evaluation of the variables by means of data collection</head><p>The variables were evaluated for each ontology registered in LOV. To do so, an application to extract ontology features as well as to report errors when loading the ontologies was developed by using JAVA as implementation language. 9 Fig. <ref type="figure">2</ref> shows its inputs and outputs, as well as its interaction with other tools that also provide support for the analysis. The tools are depicted with rounded corners, whereas the inputs and the outputs are marked with square corners for documents and the database symbol for datasets. The different parts of the figure are presented below: a. Namespace-URI table (ns_uri_table). It is a spreadsheet that, for each LOV ontology, contains its prefix, its URI and its namespace. <ref type="bibr" target="#b13">10</ref> Note that an ontology (for example, SIO <ref type="bibr">11</ref> ) may have the namespace different to the URI. The URI allows searching for the ontology in the Web. b. Frozen SPARQL storage. <ref type="bibr" target="#b15">12</ref> The purpose of this component is to allow for the process to be repeated independently of the ontologies and metadata that are removed from or added to LOV. c. File in R format. This file <ref type="bibr">13</ref> contains, for each ontology registered in the frozen SPARQL storage, the values of the features described above (c, op, dp, total, ic, iop, idp, nindc, nindop and nindp). It can be processed by the R statistical tool. d. L A T E X file. This file enables the generation of a PDF document with information that eases the manual analysis of the obtained results. The information provided in this file includes, for each ontology, data about metrics (annotation used, reused elements, etc.). In addition, the document includes information about exceptions raised during the ontology loading process, that is, a loading errors log. 14 Fig. <ref type="figure">2</ref>. The process followed to obtain the statistical information and the complementary report.</p><p>Aggregated measures of the whole population (maximum, minimum, quartiles and mean) were computed by means of the R statistical tool. The population was previously cured by removing ontologies with c, op and dp equals to 0. Ontologies with per_reuse = 100% were deleted as well. There have also been cases of ontologies that had could not be properly loaded.</p><p>This research also tackles the question whether there exists a well characterized set of ontologies reused by most LOV ontologies. If the answer is yes, then, following the authors' experience, such ontologies are expected to be those whose URI is defined in the http://www.w3.org/ namespace, and those identified by W3C as good ontologies. <ref type="bibr" target="#b18">15</ref> Some of the ontologies belonging to the list of good ontologies are FOAF, Dublin Core, SIOC, <ref type="bibr" target="#b19">16</ref> etc. Henceforth, both W3C and good ontologies will be called W3C endorsed ontologies. Thus, one of the tasks to carry out is to measure the percentage of LOV ontologies that reuse them.</p><p>To achieve Objective 2, the authors had to obtain the number of ontologies that reuse other ontologies of the same domain (total_reuse_same_domain) as well as its percentage with respect to the total number of ontologies that reuse (per_reuse_same_domain). To be able to automatize the process of determining if two ontologies belong to the same domain, the notion of LOV category has been taken as a reference. The category of each ontology is already assigned in LOV, and it has been an input data in this study. Examples of LOV categories are Biology, Geography, Academy, etc. There are ontologies that may be annotated with two different categories. Each LOV category was assumed to be a domain, except for the following categories: Metadata, RDF and W3C Rec. Metadata ontologies are used to annotate other ontologies. An example of an ontology belonging to this category is the Asset Description Metadata Schema (ADMS), <ref type="bibr" target="#b20">17</ref> which provides terms that allow annotating code lists, taxonomies, dictionaries, vocabularies, etc. The fact that an ontology belonging to the Metadata category reuses another one of this category may not be due to the fact that both of them belong to the same domain. Concerning RDF and W3C Rec, they are not homogenous categories that can be considered domains. In spite of this, 27 ontologies defined in the http://www.w3.org/ namespace that belong to other LOV categories apart from W3C Rec remained in the set of ontologies to study.</p><p>The steps presented below were carried out by using R:</p><p>1. The population of ontologies was reduced to those that reuse. 2. The population of ontologies was again reduced by removing those belonging to the three categories that were not considered domains. 3. The variables total_reuse_same_domain and per_reuse_same_ domain were automatically evaluated by processing the resultant population of the previous step.</p><p>Modularization is an approach already followed in the development of traditional software. Considering the import of a module as a case of reuse across the same domain does not show the capability that ontologies have for being reused. Consequently, in step 3, for each pair of reusing and reused ontology, the URIs of both of them were compared to determine whether it had been a case of modularization and remove it. The number of LOV ontologies resulting from step 2 and that reused other ontologies apart from its modules was 281.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Data analysis</head><p>Given that the study has been applied to the whole collection of LOV ontologies, the data analysis was carried out by means of descriptive statistics. In some cases, the numbers were meaningful by themselves. In other cases, box plots were used. For example, to answer the question about the variation of the percentages of reuse according to the different kind of entities (Objective 1), box plots showing the percentages of reuse of classes, object and data properties were generated. These diagrams are presented in a single image in Section 3 and they allowed to appreciate how different the percentages of reuse were.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Methodology for objective 3: identify factors that hamper reuse</head><p>This part of the research had two phases. The first one consisted in the development of a use case to identify factors that may influence or hamper ontology reuse across the same domain. The second one involved the automatic analysis of the whole population of ontologies to determine to what extend the results of the use case are applicable to other cases.</p><p>To carry out the first phase, an ontology was developed solely for this purpose. The ontology is intended to specify, in a formal way, a conceptualization for the exchange of information according to the Practical Guide for the Evaluation and Monitoring of Official Degrees of the Madri+d Foundation [10]. It covers the information on official degrees that has to be public according to the Madri+d Foundation. This guide is applicable to all fourteen universities of Madrid. <ref type="bibr" target="#b21">18</ref> The knowledge sources used during this task are listed below:</p><p>• The Spanish series of Royal Decrees on Higher Education [11-16]. • The aforementioned Madri+d guide.</p><p>• The guide for accreditation of degrees of the National Agency for Quality Assessment and Accreditation of Spain (ANECA) [17].</p><p>• An experienced coordinator of a degree in Information Systems.</p><p>In addition to providing a basis for a real-case scenario of ontology reuse, the ontology, called OTN (Ontología de Títulos uNiversitarios <ref type="bibr" target="#b22">19</ref> ), can be used to migrate the mandatory public information of Spanish university websites to Linked Open Data, enabling therefore the integration of data coming from the different institutions of higher education. In this way, the development of a decision support system to help future students in deciding into which university course to enroll would not require particular scrapers for each university website.</p><p>The 10 ontologies registered in LOV in the category Academy were analyzed to check whether they could be reused in OTN.</p><p>Once the results of the first phase were known, the ontology features to be observed for the second phase were defined, evaluated and analyzed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Results</head><p>This section presents the results achieved towards each objective.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Results concerning objective 1 ''measure reuse, hard reuse and soft reuse'' and objective 2 ''measure reuse across the same domain''</head><p>Consulting the section Frequencies of exceptions during the loading of ontologies of the PDF report <ref type="bibr" target="#b23">20</ref> generated by the Java tool, see Fig. <ref type="figure">3</ref>, it can be observed that 386 out of the 558 ontologies available in the frozen SPARQL could be loaded. The list below summarizes the main problems that arose during ontology processing along with the number of ontologies affected by them: After the curation of the population explained in Section 2, the number of ontologies was reduced to 355.</p><p>Concerning the evaluation of variables applicable to each ontology of the population, the aggregated measures are presented in Fig. <ref type="figure">4</ref>. Fig. <ref type="figure" target="#fig_5">5</ref> shows the box plots for the percentages of global reuse (per_reuse), reuse of classes (per_reuse_c), reuse of object properties (per_reuse_op) and reuse of data properties (per_reuse_dp).</p><p>With regard to the reuse of W3C endorsed ontologies, a 78.03% of the ontologies of the population reuse them.</p><p>Concerning reuse across the same domain, the population of ontologies belonging to none of the categories Metadata, RDF and W3C Rec, and that reused other ontologies apart from their modules, had 281 ontologies. Of these, 56 (19.92%) reused ontologies belonging to the same LOV category.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Results concerning objective 3. factors against reuse across the same domain</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">Development of the use case</head><p>The following paragraphs show the problems found when trying to reuse each one of the ontologies classified in LOV under the Academy category during the development of the OTN ontology.</p><p>When the option of reusing AIISO (Academic Institution Internal Structure Ontology) <ref type="bibr" target="#b24">21</ref> was considered, the following drawbacks were detected:</p><p>1. Heterogeneity between the concepts of the OTN domain and the concepts represented in AIISO. Let us note that the fact that the candidate ontology domain is complementary to the ontology being built to axiomatize the intended conceptualization is not a problem. For example, in Spain, the notion of College does not exist, therefore it is not necessary to complement the OTN with AIISO as it is not required to represent such concept. 2. Heterogeneity in the natural language used. The translation from English to Spanish had required an additional time in the process of reuse. This has been a problem shared by all LOV ontologies belonging to the Academy category.</p><p>From the case of Courseware, <ref type="bibr" target="#b25">22</ref> the following drawbacks arose:</p><p>1. Deficiencies in the documentation. The ontology is just available in XML. An explanatory HTML document could not be consulted.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Lots of information due to an imported ontology that is not</head><p>available. When the aurhors tried to open the ontology with Protégé, <ref type="bibr" target="#b26">23</ref> an error message appeared, although the ontology had been loaded. Nevertheless, all terms imported from AKTORS (the portal ontology AKT Reference Ontology) have neither formal definition nor natural language definition, since AKTORS is no longer available. 3. Unavailable license. We have not found any license for this ontology. Therefore, even in the case of that the ontology had contents appropriate for OTN, permission to reuse it would have been needed.</p><p>In the case of myExperiment, <ref type="bibr" target="#b27">24</ref> again, just a XML file was available, although it could be loaded in Protégé without any problem. However, the ontology was focused on content management, social networking and object information, which is not in the scope of the first version of OTN. Besides, neither does it have license. An analogous situation is the one of SCI People (Scientific People Ontology), <ref type="bibr" target="#b28">25</ref> that is, just a XML file is available, which is loadable in Protégé, it does not have license and, moreover, its domain does not have enough overlap with the domain of OTN to compensate the effort of reusing it.</p><p>Other ontologies whose domains do not have enough overlap with the domain of OTN are FRAPO <ref type="bibr" target="#b29">26</ref>    Projects Ontology), SCORO <ref type="bibr" target="#b30">27</ref> (Scholarly Contributions and Roles Ontology) and SWC <ref type="bibr" target="#b31">28</ref> (Semantic Web Conference Ontology).</p><p>Teach <ref type="bibr" target="#b32">29</ref> is an ontology that could be useful in a long term. However, it is more appropriate for the execution of an academic program than for its definition. Thus, for example, it contained entities like Assignment, reportTemplate, room, etc.</p><p>Finally, Ontoware <ref type="bibr" target="#b33">30</ref> is not available online anymore. Summarizing, due to all the previous issues, none of the abovementioned ontologies were reused during the development of OTN.</p><p>However, domain independent ontologies have been reused. DUL <ref type="bibr" target="#b34">31</ref> and DOLCE-Zero 32 were translated into Spanish for the purpose of this work 33 and were reused in the development of OTN.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">Generalization of the use case</head><p>Below are the factors that have hampered the reuse in the use case. We also elaborate on the extent to which this particular use case can be generalized to other LOV ontologies.</p><p>1. Heterogeneity in the natural language used. LOV provide information above the natural language used to develop the ontology. From the result of a SPARQL query, the percentage of ontologies that use languages apart from English was calculated, which amount to (27.04%). 2. Deficiencies in the documentation. The Curl tool allowed to check each ontology for its corresponding documentation. Just 17.18% of them provide such a documentation. 3. Lost of information due to an imported ontology that is not available. As mentioned in Section 3.1 the complete population of LOV had to be curated due to a subset not being able to load. 4. Unavailable license. For each ontology, it has been checked whether it was licensed according to some of the following descriptions: dct:license, dc:rights, dcterms:rights, dcterms: license, cc:license or xhv:license. The resultant percentage is 60.28%. It should be mentioned that this figure indicates the ontologies in which a license is stated, fact that does not imply that the specified license is open enough to allow their reuse. However, that analysis is out of scope of this paper. 5. Heterogeneity between the subdomains of the reusing and the reused ontologies. The generalization of this factor remains for future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.3.">Global considerations</head><p>Given that the study was applied to a whole population of ontologies (LOV), the results have not been expressed in terms of significance. As LOV was not proved to be representative with regard to the rest of repositories, it should not be considered as a sample. Therefore, the results of this paper are strictly only valid for LOV, in the same way as Kamdar and colleagues work [18] is strictly valid for BioPortal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Discussion</head><p>One of the most outstanding facts observed during the study is that 36.38% of the ontologies registered in LOV could not be appropriately loaded.</p><p>Concerning how much reuse is carried out during ontology development, the aggregated measures point out that the percentage of reused entities (per_reuse) have a mean of 30.40% and a median of 21.43%. Regarding reuse of W3C endorsed ontologies, 78.02% of ontologies reuse them. As it can be appreciated in Figs. <ref type="figure">4</ref> and<ref type="figure" target="#fig_5">5</ref>, reuse in classes is higher than in properties. Concerning hard reuse, the median of the percentage of imported entities (per_i) is 0%, whereas its third quartile is 6.161%. That is, more than a half of the ontologies that reuse others do not import any entity, and more than 3/4 import, at most, a 6% of their entities. It is true that soft reuse prevents problems when the reused ontology is not loaded. Thus, the fact that a soft reused ontology is no longer available does not affect the reusing ontology. Nevertheless, this procedure of reuse loses the axioms that relate the reused entities to the rest of the entities of its source ontology. Moreover, if, in the reusing ontology, knowledge with contradictions to the reused ontologies are added, such contradictions are not automatically detected. If both ontologies, in turn, are imported by the same ontology, such contradictions will emerge. This situation has not taken place in the author's experience, but it may arise when the two imported ontologies assume different world views. For example, according to DOLCE, one of the main characteristics of an abstract entity is that it has neither spatial nor temporal qualities. Examples of such abstract entities are mathematical ones: a triangle, a circumference, etc. Nevertheless, SUMO defines social role as a sub class of abstract. Let us note that a social role has both spatial and temporal qualities, since it may take place in a particular area along a particular time interval.</p><p>Let us now suppose that ontology O 1 imports SUMO and that O 2 imports DOLCE. Let us also suppose that O 1 imports O 2 . In this case, O 1 includes contradictory definitions of the term abstract. Given that all the details of the natural language definitions are not formalized in the ontologies, it may be case that no inconsistency appears when a computer reasons with this ontology. However, there will be a contradiction in the intended meaning of the terms of O 1 .</p><p>Something similar may happen if a redefinition of classes/properties in the reusing ontology [19,20] takes place. Let us suppose, for example, the following axiom: reused : property r d f : subPropertyOf reusing : property If reusing:property were declared as inverse functional, then reused:property would become inverse functional as well. If soft reuse had been carried out, then, formally, the only definition would be the one of the reusing ontology. However, if a third ontology imported both the reused and the reusing ones, there would be, in the third ontology, a formal definition from the reused ontology and another formal definition in the reusing ontology.</p><p>Concerning the information that was obtained through the OTN use case, several heterogeneity problems were detected. First of all, there are ontologies, in the academic domain, focused on different aspects of such domain but out of the scope of OTN ontology, for example content management, social networking, etc.. Some ontologies represent the same domain as OTN, but from a different perspective. Others do not use Spanish, being the lack of localization [21] a key factor that hampers reuse. In fact, it has been proved that just 27.04% of the LOV ontologies use languages other than English. Other reasons to not reuse LOV ontologies belonging to the Academy category have been deficiencies in the documentation of some candidate ontologies and unreachable imported ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Related work</head><p>One of the first analysis on ontology reuse was done by Simperl [22]. The author presents different use cases on ontology reuse as well as methods and tools. The main conclusion is that the reuse approach is a decision-making problem in which the developer experience plays a crucial role. Another interesting study has been performed by Ghazvinian and colleagues [23] with the aim of analyzing the orthogonality in ontologies at the OBO Foundry. <ref type="bibr">34</ref> The idea of having orthogonal ontologies implies that each term is defined in only one ontology; when such a term is needed in other ontologies, the term should be referred from the original ontology. Authors analyzed the reuse in 53 ontologies in three different time points (September 2009, March 2010, and September 2010). The results indicate that reuse among the OBO Foundry candidates increased during the study period. Let us note that the reuse is carried out inside the same repository.</p><p>Poveda and colleagues [6] analyzed soft and hard reuse in the Linked Data context. This study was performed over 73.96% of the ontologies 35 included in the LOV registry. The study shows that the proportion of reused elements was considerably high (40.53%). In addition, in that time, hard reuse was more frequent than soft reuse, although soft reuse already represented 1/4 of the total. If compared to the results of the present work, that percentage shows an evolution in such a way that the proportion of soft reuse has increased until approximately a half of the total reuse. Also in the Linked Data context, Schaible and colleagues [24] performed a survey to obtain rankings of diverse modeling examples. Participants in the survey should take into account their understanding of good reuse of vocabularies when ranking the models. This study shows that the trend has been to reuse popular terms from frequently used ontologies instead of using terms from not popular ontologies. This result is consistent with the present work.</p><p>Focusing on the BioPortal repository, Kamdar and colleagues [18] analyzed the reuse in 377 biomedical ontologies. As a general conclusion, the reuse among biomedical ontologies is quite limited (less than 5%). Let us note that this percentage is much lower than that obtained by Poveda and colleagues and that obtained by us. Consequently, this reflects that the reuse percentage in LOV is a great deal higher than that of BioPortal. Likewise, these authors have detected that the knowledge reused belongs to a small set of popular ontologies [5]. Kamdar and colleagues [5] also discovered that, in many cases, developers use incorrect representations when 34 http://www.obofoundry.org/.</p><p>35 196 ontologies within the 265 registered at the time of performing the analysis.</p><p>reusing terms from different ontologies. Thanks to this study, a set of common antipatterns when reusing ontology terms has been identified. Ochs and colleagues [25] made an analysis of 355 ontologies in BioPortal. As a result of this analysis, it can be mentioned that 55% of the analyzed ontologies includes elements (classes or properties) from other ontologies. In addition, the work showed that knowledge reuse is specially widespread among the ontologies in the OBO Foundry.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusions and future trends</head><p>While in software development it is common to reuse APIs, experienced engineers address the reuse with caution. More precisely, usually the reuse is done by means of commercial agreements with the company providing it or the reused software is supported and maintained by a reliable community.</p><p>In the case of ontologies, scarcely ever an ontology is maintained by a company that commercializes the reuse of the ontology. An ontology being maintained and updated by a community similar to those of free software is not frequent either. In consequence, a candidate ontology to be reused may not reach minimal adoption requirements or it may not be always available online (as shown in the results). In addition, many ontologies do not include an explicit declaration of their license [26], therefore, the fact that the ontology is actually available online does not imply that it can be legally reused. Along the development of the use case, this has been found to be an obstacle to reuse ontologies.</p><p>Another important issue detected concerns the assumption that both English, as the lingua franca in certain fields as research or computer science, and the conceptualizations from countries leading the progress in such fields, are the reference when developing ontologies. In practice, however, when an official organism or a company from a concrete country needs and ontology, they usually need it in the country's official language and it has to model the specific conceptualizations of the domain given. For example, focusing in the use case, even after the Bolonia 36 harmonization process carried out by the European Union, the Spanish university system still presents particular characteristics. In order for ontologies to be adapted to the specific necessities of different groups (communities), the projects to develop them have to be supplied of the extra resources necessary to develop localized ontologies.</p><p>From the previous paragraphs the following lines of work emerge as promising. First of all, a change of mentality is needed regarding ontology development and maintenance. In this sense, processes as those used by organizations like Apache 37,38 for software development could be taken as inspiration for ontology development. In consequence, research on collaborative development [27,28] is key in order to produce reusable ontologies. Secondly, it is crucial to continue the research being carried out on ontology localization [21] in order to identify those ontology modules independent of a region or country. Finally, tools for ontology modularization (e.g. Ontofox [29] or the Protégé functionality to merge axioms) and methods (e.g. NeOn approach [30] or MIREOT [31]) deserve special attention, as in practical settings they might represent the key for users to extract only those ontology submodules needed, or to import an ontology as a whole or not to reuse ontological resources at all. In any case, reusability does not come for free, and a realistic view should be taken assuming that the reusability degree will depend on the resources dedicated to such goal. 36 http://eur-lex.europa.eu/legal-content/ES/TXT/?uri=URISERV%3Ac11088. 37 https://www.apache.org/foundation/getinvolved.html. 38 https://www.apache.org/dev/new-committers-guide.html.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Soft and Hard reuse.</figDesc><graphic coords="3,114.38,55.32,376.38,179.52" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>8 https://github.com/ontop/ontop-examples/blob/master/university/univ- ontology.ttl (not registered in LOV).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>18 http://www.emes.es/Sistemauniversitario/UniversidadesdeMadrid/tabid/ 215/Default.aspx.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>1 . 3 . 4 . 5 .</head><label>1345</label><figDesc>Timeout expiration during ontology loading (after 120 s) without arising any other exception. (21 ontologies) 2. UnparsableOntologyException: This exception means that the ontology is not processable due to syntax errors. (46 ontologies) OWLOntologyCreationIOException: This exception arises when the ontology is not longer available. (70 ontologies) UnloadableImportException: This exception happens when some of the ontologies imported by the ontology could not be loaded. (34 ontologies) Exception: This a generic exception. The precise cause has not been determined by the tool. (1 ontology)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 3 .Fig. 4 .</head><label>34</label><figDesc>Fig. 3. Screenshot of the PDF report about the processing of LOV ontologies.</figDesc><graphic coords="6,112.73,545.51,360.00,171.98" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Box plots for global reuse (per_reuse), reuse of classes (per_reuse_c), reuse of object properties (per_reuse_op) and reuse of data properties (per_reuse_dp).</figDesc><graphic coords="7,45.74,55.32,244.66,206.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>4. combination: reuse by merging several ontologies. Let there be ontologies O 1 , O 2 , . . . O n . The combination of them consists in creating a new ontology O n+1 , applying hard reuse from O n+1 by importing the rest of the ontologies, and, if needed, harmonize them so that they form a single ontology.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>•</head><label></label><figDesc>Percentage of reused properties (per_reuse_p = (iop + ndnop + iop + ndnop) * 100/(op + dp)). • Percentage of reused object properties (per_reuse_op = (iop +</figDesc><table /><note><p>ndnop) * 100/op). • Percentage of reused data properties (per_reuse_dp = (idp + ndndp) * 100/dp). • Percentage of reused entities (per_reuse = total_reuse * 100/total).</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_0"><p>http://xmlns.com/foaf/spec/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_1"><p>http://dublincore.org/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_2"><p>http://owlapi.sourceforge.net/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_3"><p>https://www.r-project.org/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="19" xml:id="foot_4"><p>The Academic Degree Ontology (Ontología de Títulos uNiversitarios) is available at https://w3id.org/def/otn.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_5"><p>See http://www.oeg-upm.net/files/mpoveda/JWS2017-Reuse/ OntologiesAnalysis.pdf.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgment</head><p>This work has been supported by the project Datos 4.0: retos y soluciones (<rs type="grantNumber">TIN2016-78011-C4-4-R</rs>), funded by <rs type="funder">Ministerio de Economía, Industria y Competitividad</rs>. Authors would also like to thank <rs type="person">Julia Bosque-Gil</rs> for her invaluable comments and revision.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_5dZKDkv">
+					<idno type="grant-number">TIN2016-78011-C4-4-R</idno>
+				</org>
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<ptr target="http://www.oeg-upm.net/files/mpoveda/JWS2017-Reuse/reuseOntologyAnalysis.zip" />
+		<title level="m">The java files are available</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<ptr target="http://semanticscience.org/resource/" />
+		<title level="m">where its namespace is</title>
+		<imprint/>
+	</monogr>
+	<note>Its URI is</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<ptr target="http://www.oeg-upm.net/files/mpoveda/JWS2017-Reuse/reuseOntologyAnalysis.zip" />
+		<title level="m">The R file is available</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<ptr target="http://www.oeg-upm.net/files/mpoveda/JWS2017-Reuse/OntologiesAnalysis.pdf" />
+		<title level="m">The PDF file is available</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A translation approach to portable ontology specifications</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Gruber</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/knac.1993.1008</idno>
+		<ptr target="http://dx.doi.org/10.1006/knac.1993.1008" />
+	</analytic>
+	<monogr>
+		<title level="j">Knowl. Acquis</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="199" to="220" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Enabling technology for knowledge sharing</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Neches</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fikes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gruber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Patil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Senator</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">R</forename><surname>Swartout</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AI Mag</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="36" to="56" />
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Knowledge engineering: principles and methods</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Benjamins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fensel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0169-023X(97)00056-6</idno>
+		<ptr target="http://dx.doi.org/10.1016/S0169-023X(97" />
+	</analytic>
+	<monogr>
+		<title level="j">Data Knowl. Eng</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="56" to="56" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Where to publish and find ontologies? a survey of ontology libraries</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Noy</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.websem.2011.08.005</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S157082681100076X" />
+	</analytic>
+	<monogr>
+		<title level="j">Web Semant. Sci. Serv. Agents World Wide Web</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="96" to="111" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A systematic analysis of term reuse and term overlap across biomedical ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Kamdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Semantic Web Journal</title>
+		<imprint/>
+	</monogr>
+	<note>in press</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The landscape of ontology reuse in linked data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings Ontology Engineering in a Datadriven World</title>
+		<meeting>Ontology Engineering in a Datadriven World</meeting>
+		<imprint>
+			<date type="published" when="2012">2012. 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Katsumi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+		<idno type="DOI">10.3233/978-1-61499-660-6-9</idno>
+		<ptr target="https://doi.org/10.3233/978-1-61499-660-6-9" />
+		<title level="m">What is ontology reuse?, in: Formal Ontology in Information Systems -Proceedings of the 9th International Conference</title>
+		<meeting><address><addrLine>Annecy, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-07-06">2016. July 6-9, 2016, 2016</date>
+			<biblScope unit="page" from="9" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Daga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Pattern-based ontology design</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="35" to="64" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Linked open vocabularies (lov): a gateway to reusable semantic vocabularies on the web</title>
+		<author>
+			<persName><forename type="first">P.-Y</forename><surname>Vandenbussche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A</forename><surname>Atemezing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Vatant</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semant. Web</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="437" to="452" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Guía práctica para la evaluación del seguimiento de títulos universitarios oficiales de la fundación madri+d</title>
+		<ptr target="http://www.madrimasd.org/uploads/acreditacion/doc/seguimiento2013/Guia_de_Evaluacion_2014.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Real Decreto 898/1985, de 30 de abril, sobre régimen del profesorado universitario</title>
+		<ptr target="https://www.boe.es/buscar/pdf/1985/BOE-A-1985-11578-consolidado.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Ley Orgánica 6/2001, de 21 de diciembre, de universidades</title>
+		<ptr target="http://www.boe.es/buscar/pdf/2001/BOE-A-2001-24515-consolidado.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<ptr target="https://www.boe.es/boe/dias/2003/09/18/pdfs/A34355-34356.pdf" />
+		<title level="m">Real Decreto 1125/2003el territorio nacional</title>
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Real Decreto 1393/2007, de 29 de octubre, por el que se establece la ordenación de las enseñanzas universitarias oficiales</title>
+		<ptr target="https://www.boe.es/boe/dias/2007/10/30/pdfs/A44037-44048.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Real Decreto 1791/2010, de 30 de diciembre, por el que se aprueba el estatuto del estudiante universitario</title>
+		<ptr target="https://www.boe.es/boe/dias/2010/12/31/pdfs/BOE-A-2010-20147.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Real Decreto 861/2010, de 2 de julio, por el que se modifica el Real Decreto 1393/2007, de 29 de octubre, por el que se establece la ordenación de las enseñanzas universitarias oficiales</title>
+		<ptr target="https://www.boe.es/boe/dias/2010/07/03/pdfs/BOE-A-2010-10542.pdf" />
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<ptr target="http://www.aneca.es/content/download/12155/136031/file/verifica_gm_guia_V05.pdf" />
+		<title level="m">títulos oficiales universitarios (grado y máster)</title>
+		<imprint>
+			<date type="published" when="2018-07-20">20 July 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Investigating term reuse and overlap in biomedical ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Kamdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Biomedical Ontology</title>
+		<meeting>the International Conference on Biomedical Ontology<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015-07-27">2015. July 27-30, 2015, 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Scalable authoritative owl Reasoning for the Web</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hogan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Harth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Polleres</surname></persName>
+		</author>
+		<idno type="DOI">10.4018/jswis.2009040103</idno>
+		<ptr target="http://dx.doi.org/10.4018/jswis" />
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Semant. Web Inf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="49" to="90" />
+			<date type="published" when="2009">2009. 2009040103</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Conservative extensions in expressive description logics</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lutz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Walther</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Wolter</surname></persName>
+		</author>
+		<ptr target="http://dl.acm.org/citation.cfm?id=1625275.1625347" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 20th International Joint Conference on Artificial Intelligence, IJCAI&apos;07</title>
+		<meeting>the 20th International Joint Conference on Artificial Intelligence, IJCAI&apos;07<address><addrLine>San Francisco, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Morgan Kaufmann Publishers Inc</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="453" to="458" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Challenges for the multilingual web of data</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mccrae</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Web Semant. Sci. Serv. Agents World Wide Web</title>
+		<idno type="ISSN">1570-8268) 11</idno>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Reusing ontologies on the semantic web: a feasibility study</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Simperl</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.datak.2009.02.002</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.datak.2009.02.002" />
+	</analytic>
+	<monogr>
+		<title level="j">Data Knowl. Eng</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="905" to="925" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">How orthogonal are the obo foundry ontologies?</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ghazvinian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Biomed. Semant</title>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Survey on common strategies of vocabulary reuse in linked open data modeling</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Schaible</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gottron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Scherp</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-07443-6_31</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-319-07443-6_31" />
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web: Trends and Challenges: 11th International Conference</title>
+		<editor>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Amato</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Gandon</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Tordai</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Anissaras, Crete, Greece; Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014-05-25">2014. May 25-29, 2014. 2014</date>
+			<biblScope unit="page" from="457" to="472" />
+		</imprint>
+	</monogr>
+	<note>Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">An empirical analysis of ontology reuse in bioportal</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ochs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Perl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Geller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Arabandi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jbi.2017.05.021</idno>
+		<ptr target="http://dx.doi.org/10.1016/j.jbi.2017.05.021" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Biomed. Inform</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page" from="165" to="177" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poblet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aryani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Manghi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Unsworth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hausstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dallmeier-Tiessen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Klas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Casanovas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rodríguez-Doncel</surname></persName>
+		</author>
+		<idno>CoRR abs/1609.05700</idno>
+		<title level="m">Assigning creative commons licenses to research metadata: issues and cases</title>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A collaborative development of ontology-based knowledge bases</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Dyachenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zagorulko</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-11716-4_19</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-319-11716-4_19" />
+	</analytic>
+	<monogr>
+		<title level="m">Knowledge Engineering and the Semantic Web: 5th International Conference</title>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Klinov</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Mouromtsev</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Kazan, Russia; Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014-09-29">2014. September 29-October 1, 2014. 2014</date>
+			<biblScope unit="page" from="219" to="228" />
+		</imprint>
+	</monogr>
+	<note>Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Ontology engineering and evolution in a distributed world using diligent</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Pinto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tempich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-92673-3_7</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-540-92673-3_7" />
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on Ontologies</title>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="153" to="176" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Courtot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Brinkman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ruttenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>He</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">OntoFox: web-based support for ontology reuse</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">175</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Modularizing</forename><surname>Ontologies</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-24794-1_10</idno>
+		<ptr target="http://dx.doi.org/10.1007/978-3-642-24794-1_10" />
+		<title level="m">Ontology Engineering in a Networked World</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="213" to="233" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Ruttenberg, Mireot: the minimum information to reference an external ontology term</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Courtot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gibson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Lister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Schober</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Brinkman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Ontol</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="23" to="33" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

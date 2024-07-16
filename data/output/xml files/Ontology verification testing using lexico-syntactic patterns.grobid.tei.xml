@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Ontology verification testing using lexico-syntactic patterns</title>
+				<funder ref="#_nFDeD9J">
+					<orgName type="full">R. García-Castro Information Sciences</orgName>
+				</funder>
+				<funder ref="#_gu3a3HX">
+					<orgName type="full">I+D+i program</orgName>
+				</funder>
+				<funder ref="#_kHUYeSC #_NjuTVWg">
+					<orgName type="full">unknown</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2021-09-08">8 September 2021</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Alba</forename><surname>Fernández-Izquierdo</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Raul</forename><surname>García-Castro</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Ontology verification testing using lexico-syntactic patterns</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Information Sciences</title>
+						<title level="j" type="abbrev">Information Sciences</title>
+						<idno type="ISSN">0020-0255</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">582</biblScope>
+							<biblScope unit="page" from="89" to="113"/>
+							<date type="published" when="2021-09-08">8 September 2021</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">06C9FCC60A3F8F52325138ECD965B515</idno>
+					<idno type="DOI">10.1016/j.ins.2021.09.011</idno>
+					<note type="submission">Received 5 March 2021 Received in revised form 23 August 2021 Accepted 5 September 2021</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Ontology testing Ontology verification Ontology requirements</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Ontology verification refers to the activity where an ontology is tested against its ontology requirements to ensure that it is built correctly in compliance with its ontology requirements specification. Therefore, it is an important activity that should be performed in any ontology development process. Since manual verification can be a time-consuming and repetitive task, testing processes to automatically verify an ontology facilitate this activity. Moreover, the involvement of not only ontology engineers during the ontology verification process, but also domain experts and users, can provide valuable feedback to avoid misunderstandings and lack of information. This paper proposes a method for ontology verification that defines the testing activities to be performed. The method uses a testing language based on lexico-syntactic patterns to facilitate the definition of tests and an ontology to store and publish such tests. Moreover, this verification testing method proposes an online tool to execute tests on one or more ontologies. The method was compared in terms of time and errors by user evaluation with other tools for ontology verification; the evaluation showed that the tools that use testing languages had better results in terms of reducing errors in the verification activity compared to the tools that do not.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Ontology verification refers to the ontology evaluation activity where the ontology is compared against its ontology requirements, ensuring that the ontology is built correctly in compliance with the ontology requirements specification <ref type="bibr" target="#b29">[30]</ref>.</p><p>Ontology Engineering has been inspired over the years by Software Engineering practices but, regarding ontology verification, there is still much to learn from software verification approaches. In this field, software verification practices and techniques are widely integrated into the software development process to ensure the quality of software products. However, in the Ontology Engineering field, ontology verification has been neglected, and only a few approaches deal with this activity (e.g., Blomqvist and colleagues' testing methodology <ref type="bibr" target="#b5">[6]</ref> or the test-driven development of ontologies proposed by Keet and Ławrynowicz <ref type="bibr" target="#b19">[20]</ref>). Therefore, the adoption of software practices and techniques related to verification can be beneficial for Ontology Engineering.</p><p>Inspired by the Software Engineering field and since manual ontology verification can be a time-consuming and repetitive task, the latest works in Ontology Engineering propose the use of tests to automate and facilitate the ontology verification <ref type="bibr" target="#b27">[28]</ref>. However, the creation of such tests is not a trivial task, especially if tests are written in a formal language such as SPARQL. This is one of the reasons for the rise of testing syntax in the Software Engineering field, such as Gherkin, 1 which Based on such three research questions, the following hypotheses are made: H1. Using a testing language to define tests based on functional requirements facilitates the ontology testing process regarding the reduction of time in users who are familiar and experienced in OWL. H2. Using a testing language to define tests based on functional requirements facilitates the ontology testing process regarding the reduction of errors in users that are familiar and experienced in OWL. H3. Using a testing language to define tests based on functional requirements increases the usability of the tools during the verification activity.</p><p>Consequently, the contributions of this paper are the following:</p><p>C1. A verification testing method that uses lexico-syntactic patterns and that systematises the verification activity. The method considers the participation of ontology engineers, domain experts, and users during the verification activity. Moreover, the method stores the requirements, tests and their results in a machine-readable format, enabling traceability between the different ontology artefacts involved in the verification activity. C2. A testing language that expresses its syntax using lexico-syntactic patterns to facilitate the definition of tests for different types of users. Moreover, to generate the testing language, representative keywords based on ontology axioms have been extracted from each lexico-syntactic pattern to propose the set of test designs. C3. A comparison between verification tools that use testing languages with tools that do not. This comparison allows analysing whether using a testing language reduces errors in the identification of verified requirements. Moreover, it also allows analysing whether using testing languages reduces the reply time during the verification activity.</p><p>The remainder of this paper is structured as follows. Section 2 presents the state of the art related to existing verification testing methods. Section 3 describes the proposed method for verification testing, together with the developed ontology for promoting traceability and technological support. Section 4 describes the validation of the proposed research questions and hypotheses. Finally, Section 5 outlines some conclusions and future lines of work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">State of the art</head><p>Several approaches which defend the importance of verifying ontologies through their ontology requirements have been developed to date. These approaches focus on some aspects: requirements analysis, verification testing methodology, query execution, and integration of ontology testing into ontology development methodologies. This section summarises the existing approaches that can be used to verify whether particular functional requirements are satisfied in an ontology. It should be noted that these methods are oriented to the verification of OWL ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Requirements analysis</head><p>Several works are focused on the analysis of how requirements are specified, with the ultimate goal of helping their translation into formal queries that can be executed on an ontology. These works are not focused on providing a process for automatically translating natural language requirements into formal queries, but on providing lists of linguistic patterns that can be used to make such translations.</p><p>One of these works is the approach presented by Ren and colleagues <ref type="bibr" target="#b28">[29]</ref>, which focuses on authoring driven by competency questions. In this work, the authors use natural language processing and patterns to analyse requirements written in the form of competency questions with the ultimate goal of automatically obtaining SPARQL queries to test an ontology. Therefore, this analysis of requirements can be used for the definition of tests to verify an ontology. The authors analysed a set of 75 competency questions to identify the patterns to which they belong based on several features. Examples of these patterns are Question type, which determines the kind of answers presented when answering the competency question, such as selection questions, binary questions and counting questions, and Element Visibility, which indicates whether the modelling elements, such as class expressions and property expressions are explicit or implicit in the competency question.</p><p>Based on these features, this work categorises competency questions into archetypes, which are shown in Table <ref type="table">1</ref>.</p><p>Another work oriented to requirements analysis is the one proposed by Wis ´niewski and colleagues <ref type="bibr" target="#b33">[34]</ref>, which focuses on the association between linguistic patterns and SPARQL-OWL queries <ref type="bibr" target="#b21">[22]</ref>. The authors analysed 234 requirements written as competency questions that are associated with 5 different ontologies and extracted 81 distinctive linguistic patterns. This set of linguistic patterns extended the one proposed by Ren and colleagues, which was based on a smaller dataset of requirements written as competency questions.</p><p>To perform the analysis, the authors proposed a method that includes the following steps:</p><p>1. Chunks and pattern candidates. In order to identify regularities among the collected questions, the authors studied the linguistic structure of every requirement in the dataset. Because the requirement dataset does not contain any pair of questions consisting of identical sequences of words, they proposed a pattern detection procedure to identify more general groups. 2. Pattern semantics. The previous steps produced some patterns that are semantically the same but that differ in minor aspects such as using plural and singular verbs, using synonyms or using words that could be removed from the requirement without changing its meaning. The authors semantically joined the same patterns and unify all cases, e.g., Is there CE1 for CE2? and Are there any CE1 for CE2? represent the same pattern.</p><p>In this work, the authors concluded that there can be multiple SPARQL-OWL queries for one distinct linguistic pattern, which is due to the different ways an ontology engineer can represent knowledge in the ontology. Moreover, there can be multiple linguistic patterns for a single SPARQL-OWL query, because there are different ways to formulate the same thing in natural language.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Ontology verification testing methods</head><p>Several testing approaches have been developed to date which defend the importance of verifying ontologies through their ontology requirements. Each of these approaches is focused on some testing aspect, such as methodological background, test implementation, or traceability between the ontology and the tests.</p><p>Blomqvist and colleagues <ref type="bibr" target="#b5">[6]</ref> present an agile approach which includes a methodological background for testing and introduces three main types of tests, namely: (1) competency question verification, (2) inference verification, and (3) error provocation. The first type of test is oriented to the reformulation of the competency questions as SPARQL queries after adding test data related to the query to be reformulated, i.e., it does check the existence of classes and properties in the ontology. The second type verifies that the inference mechanisms are in place. Finally, the third is intended to expose faults. To keep the tests separated from the ontology to be tested, this proposal represents a test case as an OWL ontology, which includes properties for describing each test case.</p><p>Although this methodology proposes types of tests to verify requirements, it does not describe the relation between such requirements and the tests, e.g., when to use each type of test. Moreover, the analysis of the requirements is out of the scope of this methodology.</p><p>CQChecker<ref type="foot" target="#foot_0">2</ref>  <ref type="bibr" target="#b4">[5]</ref> is a tool proposed by Bezerra and colleagues which provides a mechanism that allows verifying whether the ontology meets its corresponding competency questions by supporting both assertional and terminological queries. To accomplish that, the authors distinguish several types of competency questions, such as competency questions which work over classes and their relations or competency questions which work over instances. They create a modular architecture in which each module treats each different competency question.</p><p>The authors identify three types of competency questions based on how they are specified:</p><p>1. Competency questions that work with classes and their relations.</p><p>2. Decision problems expressed as competency questions. In this type, the answer permitted to the question can only be true or false. 3. Competency questions expressed in an interrogative form that works only over instances.</p><p>The tool analyses the competency question submitted by the user to classify it into one of the three types of competency questions according to the possible answer it is supposed to retrieve. Then, the system processes it and checks whether it is satisfied.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Ontology testing methods for query execution</head><p>While in the previous sections several testing approaches and tools based on competency questions have been reviewed, this section focuses on tools that query an ontology and that can be used for ontology verification.</p><p>These approaches are not oriented to the definition of types of tests based on different types of requirements, but to the definition of different types of queries that can be executed on an ontology. Although these approaches are not directly oriented to the ontology verification activity, they can be useful for analysing how they support the execution of queries to test an ontology.</p><p>OntologyTest<ref type="foot" target="#foot_1">3</ref>  <ref type="bibr" target="#b16">[17]</ref> is a Java application that allows the elaboration and execution of tests to evaluate OWL DL ontologies. Each test comprises an optional set of instances, a query, and the expected result. OntologyTest supports the following types of tests:</p><p>Instantiation test. It specifies whether or not an individual belongs to a given class. An example of query could be Paracetamol(paracetamol102), which checks whether the instance paracetamol102 is of class Paracetamol. Recovery test. It allows the user to specify a list with all instances that must belong to a particular class. An example of query could be Paracetamol, and an example of expected result could be [paracetamol101, paracetamol102, paraceta-mol103], which represent all the instances of the Paracetamol class. Realisation test. It specifies the most specific class that must be instantiated by an individual. For instance, the query paracetamol101 and the expected result Paracetamol, check whether paracetamol101 is an instance of the class Paracetamol.</p><p>Satisfaction test. It specifies whether an inconsistency should occur in the ontology after adding a new instance of a class. An example of query could be Paracetamol(paracetamol102), to check whether the addition of the instance paracetamol102 leads to an inconsistency. Classification test. It specifies a list with all the classes that an individual must belong to. For instance, the query paraceta-mol101 with the expected result [paracetamol, chemicalSubstance, thing] indicates all the classes to which the instance paracetamol101 belongs to. SPARQL test. The query is written in SPARQL, and the results are associated with the variables of the query.</p><p>VoCol. <ref type="foot" target="#foot_2">4</ref> Ref. <ref type="bibr" target="#b18">[19]</ref> is an integrated environment that supports the development of vocabularies using version control systems. VoCol supports a round-trip model of vocabulary development, consisting of three core activities, i.e., modelling, population, and testing. For testing, VoCol allows formulating SPARQL queries that represent competency questions.</p><p>Although VoCol provides a service that allows users to execute SPARQL queries on an ontology, how to create such queries is out of scope of the tool.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Integrated ontology testing into ontology development methodologies</head><p>Keet and Ławrynowicz proposed a test-driven development (TDD) method for ontologies <ref type="bibr" target="#b19">[20]</ref>, which is an ontology development approach inspired by test-driven development in Software Engineering <ref type="bibr" target="#b2">[3]</ref>. This TDD, which is based on the idea of writing a failing test before writing any code, ensures that what is added to the program core does indeed have the intended effect specified upfront. Moreover, the test-driven development principle increases the understanding of the ontology authoring process and the logical consequences of an axiom.</p><p>The steps to be performed within the TDD testing approach are summarised as follows:</p><p>1. To check whether the vocabulary elements of the axiom x are in the ontology O (itself a TDD test). (c) To run the test again, which should pass, checking that there is no new inconsistency or undesirable deduction. 3. To run all previous successful tests, which should pass. This step represents the regression testing. This TDD methodology is supported by the TDDOnto tool, which has been first introduced by Ławrynowicz and Keet <ref type="bibr" target="#b22">[23]</ref> and further developed as TDDOnto2 <ref type="bibr" target="#b8">[9]</ref>. <ref type="foot" target="#foot_3">5</ref> This tool checks whether a particular axiom is present in an ontology. TDDOnto2 is based on a logic-based model of TDD unit testing and on generalised versions of the TDD algorithms <ref type="bibr" target="#b19">[20]</ref> to support tests related to any class expression of OWL 2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5.">Conclusions</head><p>Based on the state of the art analysis on ontology verification, it can be concluded that in the current testing approaches and tools there is a lack of guidelines to help developers and practitioners to create tests from such requirements.</p><p>Moreover, the majority of these testing approaches do not consider traceability between requirements, tests, and ontologies, and are oriented to ontology engineers, e.g., developing plugins for ontology engineers tools or generating SPARQL queries. Therefore, they pay little attention to how both domain experts and users should also become part of the ontology verification activity.</p><p>Table <ref type="table" target="#tab_0">2</ref> summarises the conclusions obtained from the analysis of the testing approaches in Ontology Engineering, indicating how the methods and tools support traceability, definition, implementation, and execution of tests, and which is the targeted audience for each.</p><p>The method proposed in this paper aims at addressing these current lacks by providing a testing method that uses a testing language based on how ontology requirements are specified using lexico-syntactic patterns. Such a testing language facilitates the definition of tests not only for ontology engineers but also for users and domain experts. Moreover, the method proposes the storage of the results of the verification testing process in an RDF file, which enables traceability between the tests, requirements, and the ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">A method for ontology verification testing</head><p>The method for ontology verification testing proposed in this paper aims to involve different roles in the ontology verification activity in addition to ontology engineers, i.e., domain experts and users. These roles can be defined as follows:</p><p>Ontology engineer: An ontology engineer is a member of the ontology development team who has high knowledge about ontology development and knowledge representation. The ontology engineer is usually the person who defines and executes the tests. Domain expert: A domain expert is an expert in the domains covered by the ontology. This role does not need to be knowledgeable about ontology development, but a domain expert can use the verification testing method to check whether the ontology satisfies the domain that is expected to be covered. Ontology user: An ontology user is a potential end user of the ontology. This actor also includes software developers who will use the ontology in their applications. This role can also use the verification testing method to check whether the ontology satisfies their needs.</p><p>In this method, although usually the ontology engineer is the person who defines the set of tests, the domain experts and users could also participate in it and use the method. To this end, it is necessary to use a language that is understandable by all of these roles. Therefore, inspired by software testing approaches such as keyword-driven testing <ref type="bibr" target="#b32">[33]</ref> or behaviourdriven development <ref type="bibr" target="#b23">[24]</ref>, which are widely adopted in software development, this testing method defines a testing language based on how the requirements are specified.</p><p>Furthermore, this testing method aims at systematising the design, implementation, and execution of tests extracted from ontology requirements to verify an ontology, as well as at providing traceability between ontology requirements, tests, and ontologies. Consequently, this method describes the set of activities to be carried out in a verification testing process and proposes an ontology to store and publish the tests. This section provides details of the proposed ontology verification testing method.</p><p>Following agile and iterative methodologies, such as LOT, <ref type="foot" target="#foot_4">6</ref> this verification activity should be performed once the ontology is modified, leading to the creation of a new ontology version or a new ontology sprint. This process would also allow to perform regression testing and check whether the requirements are still satisfied over time after the ontology changes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Ontology requirements specification analysis</head><p>In recent years, the definition of ontology requirements <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b30">31,</ref><ref type="bibr" target="#b31">32]</ref>, which represent the needs that the ontology to be built should cover, and their automatic formalisation into axioms or tests <ref type="bibr" target="#b9">[10,</ref><ref type="bibr" target="#b28">29,</ref><ref type="bibr" target="#b34">35]</ref> have been studied. These studies aim to reduce the time consumed by ontology engineers during the ontology verification activity. Ontology requirements can be written in the form of competency questions <ref type="bibr" target="#b17">[18]</ref>, which are natural language questions that the ontology to be modelled should be able to answer, or as statements.</p><p>However, accurately defining ontology requirements is not a trivial task and, therefore, neither is their automatic translation into a formal language. Due to the fact that some requirements are ambiguous <ref type="bibr" target="#b25">[26]</ref> or vague, their transformation into axioms or tests is not usually direct <ref type="bibr" target="#b9">[10]</ref> and, consequently, it is challenging to automate such translation. Therefore, this method benefits from the use of Lexico-Syntactic Patterns (LSPs), which represent linguistic schemas or constructions derived from regular expressions in natural language. These LSPs consist of certain linguistic and para-linguistic elements that allow one to extract conclusions about the meaning expressed by the construction <ref type="bibr" target="#b0">[1]</ref>. Therefore, they are used to analyse how requirements are specified, with the ultimate goal of identifying the types of tests based on them. CORAL (Corpus of Ontology Requirements Annotated with Lexico-syntactic patterns) <ref type="bibr" target="#b13">[14]</ref> is a corpus of 834 functional ontology requirements collected from different projects, websites, and papers. It can be used as a resource to help the formalisation of ontology requirements in an ontology since it provides a dictionary of LSPs, which includes those LSPs collected from the state of the art and those new ones identified based on the requirements gathered in CORAL. Moreover, it provides a potential implementation of each LSP in an ontology. This dictionary of LSPs has been used to annotate the set of 834 ontology requirements in order to determine the LSPs that these requirements follow. Furthermore, these LSPs identify structures in the specification of ontology requirements; consequently, each LSP represents a particular type of requirement. CORAL is openly available in HTML, <ref type="foot" target="#foot_5">7</ref> CSV, and RDF formats as Zenodo resources. <ref type="foot" target="#foot_6">8</ref>In the CORAL dictionary of LSPs, an LSP may be associated with several disjoint ODPs, resulting in several possible ontology implementations and, therefore, needing a different group of OWL constructs for each one. The translation from these polysemous LSPs to a formal implementation is not direct. Consequently, in such cases, ontology engineers should decide which possible implementation they prefer according to the ontology they are implementing.</p><p>In this dictionary, the LSPs are categorised according to their correspondences, which could also be used to identify whether the LSP patterns are polysemous, i.e., 1 to 1 correspondence if one LSP corresponds to one possible implementation in the ontology or 1 to N correspondence if one LSP can result in more than one possible implementation in the ontology. The LSPs that have more than one correspondence are considered polysemous LSPs.</p><p>Table <ref type="table" target="#tab_1">3</ref> summarises the LSPs according to their correspondence with ontology axioms. This table also includes the sources from which each LSP has been extracted since some of them were defined in previous works <ref type="bibr" target="#b7">[8]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Activities within the ontology testing method</head><p>This section details the activities to be carried out during the testing method for verifying an ontology, which were first introduced in <ref type="bibr" target="#b11">[12]</ref>. Since then, these activities have evolved to integrate the testing language proposed in this paper. In the literature, ontology testing approaches are usually divided into two activities, i.e., test implementation and test execution. However, based on the requirements specification analysis described in Section 3.1, in this testing method a new activity is proposed, i.e., test design. This new activity is needed due to the ambiguity and assumptions inherent in natural language <ref type="bibr" target="#b9">[10]</ref> and to the fact that different people may be in charge of the design and implementation of tests. Additionally, the separation between test design and test implementation increases the maintainability of the tests, since the implementation can change without updating the design of the test, and allows the test implementation to be generated automatically from the test design. Therefore, in this design activity, the goal of each requirement is identified and specified using a testing language based on the LSPs presented in Section 3.1.</p><p>The following sections present each of these testing activities, which are also summarised in Fig. <ref type="figure">1</ref>. The test design activity is a manual activity that should be performed by ontology engineers and practitioners, while the test implementation and the test execution activities can be carried out automatically.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">Test design activity</head><p>Ontology engineers, domain experts, and users should be involved in the ontology verification testing process, where tests are generated from the requirements in order to ensure that the ontology satisfies all expected needs. However, writing tests in formal languages such as SPARQL, which is a language whose semantics are not easy to understand for people without a background on it <ref type="bibr" target="#b26">[27]</ref>, is not a trivial process.</p><p>In Software Engineering, there are several techniques and languages to ease the test design process. An example is keyword-driven testing <ref type="bibr" target="#b32">[33]</ref>, which aims to express each test as abstractly as possible, but still precise enough to be executed and interpreted by a test execution tool. Another example is behaviour-driven development <ref type="bibr" target="#b23">[24]</ref>, which proposes a common language for specifying system behaviours. Inspired by them, this method describes a testing language to design tests. Since the LSPs introduced in Section 3.1 determine the types of requirements and how they should be implemented in an ontology, the testing language is grounded on them.</p><p>To that end, representative keywords have been extracted from each LSP to define the syntax of the test designs. These keywords are based on the ontology axioms (e.g., rdfs:subClassOf) and on the different types of LSP <ref type="bibr" target="#b13">[14]</ref> (e.g., hierarchies between terms). Therefore, these keywords indicate the goal in the ontology for each LSP, such as to define a subsumption relation or a cardinality restriction, and are used to propose a catalogue of test expressions that are written following the OWL Manchester syntax. <ref type="foot" target="#foot_7">9</ref> Therefore, each test refers to a particular type of requirement and includes a set of keywords, e.g., the tests related to subsumption relations between classes includes the keyword subClassOf. Since these tests are written using keywords, they can be automatically analysed and implemented into queries or axioms to be executed on the ontology, enabling test automation. The person that is in charge of defining the tests is the one responsible for determining which test design from the list fits each ontology requirement.</p><p>Due to the fact that polysemous LSPs do not have a direct translation from requirements into an ontology, since multiple ontology implementations can be correct, they are not considered for the time being. Additionally, it is worth mentioning that a small set of tests and keywords was also added to the catalogue on the demand of ontology experts.</p><p>The catalogue of test expressions is shown in Table <ref type="table" target="#tab_2">4</ref>. The table includes the goal of each test, its syntax, and its provenance. Those terms that are represented between brackets (e.g., ''[Class]") correspond to those terms that should be completed by the user, while those terms italicised (e.g., type) correspond to the fixed keywords extracted from the LSPs that cannot be changed. Table <ref type="table" target="#tab_2">4</ref> is divided into three categories, according to the axioms analysed by each test:   During this activity, the goal of each requirement is extracted and formalised using the set of test expressions included in the catalogue described in Table <ref type="table" target="#tab_2">4</ref>. To create the test, each ontology requirement should be associated with at least one test expression presented in Table <ref type="table" target="#tab_2">4</ref>. Each test expression is related to a particular goal to be checked by such a test, as shown in Table <ref type="table" target="#tab_2">4</ref>, which should be in agreement with the goal of the requirement. A complex requirement that includes several sentences could be categorised with more than one LSP and, therefore, could be associated with more than one test.</p><p>The tests are defined without any information, e.g., URIs or labels, related to the ontology in which such a test will be executed. With this separation between the test and the ontology, the reuse of tests in different ontologies is allowed. However, the terms included in the test must be present in the glossary of terms of the ontology on which the test will be executed, as shown in Fig. <ref type="figure">1</ref>. This glossary of terms aims to map these terms that are defined in the test design to terms in the ontology. The terms must follow camel-case style, e.g., DigitalEntity.</p><p>As an example of test design, the requirement that states ''An IoT gateway is a digital entity" has as goal to model a subsumption relation between two entities. Therefore, the test to be used should refer to ''T2: Subsumption relation between classes A and B". Consequently, the test expression for T2 determined in the catalogue, i.e., ''[ClassA] subClassOf [ClassB]", is completed with the information of the requirement. The requirement ''An IoT gateway is a digital entity" is then associated with the test ''Gateway subClassOf DigitalEntity", since Gateway and DigitalEntity are terms that describe the concepts in the test. Then, the terms Gateway and DigitalEntity must be included into the glossary of terms as keywords to be associated with terms in the ontology during the test execution activity, e.g., Gateway and DigitalEntity could be associated with the terms in the ontology named &lt;http://www.example.org/ontology#Gateway&gt; and &lt;http://www.example.org/ontology#Digi-talEntity&gt;, respectively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">Test implementation activity</head><p>During this activity, the tests should be implemented to be executed on an ontology. To this end, each test is formalised into a precondition, a set of auxiliary term declarations, and a set of assertions to check the behaviour. This testing method proposes a test implementation for each test design included in Table <ref type="table" target="#tab_2">4</ref>. Therefore, the implementation of the proposed test design can be automated.</p><p>The precondition is a SPARQL query that checks whether the terms involved in the test are defined in the ontology. To execute the tests, these terms need to be declared in the ontology. Otherwise, the test fails and the requirement is not satisfied.</p><p>The axioms to declare auxiliary terms (i.e., test preparation) are a set of temporary axioms added to the ontology to declare the auxiliary terms needed to carry out the assertions.</p><p>Table <ref type="table" target="#tab_4">5</ref> shows the test implementation associated with the test design for checking the equivalence between classes (test expression with identifier T4 in Table <ref type="table" target="#tab_2">4</ref>). For the sake of readability, the axioms in these tables are represented by means of the Description Logics syntax <ref type="bibr" target="#b1">[2]</ref>.</p><p>To check the equivalence between two classes, a set of auxiliary terms are defined, i.e., the classes that complement A (i.e., :A) and B (i.e., :B). After their definition, a set of assertions that force the ontology to present unsatisfiable classes or inconsistencies are also defined. The first, associated with axiom 'E 2' in Table <ref type="table" target="#tab_4">5</ref>, generates a class A 0 that is defined as a subclass of class B and :A. If the ontology satisfies the requirement, this addition causes an unsatisfiable class due to the fact that the reasoner would infer that A 0 is a subclass of A and :A. The second assertion, associated with axiom 'E 3', generates a class A 0 that is defined as a subclass of class A and :B. If the ontology satisfies the requirement, this addition causes an unsatisfiable class due to the fact that the reasoner would infer that A 0 is a subclass of B and :B. The last assertion, associated with axiom 'E 4', generates a class A 0 that is defined as a subclass of classes A and B. If the ontology satisfies the equivalence requirement, this assertion causes a consistent ontology due to the fact that there is no problem if A' is a subclass of A and B.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.3.">Test execution activity</head><p>Taking as input the test implementation, the test execution activity consists of three steps: (1) the execution of the query that represents the preconditions, (2) the addition of the axioms that declare the auxiliary terms, and (3) the addition of the assertions. After the addition of each axiom, a reasoner is executed to report the status of the ontology, i.e., whether the ontology is consistent, inconsistent, or has unsatisfiable classes. The addition of auxiliary axioms should always lead to a consistent ontology. However, in the case of assertions, the agreement between the reasoner status after the addition of all axioms and the status indicated in the test implementation determines whether the ontology satisfies the desired behaviour and, consequently, the requirement. The steps carried out during the execution activity are summarised in Algorithm 1.</p><p>During this activity, the test implementation should be first completed with the information related to the ontology to be executed. To that end, a glossary of terms must be generated manually or automatically. As mentioned before, the glossary of terms maps each term in the test to a term in the ontology to be analysed. Therefore, the terms that are defined in the ontology, e.g., Gateway, are collected and associated with a URI in the ontology, e.g., &lt;http://www.example.org/ontology#Gateway&gt;. Then, using these associations, the terms in the test implementation are translated into terms in the ontology. Consequently, these test implementations can then be executed on the ontology. This requires that the terms in the test expressions be included in the glossary. However, it is possible that a term in the test expression is not included in the glossary of terms of the ontology. In this case, the ontology does not include the terms asked by the test and, therefore, the test is not passed.</p><p>There are four possible results of the execution step for each test and each ontology:</p><p>1. Passed: if the ontology passes, the preconditions and the results of the assertions are the expected ones.</p><p>2. Undefined term: if the ontology does not pass the preconditions, i.e., some of the terms in the test expression are not defined in the ontology. 3. Absent: if the ontology passes the preconditions and the results of the assertion are not the expected ones but there are no conflicts in the ontology, i.e., there is a missing relation between terms in the ontology. 4. Conflict: if the ontology passes the preconditions and the results of the assertion are not the expected ones, and the addition of the axioms related to the test expression leads to a conflict in the ontology. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Traceability between tests, requirements, and ontologies</head><p>An ontology for modelling tests could provide not only a guide on how to create tests for ontology verification but also a procedure for creating reusable tests and for allowing traceability between ontologies, requirements, tests, and test results. In addition, the test suite written following the ontology with all the information related to the requirements and tests can be considered as a formalised documentation. Having all this information stored in the RDF format could also allow having a knowledge graph on which users could execute queries to obtain information about which requirements are satisfied for each ontology. For this reason, the Test Case Verification ontology, <ref type="foot" target="#foot_8">12</ref> which is shown in Fig. <ref type="figure" target="#fig_0">2</ref>, has been developed in the context of the ontology verification testing method. This ontology includes the vtc:TestCaseDesign class, which defines the design of a test. This class has several datatype properties, including description, desired behaviour (i.e., the test), and related requirements, in order to enable traceability between the test and the requirements from which it is extracted. A vtc:TestCaseDesign belongs to a particular vtc:TestSuite, which is extracted from a given source (e.g., a manual, a standard, or a list of requirements of an ontology). The vtc:TestCa-seDesign can also be associated with the vtc:Requirement from which it is extracted, which has a category, an identifier, and a description. Besides, the ontology also includes the vtc:TestCaseImplementation class, which defines how each test design should be implemented. Each vtc:TestCaseImplementation is related to a vtc:TestCaseDesign and includes a vtc:TestPreparation, which represents the temporary axioms added to declare the auxiliary terms, and a vtc:TestAssertion, which represents the axioms to be added to represent each ontology scenario. Each vtc:TestAssertion has a vtc:AssertionResult, which is represented by means of three individuals, namely (1) vtc:Unsatisfiable, (2) vtc:Inconsistent and (3) vtc:Consistent. Finally, the vtc:TestExecution class defines the execution of a test implementation on a particular ontology. Therefore, it is related to a vtc: TestCaseImplementation and an ontology. A vtc:TestCaseResult has also associated a vtc:TestResult, which represents the result of the test execution. The result is represented by means of four individuals, namely (1) vtc:Passed, (2) vtc:Undefined, (3) vtc: Absent and (4) vtc:Conflict.</p><p>Listing 1 presents a short illustrative example of a test design, generated from a requirement that states ''An IoT gateway is a digital entity", which is classified into one requirement type: ''T2. Subsumption relation between classes A and B". Because this test does not have URIs related to the ontology in which the tests are going to be executed, it can be reused in other ontologies.</p><p>This traceability between the requirements, and ontology allows users to interact with the verification results by, for example, querying the data to obtain: Which ontologies satisfy a particular requirement. Which requirements are defined for a particular ontology. Which tests are related to a particular concept. As an example of use, Themis publishes the set of test designs available on its website 13 using the Helio tool, 14 which also provides a SPARQL endpoint 15 to execute queries on the dataset. As an example of SPARQL query in this dataset, Listing 2 shows how to search for those tests that are defined for the WoT ontology. 16   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Technological support</head><p>Themis 17 <ref type="bibr" target="#b14">[15]</ref> is an on-line testing tool intended to help ontology engineers and practitioners during the ontology verification activity. Themis supports and automates the test implementation and execution steps defined in Section 3.2, and implements the 28 test expressions described in Section 3.2. It provides both a web-based human interface and a REST API to be used by applications.</p><p>Themis is implemented in Java and uses well-known open-source frameworks and libraries. The code of the tool is available in Github 18 under Apache License 2.0. 19   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Evaluation</head><p>This section describes the empirical evaluation performed to validate the research questions and hypotheses presented in Section 1, which are focused on the comparison between tools that use testing languages and tools that do not with regard to errors and response time during the verification activity.</p><p>With the aim of determining whether the use of a testing language for defining tests facilitates the ontology testing method in terms of errors and time, Themis, the tool presented in Section 3.4 that supports the verification testing method described in Section 3, was compared through a user evaluation with other tools of the state of the art for ontology verification. Some of these tools also use a testing language for the definition of tests.</p><p>Different participants with different ontology development expertise participated in such evaluation, providing feedback regarding the verification tools and their usability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Experimental design</head><p>The goal of this analysis was to compare ontology verification tools that use testing languages with tools that do not. To this end, each participant in this experiment had to verify whether a given ontology satisfied a set of ontology requirements with one of these tools. Depending on the tool, participants had to execute tests or to browse the terms and axioms in the ontology to check whether the requirements were satisfied.</p><p>For this evaluation, a set of 30 ontology requirements written in natural language was defined and, based on them, an ontology was developed and published. 20 These requirements included diverse restrictions and had different complexities, such as simple requirements that require a hierarchy and complex requirements associated with cardinality or with several relations between terms. Moreover, only some of the requirements were satisfied by the ontology. The participants had to identify which of them were satisfied by the ontology and which were not. The list of requirements used in this experiment is shown in Table <ref type="table" target="#tab_5">6</ref>.</p><p>Based on the results of the participants, the verification tools can be compared according to two aspects, namely, the errors made by the participants and the time spent in the verification process.</p><p>To check the errors made by the participants, the results provided, i.e., the set of satisfied or unsatisfied requirements, were analysed. To identify for each tool:</p><p>Incorrect answers, i.e., to affirm that a requirement is satisfied by an ontology when it is not or vice versa. 13 http://themis.linkeddata.es/catalogue.html. 14 https://oeg-upm.github.io/helio/. 15 https://helio.vicinity.iot.linkeddata.es/sparql. 16 http://iot.linkeddata.es/def/wot. 17 http://themis.linkeddata.es. 18 https://github.com/oeg-upm/Themis. 19 https://www.apache.org/licenses/LICENSE-2.0. 20 https://w3id.org/def/themisEval#.</p><p>Correct answers, i.e., to affirm that a requirement is not satisfied by an ontology and it is not or that a requirement is satisfied by an ontology and it is. Unsolvable requirements, which are requirements that could not be verified by participants. In this analysis, participants were asked to leave a requirement as 'unsolvable' if they had to spend more than 5 min to check if it was satisfied or not. In addition, unsolvable requirements refer to those requirements that were not understood by the participants.</p><p>To check the time spent by the participants for each tool during the experiment, the time spent by each participant in verifying each requirement was calculated.</p><p>With the aim of comparing the tools, a web application with an online questionnaire was developed to be completed by the participants in the experiment. This questionnaire collected data from participants and their results regarding the verification process.</p><p>First, the questionnaire asked participants to add their demographic data, including expertise in the OWL language and software development. Furthermore, participants were asked about their previous experience with the tools analysed in the experiment.</p><p>Subsequently, the questionnaire asked the participants about the verification process for each requirement in the experiment. The following information had to be added by each participant for each requirement:</p><p>The test or technique that was used to verify the requirement (e.g., the use of a reasoner or an editor browser). Based on the results of the test or the technique used, participants had to indicate for each requirement: (1) if the requirement is satisfied; (2) if there are terms in the requirement that are not included in the ontology; (3) if there is any absent restriction; (4) if there is a conflict between the requirement and the analysed ontology; or (5) if the participant does not know how to verify the requirement. Feedback or comments that the participants wanted to report related to the tool, the requirement, or the tests associated with it.</p><p>In addition, the questionnaire automatically collects the time spent by each participant in identifying whether each requirement is satisfied by the ontology or not. Once the participants completed the questionnaire, a USE questionnaire <ref type="bibr" target="#b24">[25]</ref> was sent to them with questions related to usefulness, satisfaction, and usability of the tools. The questionnaire included 11 qualitative questions divided into three categories, namely, usefulness, satisfaction, and usability. Within the questionnaire, the questions are rated on a Likert scale from 1 (strongly disagree) to 5 (strongly agree). The questionnaire also included questions for listing the most positive and negative aspects of the tools and allowed participants to send additional comments regarding the usability of the tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Results and discussion</head><p>To perform this experiment, participants used the tools Themis (described in Section 3.4), TDDOnto2 (described in Section 2) and Protégé. <ref type="foot" target="#foot_9">21</ref> Both Themis and TDDOnto2 are tools that use testing languages to define tests to verify an ontology. As mentioned in the previous sections, Themis uses the testing language presented in Section 3.2, which is based on the OWL Manchester Syntax, and provides guides to help users in the definition of tests. Regarding TDDOnto2, its tests are based on axioms written in the OWL Manchester syntax. TDDOnto2 relies on users' knowledge and, therefore, no guides are provided to help users, although it includes an autocompletion service. Protégé is an ontology editor that allows visualising and browsing the hierarchy of classes and their properties in an ontology.</p><p>In this evaluation, 30 participants were involved (10 participants per tool), among which there were experts and nonexperts in the OWL language (participants that were familiar and not familiar with OWL). Participants in the experiment are required to have a minimum of knowledge in Semantic Web technologies. The set of participants also included undergraduate and master students. Tables <ref type="table" target="#tab_6">7</ref> and<ref type="table" target="#tab_7">8</ref> summarise the expertise of the participants in ontology and software development, as well as their expertise in the tools.</p><p>As shown in these tables, most of the participants are familiar with the OWL language, but they do not have a background in the OWL Manchester Syntax. In addition, there are several participants who are also familiar with software development, which can help to understand the testing process. Finally, the majority of the participants had not used any of the testing tools until this experiment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.1.">Time analysis</head><p>The experiment was planned to last around one hour and a half. It should be noted that not all participants answered the 30 requirements due to time problems, since they spent more than the planned time.</p><p>Figs. <ref type="figure">3</ref><ref type="figure" target="#fig_3">4</ref><ref type="figure" target="#fig_4">5</ref>show the obtained results with respect to the time spent per requirement in the experiment, indicating the average seconds spent per requirement in each of the tools. It should be noted that in Fig. <ref type="figure">3</ref> Themis does not have values from requirements R.14 to R.30. This is because the only participant not familiar with the OWL language that used Themis could not complete the questionnaire due to time problems.</p><p>From these figures, it can be observed that, regardless of the expertise of the participants, Protégé has a stable time spent per requirement during the verification process, while both Themis and TDDOnto2 have a learning curve. As an example, in Fig. <ref type="figure" target="#fig_4">5</ref> it can be observed that R.1 and R.13 for TDDOnto2 take more than twice the time spent in Protégé for participants experts in the OWL language. However, after R.19 the time spent in the three tools is similar, although the complexity of these requirements is not different from the previous ones. This evolution could indicate the existence of the learning curve in both TDDOnto and Themis. Furthermore, it can be observed that even if the time is higher during the first requirements, it decreases over time for all participants.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.2.">Correctness analysis</head><p>During this experiment, the answers (incorrect and correct) given by the users were also collected. Checking the summarised results presented in Table <ref type="table" target="#tab_8">9</ref>, it can be concluded that the percentage of correct results is significantly higher in Themis and TDDOnto2 for users that are familiar or experts in OWL. For this range of users, i.e., familiar and experts, Themis and TDDOnto2 also present a significantly lower number of incorrect results.</p><p>For those users that were not familiar with OWL, there is not a high variability in the results of the tools (even if they are different). It should also be noted that Protégé had more participants that are not familiar with the OWL language than the other tools.</p><p>Tables 10-12 <ref type="foot" target="#foot_10">22</ref> detail the results collected from the analysis, grouped by the type of participant and by the tool. These figures include the percentage of correct and incorrect answers for each requirement and the number of unsolved requirements, i.e., those requirements that the participants did not know how to verify.</p><p>From these results, it can be concluded that, although Protégé is the tool with the most stable time spent per requirement, it is also the tool with the worst results regarding the errors made during the verification process. In contrast, Themis and TDDOnto2 have a learning curve, but yield better results in terms of correctness for those users that are familiar and experts in OWL.</p><p>Apart from this, it should be noted that in the three tools there were some requirements that the participants could not test, although the number of these unsolved requirements is low. The requirements that had a higher percentage of unresolved results were R.12, R.13, R.16, and R.25 in the case of Themis, R.13, R.15, R.16 and R.17 in the case of TDDOnto2 and R.20, R.25 in the case of Protégé. Requirements R.12, R.13, and R.25 are associated with relations between terms in the ontology, R.15 and R.16 also include a cardinality restriction, R.17 is related to a hierarchy between classes, and R.20 is associated with the definition of an instance of a class. This motivates the analysis of the correct results in terms of the type of requirement.  Most of the requirements with a higher percentage of unresolved results are related to term relations since the participants could not identify which restrictions, e.g., existential or universal ones, were associated with such requirements.</p><p>Tables <ref type="table" target="#tab_12">13</ref><ref type="table" target="#tab_13">14</ref><ref type="table" target="#tab_14">15</ref>show the results obtained from the three tools grouped by type of requirement. From these tables, it can be observed that, in general, those requirements that include several restrictions, e.g., hierarchy and disjoint classes, are the most difficult requirements to verify, since they have a higher percentage of incorrect results.</p><p>Regarding Themis, for the participants who were not familiar with OWL, the requirements that had the highest percentage of correct answers were those related to instances or related both to a relation and a hierarchy between terms, which had 100% of correct results. For the participants who were familiar with OWL, the requirements related to disjoint classes had the highest percentage of correct answers (i.e., 100% of correct results). Finally, for the participants that were experts, the requirements that had the highest percentage of correct answers were those related to disjoint classes and to relations between terms, and those requirements that had more than one restriction such as a relation and a hierarchy or union between classes. These three types of requirements also had 100% of correct results.</p><p>Concerning incorrect results, in the case of Themis, the requirements with the lowest percentage of correct answers for the participants that were not familiar with OWL were those related to hierarchies and to relations and unions between terms, which both had 100% of incorrect results. Regarding participants who were familiar with the OWL language, those requirements related to relations and hierarchies had the lowest percentage of correct answers, although it is higher than 50%. Finally, regarding OWL experts, the requirements with the lowest percentage of correct answers were those related to hierarchies and disjoint classes, which had 50% of incorrect results.</p><p>In the case of TDDOnto2, the highest percentage of correct answers for the participants that were not familiar with OWL were related to instances, cardinality and hierarchy and disjointness. All these requirements had 100% of correct results. Concerning participants who were familiar with the OWL language, the requirements related to hierarchy and the requirements that define both hierarchies and disjoint classes were the ones with the highest percentage. These requirements had 86% and 83% of correct results, respectively. Finally, concerning experts, the requirements related to instances, as well as those related to both relations and hierarchies, had 100% of correct answers.</p><p>Regarding incorrect results, for TDDOnto2, the requirements with the lowest percentage of correct results for all the participants were those related to several restrictions. For participants who were not familiar with OWL, the requirements related to relations and cardinality between terms, to relations between terms and hierarchies, and to relations and unions between terms, had 0% of correct answers. Regarding participants that were familiar with OWL, the requirements related to relations and unions between terms had the lowest percentage of correct answers. Finally, for those participants experts in  OWL, the requirements related to relations and cardinality, to hierarchy and disjointness, and to relations and unions between terms had 67% of correct answers, which was the lowest percentage of correct answers for this type of participants.</p><p>For Protégé, the type of requirement with the highest percentage of correct answers for all the participants was the one related to relations and unions between terms, which was not a trivial requirement for participants using the other tools. This could happen due to the visualisation of the restrictions provided by Protégé.</p><p>The requirements related to a hierarchy in Protégé had a low percentage of correct answers compared to the other tools. For participants that are familiar with OWL only 33% of this type of requirement had correct answers, while for experts only 40%. This situation might arise because Protége only shows the direct superclass and, consequently, users cannot see the entire hierarchy unless they navigate through the classes. This might also happen with those requirements related to disjoint classes and to relations between terms.</p><p>Table <ref type="table" target="#tab_15">16</ref> summarises the results obtained per type of requirement grouped by tool, as well as the total percentage of results for all tools. With the information depicted in Table <ref type="table" target="#tab_15">16</ref>, it is confirmed that the analysed tools had more than 50% of correct results on average for all types of requirements. Moreover, it is also confirmed that, on average, the requirements more complex to be verified, i.e., with the worst percentage of incorrect results, were those related to terms relations and hierarchies. It should also be noted that the number of unsolvable requirements for the three tools is very low. As shown in Table <ref type="table" target="#tab_15">16</ref>, for almost all the types, the number of unsolvable requirements is 0.</p><p>It must also be remarked that the variability in the results for the different tools is high. This makes sense because the testing approaches provided by each tool facilitate dealing with certain types of test above others. For example, the percentage of incorrect results regarding disjointness is quite low for Themis, since the tool only requires writing a simple test expression; on the other hand, checking disjointness with Protégé requires browsing the disjointness axioms in the ontology and even running a reasoner when those axioms are not explicit.</p><p>It was also analysed using a correlation coefficient <ref type="bibr" target="#b20">[21]</ref> whether the average time spent per requirement could influence the correctness of the results. Taking into account the information presented in Tables 10-12 and in Figs. <ref type="figure">3</ref><ref type="figure" target="#fig_3">4</ref><ref type="figure" target="#fig_4">5</ref>, it was concluded that there is no significant correlation between the time and the errors in this experiment. 4.2.3. Usefulness, satisfaction, and ease of use analysis After the empirical analysis, the information collected through the USE questionnaire was analysed. To this end, 30 questionnaires (10 questionnaires for each tool) were collected from the participants. In Figs. 6-8 an overview of the results is provided.</p><p>Figs. <ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref> show that with respect to usefulness, satisfaction, and ease of use, Themis had the best results, followed by Protégé and TDDOnto2. However, although Protégé had good results on the questionnaire, especially as an easy to use and intuitive tool, it leads to worse results in the verification process. From the analysis and feedback from participants, it was also found that for those participants without any knowledge related to the OWL language and ontologies, learning a syntax to generate tests was too complex. In that scenario, Protégé is the most useful and usable tool. However, it was also found that these participants are able to search for classes and properties in an ontology, but they cannot verify other types of requirements, since it is difficult for them to understand the different types of restrictions that can be defined in an ontology. Furthermore, instead of having complex test expressions or concatenated axioms in the case of TDDOnto2, it was easier and more intuitive for the participants to use simple tests, although they had to split the test into several subtests. However, in general, all participants found these tools useful to verify ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Conclusions of the experiment</head><p>Based on the information gathered from the experiment, the following conclusions regarding the hypotheses were obtained:</p><p>H1. Using a testing language to define tests based on functional requirements facilitates the ontology testing process regarding the reduction of time in users who are familiar and experienced in OWL. Considering time, although it is true that the learning curve is higher in Themis and TDDOnto2, once the user gets familiar with the syntax, the time spent per requirement is similar in all the analysed tools. However, Protégé is the tool with a more stable average time. For the participants that were not familiar with OWL, Protégé is the tool with a shorter average time per requirement. For participants familiar with OWL, TDDOnto2 is the tool with a shorter average time spent per requirement and for participants experts in the OWL language, Themis is the one with a shorter average time spent. Therefore, this hypothesis is rejected. H2. Using a testing language to define tests based on functional requirements facilitates the ontology testing process regarding the reduction of errors in users that are familiar and experienced in OWL.</p><p>Themis and TDDOnto2, both based on a testing language, had a significantly higher percentage of correct results in comparison to Protégé for users that are familiar and expert in the OWL language. Moreover, although both tools have a learning curve in terms of the time spent per requirement, they had a lower number of incorrect results for these types of users. Therefore, this hypothesis is true. H3. Using a testing language to define tests based on functional requirements increases the usability of the tools during the verification activity.</p><p>Both Themis and Protégé had very similar results in the USE questionnaire. Regarding usefulness and satisfaction, Themis was the tool with the best results, while regarding ease of use (e.g., user friendliness or effort), Protégé had better ones. Therefore, usability does not depend only on the fact of whether the tools use testing languages or not, but also on how the user can interact with them. On the basis of these results, this hypothesis is rejected.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusions and future work</head><p>This paper presents an ontology verification testing method that considers the participation and feedback of domain experts and users during the verification process. To define the tests, a testing language based on lexico-syntactic patterns is proposed as part of this testing method, which was defined after an analysis of how requirements are specified. Besides, following the verification testing method, the results of the testing process are proposed to be stored in a machine-readable format, which also provides traceability between the requirements, the tests, and the ontology implementation. During the development of the CORAL corpus, significant difficulties to find available real-world requirements were found, which hindered the analysis of the requirements specifications and, consequently, limited the defined testing language. Publishing ontology requirements online would help the analysis of their specification and, therefore, would facilitate research related to their definition, formalisation, and verification.</p><p>In the evaluation analysis, Themis and TDDOnto2, both tools that use a testing language for the ontology verification process, were compared to Protégé, which is a tool that does not use a testing language. As shown in the empirical analysis (Section 4), both Themis and TDDOnto2 reduced the number of errors during the verification process for those users that are familiar with the OWL language, as well as for developers who are experts in it, compared to Protégé. Moreover, Protégé is the tool that had a stable time spent per requirement, but also the worst results with regard to errors made during the verification process.</p><p>From the results obtained during the evaluation of the testing process, it was concluded that users without any ontology background found it difficult to understand the restrictions that can be described in an ontology. Consequently, it is difficult for them to go beyond asking for the presence of classes and properties, which usually is not enough for the verification process. Moreover, ontology visualisation or examples of use are needed by them to understand the structure of the ontology. Furthermore, domain experts and users that have knowledge about ontologies, even if they are not experts, managed to verify an ontology using tests and to analyse the restrictions included in it. Therefore, it was concluded that ontology verification testing processes should consider ontology engineers and practitioners with a minimum of knowledge regarding ontologies as potential users since a manual review of the verification status and tests is needed.</p><p>During the experiment, it was also found that all types of participants made mistakes during the verification process, even those that are experts in the OWL language. These mistakes refer to incorrect answers, i.e., to affirm that a requirement is satisfied by an ontology when it is not or vice versa. Having incorrect answers during the verification activity can affect the development of the ontology, as it helps to ensure that all the expected requirements are satisfied. Therefore, this fact reinforces the need for testing approaches that ontology engineers should use to develop ontologies that satisfy their expected requirements.</p><p>This verification testing method was used as the basis in the conformance testing method proposed by Fernández-Izquierdo and García-Castro <ref type="bibr" target="#b12">[13]</ref>, in which the tests are used to check whether an ontology satisfies the requirements of a standard.  Future work will be directed to an extension of the CORAL corpus with requirements written in other languages, e.g., in Spanish. This extension would improve the analysis of the requirements specification, leading to the analysis of more types of requirements and, consequently, to richer testing languages. Another line of future work is the implementation of a recommendation system for the translation of requirements into tests, intending to recommend potential tests based on requirements. This recommendation system could reduce the time spent on the definition of tests. Finally, future work will be also directed to the analysis of how the verification method can be used together with ontology evolution approaches (e.g., <ref type="bibr" target="#b6">[7]</ref> or <ref type="bibr" target="#b10">[11]</ref>). This analysis could also be used to determine how the terms defined in the requirements evolve alongside the ontology. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>2 .</head><label>2</label><figDesc>To run the TDD test twice: (a) To run the first execution of the tests. This first execution should fail. (b) To update the ontology (add x).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>LSP-Min-and-OP-EN T20. Minimum cardinality between classes A and B and universal relation P between classes B and C [ClassA] subclassof [PropertyP] min [num] [ClassB] and [ClassB] subclassof [PropertyP] only [ClassC] LSP-Min-and-OP-EN T21. Subsumption relation between A and B, subsumption relation between A and C, and disjointness between B and C [ClassB] subclassOf [ClassA] and [ClassC] subclassOf [ClassA] that disjointWith [ClassB] LSP-SC-Di-EN ODP-based tests T22. Participation ODP between classes A and B [ClassA] subClassOf isParticipantIn-hasParticipant some [ClassB] LSP-PA-EN T23. Co-participation ODP [ClassA] and [ClassB] subClassOf isParticipantIn-hasParticipant some [ClassC] LSP-PCP-EN T24. PartOf ODP between classes A and B, with existential restriction [ClassA] subClassOf isPartof-hasPart some [ClassB] Ontology experts T25. PartOf ODP between classes A and B, with universal restriction [ClassA] subClassOf isPartof-hasPart only [ClassB] Ontology experts T26. Object-Role ODP between classes A and B, with existential restriction [ClassA] subClassOf isRoleOf-hasRole some [ClassB] LSP-OR-EN T27. Object-Role ODP between classes A and, with universal restriction [ClassA] subClassOf isRoleOf-hasRole only [ClassB] LSP-OR-EN Usage tests T28. Two individuals of classes A and B can be related by property P [ClassA] [PropertyP] [ClassB] Ontology experts</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Overview of the Test Case Verification ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Comparison of the time spent per requirement for participants familiar with the OWL language.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Comparison of the time spent per requirement for participants experts with the OWL language.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Summary of the usefulness results.</figDesc><graphic coords="22,294.50,55.10,146.51,99.13" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Summary of the satisfaction results.</figDesc><graphic coords="22,294.20,543.62,148.36,100.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 8 .</head><label>8</label><figDesc>Fig.8. Summary of the ease of use results.</figDesc><graphic coords="23,119.48,54.68,323.12,471.49" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2</head><label>2</label><figDesc>Summary of conclusions regarding ontology testing approaches.</figDesc><table><row><cell></cell><cell>Ren and colleagues</cell><cell>Wis ´niewski and</cell><cell>Blomqvist</cell><cell>CQChecker</cell><cell cols="2">OntologyTest VoCol</cell><cell>TDD</cell></row><row><cell></cell><cell></cell><cell>colleagues</cell><cell>and</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell>colleagues</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell>Dimension</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Traceability</cell><cell>Not treated</cell><cell>Not treated</cell><cell>Test stored in</cell><cell>Not treated</cell><cell>Not treated</cell><cell cols="2">Not treated Not treated</cell></row><row><cell></cell><cell></cell><cell></cell><cell>an ontology</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="3">Detailed Guidelines for Processes and Activities</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Specification of</cell><cell>Patterns of</cell><cell>Patterns of</cell><cell>Competency</cell><cell>Competency</cell><cell cols="2">Not provided Not</cell><cell>Not provided</cell></row><row><cell>requirements</cell><cell>competency</cell><cell>competency</cell><cell>questions</cell><cell>questions</cell><cell></cell><cell>provided</cell><cell></cell></row><row><cell></cell><cell>questions</cell><cell>questions</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Definition of tests</cell><cell>List of types</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>of competency</cell><cell>List of types of</cell><cell>List of types of</cell><cell>Not provided</cell><cell cols="3">Not provided Not provided Tests as</cell><cell></cell></row><row><cell>questions</cell><cell>competency</cell><cell>tests</cell><cell></cell><cell></cell><cell></cell><cell>OWL</cell><cell></cell></row><row><cell></cell><cell>questions</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>axioms</cell><cell></cell></row><row><cell>Implementa-tion</cell><cell>SPARQL queries and</cell><cell>SPARQL queries</cell><cell>SPARQL</cell><cell>SPARQL</cell><cell>SPARQL</cell><cell>SPARQL</cell><cell>Presence or</cell></row><row><cell>and execution of</cell><cell>inference checking</cell><cell></cell><cell>queries</cell><cell>queries</cell><cell>queries</cell><cell>queries</cell><cell>absence of</cell></row><row><cell>tests</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>axioms</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Audience</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Target audience</cell><cell>Ontology engineers</cell><cell>Ontology</cell><cell>Ontology</cell><cell>Ontology</cell><cell>Ontology</cell><cell>Ontology</cell><cell>Ontology</cell></row><row><cell></cell><cell></cell><cell>engineers</cell><cell>engineers</cell><cell>engineers</cell><cell>engineers</cell><cell>engineers</cell><cell>engineers</cell></row><row><cell></cell><cell></cell><cell cols="2">Technological support</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Tool</cell><cell>No</cell><cell>No</cell><cell>Yes</cell><cell>Yes</cell><cell>Yes</cell><cell>Yes</cell><cell>Yes</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 3</head><label>3</label><figDesc>List of lexico-syntactic patterns included in the CORAL dictionary<ref type="bibr" target="#b13">[14]</ref>.Simple tests. These tests are associated with a single axiom in an ontology. These axioms could be related to terms declarations as well as to restrictions. Composed tests. These tests are associated with a combination of axioms in an ontology, which could be a combination of class axioms, descriptions, or property axioms. ODP-based tests. These tests are associated with ODPs. Up to now, the ODP-based test expressions are associated with Content Ontology Design Patterns (CP)<ref type="bibr" target="#b15">[16]</ref>, which propose patterns for solving design problems for the domain classes and properties that populate an ontology and, therefore, for addressing content problems. Examples of these CPs are the Participation 10 or the PartOf 11 ones. Usage tests. These tests are related to how the ontology is used, rather than checking a particular restriction in the ontology.</figDesc><table><row><cell>LSP</cell><cell>Type of correspondence</cell></row></table><note><p><p>10 </p>http://ontologydesignpatterns.org/wiki/Submissions:Participation. 11 http://ontologydesignpatterns.org/wiki/Submissions:PartOf.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 4</head><label>4</label><figDesc>List of proposed test expressions together with their category.</figDesc><table><row><cell>Goal</cell><cell>Syntax</cell><cell>Source</cell></row><row><cell></cell><cell>Simple test</cell><cell></cell></row><row><cell>T1. Class A exists</cell><cell>[ClassA] type Class</cell><cell>LSP-CD-EN</cell></row><row><cell>T2. Subsumption relation between classes A and B</cell><cell>[ClassA] subclassOf [ClassB]</cell><cell>LSP-SC-EN</cell></row><row><cell>T3. Disjointness between two classes</cell><cell>[ClassA] disjointWith [ClassB]</cell><cell>LSP-Di-EN</cell></row><row><cell>T4. Equivalence between two classes</cell><cell>[ClassA] equivalentTo [ClassB]</cell><cell>LSP-EQ-EN</cell></row><row><cell>T5. Property P exists</cell><cell>[Property] type Property</cell><cell>Ontology experts</cell></row><row><cell>T6. Existential relation P between two classes A and B</cell><cell>[ClassA] subclassOf [PropertyP] some [ClassB]</cell><cell>LSP-OP-EN, LSP-DP-EN,</cell></row><row><cell></cell><cell></cell><cell>LSP-LO-EN, LSP-SV-EN</cell></row><row><cell>T7. Universal relation P between two classes A and B</cell><cell>[ClassA] subclassOf [PropertyP] only [ClassB]</cell><cell>LSP-OP-EN, LSP-DP-EN,</cell></row><row><cell></cell><cell></cell><cell>LSP-LO-EN, LSP-SV-EN</cell></row><row><cell>T8. Symmetric property P</cell><cell>[PropertyA] characteristic symmetric</cell><cell>LSP-SYM-EN</cell></row><row><cell>T9. Minimum cardinality</cell><cell>[ClassA] subclassOf [PropertyP] min [num] [ClassB]</cell><cell>LSP-OP-Min-EN</cell></row><row><cell>T10. Maximum cardinality</cell><cell>[ClassA] subclassOf [PropertyP] max [num] [ClassB]</cell><cell>LSP-OP-Max-EN</cell></row><row><cell>T11. Cardinality</cell><cell cols="2">[ClassA] subclassOf [PropertyP] exactly [num] [ClassB] LSP-OP-Exact-EN</cell></row><row><cell>T12. Universal relation P between the union of two classes A and</cell><cell>[ClassA] subclassOf [PropertyP] only [ClassB] or</cell><cell>LSP-U-EN</cell></row><row><cell>B</cell><cell>[ClassC]</cell><cell></cell></row><row><cell>T13. Universal relation P between the intersection of two classes</cell><cell>[ClassA] subclassOf [PropertyP] some [ClassB] and</cell><cell>LSP-INTER-EN</cell></row><row><cell>A and B</cell><cell>[ClassC]</cell><cell></cell></row><row><cell>T14. Individual I exists</cell><cell>[IndividualI] type [ClassA]</cell><cell>Ontology experts</cell></row><row><cell>T15. Property P has domain class A</cell><cell>[PropertyP] domain [ClassA]</cell><cell>Ontology experts</cell></row><row><cell>T16. Property P has range class A</cell><cell>[PropertyP] range [ClassA]</cell><cell>Ontology experts</cell></row><row><cell></cell><cell>Composed tests</cell><cell></cell></row><row><cell>T17. Multiple inheritance of class A</cell><cell>[ClassA] subclassOf [ClassB] and [ClassC]</cell><cell>LSP-MI-EN</cell></row><row><cell>T18. Subsumption and relation between classes</cell><cell>[ClassA] subClassOf [ClassB] that [PropertyP] some</cell><cell>LSP-DC-SC-EN</cell></row><row><cell></cell><cell>[ClassC]</cell><cell></cell></row><row><cell>T19. Minimum cardinality between classes A and B, and</cell><cell></cell><cell></cell></row><row><cell>existential relation P between classes B and C</cell><cell></cell><cell></cell></row></table><note><p>[ClassA] subclassof [PropertyP] min [num] [ClassB] and [ClassB] subclassof [PropertyP] some [ClassC]</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 5</head><label>5</label><figDesc>T4. Equivalence between two classes A and B.</figDesc><table><row><cell>Goal:</cell><cell cols="3">T4. Equivalence between two classes A</cell></row><row><cell></cell><cell>and B</cell><cell></cell><cell></cell></row><row><cell>Test expression:</cell><cell cols="2">[ClassA] equivalentTo [ClassB]</cell><cell></cell></row><row><cell>Type:</cell><cell>Simple test</cell><cell>Related to:</cell><cell>Classes</cell></row><row><cell cols="2">Test precondition</cell><cell cols="2">Test preparation</cell></row><row><cell cols="2">Class A and Class B exist</cell><cell cols="2">(E 1.1) Declaration of</cell></row><row><cell></cell><cell></cell><cell cols="2">:A (E 1.2) Declaration</cell></row><row><cell></cell><cell></cell><cell>of :B</cell><cell></cell></row><row><cell cols="3">Assertions to test the ontology behaviour</cell><cell></cell></row><row><cell>Axiom</cell><cell></cell><cell>Result</cell><cell></cell></row><row><cell cols="2">(E 2) AssertionA' v :A u B</cell><cell cols="2">Unsatisfiable class</cell></row><row><cell cols="2">(E 3) Assertion A' v A u :B</cell><cell cols="2">Unsatisfiable class</cell></row><row><cell cols="2">(E 4) Assertion A' v A u B</cell><cell cols="2">Consistent ontology</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 6</head><label>6</label><figDesc>List of requirements.</figDesc><table><row><cell>Identifier Type</cell><cell>Requirement</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 7</head><label>7</label><figDesc>OWL expertise of participants in the experiment.</figDesc><table><row><cell>Tool</cell><cell></cell><cell>OWL expertise</cell><cell></cell><cell cols="2">OWL Manchester Syntax expertise</cell><cell></cell></row><row><cell></cell><cell>Not familiar</cell><cell>Familiar</cell><cell>Expert</cell><cell>Not familiar</cell><cell>Familiar</cell><cell>Expert</cell></row><row><cell>Themis</cell><cell>1</cell><cell>7</cell><cell>2</cell><cell>4</cell><cell>6</cell><cell>0</cell></row><row><cell>TDDOnto2</cell><cell>1</cell><cell>6</cell><cell>3</cell><cell>8</cell><cell>1</cell><cell>1</cell></row><row><cell>Protégé</cell><cell>6</cell><cell>3</cell><cell>1</cell><cell>8</cell><cell>1</cell><cell>1</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 8</head><label>8</label><figDesc>Development expertise of participants in the experiment. Comparison of the time spent per requirement for participants not familiar with the OWL language.</figDesc><table><row><cell>Tool</cell><cell cols="2">Software development expertise</cell><cell></cell><cell></cell><cell>Tool expertise</cell><cell></cell></row><row><cell></cell><cell>Not familiar</cell><cell>Familiar</cell><cell>Expert</cell><cell>Not familiar</cell><cell>Familiar</cell><cell>Expert</cell></row><row><cell>Themis</cell><cell>1</cell><cell>7</cell><cell>2</cell><cell>9</cell><cell>1</cell><cell>0</cell></row><row><cell>TDDOnto2</cell><cell>4</cell><cell>3</cell><cell>3</cell><cell>8</cell><cell>2</cell><cell>0</cell></row><row><cell>Protégé</cell><cell>4</cell><cell>4</cell><cell>2</cell><cell>5</cell><cell>3</cell><cell>2</cell></row><row><cell></cell><cell>3.</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 9</head><label>9</label><figDesc>Summary of the error results.</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Participants</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Not Familiar</cell><cell></cell><cell></cell><cell>Familiar</cell><cell></cell><cell></cell><cell>Expert</cell><cell></cell></row><row><cell></cell><cell>C</cell><cell>I</cell><cell>U</cell><cell>C</cell><cell>I</cell><cell>U</cell><cell>C</cell><cell>I</cell><cell>U</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Themis</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Average results</cell><cell>46%</cell><cell>54%</cell><cell>8%</cell><cell>79%</cell><cell>18%</cell><cell>2%</cell><cell>83%</cell><cell>17%</cell><cell>0%</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>TDDOnto2</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Average results</cell><cell>68%</cell><cell>10%</cell><cell>23%</cell><cell>72%</cell><cell>24%</cell><cell>6%</cell><cell>81%</cell><cell>16%</cell><cell>0%</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Protégé</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Average results</cell><cell>60%</cell><cell>40%</cell><cell>2%</cell><cell>43%</cell><cell>57%</cell><cell>0%</cell><cell>50%</cell><cell>50%</cell><cell>0%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 10</head><label>10</label><figDesc>Percentage of correctness results for Themis.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 11</head><label>11</label><figDesc>Percentage of correctness results for TDDOnto2.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 12</head><label>12</label><figDesc>Percentage of correctness results for Protégé.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12"><head>Table 13</head><label>13</label><figDesc>Percentage of results for Themis grouped by type of requirement.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>Table 14</head><label>14</label><figDesc>Percentage of results for TDDOnto2 grouped by type of requirement.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14"><head>Table 15</head><label>15</label><figDesc>Percentage of results for Protégé grouped by type of requirement.</figDesc><table><row><cell>Participants</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_15"><head>Table 16</head><label>16</label><figDesc>Summary of the results per tool.</figDesc><table><row><cell>Results</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0"><p>CQChecker is not available online.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_1"><p>OntologyTest is not available online.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_2"><p>VoCol is available in the following URL: https://www.vocoreg.com/. The last update was on 6 April 2021.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_3"><p>The last version of TDDOnto is available at the following URL: https://github.com/kierendavies/tddonto2. The last update was on August 23, 2018.A. Fernández-Izquierdo and R. García-Castro Information Sciences 582 (2022) 89-113</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4"><p>https://lot.linkeddata.es/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_5"><p>http://coralcorpus.linkeddata.es.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_6"><p>https://doi.org/10.5281/zenodo.1967306.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_7"><p>https://www.w3.org/TR/owl2-manchester-syntax.A. Fernández-Izquierdo and R. García-Castro Information Sciences 582 (2022) 89-113</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_8"><p>The Verification Test Case ontology is available online: https://w3id.org/def/vtc.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_9"><p>https://protege.stanford.edu/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="22" xml:id="foot_10"><p>For the sake of readability, the numbers of all tables in this section are rounded. In addition, C refers to correct results, I to incorrect results and U to unresolvable results. The sum of the percentages of C, I and U needs to be 100%. A 0% value refers to the fact that there are 0 requirements with correct, incorrect, or unsolvable results, depending on the column.A. Fernández-Izquierdo and R. García-Castro Information Sciences 582 (2022) 89-113</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><p>1 to 1 correspondence <rs type="grantName">LSP-SC-EN LSP for subclassOf relation ODP LSP-MI-EN LSP for multiple inheritance ODP LSP-EQ-EN LSP for equivalence relation ODP LSP-OP-EN LSP for object property ODP LSP-DP-EN LSP for datatype property ODP LSP-Di-EN LSP for disjoint classes ODP LSP-SV-EN LSP for specified values ODP LSP-PA-EN LSP for participation ODP LSP-PCP-EN LSP for co-participation ODP LSP-LO-EN LSP for location ODP LSP-OR-EN LSP for object-role ODP LSP-DC-SC-EN LSP</rs> for defined classes and subclass <rs type="projectName">LSP-SC-Di-EN LSP</rs> for subclass relation, disjoint classes and exhaustive classes <rs type="programName">LSP-OP-UR-EN LSP for object property and universal restriction LSP-CD-EN LSP for class definition LSP-Min-and-OP-EN LSP</rs> for object property minimum cardinality and object property LSP-OP-Min-EN LSP for object property minimum cardinality related to an object property LSP-OP-Max-EN LSP for object property maximum cardinality related to an object property LSP-OP-Exact-EN LSP for object property exact cardinality related to an object property <rs type="grantName">LSP-SYM-EN LSP for symmetry LSP-U-EN LSP for union LSP-INTER-EN LSP for intersection LSP-COMPL-EN LSP for complement</rs></p><p>1 to N correspondences LSP-SC-PW-EN LSP for subclass or simple part-whole relation LSP-OP-DP-PW-EN LSP for object property or datatype property or simple part-whole relation <rs type="grantName">LSP-PW-CONS-COM-CE-EN LSP</rs> for simple part-whole relation or constituency or componency or collection-entity <rs type="projectName">LSP-DC-SC-EN LSP for defined classes and subclass relation LSP-INST-SC-EN LSP for instances of subclass relation LSP-OP-DP-EN LSP</rs> for object property or datatype property Fig. 1. Testing activities during the testing process, together with their inputs and outputs. <rs type="person">A. Fernández-Izquierdo</rs> and <rs type="funder">R. García-Castro Information Sciences</rs> <rs type="grantNumber">582 (2022</rs>) <rs type="grantNumber">89-113</rs> Acknowledgements This work is supported by a <rs type="grantName">Predoctoral grant</rs> from the <rs type="funder">I+D+i program</rs> of the <rs type="institution">Universidad Politécnica de Madrid</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funded-project" xml:id="_kHUYeSC">
+					<orgName type="grant-name">LSP-SC-EN LSP for subclassOf relation ODP LSP-MI-EN LSP for multiple inheritance ODP LSP-EQ-EN LSP for equivalence relation ODP LSP-OP-EN LSP for object property ODP LSP-DP-EN LSP for datatype property ODP LSP-Di-EN LSP for disjoint classes ODP LSP-SV-EN LSP for specified values ODP LSP-PA-EN LSP for participation ODP LSP-PCP-EN LSP for co-participation ODP LSP-LO-EN LSP for location ODP LSP-OR-EN LSP for object-role ODP LSP-DC-SC-EN LSP</orgName>
+					<orgName type="project" subtype="full">LSP-SC-Di-EN LSP</orgName>
+					<orgName type="program" subtype="full">LSP-OP-UR-EN LSP for object property and universal restriction LSP-CD-EN LSP for class definition LSP-Min-and-OP-EN LSP</orgName>
+				</org>
+				<org type="funding" xml:id="_NjuTVWg">
+					<orgName type="grant-name">LSP-SYM-EN LSP for symmetry LSP-U-EN LSP for union LSP-INTER-EN LSP for intersection LSP-COMPL-EN LSP for complement</orgName>
+				</org>
+				<org type="funded-project" xml:id="_nFDeD9J">
+					<idno type="grant-number">582 (2022</idno>
+					<orgName type="grant-name">LSP-PW-CONS-COM-CE-EN LSP</orgName>
+					<orgName type="project" subtype="full">LSP-DC-SC-EN LSP for defined classes and subclass relation LSP-INST-SC-EN LSP for instances of subclass relation LSP-OP-DP-EN LSP</orgName>
+				</org>
+				<org type="funding" xml:id="_gu3a3HX">
+					<idno type="grant-number">89-113</idno>
+					<orgName type="grant-name">Predoctoral grant</orgName>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of Competing Interest</head><p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Natural language-based approach for helping in the reuse of ontology design patterns</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Aguado</forename><surname>De Cea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 16th International Conference on Knowledge Engineering and Knowledge Management<address><addrLine>Acitrezza, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008-10-02">September 29-October 2, 2008. 2008</date>
+			<biblScope unit="page" from="32" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Description logics</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Baader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Sattler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Foundations of Artificial Intelligence</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="135" to="179" />
+			<date type="published" when="2008">2008</date>
+			<publisher>Elsevier</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Test-driven development: by example</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Beck</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<publisher>Professional</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Evaluating ontologies with competency questions</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bezerra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Freitas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Santana</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/WIC/ACM International Conferences on Web Intelligence and Intelligent Agent Technology</title>
+		<meeting>the IEEE/WIC/ACM International Conferences on Web Intelligence and Intelligent Agent Technology<address><addrLine>Atlanta, Georgia, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE Computer Society</publisher>
+			<date type="published" when="2013">November 17-20, 2013. 2013</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="284" to="285" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">CQChecker: A tool to check ontologies in OWL-DL using competency questions written in controlled natural language</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bezerra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Santana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Freitas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Learning and Nonlinear Models</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="115" to="129" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+		<respStmt>
+			<orgName>SBRN.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Ontology testing-methodology and tool</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Sepour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 18th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 18th International Conference on Knowledge Engineering and Knowledge Management<address><addrLine>Galway City, Ireland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">October 8-12, 2012. 2012</date>
+			<biblScope unit="page" from="216" to="226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">OntoDrift: a Semantic Drift Gauge for Ontology Evolution Monitoring</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cavaliere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Senatore</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 6th Workshop on Managing the Evolution and Preservation of the Data Web (MEPDaW) co-located with the 19th International Semantic Web Conference (ISWC 2020), Virtual event</title>
+		<title level="s">CEUR Workshop Proceedings</title>
+		<meeting>the 6th Workshop on Managing the Evolution and Preservation of the Data Web (MEPDaW) co-located with the 19th International Semantic Web Conference (ISWC 2020), Virtual event</meeting>
+		<imprint>
+			<date type="published" when="2020-11-01">November 1st, 2020. 2020</date>
+			<biblScope unit="volume">2821</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Daga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nikitina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Villazón-Terrazas</surname></persName>
+		</author>
+		<ptr target="http://www.neon-project.org." />
+		<title level="m">NeOn D2. 5.2 Pattern based ontology design: methodology and software support</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+		<respStmt>
+			<orgName>NeOn Project</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">TDDonto2: A Test-Driven Development Plugin for arbitrary TBox and ABox axioms</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Davies</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th European Semantic Web Conference</title>
+		<meeting>the 14th European Semantic Web Conference<address><addrLine>Portoroz, Slovenia</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017-06-01">May 28-June 1, 2017. 2017</date>
+			<biblScope unit="page" from="120" to="125" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Computing authoring tests from competency questions: experimental validation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dennis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Van Deemter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dell'aglio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Pan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th International Semantic Web Conference</title>
+		<meeting>the 16th International Semantic Web Conference<address><addrLine>Vienna, Austria</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">October 21-25, 2017. 2017</date>
+			<biblScope unit="page" from="243" to="259" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Reynaud-Delaı tre, Recognizing lexical and semantic change patterns in evolving life science ontologies to inform mapping adaptation</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Reis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dinh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Silveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pruski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Artificial Intelligence in Medicine</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="153" to="170" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Requirements behaviour analysis for ontology testing</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 21st International Conference on Knowledge Engineering and Knowledge Management (EKAW 2018)</title>
+		<meeting>the 21st International Conference on Knowledge Engineering and Knowledge Management (EKAW 2018)<address><addrLine>Nancy, France</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2018">November 12-26, 2018. 2018</date>
+			<biblScope unit="page" from="114" to="130" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Conformance testing of ontologies through ontology requirements</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">97</biblScope>
+			<biblScope unit="page">104026</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">CORAL: A corpus of ontological requirements annotated with lexico-syntactic patterns</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of 16th Extended Semantic Web Conference</title>
+		<meeting>16th Extended Semantic Web Conference<address><addrLine>Portoroz ˇ, Slovenia</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019">June 2-6, 2019. 2019</date>
+			<biblScope unit="page" from="443" to="458" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Themis: A tool for validating ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)</title>
+		<meeting>the 31st International Conference on Software Engineering and Knowledge Engineering (SEKE 2019)<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">July 10-12, 2019, 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Ontology design patterns, Handbook on Ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="221" to="243" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">OntologyTest: A tool to evaluate ontologies through tests defined by the user</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>García-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Otero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 10th International Work-Conference on Artificial Neural Networks on Artificial Neural Networks</title>
+		<meeting>the 10th International Work-Conference on Artificial Neural Networks on Artificial Neural Networks<address><addrLine>Salamanca, Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">June 10-12, 2009. 2009</date>
+			<biblScope unit="page" from="91" to="98" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Methodology for the design and evaluation of ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Fox</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop on Basic Ontological Issues in Knowledge Sharing</title>
+		<meeting>the Workshop on Basic Ontological Issues in Knowledge Sharing</meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Vocol: An integrated environment to support version-controlled vocabulary development</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Halilaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Grangel-González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lange</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Auer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Coskun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lohmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 20th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 20th International Conference on Knowledge Engineering and Knowledge Management<address><addrLine>Bologna, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">November 19-23, 2016. 2016</date>
+			<biblScope unit="page" from="303" to="319" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Test-Driven Development of ontologies</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of 13th European Semantic Web Conference</title>
+		<meeting>13th European Semantic Web Conference<address><addrLine>Heraklion, Crete, Greece</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016-06-02">May 29-June 2, 2016. 2016</date>
+			<biblScope unit="page" from="642" to="657" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Pearson&apos;s Correlation Coefficient</title>
+		<editor>W. Kirch</editor>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kollia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Glimm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+		<title level="m">Proceedings of 8th Extended Semantic Web Conference</title>
+		<meeting>8th Extended Semantic Web Conference<address><addrLine>Heraklion, Crete, Greece</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2011-06-02">May 29-June 2, 2011. 2011</date>
+			<biblScope unit="page" from="382" to="396" />
+		</imprint>
+	</monogr>
+	<note>SPARQL query answering over OWL ontologies</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The TDDonto Tool for Test-Driven Development of DL Knowledge bases</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 29th International Workshop on Description Logics</title>
+		<editor>
+			<persName><forename type="first">Cape</forename><surname>Town</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Africa</forename><surname>South</surname></persName>
+		</editor>
+		<meeting>the 29th International Workshop on Description Logics<address><addrLine>Cape Town, South Africa</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">April 22-25, 2016. 2016</date>
+			<biblScope unit="volume">1577</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Behaviour-Driven Development of Foundational UML Components</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Lazar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Motogna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Pârv</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Electronic Notes in Theoretical Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">264</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="91" to="105" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Measuring usability with the use questionnaire</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Lund</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Usability Interface</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="3" to="6" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<title level="m">Multilingualism in Ontologies -Building Patterns and Representation Models</title>
+		<imprint>
+			<publisher>LAP Lambert Academic Publishing</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Semantics and Complexity of SPARQL</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gutierrez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Database Systems</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">45</biblScope>
+			<date type="published" when="2009">2009</date>
+			<publisher>ACM</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A simplified agile methodology for ontology development</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Peroni</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 13th OWL: Experiences and Directions Workshop and 5th OWL reasoner evaluation workshop</title>
+		<meeting>the 13th OWL: Experiences and Directions Workshop and 5th OWL reasoner evaluation workshop</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="55" to="69" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Towards competency question-driven ontology authoring</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Parvizi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mellish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Van Deemter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stevens</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th European Semantic Web Conference</title>
+		<meeting>the 11th European Semantic Web Conference<address><addrLine>Crete, Greece</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2014">May 25-29, 2014. 2014</date>
+			<biblScope unit="page" from="752" to="767" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aguado De Cea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Lights and shadows in creating a glossary about ontology engineering</title>
+		<imprint>
+			<publisher>John Benjamins Publishing Company</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="202" to="236" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">The NeOn Methodology framework: A scenario-based methodology for ontology development</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Ontology</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="107" to="145" />
+			<date type="published" when="2015">2015</date>
+			<publisher>IOS Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">How to write and use the ontology requirements specification document</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Villazón-Terrazas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on On the Move to Meaningful Internet Systems</title>
+		<meeting>the International Conference on On the Move to Meaningful Internet Systems</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="966" to="982" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Utting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Legeard</surname></persName>
+		</author>
+		<title level="m">Practical Model-based Testing: A Tools Approach</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Analysis of ontology competency questions and their formalizations in SPARQL-OWL</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wis ´niewski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Potoniec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ławrynowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Web Semantics</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="page">100534</biblScope>
+			<date type="published" when="2019">2019</date>
+			<publisher>Elsevier</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Translating natural language competency questions into SPARQLQueries: a case study</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zemmouchi-Ghomari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Ghomari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Conference on Building and Exploring Web Based Environments</title>
+		<meeting>the First International Conference on Building and Exploring Web Based Environments<address><addrLine>Seville, Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>IARIA XPS Press</publisher>
+			<date type="published" when="2013-02-01">January 27-February 1, 2013. 2013</date>
+			<biblScope unit="page" from="81" to="86" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

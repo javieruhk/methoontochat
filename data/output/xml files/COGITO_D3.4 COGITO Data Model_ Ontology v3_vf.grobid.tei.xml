@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Name Beneficiary Email</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Socorro</forename><surname>Bernardos</surname></persName>
+							<email>sbernardos@fi.upm.es</email>
+						</author>
+						<author>
+							<persName><forename type="first">María</forename><surname>Poveda-Villalón</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Raúl</forename><surname>García-Castro</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Giorgos</forename><surname>Giannakis</surname></persName>
+							<email>g.giannakis@hypertech.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Christos</forename><surname>Tsalis</surname></persName>
+							<email>c.tsalis@hypertech.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Theofania</forename><surname>Charbi</surname></persName>
+							<email>t.charbi@hypertch.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Evangelos</forename><surname>Karalis</surname></persName>
+							<email>e.karalis@hypertech.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Georgios</forename><surname>Lilis</surname></persName>
+							<email>g.lilis@ucl.ac.uk</email>
+						</author>
+						<author>
+							<persName><forename type="first">Jochen</forename><surname>Teizer</surname></persName>
+							<email>teizerj@byg.dtu.dk</email>
+						</author>
+						<author>
+							<persName><forename type="first">Frédéric</forename><surname>Bosché</surname></persName>
+							<email>f.bosche@ed.ac.uk</email>
+						</author>
+						<author>
+							<persName><forename type="first">Vasilios</forename><surname>Karkanis</surname></persName>
+							<email>vkarkanis@iti.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Damiano</forename><surname>Falcioni</surname></persName>
+							<email>damiano.falcioni@boc-eu.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">Panagiotis</forename><surname>Moraitis</surname></persName>
+							<email>p.moraitis@que-tech.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">Ján</forename><surname>Varga</surname></persName>
+							<email>varga@novitechgroup.sk</email>
+						</author>
+						<author>
+							<persName><forename type="first">Apostolos</forename><surname>Papafragkakis</surname></persName>
+							<email>a.papafragkakis@hypertech.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Bohuš</forename><surname>Belej</surname></persName>
+							<email>belej@novitechgroup.sk</email>
+						</author>
+						<title level="a" type="main">Name Beneficiary Email</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">BF6320076E12C4608FECE978C17638A0</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>D3.4 -COGITO Data Model and Ontology Definition and Interoperability Design v3 Dissemination Level: Public Deliverable Type: Report Lead Partner: UPM Contributing Partners: Hypertech</term>
+					<term>UCL</term>
+					<term>DTU</term>
+					<term>UEDIN</term>
+					<term>CERTH</term>
+					<term>BOC-AG</term>
+					<term>QUE</term>
+					<term>NT</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Version Editors Date Comment 0.1 UPM 21.09.2022 Update of executive summary, introduction and conclusions 0.2 UPM 05.10.2022 Update of requirements and ontology 0.3 UPM 10.10.2022 Updates of diagrams and ontology 0.4 UPM 18.10.2022 Version for internal review 0.5 Hypertech, NT 25.10.2022 Internal review 0.6 UPM 27.10.2022 Review comments addressed 0.7 UPM 27.10.2022 Final version D3.3 COGITO Data Model and Ontology Definition and Interoperability Design v3 2 COGITO -GA ID. 958310 COnstruction phase diGItal Twin mOdel 1.0 UPM, Hypertech 27.10.2022 Submission to the EC portal Disclaimer ©COGITO Consortium Partners. All rights reserved. COGITO is a HORIZON2020 Project supported by the European Commission under Grant Agreement No. 958310. The document is proprietary of the COGITO consortium members.</p><p>No copying or distributing, in any form or by any means, is allowed without the prior written agreement of the owner of the property rights. The information in this document is subject to change without notice. Company or product names mentioned in this document may be trademarks or registered trademarks of their respective companies. The information and views presented in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use, which may be made, of the information contained therein. D3.3 COGITO Data Model and Ontology Definition and Interoperability Design v3 3 COGITO -GA ID. 958310 COnstruction phase diGItal Twin mOdel 9 COGITO -GA ID. 958310</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Executive Summary</head><p>The COGITO Digital Twin platform aims to enable interoperability with existing and emerging standards and data models covering different domains. Semantic interoperability in the COGITO platform is based on ontologies that will be exploited throughout the COGITO infrastructure and used to semantically represent the information exchanged. This document details the methodology and technological infrastructure used to develop the COGITO ontology network, as well as the third version of the ontologies that make up such an ontology network.</p><p>The followed methodology is called Linked Open Terms <ref type="bibr" target="#b25">[1]</ref> and includes four activities: 1) ontology requirements specification, 2) ontology implementation, 3) ontology publication, and 3) ontology maintenance.</p><p>The COGITO ontology network consists of seven modules corresponding to the facility (the construction itself), the construction process, the construction resources, the IoT devices used to locate resources, the quality achieved, the safety information related to the facility, and the entities managed by the digital twin platform (digital twins and information resources). These modules have already been conceptualised, implemented, and published and will be modified and complemented with new modules as the project progresses.</p><p>During the maintenance phase of the ontology development process, which will start after this deliverable is submitted, we expect future change requests in the ontologies due to defects found or to new requirements that may appear during integration. The COGITO ontology portal will serve as a living repository for the different ontologies and will contain the latest version of the developed ontologies and all related artifacts. Note: Since the methodology and infrastructure followed are the same as those described in in the previous versions of the COGITO Data Model and Ontology Definition and Interoperability Design (See D3.2 <ref type="bibr">[2]</ref> and D3.3 <ref type="bibr">[3]</ref>), this deliverable differs from them mainly in the sections that describe new developments in the ontology, namely Sections 4 and 5. In addition, in D3.2 <ref type="bibr">[2]</ref> a coverage analysis was carried out to identify to what extent some of the terms that appeared in the requirements also appeared in the ontologies described in the previous D3.1 deliverable <ref type="bibr">[4]</ref>. The conclusions highlighted the fact that reusing ontologies requires analysing multiple factors beyond coverage, and some of them are not easily quantifiable or even cannot be measured objectively. That is why we have not performed the coverage analysis for the new ontology requirements and removed that section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel     </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>List of Figures</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>List of Tables</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Scope and Objectives of the Deliverable</head><p>The COGITO Digital Twin platform aims to enable interoperability with existing and emerging standards and data models covering different domains. Semantic interoperability in the COGITO platform is based on ontologies that will be exploited throughout the COGITO infrastructure and used to semantically represent the information exchanged.</p><p>In computer science, ontologies are defined as "formal, explicit specifications of a shared conceptualization". The COGITO ontologies have been developed using the W3C Web Ontology Language standard (OWL) <ref type="foot" target="#foot_0">1</ref> , reusing existing resources and standards whenever possible. This development is based on the technical specification of the COGITO architecture and is based on a set of requirements extracted from its different components and use cases.</p><p>This deliverable describes the environment that supports the development of the COGITO ontologies. To do so, on the one hand, it describes the methodology followed to develop the ontologies and the ontology development infrastructure deployed to support such development. On the other hand, it presents the results of the different ontology development sprints. Finally, this document presents an overview of the current version of the COGITO ontologies that are available online on the COGITO ontology portal. <ref type="foot" target="#foot_1">2</ref>The version of the ontology presented in this document is the version produced on the date of writing of this document. In any case, the COGITO ontology portal shall always contain the latest version of the ontologies and all related artifacts for ontology development.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Relation to other Tasks and Deliverables</head><p>This deliverable is based on the use cases defined in D2.1-Stakeholder Requirements for the COGITO System <ref type="bibr" target="#b29">[5]</ref> and on the COGITO architecture defined in D2.4-COGITO System Architecture <ref type="bibr" target="#b30">[6]</ref>. Furthermore, D3.1-Survey of Existing Models, Ontologies and Associated Standardization Efforts <ref type="bibr">[4]</ref> was also considered to identify existing ontologies to reuse in the COGITO ontologies.</p><p>The COGITO ontology network described here will allow for sharing and interoperability among the different components of the COGITO architecture, especially in the communications with the Digital Twin platform. Because of this, this document has been so important when developing each component of the COGITO architecture, that is, the results of work packages 4, 5, 6, and 7 and their integration in work package 8.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">Updates from the Previous Version</head><p>This deliverable is the third one devoted to the development of the COGITO ontologies. As in the previous version of the deliverable (v2), the sections related to the ontology development methodology and the development infrastructure are identical (sections 3 and 6, respectively) and the main changes compared to the previous versions of the deliverable are the following.</p><p>• The introduction and conclusions of the document have been updated.</p><p>• Section 3 has been updated, including the new requirements gathered for the COGITO ontology since the previous version of the deliverable. • Section 4 has been updated to include the current description of the ontology that includes the new requirements. • The section related to the coverage analysis in D3.2-COGITO Data Model and Ontology Definition and Interoperability Design v1 <ref type="bibr">[2]</ref> has been removed from the next versions of the deliverable. The conclusions that were extracted from such analysis highlighted the fact that reusing ontologies requires analysing multiple factors beyond coverage, and some of them are not easily quantifiable or even cannot be measured objectively. This, and the high manual effort required to perform the COGITO -GA ID. 958310</p><p>COnstruction phase diGItal Twin mOdel coverage analysis, are the reasons of not performing the coverage analysis for the new ontology requirements that have been gathered.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">Structure of the Deliverable</head><p>• Section 2 provides an overview of the methodology used to develop the COGITO ontologies;</p><p>• Section 3 presents the requirements that should be satisfied by the COGITO ontologies;</p><p>• Section 4 provides a description of the COGITO ontologies;</p><p>• Section 5 presents the deployed ontology development infrastructure; and</p><p>• Section 6 provides some conclusions and insights into future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Ontology Development Methodology</head><p>This section presents the ontology development methodology used for the development of the COGITO ontology network. This methodology includes four activities: 1) ontology requirements specification, 2) ontology implementation, 3) ontology publication, and 3) ontology maintenance. This development methodology is called Linked Open Terms (LOT) <ref type="bibr" target="#b25">[1]</ref> and is based on the NeOn methodology <ref type="bibr" target="#b31">[7]</ref>. It has been used and refined in previous ontology development processes from the European projects VICINITY <ref type="bibr" target="#b32">[8]</ref>, BIMERR <ref type="bibr" target="#b33">[9]</ref> and DELTA <ref type="bibr" target="#b34">[10]</ref>, and adapted to the particularities of COGITO (see Sections 3 and 4).</p><p>Figure <ref type="figure">1</ref> shows an overview of the activities that are performed and the artefacts that result from them: the ontology requirements specification document (ORSD), the ontology implementation, the ontology available online, issues, bugs, etc. The following subsections detail each activity (and product). In the figures included in this section, these artefacts are represented in green squares and assigned a number; the different activities in the methodology enumerate in a green circle the numbers of all the input artefacts that are used in the activity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 1 -Ontology development methodology followed in COGITO</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Ontological Requirements Specification</head><p>The aim of the requirements specification activity is to identify and define the requirements the ontology to be created needs to fulfil. During this first activity, it is necessary to involve experts in the domain to generate the appropriate industry perspective and knowledge. Figure <ref type="figure" target="#fig_1">2</ref> shows the workflow for the ontology requirements specification activity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1">Identification of Purpose and Scope</head><p>The goal of this step is to define the purpose and scope of the given ontology or module. To this end, the ontology development team works in collaboration with users and domain experts to define the purpose and scope of each ontology or module to be developed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2">Data Exchange Identification and Use Case Specification</head><p>During this step, the ontology development team needs to gather the necessary documentation about the domain to be modelled. This documentation might correspond to the following.</p><formula xml:id="formula_0">• Standards • Datasets • API specifications • Use cases</formula><p>This documentation needs to be collected by both the ontology development team and domain experts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3">Ontological Requirement Proposal</head><p>Taking as input the documentation and the data provided by domain experts and users, the ontology development team generates a first proposal of ontological requirements written in the form of Competency Questions or assertions.</p><p>The format used for this requirement proposal follows a tabular approach and includes the following fields:</p><p>• Requirement identifier, which must be unique for each requirement.</p><p>• Partner who proposed the requirement.</p><p>• Component of the COGITO architecture from which the requirement was extracted.</p><p>• Sprint in which the requirement is planned to be implemented.</p><p>• Competency question or assertion.</p><p>• Status of the requirement, which can be: (1) Proposed, (2) Accepted, (3) Rejected, (4) Pending, or (5) Deprecated. • In case the requirement is deprecated, the identifier of the updated requirement is used.</p><p>• Comments on the requirement.</p><p>• Provenance of the requirement, e.g., use case or standard.</p><p>• Priority of the requirement, which can be: (1) High, (2) Medium, or (3) Low.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COnstruction phase diGItal Twin mOdel</head><p>The ontological requirements are completed iteratively, as the following ontology development process is incremental.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.4">Completion and Validation of Ontology Requirements</head><p>During this activity, domain experts and users, in collaboration with the ontology development team, validate whether the ontology requirements defined in the previous step are correct and complete.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.5">Prioritization of Ontological Requirements</head><p>Prioritization of requirements allows development teams to schedule the development of the ontology in sprints. In the COGITO project, this prioritization will be performed if there is a need to prioritise functional requirements, mainly for those sprints with a high number of requirements in which the implementation of some of the requirements has to be postponed for a future sprint.</p><p>If this prioritisation is needed, to carry it out, the ontology development team works with the domain experts to identify which requirements need to be fulfilled first.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Ontology Implementation</head><p>During the implementation activity, the ontology is built using a formal language based on the requirements identified in the previous activity.</p><p>Taking the set of requirements collected in the previous activity as input, the ontology implementation activity is carried out through several sprints. To this end, the ontology developers schedule the ontology development according to the requirements that were identified, and the ontology development team builds the ontology iteratively by implementing only a certain number of requirements in each iteration. The output of each iteration is a new version of the ontology implementation. Figure <ref type="figure" target="#fig_2">3</ref> shows the steps that are followed in this ontology implementation activity. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1">Ontology Conceptualization</head><p>The aim of this activity is to build an ontology model from the ontological requirements identified in the requirements specification process that represents the domain of the ontology. Therefore, during the COGITO -GA ID. 958310</p><p>COnstruction phase diGItal Twin mOdel conceptualization of the ontology, the domain knowledge obtained from the previous activity is organized and structured into a model by the ontology development team.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2">Ontology Encoding</head><p>The purpose of the encoding activity is to implement the ontology in an implementation language such as OWL. The ontology code resulting from this activity includes, in addition to the ontology classes, properties, and axioms. Furthermore, following the FAIR principles <ref type="bibr" target="#b35">[11]</ref>, the ontology code also includes ontology metadata, such as the creator, title, publisher, license, and version of the ontology, in addition to the metadata for each of the ontology.</p><p>To manage the ontology versions developed in the COGITO project, the following version convention was adopted. Following this convention, each release will follow the pattern v.major.minor.fix, where each field follows the rules:</p><p>• major: The field is updated when the ontology covers the entire domain that it intends to model. That is, it is a complete product and covers the final goal of the development.</p><p>• minor: The field is updated when:</p><p>o All the requirements of a subdomain are covered. o Documentation is added to the ontology. • fix: The field is updated when:</p><p>o Typos or bugs are corrected in the ontology. o Classes, relationships, axioms, individuals, or annotations are added, deleted, or modified, but the domain is not covered. In each iteration, the minor and fix fields might be changed from zero to several times.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.3">Ontology Evaluation</head><p>Once the ontology is encoded, it should be evaluated before its online publication. The development of the ontology must guarantee the following aspects:</p><p>• The ontology is consistent.</p><p>• The ontology does not have syntactic, modelling, or semantic errors.</p><p>• The ontology fulfils the requirements scheduled for the ontology, to ensure that the ontology is completed regarding the domain experts needs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Ontology Publication</head><p>During the ontology publication activity, the ontology development team provides an online ontology that is accessible both as a human-readable document and as a machine-readable file from its URI. Figure <ref type="figure" target="#fig_3">4</ref> shows an overview of the steps performed during the ontology publication activity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.1">Propose Release Candidate</head><p>Once the ontology developers have implemented and evaluated the ontology, the next task is to decide whether the current version is going to be published on the Web (or shared among other project partners, for example, software developers making use of the ontology) or whether it is needed to document such version of the ontology for any other reason (for example, a set of requirements is fulfilled and triggers a new release). In this case, the version at hand becomes a release candidate. In case the ontology is not selected as a release, the ontology development team generates a pre-release version of the ontology. Both the release and the pre-release versions of the ontologies are evaluated and ready to be used.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2">Ontology Documentation</head><p>Taking the ontology generated in the previous activities as input, the ontology development team generates the ontology documentation. This documentation includes the following:</p><p>• An HTML description of the ontology that describes the classes, object properties, and data properties of the ontology, the license URI, and title being used. Domain experts must collaborate with the ontology development team to describe classes and properties. This description also includes metadata such as creator, publisher, date of creation, last modification, or version number. It also includes links to different formats for serialization of the ontology, such as TTL, JSON-LD, or RDF/XML. • Diagrams that store the graphical representation of the ontology, including taxonomy and class diagrams.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.3">Online Publication</head><p>During this activity, the ontology, which should already be validated and documented, is published on the Web. This ontology is accessible through its URI as a machine-readable and human-readable file using content negotiation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Ontology Maintenance</head><p>During this activity, the ontology is updated, and new requirements can be proposed to be added to the ontology. Furthermore, during this activity, the ontology development team, together with domain experts and users, can identify and correct errors in the ontology. Figure <ref type="figure" target="#fig_4">5</ref> shows the steps to follow in the maintenance activity of the ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.1">Bug Detection</head><p>Once the ontology developers have published the ontology, any user, developer, or domain expert can detect and inform about bugs. This notification should be done using an issue tracker, allowing all the information related to the bug, as well as the actor that identifies it, to be stored.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.2">New Requirements Proposal</head><p>During this activity, new requirements can be proposed for the ontology. Ontology developers, domain experts, or users can propose modifications to improve the published ontology version. This proposal should be done through an issue tracker so that all the information related to it is stored.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Ontology Requirements Specification</head><p>Since the goal of the ontology is to facilitate the sharing and interoperability of data between COGITO components through the Digital Twin Platform (see Table <ref type="table" target="#tab_3">1</ref>), we decided to analyse each component of the architecture (defined in D2.4 <ref type="bibr" target="#b30">[6]</ref>) in order to gather information about the data it needs as input from other components and the data it produces as output to other components. We also considered the information provided to and by the digital twin platform described in the different use cases.</p><p>Several meetings with the partners involved in the components and each use case have helped us specify requirements that are aligned with the needs of those components. These requirements have been organised into seven different domains related to the facility, the construction process, the resources used in that process, the Internet of Things information processed by the platform, the quality of the resulting facility, the safety information related to it, and the entities (digital twins and information resources) managed by the digital twin platform. Table <ref type="table" target="#tab_4">2</ref> presents the list of requirements for the domains we have identified.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Table 1 -General information on the specification of ontology requirements</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Purpose</head><p>To facilitate data sharing and interoperability among the COGITO components through the Digital Twin Platform</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Scope</head><p>Limited to the data shared among the COGITO components through the Digital Twin Platform</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Implementation language</head><p>Web Ontology Language (OWL)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Intended endusers</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO components and application developers COGITO end users and stakeholders</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Non-functional ontology requirements</head><p>Annotated in English Linked to standards when possible Open license Available online Functional ontology requirements </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Detailed information on the COGITO ontology portal</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FACI-9</head><p>An element can have other elements</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FACI-10</head><p>Spatial zones include sites, facilities, facility parts, storeys and spaces</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FACI-11</head><p>Spatial zones include tracked zones (used by tags) and construction zones (which can be walkable or fall zones) FACI- <ref type="bibr" target="#b36">12</ref> A spatial zone has an identifier, a name, and a description</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FACI-13</head><p>An element has an identifier, a name and the material used to build it A type of resource has an identifier, a name, the maximum quantity and a cost per hour RESO-5</p><p>A resource has an identifier and a status</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RESO-6</head><p>Human workers can have an email, and pieces of equipment can have a name</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RESO-7</head><p>Resources can have a tracking tag assigned</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RESO-8</head><p>A resource can have a tracking tag</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IOT-1</head><p>A tracking tag signals its location (and hence that of the resource to which it is assigned)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IOT-2 A tracking tag signals its location along with the corresponding timestamp</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IOT-3</head><p>There are three kinds of location a tracking tag can signal: location locationKF and locationMA</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-1 A project can have information resources (especially point cloud and image jobs)</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-2</head><p>An element can have information resources (especially as-built point clouds and meshes) QUAL-3</p><p>An element can have results about its quality</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-4</head><p>Quality results include defects and geometric quality information </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-8</head><p>An image is taken at a time, using a device with a certain position and orientation and is associated to an element QUAL-9</p><p>An image can be processed before and after being analysed</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-10</head><p>Geometric quality information is obtained from a point cloud</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-11</head><p>A piece of geometric quality information is related to a rule and includes a result (passed or not passed), a tolerance reference, a scalar result, a unit, a scheduled timestamp, a performed timestamp and an identifier</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>QUAL-12</head><p>A rule includes an identifier, an origin document, a label, a description, and keywords related to element, material, and relationship types.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SAFE-1</head><p>A construction zone can be related to safety information </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SAFE</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Overview of the COGITO Ontology Network</head><p>The ontology network developed for the COGITO project consists of two parts. One part contains six ontology modules, where each module corresponds to one specific domain, namely facility<ref type="foot" target="#foot_2">3</ref> , process, resource, IoT, quality, and safety; and the other part is a module for the entities that the digital twin platform manages (digital twins and information resources), Figure <ref type="figure">6</ref> provides a graphical overview of the COGITO ontology network showing the main concepts defined in each module. To understand this figure and the ones provided in the next subsections, in which each module is explained, it is important to consider the following paragraphs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 6 -Overview of the COGITO ontology network</head><p>Coloured boxes are used to represent modules currently implemented, while white boxes represent reused terms from existing ontologies. As can be seen, some of the ontologies reviewed in previous steps of the project were reused according to the results of the process described in Section 4, such as BOT and SAREF. Since the COGITO ontology only needs some IFC concepts in order to achieve interoperability, and ifcOWL is a very complex ontology, we decided to first define the main concepts of the COGITO ontology and then analyse their alignment to the IfcOWL ones (see Annex A). It should be noted that the ifcOWL version we have used is the official one, which corresponds to IFC 4.0.2.1. Some concepts relevant to COGITO, such as facility, are inspired by the IFC 4.3.0.0 ones, but have not been implemented yet in ifcOWL.</p><p>Additional cross-domain ontologies, such as geo and dcterms, were also reused once requirements and conceptualizations were analysed in detail. The prefixes, and corresponding ontologies, created and reused in the COGITO ontology are listed in Table <ref type="table" target="#tab_5">3</ref> and Table <ref type="table" target="#tab_6">4</ref>, respectively.</p><p>The main hierarchies between concepts are also included and ad hoc relations between different modules and within modules are also present. Arrows are used to represent these properties between classes and to represent some RDF, RDFS, and OWL constructs. More precisely:</p><p>• Plain arrows with white triangles represent the subclass relationship between two classes. The origin of the arrows is the class to be declared as a subclass of the class at the destination of the arrow.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Plain arrows between two classes indicate that the object property has declared as domain the class</head><p>in the origin, and as range the class in the destination of the arrow. The identifier of the object property is indicated in the arrow. • Dashed labelled arrows between two classes indicate that the object property can be instantiated between the classes in the origin and the destination of the arrow. The identifier of the object property is indicated in the arrow. • Dashed arrows with the identifiers between stereotype signs (i.e., "&lt;&lt; &gt;&gt;") refer to OWL constructs that are applied to some ontology elements, that is, they can be applied to classes or properties depending on the OWL construct being used. • Dashed arrows without identifiers are used to represent the rdf:type relation, indicating that the element in the origin is an instance of the class in the destination of the arrow.</p><p>Datatype properties are denoted by rectangles attached to the classes, in a UML-oriented way. Dashed boxes represent datatype properties that can be applied to the class it is attached to, while plain boxes represent that the domain of the datatype property is declared to be the class attached.</p><p>For more details about the graphical notation used in this diagram, you can check the Chowlk Visual Notation<ref type="foot" target="#foot_3">4</ref> .</p><p>The complete and up-to-date documentation of each ontology module is provided online, as explained in Section 3. In the rest of this section, only the main concepts and modelling decisions are detailed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Facility Module</head><p>The current conceptual model defined for the Facility module is shown in Figure <ref type="figure" target="#fig_6">7</ref>.</p><p>The classes and properties used to describe the topological concepts of a building in this module are based on the Building Topology Ontology (BOT), while other construction products, such as railways, bridges, and roads, are described by new classes and properties.</p><p>• facility:Project is defined as a large or major undertaking, especially one involving considerable money, personnel, and equipment. A facility:Project is related to a facility:Site. • facility:SpatialZone is defined as a subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent. This class is the root of a hierarchy that includes facility:ConstructionZone, used to represent zones that are relevant for the Health and Safety module, and facilityTrackedZone, used to represent zones that are relevant for the IoT preprocessing module. It is also the root of another hierarchy that includes facility:Site, facility:Facility, facility:FacilityPart, facility:Storey, and facility:Space. • facility:Site is defined as a subclass of bot:Site and, as such, a part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. It can contain (facility:hasFacility) one or more facility:Facility. • facility:Space is defined as a subclass of bot:Space and, as such, a part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically and provides for certain functions within the zone it is contained in. • facility:Facility is defined as something designed and built to serve a specific function that provides a convenience or a service. This new class includes facility:Railway, facility:Bridge, facility:Road, and facility:Building. • facility:FacilityPart is defined as something that is usually contained (facility:hasFacilityPart) in a facility:Facility. A facility:FacilityPart can contain other facility parts (facility:hasFacilityPart). • facility:Storey is defined as a subclass of bot:Storey and, as such, is contained (bot:hasStorey) in a facility:Building and is intended to contain (bot:hasSpace) one or more facility:Space that are horizontally connected. • facility:Element is defined as a subclass or bot:Element and, as such, a constituent of a construction entity with a characteristic technical function, form, or position. A facility:Element can contain subelements (bot:hasSubElement). A facility:SpatialZone can contain (bot:hasElement) some facility:Elements. A beo:BuildingElement is a subclass of facility:Element. Its facility:material property is considered when processing visual quality.</p><p>The BOT subclasses have been created because they have specific properties such as rdfs:label and dcterms:identifier. They are also subclasses of geo:SpatialObject in order to reuse its location properties.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Process Module</head><p>The current conceptual model defined for the Process module is depicted in Figure <ref type="figure" target="#fig_7">8</ref>. The main classes and properties of this module are the following:</p><p>• process:Process is defined as a series of actions aimed at accomplishing some result (in this case, related to a facility:Project). A process:Process can correspond to a process:AsPlannedOriginalProcess, a process:AsPlannedEnrichedProcess, or a process:AsIsProcess.</p><p>• process:Task is defined as a piece of work, which is performed in a process:Process (process:belongsTo); and can perform different actions (process:addsElement, process:removesElement, process:repairsElement, or processcontrolsElement) to a facility:Element depending on the type of task (process:GeometricQualityTask, process:VisualQualityTask, process:SafetyTask and process:ConstructionTask). A process:Task can have information about its planned and actual duration (process:plannedStartDate, process:plannedEndDate process:actualStartDate, and process:actualEndDate). We can include the process:status and the process:progress of a process:Task. A task can require (process:hasResourceTypeRequirement) several process:ResourceTypeRequirement including the process:quantityNeeded for a resource:ResourceType.</p><p>• process:Cost is defined as the price paid to acquire, produce, accomplish, or maintain anything (in this case, process:Process and process:Task); this price is measured (process:measuredIn) in a currency (process:UnitOfCurrency). • process:WorkOrder is defined as a command or instruction authorizing specific work, repairs, etc. to be done. It has a main provider (resource:hasMainProvider), which is a resource:HumanWorker, and belongs to (process:hasWorkOrder) a process:Process. It is important to know if a process:WorkOrder is completed (process:status).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Resource Module</head><p>The current conceptual model defined for the Resource module is shown in Figure <ref type="figure" target="#fig_8">9</ref>. The main classes and properties of this module are the following:</p><p>• resource:Resource is defined as a source of supply, support, or aid, especially one that can be readily drawn upon when needed. resource:HumanWorker, resource:Equipment and resource:trackingTrack are subclasses of resource:Resource. It is also a subclass of geo:SpatialObject in order to reuse its location properties. A resource:Resource belongs to a resource:ResourceType and can be assigned (rersource:hasTrackingTag) an iot:TrackingTag. • resource:ResourceType is defined as the kind of resource assigned to a process:Task or involved in a process:Process, indicating their maximum quantity (resource:maxUnit) and cost (resource:costPerHour). resource:HumanRole, resource:EquipmentType are subclasses of resource:ResourceType.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">IoT Module</head><p>The current conceptual model defined for the Internet of Things (IoT) module is shown in Figure <ref type="figure" target="#fig_9">10</ref>. The main classes and properties of this module are the following:</p><p>• An iot:TrackingTag is defined as a subclass of saref:Device and, as such, a tangible object designed to accomplish a particular task; in this case, signalling its location (iot:LocationMeasurement), which refers (iot:hasLocation, iot:hasLocationKF, and iot:hasLocationMA) to a geo:Point. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5">Quality Module</head><p>The current conceptual model defined for the Quality module is shown in Figure <ref type="figure">11</ref>. The main classes and properties of this module are the following:</p><p>• qual:Defect is defined as a shortcoming, fault, or imperfection regarding a particular facility:Element. This qual:Defect is associated to a qual:ImageJob, which can be related to three qual:Image (qual:hasRawImage, qual:hasProcessedImage, qual:hasResultImage). qual:Image includes data regarding its capture device, position, orientation, and performed time. This section describes the ontology development infrastructure used to support the activities in the ontology development process described above.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Infrastructure to Support the Requirements Specification Activity</head><p>First, the ontology development team used spreadsheets to store requirements per component. An excerpt of these requirements is shown in Figure <ref type="figure" target="#fig_11">14</ref>.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Conclusions</head><p>This document details the methodology and technological infrastructure used to develop the COGITO ontology network, as well as the third version of the ontologies that make up such an ontology network. The development of these ontologies has been aligned with the gathering of requirements and the specification of the COGITO architecture.</p><p>The current version of the COGITO ontology network (see Figure <ref type="figure">6</ref>) consists of seven modules, corresponding to the facility (the construction itself), the construction process, the construction resources, the IoT devices used to locate the resources, the quality achieved, the safety information related to the facility, and the entities managed by the digital twin platform (see Table <ref type="table" target="#tab_5">3</ref>). These modules have already been conceptualised, implemented, and published in a third version of the COGITO ontologies.</p><p>In D3.2 <ref type="bibr">[2]</ref> a coverage analysis was carried out identifying to what extent some of the terms appearing in the requirements also appeared in the ontologies described in the previous D3.1 deliverable <ref type="bibr">[4]</ref>. The conclusions highlighted the fact that reusing ontologies requires analysing multiple factors beyond coverage, and some of them are not easily quantifiable or even cannot be measured objectively. Therefore, no new coverage analysis was executed for the new ontology requirements.</p><p>The COGITO ontology network allows for the sharing and interoperability among the different components of the COGITO architecture, especially in the communications with the Digital Twin platform. That is why this document has been so important when developing each component of the COGITO architecture, that is, the results of work packages 4, 5, 6, and 7, and their integration in work package 8.</p><p>During the maintenance phase of the ontology development process, which will start after this deliverable is submitted, we expect future change requests in the ontologies due to defects found or to new requirements that may appear during integration. The COGITO ontology portal will serve as a living repository for the different ontologies and will contain the latest version of the developed ontologies and all related artifacts.</p><p>COGITO -GA ID. 958310</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COnstruction phase diGItal Twin mOdel</head><p>Annex A </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcBuilding</head><p>A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space). </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcElement</head><p>An element is a generalization of all components that make up an AEC product.Elements are physical existent objects, although they might be void elements, such as holes. Elements either remain permanently in the AEC product or only temporarily, as formwork does.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class facility:Facility</head><p>Is defined as something designed and built to serve a specific function providing a convenience or a service. facility:FacilityPart Is defined as something that is contained (facility:hasFacilityPart) in a facility:Facility. A facility:FacilityPart can contain subfacility parts (facility:hasSubFacilityPart).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>facility:Project</head><p>Is defined as a large or major undertaking, especially one that involves considerable money, personnel, and equipment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcProject</head><p>IfcProject indicates the undertaking of some design, engineering, construction, or maintenance activities leading towards a product. The project establishes the context for information to be exchanged or shared, and it may represent a construction project but does not have to.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Different concepts facility:Site</head><p>A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcSite</head><p>A site is a defined area of land, possibly covered with water, on which the construction of the project is to be completed. A site may be used to erect, retrofit, or turn down building(s), or for other construction related developments. facility:Space Is defined as a subclass of bot:Space and, as such, a part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically and provides for certain functions within the zone it is contained in.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcSpace</head><p>A space represents an area or volume that is actually or theoretically bounded. Spaces are areas or volumes that provide certain functions within a building. A space is associated with a building storey (or in the case of exterior spaces with a site). A space may span several connected spaces. Therefore, a space group provides for a collection of spaces included in a storey.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class facility:SpatialZone</head><p>Is defined as a subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent. This class is the root of a hierarchy that includes facility:ConstructionZone, used to represent zones used by the Health and Safety module, and facilityTrackedZone, used to represent zones used by the IoT preprocessing module.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcSpatialZone</head><p>A spatial zone is a nonhierarchical and potentially overlapping decomposition of the project under some functional consideration. A spatial zone might be used to represent a thermal zone, a construction zone, a lighting zone, or a usable area zone. A spatial zone might have an independent placement and a shape representation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ifcZone</head><p>A zone is a group of spaces, partial spaces, or other zones. Zone structures may not be hierarchical (in contrary to the spatial structure of a project -see IfcSpatialStructureElement),</p><p>i.e. one individual IfcSpace may be associated with zero, one, or several IfcZone's.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Related concetps facility:Storey</head><p>Is defined as a subclass of bot:Storey and, as such, is contained (bot:hasStorey) in one facility:Building and is intended to contain (bot:hasSpace) one or more facility:Space that are horizontally connected.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcBuildingStorey</head><p>The building storey has an elevation and typically represents a (nearly) horizontal aggregation of spaces that are vertically bound. A storey is (if specified) associated to a building.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>process:Cost</head><p>Is defined as the price paid to acquire, produce, accomplish, or maintain anything (in this case, process:Process and process:Task); and this price is measured (process:measuredIn) in a currency (process:UnitOfCurrency).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcCostSchedule</head><p>The IfcCostSchedule may have assignments of its own using the IfcRelAssignsToControl relationship, where RelatingControl refers to the IfcCostSchedule and RelatedObjects contains one or more objects.</p><p>IfcCostItem: Indicates costs published within this cost schedule, typically a single root cost item forming a hierarchy of nested cost items.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Different concepts process:Process</head><p>Is defined as a series of actions aimed at accomplishing some result (in this case, related to a facility:Project).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcProcess</head><p>IfcProcess is defined as one individual activity or event that is ordered in time, that has sequence relationships with other Different concepts COGITO -GA ID. 958310</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COnstruction phase diGItal Twin mOdel</head><p>Is defined as a shortcoming, fault, or imperfection regarding a particular facility:Element.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>qual:GeometricQualityInformation</head><p>Is defined as data informing a particular problem regarding a particular qual:Rule on a facility:Element.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>resource:Equipment</head><p>Is a subclass of resource:Resource used to assist in the performance of an activity (process:Task).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcConstructionEquipmentResource</head><p>IfcConstructionEquipmentResource is the usage of construction equipment to assist in the performance of construction. Construction equipment resources are consumed entirely or partially or occupied in the performance of construction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class resource:EquipmentType</head><p>Is defined as the different kinds of construction equipment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ifcConstructionEquipmentResourceType</head><p>The resource type IfcConstructionEquipmentType defines commonly shared information for occurrences of construction equipment resources. The set of shared information may include: common productivities, common cost rates, or common properties within shared property sets. It is used to define a construction equipment resource specification (the specific information about the resource that is common to all occurrences of that resource). Resource types may be exchanged without being already assigned to occurrences.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class resource:WorkerRole</head><p>Is defined as the different kinds of roles a human worker can play in a construction project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcLaborResourceType</head><p>The resource type IfcLaborResourceType defines commonly shared information for occurrences of labour resources. The set of shared information may include: common productivities, common cost rates, or common properties within shared property sets. It is used to define a labour resource specification (the specific resource information that is common to all occurrences of that resource). Resource types may be exchanged without being already assigned to occurrences.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class resource:Worker</head><p>Is defined as a person who works on a construction project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcLaborResource</head><p>An IfcLaborResource is used in construction with particular skills or crafts required to perform certain types of construction or management related work. The purpose of an IfcLaborResource is to identify a skill set that may be required or used.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class resource:Resource</head><p>IfcConstructionResource Sub-class</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>......................................................................................................................................................................................... List of Tables .............................................................................................................................................................................................. List of Acronyms and Abbreviations ............................................................................................................................................... 1 Introduction .....................................................................................................................................................................................</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 -</head><label>2</label><figDesc>Figure 2 -Workflow for ontology requirements specification</figDesc><graphic coords="13,71.49,77.82,453.53,213.35" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 -</head><label>3</label><figDesc>Figure 3 -Workflow for the ontology implementation activity</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 -</head><label>4</label><figDesc>Figure 4 -Workflow for the ontology publication activity</figDesc><graphic coords="16,71.49,77.82,443.23,206.90" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 -</head><label>5</label><figDesc>Figure 5 -Workflow for the ontology maintenance activity</figDesc><graphic coords="17,150.54,77.82,294.83,237.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>QUAL- 5 A</head><label>5</label><figDesc>quality result can be detected, confirmed or rejected (status)QUAL-6A defect is reflected by an image jobQUAL-7A defect has a predicted label, a confidence level, and a severity indicator</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 7 -</head><label>7</label><figDesc>Figure 7 -General overview of the COGITO facility ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 8 -</head><label>8</label><figDesc>Figure 8 -General overview of the COGITO process ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 9 -</head><label>9</label><figDesc>Figure 9 -General overview of the COGITO resource ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 10 -</head><label>10</label><figDesc>Figure 10 -General overview of the COGITO iot ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 13 -COGITO</head><label>13</label><figDesc>Figure 13 -General overview of the COGITO platform ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 14 -</head><label>14</label><figDesc>Figure 14 -COGITO ontology requirements for PMSThen these requirements per component were reorganised per domain (see Section 3) and converted into an HTML file and uploaded to the COGITO ontology portal 5 with the most relevant information for users to facilitate visualization. Figure15shows an excerpt of the HTML documentation of the COGITO requirements.</figDesc><graphic coords="29,2.44,355.54,591.45,369.66" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 15 -</head><label>15</label><figDesc>Figure 15 -HTML requirements for the construction process</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head></head><label></label><figDesc>used to represent zones used by the Safety module.facility:ElementIs defined as a subclass or bot:Element and, as such, a constituent of a construction entity with a characteristic technical function, form, or position. A facility:Element can contain subelements (bot:hasSubElement).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head></head><label></label><figDesc>It contains (bot:containsZone) one or more facility:Facility.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="12,160.24,275.36,276.07,263.04" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="21,71.49,204.10,453.60,349.45" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="27,71.49,149.63,453.59,234.99" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="27,71.49,454.39,453.41,202.17" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="28,71.49,77.82,453.52,319.89" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="31,71.49,43.21,453.52,241.71" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="32,71.49,37.68,453.50,241.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table of Contents</head><label>of</label><figDesc>Executive Summary ................................................................................................................................................................................ Table of Contents .....................................................................................................................................................................................</figDesc><table /><note><p>List of Figures ...</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>958310 COnstruction phase diGItal Twin mOdel</head><label></label><figDesc>1.1 Scope and Objectives of the Deliverable ......................................................................................................................1.2 Relation to other Tasks and Deliverables .............................................................................................................. 1.3 Updates from the Previous Version ......................................................................................................................... 1.4 Structure of the Deliverable ........................................................................................................................................... Platform Module .................................................................................................................................................................. 5 Ontology Development Infrastructure .............................................................................................................................. 5.1 Infrastructure to Support the Requirements Specification Activity ............................................................. 5.2 Infrastructure to Support the Ontology Implementation Activity ................................................................. 5.3 Infrastructure to Support the Ontology Publication Activity .......................................................................... 5.4 Infrastructure to Support the Ontology Maintenance Activity ....................................................................... 6 Conclusions .................................................................................................................................................................................... References ............................................................................................................................................................................................... Annex A .....................................................................................................................................................................................................</figDesc><table><row><cell>4.7</cell></row><row><cell>COnstruction</cell></row><row><cell>phase</cell></row><row><cell>diGItal Twin</cell></row><row><cell>mOdel</cell></row></table><note><p>2 Ontology Development Methodology ................................................................................................................................ COGITO -GA ID. 958310 COGITO -GA ID.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>958310 COnstruction phase diGItal Twin mOdel</head><label></label><figDesc>Figure 1 -Ontology development methodology followed in COGITO ........................................................................... Figure 2 -Workflow for ontology requirements specification ........................................................................................ Figure 3 -Workflow for the ontology implementation activity ...................................................................................... Figure 4 -Workflow for the ontology publication activity ................................................................................................ Figure 5 -Workflow for the ontology maintenance activity ............................................................................................. Figure 6 -Overview of the COGITO ontology network ........................................................................................................ Figure 7 -General overview of the COGITO facility ontology ........................................................................................... Figure 8 -General overview of the COGITO process ontology ......................................................................................... Figure 9 -General overview of the COGITO resource ontology ....................................................................................... Figure 10 -General overview of the COGITO iot ontology ................................................................................................. Figure 11 -General overview of the COGITO quality ontology ........................................................................................ Figure 12 -General overview of the COGITO safety ontology .......................................................................................... Figure 13 -General overview of the COGITO platform ontology ....................................................................................</figDesc><table /><note><p>Figure 14 -COGITO ontology requirements for PMS ........................................................................................................... Figure 15 -HTML requirements for the construction process ........................................................................................ Figure 16 -Ontology section in the COGITO ontology portal ........................................................................................... Figure 17 -Example of the GitHub issue tracker ................................................................................................................... COGITO -GA ID.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 1 -</head><label>1</label><figDesc>General information on the specification of ontology requirements .........................................................</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 2 -</head><label>2</label><figDesc>List of requirements per domain ...............................................................................................................................</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 3 -</head><label>3</label><figDesc>List of the ontologies created in the COGITO project ........................................................................................</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 4 -</head><label>4</label><figDesc>List of the ontologies reused in the COGITO project .........................................................................................</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 5 -</head><label>5</label><figDesc>Relations between the main classes of the COGITO ontology and ifcOWL ..............................................</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>COGITO -GA ID. 958310 COnstruction phase diGItal Twin mOdel List of Acronyms and Abbreviations Term Description</head><label></label><figDesc></figDesc><table><row><cell>1 Introduction</cell><cell></cell></row><row><cell>BBO</cell><cell>BPMN Based Ontology</cell></row><row><cell>BEO</cell><cell>Building Element Ontology</cell></row><row><cell>BOT</cell><cell>Building Topology Ontology</cell></row><row><cell>BPMN</cell><cell>Business Process Modelling Notation</cell></row><row><cell>BPO</cell><cell>Building Product Ontology</cell></row><row><cell>DICO</cell><cell>Digital Construction</cell></row><row><cell>ETSI</cell><cell>European Telecommunications Standards Institute</cell></row><row><cell>IoT</cell><cell>Internet of Things</cell></row><row><cell>LOT</cell><cell>Linked Open Terms</cell></row><row><cell>ORSD</cell><cell>Ontology Requirements Specification Document</cell></row><row><cell>OWL</cell><cell>Web Ontology Language</cell></row><row><cell>PMS</cell><cell>Process Modelling and Simulation</cell></row><row><cell>SAREF</cell><cell>Smart Applications REFerence ontology</cell></row><row><cell>SAREF4BLDG</cell><cell>SAREF extension for the building domain</cell></row><row><cell>SSN</cell><cell>Semantic Sensor Network</cell></row><row><cell>SOSA</cell><cell>Sensor, Observation, Sample and Actuator</cell></row><row><cell>WODM</cell><cell>Work Order Definition and Monitoring tool</cell></row><row><cell>WoT</cell><cell>Web of Things</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 2 -List of requirements per domain Identifier (domain+id) Competency Question / Fact</head><label>2</label><figDesc></figDesc><table><row><cell>FACI-1</cell><cell>A project is related to a site</cell></row><row><cell>FACI-2</cell><cell>Spatial zones (especially zones of type site) can have facilities</cell></row><row><cell>FACI-3</cell><cell>Facilities include buildings, railways, bridges, and roads</cell></row><row><cell>FACI-4</cell><cell>Spatial zones (especially facilities and facility parts) can have facility parts</cell></row><row><cell>FACI-5</cell><cell>Spatial zones (especially buildings) can have storeys</cell></row><row><cell>FACI-6</cell><cell>Spatial zones can have spaces</cell></row><row><cell>FACI-7</cell><cell>Spatial zones can contain elements and other spatial zones</cell></row><row><cell>FACI-8</cell><cell>Elements include walls, slabs, columns, etc. (building elements)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>COGITO Data Model and Ontology Definition and Interoperability Design v3 20 COGITO -GA ID. 958310 COnstruction phase diGItal Twin mOdel</head><label></label><figDesc></figDesc><table><row><cell>D3.3</cell><cell></cell></row><row><cell>-2</cell><cell>Safety information includes an identifier, a name, a severity indicator, and mitigation data</cell></row><row><cell>PLAT-1</cell><cell>Projects and, elements, are digital twins managed by the platform</cell></row><row><cell>PLAT-2</cell><cell>Images, point clouds, and meshes are information resources managed by the platform</cell></row><row><cell></cell><cell>A platform entity (digital twin or information resource) can have</cell></row><row><cell>PLAT-3</cell><cell>forms referring to a knowledge graph, a value in the graph, and a file</cell></row><row><cell></cell><cell>storage</cell></row><row><cell></cell><cell>A platform entity (digital twin or information resource) can have links</cell></row><row><cell>PLAT-4</cell><cell>referring to an IFC file, a schedule file, a point cloud file, a mesh file</cell></row><row><cell></cell><cell>and a description of another platform entity</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 5 -Relations between the main classes of the COGITO ontology and ifcOWL</head><label>5</label><figDesc></figDesc><table><row><cell>COGITO</cell><cell>IFC</cell><cell>comment</cell></row><row><cell>facility:Building</cell><cell></cell><cell></cell></row><row><cell>An independent unit of the built</cell><cell></cell><cell></cell></row><row><cell>environment with a characteristic spatial</cell><cell></cell><cell></cell></row><row><cell>structure, intended to serve at least one</cell><cell></cell><cell></cell></row><row><cell>function or user activity [ISO-12006]. A</cell><cell></cell><cell></cell></row><row><cell>bot:Building is a part of the physical</cell><cell></cell><cell></cell></row><row><cell>world or a virtual world that is inherently</cell><cell></cell><cell></cell></row><row><cell>both located in this world and having a</cell><cell></cell><cell></cell></row><row><cell>3D spatial extent, is contained in a</cell><cell></cell><cell></cell></row><row><cell>building site, and can contain one or more</cell><cell></cell><cell></cell></row><row><cell>storeys that are vertically connected.</cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>https://www.w3.org/TR/owl2-primer/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://cogito.iot.linkeddata.es/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>Note that this module was called "construction" in D3.2</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>https://chowlk.linkeddata.es/chowlk_spec</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4"><p>https://protege.stanford.e</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_5"><p>https://github.com/orgs/oeg-upm/teams/cogito</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_6"><p>https://ontoology.linkeddata.es/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_7"><p>https://github.com/dgarijo/Widoco</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_8"><p>http://oops.linkeddata.es/</p></note>
+		</body>
+		<back>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>facility https://cogito.iot.linkeddata.es/def/facility# iot https://cogito.iot.linkeddata.es/def/iot# platform https://cogito.iot.linkeddata.es/def/platform# process https://cogito.iot.linkeddata.es/def/process# qual https://cogito.iot.linkeddata.es/def/quality# resource https://cogito.iot.linkeddata.es/def/resource# safety https://cogito.iot.linkeddata.es/def/safety# Table 4 -List of the ontologies reused in the COGITO project Prefix Namespace beo https://pi.pauwel.be/voc/buildingelement# bot https://w3id.org/bot# dcterms http://purl.org/dc/terms/ geo http://www.opengis.net/ont/geosparql# ifc https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL# rdfs http://www.w3.org/TR/rdf-schema/ s4bldg https://saref.etsi.org/saref4bldg/ td https://www.w3.org/2019/wot/td#</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FACI-14</head><p>A project has an identifier and a name PROC-1 A project is related to one or more processes</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>PROC-2</head><p>A process can reflect the as-planned original process, the as-planned enriched process and the as-is process</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>PROC-3</head><p>A project includes data about its identifier, name, author, creation date, planned start and end dates, actual start and end dates, time step and time window PROC- <ref type="bibr">4</ref> A process has a cost, which is measured in a certain currency COGITO -GA ID. 958310</p><p>COnstruction phase diGItal Twin mOdel identifier, an origin document, a label, a description and keywords related to element, material, and relationship types. • As a generalisation, we can classify qual:Defect and qual:GeometricQualityInformation as qual:QualityResult, and qual:Mesh, qual:PointCloud, qual:Image, and qual:ImageJob as qual:InformationResource. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6">Safety Module</head><p>The current conceptual model defined for the Safety module is shown in Figure <ref type="figure">12</ref>. The main classes and properties of this module are the following:</p><p>• safety:SafetyInformation is defined as data to prevent injuries by considering the characteristics of a facility:ConstructionZone. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.7">Platform Module</head><p>The current conceptual model defined for the Platform module is depicted in Figure <ref type="figure">13</ref>. The main classes and properties of this module are the following:</p><p>• A platform:PlatformThing is a subclass of a td:Thing and, as such, an abstraction of a physical or a virtual entity whose metadata and interfaces are described by a WoT Thing Description. In this case, an entity of the digital twin platform. • A platform:DigitalTwin is a subclass of a platform:PlatformThing including projects (facility:Project) and elements (facility:Element). • A qual:InformationResource, is a subclass of a platform:PlatformThing including all the kinds of information resources used to derive the quality (see section 4.5) and that need to be stored. • Subproperties of td:links and td:forms that specify the relations between a platform:PlatformThing and a td:Link and a td:Form have been created.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COGITO -GA ID. 958310</head><p>COnstruction phase diGItal Twin mOdel</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Infrastructure to Support the Ontology Implementation Activity</head><p>To support the implementation activity, the ontology development team uses several tools to edit, store, and evaluate the ontology.</p><p>• For ontology edition, the ontology development team uses Protégé, 6 which allows the creation, visualisation, and manipulation of ontologies. • For ontology storage, the ontology development team uses GitHub The development team uses the OnToology 8 tool to generate documentation and evaluate the ontology. OnToology, which integrates the tools Widoco 9 <ref type="bibr" target="#b36">[12]</ref> and OOPS! 10 [13], automatically generates a folder in the GitHub repository that includes the resources: diagrams, documentation, and evaluation report.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Infrastructure to Support the Ontology Publication Activity</head><p>To support the publication activity, the ontology development team creates an ontology portal online to make the ontology and all the associated information (repository, requirements, tests, releases, etc.) to users. This ontology portal has different sections:</p><p>• Ontologies • How we work</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.1.1">Ontologies</head><p>The Ontologies section, which is the main section of the portal, shows the main information about the ontologies created in the COGITO ontology network. Figure <ref type="figure">16</ref> shows an overview of the information exposed in this section of the portal. The section follows a tabular approach that includes the following:</p><p>• Link to the ontology documentation published on the Web  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.1.2">How We Work</head><p>Regarding the section "how we work", it provides a brief overview of the proposed process for developing ontologies and some guidelines, which should be useful to anyone who wants to contribute to the ontologies. This section includes information about the following.</p><p>• How should the repository be structured.</p><p>• Tools recommended to be used during the ontology development process.</p><p>• Ontology versioning.</p><p>• Management of issues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Infrastructure to Support the Ontology Maintenance Activity</head><p>To provide support for maintenance activity, ontology developers use the GitHub issue tracker, which manages and maintains the list of issues identified by domain experts and ontology developers. The GitHub issue tracker provides the status of the issue, assignee, and description, and allows one to add comments to the issue to discuss about it. Each issue tracker is associated with a GitHub repository and consequently with an ontology in the COGITO ontology network.</p><p>To manage changes in the ontology, all new proposals and improvements must be agreed upon by all members of the ontology development team. If domain experts, users, or ontology developers want to add, delete, or modify concepts in the ontology, they must create a new issue in the GitHub issue tracker associated with the ontology to be modified, which will be used to discuss the approval or rejection of the proposal. Figure <ref type="figure">17</ref> shows the GitHub issue tracker for one of the COGITO ontologies.</p><p>COGITO -GA ID. 958310 </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcTask</head><p>An IfcTask is an identifiable unit of work to be carried out in a construction project. A task is typically used to describe an activity for the construction or installation of products, but is not limited to these types. For example, it might be used to describe design processes, move operations, and other design, construction, and operation related activities as well. The quantities of resources consumed by the task are dealt with by defining the IfcElementQuantity for the resource and not in the instance of IfcTask.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Related concepts</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>process:WorkOrder</head><p>Is defined as a command or instruction authorizing specific work, repairs, etc., to be done. It has a main provider (resource:hasMainProvider), which is a resource:HumanWorker, and belongs to (process:hasWorkOrder) a process:Process. There can be some qual:Image and qual:PointCloud related to a process:WorkOrder. It is important to know if a process:WorkOrder is completed (process:status).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcWorkPlan</head><p>A work plan contains a set of work schedules for different purposes (including construction and facility management). Contained work schedules are defined through the IfcRelAggregates relationship. Through inheritance from IfcWorkControl, it is also possible to define references to activities (for example, IfcTask) and resources used in the work plan.</p><p>A work plan has information such as start date, finish date, total free float, etc. IfcWorkPlan can also refer to the construction project represented by the single IfcProject instance (please also check the definition of IfcWorkControl). Is defined as a source of supply, support, or aid, especially one that can be readily drawn upon when needed. resource:HumanWorker, resource:Equipment and resource:trackingTrack are subclasses of resource:Resource. It is also a subclass of geo:SpatialThing in order to reuse its location properties. A resource:Resource belongs to a resource:ResourceType.</p><p>IfcConstructionResource is an abstract generalization of the different resources used in construction projects, mainly labour, material, equipment, and product resources, plus subcontracted resources and aggregations such as a crew resource.</p><p>IfcResource contains the information needed to represent the costs, schedule, and other impacts from the use of something in a process. It is not intended to use IfcResource to model the general properties of the things themselves, while an optional linkage from IfcResource to the things to be used can be specified (specifically, the relationship from the subtypes of IfcResource to IfcProduct through the IfcRelAssignsToResource relationship).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>resource:ResourceType</head><p>Is defined as the kind of resources assigned to a process:Task or involved in a process:Process, indicating their maximum quantity (resource: maxUnit) and cost (resource:costPerHour). resource:HumanRole, resource:EquipmentType and resource:trackingTrackGroup are subclasses of resource:ResourceType.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IfcConstructionResourceType</head><p>IfcConstructionResourceType is an abstract generalization of the different resource types used in construction projects, mainly labour, material, equipment, and product resource types, plus subcontracted resource types and aggregations such as a crew resource type.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TypeResource</head><p>IfcTypeResource defines a specific (or type) definition of a resource. It is used to define a resource specification (the specific resource that is common to all occurrences that are defined for that resource) and could act as a resource template.</p><p>An IfcTypeResource may have a list of property sets attached. Values of these properties are common to all occurrences of that resource type. The type of occurrence relationship is realized using the objectified relationship IfcRelDefinesByType.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Related concepts</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sub-class iot:TrackingTag</head><p>Is defined as a subclass of saref:Device and, as such, a tangible object designed to accomplish a particular task; in this case, signalling its location. safe:SafetyInformation Is defined as data to prevent injuries by considering the characteristics of a facilityConstructionZone.</p><p>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 958310</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">1 Ontological Requirements Specification ..................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Identification of Purpose and Scope ..............................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2 Data Exchange Identification and Use Case Specification ....................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">1.3 Ontological Requirement Proposal .................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Completion and Validation of Ontology Requirements .........................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Prioritization of Ontological Requirements ................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2 Ontology Implementation ..............................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Ontology Conceptualization ...............................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2.2 Ontology Encoding .................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2.3 Ontology Evaluation ..............................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">3 Ontology Publication ........................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Propose Release Candidate ................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2 Ontology Documentation ....................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Online Publication ..................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">4 Ontology Maintenance .....................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Bug Detection ...........................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2 New Requirements Proposal .............................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Ontology Requirements Specification ..............................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">Overview of the COGITO Ontology Network ..................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">1 Facility Module ....................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">2 Process Module ...................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">3 Resource Module ................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">IoT Module ............................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">5 Quality Module ....................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title/>
+		<author>
+			<orgName type="collaboration">6 Safety Module ......................................................................................................................................................................</orgName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">LOT: An industrial oriented ontology engineering framework</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.engappai.2022.104755</idno>
+		<ptr target="https://doi.org/10.1016/j.engappai.2022.104755" />
+	</analytic>
+	<monogr>
+		<title level="j">Engineering Applications of Artificial Intelligence</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">D3.2 -COGITO Data Model and Ontology Definition and Interoperability Design</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">COGITO project</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">3 -COGITO Data Model and Ontology Definition and Interoperability Design v2</title>
+		<idno>COGITO project. 2022</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">D3.1 -Survey of Existing Models, Ontologies and Associated Standardization Efforts</title>
+		<idno>COGITO project. 2021</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">D2.1 -Stakeholder Requirements for the COGITO System</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">COGITO project</note>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">D2.4 -COGITO System Architecture</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">COGITO project</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">The NeOn Methodology for Ontology Engineering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontology engineering in a networked world</title>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">D2.2. Detailed Specification of the Semantic Model</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Heinz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kostelnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Poveda-Villalón-María</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Serena</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chávez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bosché</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bountouni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fenz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Giannakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>González-Gerpe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kollmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kousouris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ntalaperas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Thanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Lampathaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Valero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vergeti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tavakolizadeh</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>D4.2 BIMERR Ontology &amp; Data Model,&quot;. BIMERR project. 2020</note>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">T1.3 DELTA Ontology and Data Modelling Framework</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cimmino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Terzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Patsonakis</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+	<note>DELTA project</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Best Practices for Implementing FAIR Vocabularies and Ontologies on the Web</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Applications and Practices in Ontology Design, Extraction, and Reasoning</title>
+		<imprint>
+			<publisher>IOS Press</publisher>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">WIDOCO: a wizard for documenting ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Semantic Web Conference</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Validating ontologies with OOPS!</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Knowledge Engineering and Knowledge Management</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

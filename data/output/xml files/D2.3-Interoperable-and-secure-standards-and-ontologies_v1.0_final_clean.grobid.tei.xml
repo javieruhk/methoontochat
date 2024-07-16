@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">This project has received funding from the European Union&apos;s Horizon 2020 research and innovation programme under Grant agreement No 857237 interoperable solutions connecting smart homes, buildings and grids D2.3: Interoperable and secure standards and ontologies</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<title level="a" type="main">This project has received funding from the European Union&apos;s Horizon 2020 research and innovation programme under Grant agreement No 857237 interoperable solutions connecting smart homes, buildings and grids D2.3: Interoperable and secure standards and ontologies</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">0446183E1F847AB1C43FB8D64ABAF6C3</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EXECUTIVE SUMMARY</head><p>This deliverable contains the results of the T(ask) 2.4 ("Semantic interoperability framework") that produced the InterConnect interoperable and secure standards and ontologies.</p><p>Ontologies are a means to create a shared understanding among different stakeholders and systems, which is especially important when combing data from different domains. The T2. 4   worked on creating and documenting that shared understanding in order to connect the different domains of smart home, buildings and grids, where existing models and standards had grown in parallel in different contexts from different stakeholders and for different reasons.</p><p>Starting from the structure of the InterConnect reference architecture from WP2 -itself based on the needs of the Use Cases from different pilots defined in WP1 -and the services identified in WP3, T2.4 developed a set of ontologies that brought together existing ontologies, such as the Smart Applications REFerence (SAREF) suite, and existing standards, such as CENELEC EN 50631-1/SPINE and EN50491-12-2/S2. The resulting InterConnect ontologies can be used to create so called 'Knowledge Graphs' (in WP3, WP7 and WP8) which contain the knowledge to be exchanged among devices and services, using the InterConnect Interoperability Layer information and communication technology developed in WP5. It also provides a bridge for WP4 to connect the shared understanding within InterConnect to the already existing information models in of the Distribution System Operators (DSOs) that manage the connection from Smart Homes and Buildings to the Grid.</p><p>In the next months the InterConnect ontologies will be used in the implementation of pilot services across the EU. This will provide additional feedback that will help further improving them.</p><p>This deliverable can be used by ontologists, information modellers and software engineers who want to have a better understanding of the reasoning behind the InterConnect set of ontologies. To this, it also acts as a guide and overview to WP9 that is involved in bringing forward the InterConnect results into the world of standardization.   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">INTRODUCTION</head><p>This deliverable introduces the ontologies that have been developed in the context of the InterConnect project to cope with the variety of use cases and services implemented by the Interconnect large scale pilots. According to ontology engineering best practices, the Interconnect ontologies reuse already existing ontologies and, in particular, they extend the SAREF suite of ontologies promoted and maintained by ETSI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">BACKGROUND</head><p>As explained in the IoT Standardization Landscape by AIOTI [13], the main challenge on the Internet of Things (IoT) landscape is the fragmentation of existing platforms, protocols and standards. In this fragmented landscape, in which there is not a Winner-Takes-It-All market, vendor lock-in should be avoided to preserve essential values in the European context, such as openness and level playing field. At the same time, consumers should be provided with the flexibility to integrate their devices, solutions and services of choice as they like. To that end, cross-platform interoperability among various platforms from different vendors is essential.</p><p>In addition to cross-platform interoperability, another major challenge consists of cross-domain interoperability among various vertical domains (such as, for example, the smart home, buildings, and energy domains that are of interest for the InterConnect project). In our interconnected world, not only is it crucial to share data and become interoperable within each of these domains but especially across these domains. That is where the full potential of combining data still needs to be unlocked.</p><p>By using ontologies, it is possible to address both the cross-platform and cross-domain interoperability challenges at the semantic (information) level, rather than at the technical communication level, as it used to be in the past [14]. To that end, the InterConnect Semantic Interoperability Layer (SIL) is used to interpret, link and harmonize the concepts in the message data structures exchanged by the multitude of existing platforms, regardless of their specifics at the underlying technical level. In the past years, the IoT industry understood the impact that ontologies can have to enable the missing interoperability, also as a result of significant standardization efforts such as SAREF <ref type="bibr" target="#b0">1</ref> . However, most industrial practitioners are not familiar with these technologies and do not have an incentive to study them, as they believe <ref type="bibr" target="#b0">1</ref> https://saref.etsi.org/ the learning curve is too steep [18]. IT developers -either device manufacturers or application developers -ask for practical solutions that can be applied in operational environments. In contrast, the information on ontologies appears abstract and scattered over the Internet, thus, not easily applicable.</p><p>In this context, promotion, experimentation and roll-out of interoperability innovation based on (standardized) ontologies is of paramount concern [19]. Most of the technical barriers have been tackled in R&amp;I projects, national initiatives and EU funded projects. Abundant and mature research on enabling technologies has been validated and demonstrated in industrially relevant environments (TRL 5 and 6). However, concrete guidelines and successful stories of large-scale implementations, not only technically interoperable, but semantically interoperable, which are at the same time easy to be adopted by developers that are nonontology experts, are still missing. There is now a need to take the current results to a higher TRL level, into (distributed) operational environments that go across vertical domains (silos)   and are deployed on a large scale, in a way that is reasonably easy to adopt also for developers that are non-ontology experts (i.e., the vast majority). This is the real added value that the InterConnect project delivers for making semantically interoperable smart homes, buildings and grids become a reality.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">INTEROPERABILITY LEVELS</head><p>To position the concept of semantic interoperability, this section starts with the introduction of the main levels of interoperability as defined by the GWAC (GridWise Architecture Council)</p><p>Interoperability framework [15], which is also the definition adopted by AIOTI [14][20].</p><p>According to GWAC, the following three main levels of interoperability can be identified:</p><p>• Technical Level (Syntax), covering the aspects of basic connectivity, network interoperability and syntactic interoperability;</p><p>• Informational Level (Semantics), covering the aspects of semantic understanding and business context;</p><p>• Organizational Level (Pragmatics), covering the aspects of business procedures, business objectives and regulatory policy.</p><p>Each of these levels is divided into sub-levels in order to reference the degree of interoperability accurately. Figure <ref type="figure">1</ref> gives an overview of this framework, called GWAC stack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 1 -LEVELS OF INTEROPERABILITY -GWAC INTEROPERABILITY FRAMEWORK [15]</head><p>In smart homes, buildings, and grid systems, the sub-levels of basic connectivity, network interoperability and syntactic interoperability, and semantic understanding are relevant. They are discussed in more detail below:</p><p>• Basic connectivity: Basic connectivity concerns the digital exchange of data between two systems and the establishment of a reliable communication path. This requires an agreement on the compliant use of specifications that describe the data transmission medium, the associated media-related data encoding and the transmission rules for the media access;</p><p>• Network interoperability: Network interoperability supposes an agreement on how the information is transported between interacting parties across multiple communication networks. The protocols agreed upon in this category are independent of the information transferred;</p><p>• Syntactic interoperability: Technical interoperability guarantees the correct transmission of bits. The correct syntax of transferred information is the task of standards such as XML or EDIFACT. Syntactic interoperability refers to the exchange of information between transacting parties based on agreed format and structure for encoding this information. Assuring that transmitted information has a proper meaning is not in the scope of syntactic interoperability;</p><p>• Semantic interoperability: Beyond the ability of two or more systems to exchange information with correct syntax (i.e., grammatically correct), semantic understanding concerns the (automatic) correct interpretation of the meaning of information. To achieve semantic interoperability, both sides must refer to a shared information exchange reference model. This reference model must define a-priori the meaning of the exchanged information (the words) in detail. This is the only way to ensure that the communicating systems will correctly interpret the information and commands contained in the transferred data and will correctly act or react. Reference ontologies, such as SAREF, can be used to represent the common reference model. They may also model constraints about the information concepts by specifying assertions and inferences that can be used in reasoning mechanisms (e.g., if this, then that). This allows resolving interpretation conflicts in situations where two differently named classes in different models mean the same or when a class is a subset or superset of another class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">OBJECTIVES</head><p>The objective of this document (D2.3) is to report the work carried out in Task 2.4 ("Semantic interoperability framework") towards interoperable and secure standards and ontologies 2 .</p><p>This main objective can be further detailed in the following sub-objectives:</p><p>1. Present the approach used to develop the InterConnect ontologies to:</p><p>• validate the well-established ontology engineering methodology adopted by ETSI for SAREF development, which was never applied before in such a large-scale setting like the InterConnect project;</p><p>• motivate the need for additional concepts to SAREF and SAREF4ENER to cope with: o more and new use cases -i.e., 112 HLUCs defined by WP1 -and a variety of SAREFised services -66 services, from 21 partners, based on 166 APIs, for a total of 864 parameters, defined by WP3; o more and new stakeholders and standardization initiatives (e.g.., compared to SAREF4ENER V1);</p><p>• harmonize different approaches and standards, e.g., EEBUS SPINE and S2, within the common umbrella of SAREF, which is a considerable step forward towards interoperability; <ref type="bibr" target="#b1">2</ref> As specified in the Grant Agreement [24], "the SAREF ontology and its domain-specific extensions, such as SAREF4ENER, will be adapted and extended to cope with the ontologies required from WP1 and pilots use cases. The rules required to enhance the SAREF ontologies reasoning capabilities will be formalized, and new SAREF extensions will be created if needed (in close interaction with industry as promoted by the EC and ETSI since 2014). Results will be used in WP9 to be shared with standardization bodies and alliances (such as ETSI SmartM2M, oneM2M, AIOTI)".</p><p>• emphasise the massive effort conducted in InterConnect to bridge the gap with industrial practitioners that are not familiar with ontologies, for whom the learning curve is extremely steep.</p><p>2. Provide the context in which the InterConnect ontologies originated, in terms of related initiatives, standards, ontologies and data models.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Present the ontologies developed in InterConnect to:</head><p>• show the technical specification of their main classes and properties;</p><p>• provide a successful example of 1) reuse and interlinking of various ontologies; and 2) modularization (i.e., ontologies divided in different modules, but not too many to avoid fragmentation) to facilitate understanding and adoption of (parts of) large ontologies for non-experts;</p><p>• clarify how they relate to and extend the SAREF suite of ontologies;</p><p>• clarify how they reuse other existing ontologies, such as the Time ontology, Ontology of units of Measurement (OM) and geographical ontologies;</p><p>• provide pointers to the latest and always up-to-date documentation and repository of the ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4.</head><p>Outline the strategy for evolution and standardization submission that will follow the development of the InterConnect ontologies presented in this deliverable (See section 5).</p><p>In contrast, the following objectives are out of scope of D2.3:</p><p>• present the use cases defined in WP1, for which we refer the reader to D1.1 [25];</p><p>• present the services defined in WP3 with their SAREFisation process, service adaptors and graph patterns, for which we refer the reader to D3.1 [28] and D3.2 [29];</p><p>• present technical implementation details of the semantic interoperability layer and its underlying knowledge engine technology, for which we refer the reader to D5.1 [31] and D5.4 [33];</p><p>• address the security of the semantic interoperability layer and its instantiation in the various pilots, for which we refer the reader to D2.2 [27] and D5.3 [32].</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">RELATION TO OTHER WPS</head><p>The ontologies presented in this deliverable were developed in the context of Task 2.4 ("Semantic Interoperability Framework"), which was a key task closely interrelated with all the other WPs.</p><p>WP1 defined (in collaboration with the pilots) the use cases for InterConnect following a design thinking approach. We used the list of services described in D1.1 ("Services and Use Cases for Smart Buildings and Grids") [25] for a high-level overview of the main concepts of interest for the pilots. We further leveraged the High-Level Use Cases (HLUCs) resulting from WP1 for a more refined analysis of the pilots' needs. In order to understand the unprecedented challenge faced by InterConnect in T2.4, one should consider that each of the SAREF extensions developed in the context of ETSI Specialist Task Forces (STFs) in the past six years is based on a maximum of 2 or 3 use cases, while InterConnect used 112 HLUCs as input for the ontology development process.</p><p>From the Smart Energy Reference Architecture (SERA) defined in WP2 we took as input the so-called "information objects" described in D2.1 ("Secure Interoperable IoT Smart Home/Building and Smart Energy system Reference Architecture") [26]. The SERA information objects have been clustered in D2.1 into the main themes of User, Sensor, Forecast, Device, Flexibility and (Grid) Connection Info. We used the same clusters to guide the ontology development in T2.4. Moreover, WP2 provided us with a detailed description of energy flexibility and related protocols that we used as input for the development of the InterConnect flexibility ontology (ic-flex). The ic-flex ontology is of particular relevance not only since it covers a category of services that are highly reused across the various InterConnect pilots (i.e., flexibility services), but especially as it provides the basis for a major update of SAREF4ENE that involves more stakeholders and standards compared with the first version. This update will be submitted to ETSI for standardization in the second half of the InterConnect project.</p><p>WP3 provided a catalogue of the services to be SAREFised in the project, consisting of 66 services from 21 partners, based on 166 APIs, for a total of 864 parameters. While the use cases (from WP1) and SERA information objects (from WP2) provided us with a rather highlevel input to start with, WP3 offered the level of detail actually needed for the ontology development. A close collaboration was therefore carried out between T2.4 and WP3 to iteratively extract the requirements for the InterConnect ontologies, develop the ontologies, guide the partners to map their services into the ontologies, and validate the ontologies. These common activities contributed to an iterative improvement of the InterConnect ontologies that are presented in this document.</p><p>WP4 carried out research on the information model required for the DSO interface. In D4.1 ("Functional Specification of DSO Standard Interface Application") [29] the relationship between the existing SAREF suite of ontologies and other DSO relevant information models (e.g., as used in USEF, CIM, etc.) was explored; see Section 5 ("Applicable Information Models"). The InterConnect set of ontologies should not replace existing information models with broad industry / DSO support but should embrace them by applying the approaches of 'separation of concerns' and 'linking' which is an important feature of semantic web technology.</p><p>WP5 addresses the technical implementation of the Semantic Interoperability Layer (SIL), which is realised using the Knowledge Engine (KE) technology. The stocktaking and analysis of which semantic solution was the most suitable to realise the SIL (see D2.1 "Annex V-Semantic Solution Selection" [26]), resulting in the choice of the KE, was carried out in T2.4 by the ontology team before starting the development of the InterConnect ontologies and then handed over to WP5 for the actual implementation. Since the KE is in principle ontology agnostic (i.e., it can be used with any ontology), the SIL development could proceed in parallel with the InterConnect ontologies development. However, since a powerful innovation of InterConnect is that the KE is tightly combined with SAREF and the related InterConnect extensions, we constantly maintained a close collaboration between T2.4 and WP5 to collect input and feedback for the ontologies being built. A closely related task, currently ongoing in WP5 with the input of T2.4, is the development of a tool that will automatically check the (syntactical and semantical) compliance of the services created in WP3 with SAREF and the InterConnect ontologies. This tool provides an essential contribution to narrow the gap between semantic technologies (ontologies) and their usage in practice by industry.</p><p>WP7 addresses the large-scale demonstration of the InterConnect use cases and services in the pilots, providing us with a broad and diverse community of users for the ontologies presented in this document (i.e., manufacturers and associations, R&amp;D and consultancy, IoT/ICT providers, DSOs, retailers and end-users). As documented in [9], the involvement of stakeholders in early stages proved to be a key factor for success since the first European Commission (EC) study in which SAREF was created [10]. Therefore, we adopted the best practice to timely involve the pilots in the InterConnect ontologies life cycle. As explained in Section 24, we organized four workshops with stakeholders, in eight months, for collecting ontological requirements and developing the ontologies in an iterative and interactive manner (early, stable and final drafts). The interaction was then further intensified when the pilots started (M24) into a three month co-development between WP2, WP3 and WP7 to produce the final ontologies presented in this document. We will benefit from the valuable feedback from the usage in pilots in the next two years to further improve the ontologies (although only minor improvements are expected).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>WP8 will engage external stakeholders in the InterConnect ecosystem through open calls,</head><p>offering opportunities to develop new solutions and services based on the interoperability framework and the existing pilots. To that end, the InterConnect ontologies will play a central role, as the newcomers, whose vast majority will be once again of non-ontology experts, will need clear documentation and examples to be able to use the ontologies in a timely manner.</p><p>A public repository for developers 3 and a Wiki 4 for the ontologies have been created for this purpose.</p><p>Concerning WP9, we closely contributed to D9.1 ("Standards and regulatory bodies impact plan") [34], as standardization is the origin and the destination of the work presented in this document. T2.4 started by reusing the SAREF suite of ontologies standardised by ETSI, extending it with additional modules needed by a broad community of stakeholders. We plan to submit the results back to ETSI with the aim to incorporate the InterConnect ontologies into the SAREF suite of ontologies for a broader and more complete coverage of the smart home, smart building and smart energy domains. An additional key result reached with our work is the creation of the InterConnect flexibility ontology (ic-flex), which is an extremely important step in the standardization landscape that brings together the upcoming standard EN50491-12-2 of CLC TC 205 -WG18 -SMART GRIDS <ref type="bibr" target="#b4">5</ref> (voting closes on 31-12-2021, publication planned for 30-06-2022) with the SAREF suite of ontologies of ETSI SmartM2M TC.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5">DOCUMENT STRUCTURE</head><p>The structure of this document reflects the process that we have followed to develop the InterConnect ontologies. This introduction is part of Section 1, which provides the background 3 https://gitlab.inesctec.pt/interconnect-public/ontology 4 https://gitlab.inesctec.pt/groups/interconnect-public/-/wikis/home <ref type="bibr" target="#b4">5</ref> InterConnect partners EEBUS, KNX and TNO are driving forces behind CLC TC 205 -WG18 and the EN50491-12-2 standard and motivation for semantic interoperability by means of ontologies. Section 2 describes the approach that we have taken to develop these ontologies, following a well-known methodology for ontology engineering that is also adopted by ETSI for the SAREF framework. Our approach promoted constant interaction and iterations with the ontology users, i.e., the InterConnect pilots, by means of regular workshops with stakeholders and collaborative development on the project repository. Section 3 provides the context in which the InterConnect ontologies originated, in terms of related initiatives, standards and other existing ontologies. Section 4 is the core of this document, as it presents the InterConnect ontologies, module by module, with the aid of diagrams and notes. Section 5 discusses our plans to transfer the results of this work to standardization initiatives. Finally, Section 6provides our conclusions, highlighting the lessons learned and the next steps.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">APPROACH</head><p>This section provides a brief introduction for the reader that is not acquainted with ontologies, together with an overview of the main concepts of SAREF, which is the pillar of the InterConnect ontologies. It further describes the methodology used in ETSI for the creation, maintenance and evolution of SAREF. It finally describes the ontology development process followed in InterConnect in relation to the ETSI methodology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">ABOUT ONTOLOGIES</head><p>An ontology is the formal specification of a conceptualization, used to explicit capture the semantics of a certain domain of discourse [8]. As an explicit description of a domain, an ontology is intended as a means for achieving a shared understanding both for humans and computers. In InterConnect, ontologies like SAREF are used to capture the agreed, formalized, and explicit semantics for the exchange of meaningful information via the semantic interoperability layer. An ontology consists of classes and their properties. In the realm of the Semantic Web and Linked Data, classes can be interpreted as a group of things for which we have an explicit word (e.g., buildings, devices, cars, trees) and properties are the characteristics that hold for that group of things (e.g., location, energy consumption, speed, height). Linked Data is web-based; anyone can create an ontology and publish it online. The URL of an ontology often coincides with its namespace, which is basically the identifier of the ontology <ref type="bibr" target="#b5">6</ref> . A prefix (such as saref: for SAREF or s4ener: for the SAREF for Energy extension) is normally used in front of each class, property and instance of the ontology to avoid repeating the full namespace (such as https://saref.etsi.org/core). Instances are specific individuals that belong to a class, for example the 'PRITY' wood stove belongs to the class "Stoves", or "Ada Lovelace" belongs to the class "Mathematicians", which, in itself, is a subclass of the class "Person".</p><p>Figure <ref type="figure">2</ref> shows an overview of the main classes and properties of SAREF. In total, SAREF contains 81 classes, 35 object properties and 5 data properties <ref type="bibr" target="#b6">7</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 2 -OVERVIEW OF SAREF CORE ONTOLOGY [16]</head><p>As described in [17], the starting point in SAREF is the concept of Device, which is defined as a tangible object designed to accomplish a particular Task. In order to accomplish this task, the device performs a Function. For example, a temperature sensor is a device of type saref:Sensor, is designed for tasks such as saref:Comfort, saref:WellBeing or saref:EnergyEfficiency, and performs a saref:SensingFunction. Functions have commands. A Command is a directive that a device needs to support to perform a certain function. Depending on the function(s) it performs, a device can be found in a corresponding State. A device that wants (a certain set of) its function(s) to be discoverable, registrable, and remotely controllable by other devices in the network can expose these functions as a Service.</p><p>A device can also have a Profile, which is a specification to collect information about a certain Property or Commodity (e.g., Energy or Water) for optimizing their usage in the home/building in which the device is located. A Property is defined as anything that can be sensed, measured or controlled by a device, and is associated to measurements. For example, a temperature sensor measures a property of type saref:Temperature. A Measurement consists of at least three properties connecting the actual measured value, to the unit of measure and a timestamp. The Feature of Interest concept further allows to represent the context of a measurement, i.e., any real world entity from which a property is measured; for example, whether the measured temperature is that of a room or of a person. A more detailed description of the SAREF classes and properties can be found in [16].</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">METHODOLOGY</head><p>In order to develop the InterConnect ontologies, we followed the Linked Open Terms (LOT) methodology <ref type="bibr" target="#b7">8</ref> which is based on the ontological engineering activities that were defined in the earlier NeOn methodology [1]. This methodology was also adopted by ETSI for the development of the SAREF ontologies, as documented in the Technical Report 103 411: "SmartM2M Smart Appliances SAREF extension investigation" [2]. Figure <ref type="figure">3</ref> summarizes the activities of ontology requirements specification, implementation and maintenance that are part of this methodology, together with their inputs, outputs and the involved actors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 3 -ONTOLOGY DEVELOPMENT PROCESS [2]</head><p>As shown in Figure <ref type="figure">3</ref>, the first activity of the requirement specification consists of extracting the set of requirements that will guide the implementation and validation of the ontology. The requirements are extracted from 1) use cases written in natural language by domain experts and software developers that either already exist or need to be defined together with the ontology development team; and 2) existing documentation about the domain of interest in terms of manuals, API specifications, datasets and standards. The second activity, carried out by the ontology development team in collaboration with users and domain experts, consists of defining the purpose and scope of (the modules of) the ontology under development. The ontology development team is then able to propose a set of ontological requirements in terms of Competency Questions [3] or natural language sentences to be further verified with domain experts. The requirements can be finally formalized in an Ontological Requirement Specification Document (ORSD) and taken as input by the ontology implementation activity.</p><p>During the implementation, the ontology development team first makes a conceptualization (or visualization) that captures the information collected in the requirement specification activity. This conceptualization is then encoded using a formal representation language, such as OWL <ref type="bibr" target="#b8">9</ref> , which makes the ontology computable by machines. A best practice during this activity is the reuse of existing ontologies, rather than creating all the required concepts from scratch. Figure <ref type="figure">3</ref> finally shows the maintenance activity, in which the ontology can be updated according to new requirements, or as a consequence of bugs detection, or if a new version of the ontology needs to be generated.</p><p>In the development process to create the SAREF suite of ontologies in ETSI, the requirement specification activity in Figure <ref type="figure">3</ref> typically results in a Technical Report (TR) that contains explanatory material about the use cases and domain documentation used to create the ontology <ref type="bibr" target="#b9">10</ref> . Such TR often collects also a detailed list of ontological requirements in terms of Competency Questions. An example of this type of document is the ETSI TR 103 506: "SmartM2M; SAREF extension investigation; Requirements for Smart Cities" [4], which contains the requirements for the SAREF extension to Smart Cities. The ontology that results from the implementation activity in Figure <ref type="figure">3</ref> is then documented in a Technical Specification (TS) that prescribes the use of the classes and properties of the ontology with the aid of diagrams. An example of this type of document is the TS 103 264: "SmartM2M; Smart Applications; Reference Ontology and oneM2M Mapping" [5], which documents SAREF, and the TS 103 410 (parts 1 to 11) series [6], which document the currently available SAREF extensions. Finally, for the ontology maintenance activity depicted in Figure <ref type="figure">3</ref>, ETSI has recently created a portal dedicate to SAREF <ref type="bibr" target="#b10">11</ref> in which a repository <ref type="bibr" target="#b12">12</ref> is available for the <ref type="bibr" target="#b8">9</ref> https://www.w3.org/TR/owl-primer/ community of users to suggest changes and updates to the existing SAREF ontologies. These suggestions have to be approved by the SmartM2M Technical Committee responsible for SAREF before becoming officially part of the SAREF Technical Specifications. More details about the SAREF standardization workflow can be found in the TS 103 673: "SmartM2M; SAREF Development Framework and Workflow, Streamlining the Development of SAREF and its Extensions" [7]. Note that the following steps are needed, next to the ontology development, for the publication of a SAREF TR or TS within the ETSI SmartM2M TC:</p><p>• creation and approval of a Work Item (WI) which describes the document to be produced and specifies the timeline towards its publication;</p><p>• approval of an early draft of the document;</p><p>• approval of a stable draft of the document;</p><p>• approval of the final draft of the document;</p><p>• last edits and official publication.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">INTERCONNECT ONTOLOGY DEVELOPMENT</head><p>The development of the InterConnect ontologies followed the activities of requirement specification, implementation and maintenance as described in Section 2.2. During these activities we conducted a series of workshops with the InterConnect partners to collect their input, validate the intermediate results produced by the ontology development team and iteratively collect new requirements to improve and complete the ontologies. Figure <ref type="figure">4</ref> shows the InterConnect ontology development process and its timeline.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 4 -INTERCONNECT ONTOLOGY DEVELOPMENT PROCESS AND TIMELINE</head><p>As shown in Figure <ref type="figure">4</ref>, in October 2020 we conducted a first stakeholders' workshop in which WP2 partners (i.e., the ontology development team) collaborated with WP1 and WP3 partners (i.e., domain experts and software developers) to devise together the requirements to realize the InterConnect ontologies as extensions of the ETSI SAREF suite of ontologies <ref type="bibr" target="#b13">13</ref> . The use cases defined in WP1, and the domain documentation provided in terms of API specifications by WP3 were used as basis for this task. We also used some relevant standards, such as the upcoming pR EN 50492-12-2, which is further detailed in Section Error! Bookmark not defined.. The collected requirements were then used in Q4 2020 as input to produce an initial conceptualization and formalization in OWL of the ontologies. The subsequent implementation phase further produced three drafts of the InterConnect ontologies (i.e., early, stable and final draft) that were presented, discussed and validated with the InterConnect partners in three stakeholders' workshops that were held, respectively, in February, April and June 2021. During the summer 2021, the ontologies were then finalized by the ontology development team and made available for the pilots in WP7 in September 2021. A close collaboration started then with WP3 -responsible to provide a catalogue of the InterConnect services and make them interoperable via the Interoperability Framework (the so-called 'SAREFisation process') -in order to iteratively improve the ontologies with the early feedback from the pilots. The process resulted in the ontologies presented in this document, which we want to emphasize are, like all SAREF ontologies, continuously in evolution with the feedback of its users. Therefore, it is expected that the presented ontologies will be further improved -although we only expect minor changes and/or additions -during the maintenance phase of the ontology development in 2022 with the feedback provided by the InterConnect pilots based on their concrete ontology usage. Moreover, it is planned for 2022 to gradually submit the InterConnect ontologies to ETSI in order to extend the current SAREF suite of ontologies (see Section 5).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">RELATED INITIATIVES, STANDARDS AND ONTOLOGIES</head><p>This section describes the external sources that have been used as input during the development of the InterConnect ontologies, i.e., existing related initiatives, standards, ontologies and data models, and points out to the internal sources to the project, such as the use cases from WP1 and API specifications from WP3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">SAREF (ETSI SMARTM2M2 TC)</head><p>In 2013 the EC DG-Connect addressed the issue of fragmentation and the need for interoperability in the smart appliances/IoT industry through a standardisation initiative (SMART 2013/00774) <ref type="bibr" target="#b14">14</ref> in collaboration with the SmartM2M TC in ETSI to create a shared semantic model of consensus to enable interoperability in the smart appliances domain [9]. A reference ontology was targeted as the main interoperability enabler for smart appliances relevant for energy efficiency. This resulted in SAREF [10], published in 2015 by ETSI as a Technical Specification (TS 103 264) [5] to InterConnect data from in-home devices with different protocols and standards. In 2016, ETSI requested a Specialists Task Force (STF) to provide input on the management of SAREF and create dedicated extensions for specific domains. The first STF for SAREF (STF513) was therefore established in which an extension for the energy domain, called SAREF4ENER [12] was developed in collaboration with the EEBUS <ref type="bibr" target="#b15">15</ref> and Energy@Home 16 associations. Since then, several new STFs have been established that resulted in new versions of SAREF (currently at V3.1.1) and 11 extensions of SAREF for various domains <ref type="bibr" target="#b17">17</ref> , including smart building, smart cities and smart lifts, turning SAREF into the umbrella that enables better integration of semantic data from and across various vertical domains in the IoT.</p><p>The SAREF suite of ontologies represents a pillar for the InterConnect project and the "glue" for our semantic interoperability layer. We have reused the SAREF core ontology, together with its extension for the energy domain (SAREF4ENER), building domain (SAREF4BLDG) and smart cities (SAREF4CITY) as starting point for the ontology development in T2.4.</p><p>14 https://sites.google.com/site/smartappliancesproject/home <ref type="bibr" target="#b15">15</ref> https://www.eebus.org/ <ref type="bibr" target="#b16">16</ref> http://www.energy-home.it/ 17 https://saref.etsi.org/extensions.html However, the large-scale nature of the InterConnect project posed a new challenge in terms of the large number of use cases and variety of devices to be covered. As confirmed during the ontology requirement specification activity and the first workshop of stakeholders, not all the concepts needed by the InterConnect pilots were sufficiently covered by the SAREF suite of ontologies. Therefore, we have extended SAREF with several additional ontology modules that are described in Section 4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">DEMAND SIDE FLEXIBILITY STUDY</head><p>Another essential related initiative for the InterConnect project is the "Study on ensuring interoperability for enabling Demand Side Flexibility (DSF)" (SMART 2016/00827) <ref type="bibr" target="#b18">18</ref> that was launched by the EC in 2016, following the first study for the creation of SAREF. The goal of the DSF study was to investigate the need for alignment among the communication standards from the Utility, Telecom and Home Appliances industries. The DSF study contains an extensive analysis of the state-of the-art in the DSF end-to-end flow and selected a short list of standards that have been compared with SAREF and SAREF4ENER. The lesson learned is that alignment between DSF standards is crucial and that SAREF and SAREF4ENER can be used as the overarching ontologies to facilitate this alignment. As a result, a proof-ofconcept was also demonstrated to show DSF interoperability through the complete, end-toend IT infrastructure, from Smart Grid to smart meters and smart appliances. The essential subsequent step taken by the InterConnect project is to scale-up in seven large-scale pilots across Europe the SAREF proof-of-concept that was demonstrated in the DSF study.</p><p>Moreover, several actions and recommendations for various stakeholders have been identified in the DSF study report [11]. The following suggested actions from [11] have been taken into account by T2.4 when developing the InterConnect ontologies 19 :</p><p>• A-2 (action owner:SmartM2M TC): Consider the possibility to explicitly extend SAREF to cover additional type of meters and related measurements (e.g., gas, water, heat, etc.) other than electricity meters, if relevant.</p><p>• A-4 (action owner:SmartM2M TC): Consider to extend SAREF to fill the identified gaps with IEC 62056 COSEM, if relevant. These gaps concern the status of the meter reading (intended as quality of the reading), and specific parameters related to Gas, Water and Heat meters, such as Volume. <ref type="bibr" target="#b18">18</ref> https://data.europa.eu/doi/10.2759/26799</p><p>• A-5 (action owner:SmartM2M TC): Consider to explicitly extend SAREF to cover additional type of meters and related measurements (e.g., gas, water, heat, etc.) other than electricity meters. SAREF already provides the ability to derive other type of meters from existing classes. For example, new subclasses such as "Gas Meter" and "Water Meter" can be created from the existing "saref:Meter" class and associated with the already existing commodity types "saref:Gas" and "saref:Water". The suggested classes could be created either as part of the SAREF core ontology or the already existing SAREF4ENER. Another option could be to start a new extension of SAREF explicitly dedicated to the Smart Metering domain, if relevant.</p><p>• A-6 (action owner: IEC/ CENELEC TC13 WG14, but also SAREF users in general):</p><p>When ad-hoc adjustments on SAREF/SAREF4ENER need to be done on a regular basis in different projects (recurrent adjustments), consider to submit a request to ETSI SmartM2M TC, so that an updated version of SAREF that incorporates these adjustments could possibly be released. For example, if one has to define recurrently in their own projects a "myproject:ReactivePower" instance from the existing "saref:Power" class, it would be beneficial to provide feedback to ETSI SmartM2M TC44, requesting to create a class "saref:ReactivePower" (instead of having to define a "myproject:ReactivePower" instance over and over in different projects).</p><p>• A-8 (action owner: IEC TC57): Publish an official, standard OWL version of the CIM, as at the moment the burden of the translation from UML to OWL is left to the users (e.g., using the CIM tool), who generate different versions depending on how the translation is implemented. This also hinders the task to provide a standard alignment with other standards for DSF, like SAREF/SAREF4ENER. In addition, we have also considered the following final recommendations from the DSF study report [11]:</p><p>• R-I: The study has shown that SAREF/SAREF4ENER can be used to reach interoperability on data level. We therefore recommend that SAREF4ENER is used as the ontology for the interfaces that are relevant for DSF applications as indicated in this report (H1, H2, S1, S2, G3).</p><p>• R-IV: It is recommended that a 'power limitation' use case is developed in which the following data elements are incorporated: power limit and actual power consumption.</p><p>Analyses the DSF use cases in task 1 showed that no use case was identified that covered the case in which the Digital Single Market Smart Meter informs the CEM about the programmed power limit and the actual total power that is consumed. A common Smart Meter use case is 'power limitation'.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">S2 FOR ENERGY FLEXIBILITY (CLC TC 205 WG18)</head><p>Energy flexibility is the ability of a user, grid connection point or device to be flexible and vary the production and consumption of energy or electricity (e.g., shifting in time, changing power, modulating energy bandwidth). Energy flexibility has emerged as a recurring concept in the InterConnect use cases and services during the ontological requirement specification activity.</p><p>As such, T2.4 has used energy flexibility as a core concept for the ontology development and created a dedicate module (ic-flex, described in Section 4.7) that not only accommodates the various needs concerning flexibility of the partners in the pilots, but also takes into account important related standardization initiatives, such as the standardization of the S2 interface by CLC TC 205 20 WG18 -Smart Grids, Home and Building Electronic Systems (HBES). The name S2 points to an interface at the consumer premises that is the basis for the 50491-12 standard series (formally standardized in EN50491-12-1). The S2 interface is used to communicate the flexibility of smart devices to a Customer Energy Manager (CEM) and to allow for control of that flexibility. The full S2 specification is the subject of the upcoming EN50491-12-2 standard <ref type="bibr" target="#b21">21</ref> . Through the S2 interface, a so-called Resource Manager is capable (if supported by the underlying smart device) to provide power/energy measurements and forecasts to a CEM. In addition to these basic and generic functions, the S2 interface also features five control types that represent different types of energy flexibility. We have used the <ref type="bibr" target="#b20">20</ref> CLC TC 205 has the scope to prepare standards for all aspects of home and building electronic systems in relation to the Information Society. The scope is to ensure integration of a wide spectrum of control applications and the control and management aspects of other applications in and around homes and buildings. specification of the S2 interface in EN50491-12-2 to create a dedicated ontology module (ic-s2 module) as part of the flexibility ontology described in Section 4.7.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">IOT ONTOLOGY LANDSCAPE (AIOTI WG03)</head><p>The Semantic Interoperability Expert Group of the AIOTI Working Group 03 on Standardization is an open group of semantic experts with the main objective to identify gaps related to (semantic) interoperability standards and technologies within and across IoT domains and provide recommendations to bridge these gaps. The Expert Group has recently released an IoT Ontology Landscape [21], inspired by the already existing AIOTI IoT Standardization Landscape [22]. The Ontology Landscape currently includes 30 ontologies from different application areas of IoT. From the AIOTI Ontology Landscape in [21], we have reused in T2.4 the already mentioned SAREF ontologies. We have also taken into account other relevant ontologies positioned by the landscape in the home/building and energy domains, such as Brick <ref type="bibr" target="#b22">22</ref> , the Energy Efficiency Prediction Semantic Assistant (EEPSA) ontology <ref type="bibr" target="#b23">23</ref> and the KNX information model (KIM) ontology <ref type="bibr" target="#b24">24</ref> .</p><p>The Brick ontology describes in details physical, logical and virtual assets in buildings. As we reused SAREF4BLDG for this purpose, which was sufficient to represent the building layout concepts needed for the large-scale pilots, there are not Brick concepts in the InterConnect ontologies. However, we adopted a similar solution to Brick for representing the electrical phases defined in the InterConnect topology module (ic-tplg, see Section 4.9). This solution consists of modelling the electrical phases as a class with an enumeration of instances A, B, C, and Neutral.</p><p>The EEPSA ontology is an ontology for energy efficiency and thermal comfort in buildings that consists of several different modules with different purposes. After looking at the EEPSA Execution module for the concept of forecast (ic-fc described in Section 4.3) and the EEPSA Quality module for qualities or aspects of a feature of interest, we concluded that the EEPSA ontology was not directly reusable for our needs.</p><p>The KIM ontology has been designed by the KNX Association to allow expressing product and installation data in the form of an ontology. An initial alignment and gap analysis between KIM <ref type="bibr" target="#b22">22</ref> https://brickschema.org/ <ref type="bibr" target="#b23">23</ref> https://iesnaola.github.io/eepsa/EEPSA/index-en.html <ref type="bibr" target="#b24">24</ref> https://schema.knx.org/AN198.pdf and SAREF/SAREF4ENER have been conducted in the DSF study report [11] (see Section 3.2). However, being a specific solution for the KNX environment, the KIM ontology could not be reused as an overarching semantic model for all the use cases and pilots in InterConnect.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">EXTERNAL ONTOLOGIES</head><p>Reuse of existing models is one of the pillars of the semantic web and linked data modelling paradigm. In this section we give an overview of the other external ontologies and data models that we have reused, in addition to SAREF, as basis for the InterConnect ontologies:</p><p>• The Time ontology <ref type="bibr" target="#b25">25</ref> is a W3C candidate recommendation developed by the Open Geospatial Consortium (OGC). It provides reusable classes for all time-related concepts (interval, instant, duration, etc.) and relations (after, before, etc.).</p><p>• The GeoSPARQL ontology <ref type="bibr" target="#b26">26</ref> is also developed by the Open Geospatial Consortium. It provides a standard for "representing and querying data on the Semantic Web". It provides Geographical concepts (Feature, Geometry, Spatial Object, etc.) and relations (overlap, touches, disjoint, etc.).</p><p>• The Geonames ontology <ref type="bibr" target="#b27">27</ref> is an open-source project developing an ontology for all geographical features worldwide. It includes both a metamodel specifying types of features (bridge, country, mountainous range, etc.) and instantiated data (Golden Gate Bridge, Berlin, the Alps).</p><p>• The Basic Geo Vocabulary (WGS84) <ref type="bibr" target="#b28">28</ref> is developed by the W3C Semantic Web Interest Group. It establishes a common subclass for all objects that have a geographical element, providing only simple properties to express latitude and longitude.</p><p>• The Ontology of units of Measure (OM) <ref type="bibr" target="#b29">29</ref> models "concepts and relations important to scientific research. It has a strong focus on units, quantities, measurements, and dimensions". Its development originated at Wageningen University &amp; Research (WUR).</p><p>• The Friend of a Friend ontology (FOAF) <ref type="bibr" target="#b30">30</ref> is an ontology "devoted to linking people and information using the Web". It provides a commonly reused model to represent persons and their common attributes, such as (nick)names, interests, and organisation membership. It can also be used for modelling (software) agents that are not necessarily persons. • The Buildings Topology Ontology (BOT) <ref type="bibr" target="#b31">31</ref> is "a minimal ontology for describing the core topological concepts of a building". It provides concepts such as Zone, Site, and Building. Additionally, the ontology provides relations such as containsElement and intersectingElement to relate the concepts to each other. This project can be used in combination with the Brick ontology described in Section 3.4</p><p>• The Ambient Assistive Technology User Model (AATUM) [23] is an ontology conceived to enhance user quality of life within ALL environments through service personalization and has been used as input for the InterConnect user module (Section 4.6).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.6">INTERNAL SOURCES</head><p>During the ontological requirement specification activity, we used the list of services described by WP1 in D1.1 ("Services and Use Cases for Smart Buildings and Grids") [25] for a high-level overview of the main concepts of interest for the pilots. We further leveraged the 112 High-Level Use Cases (HLUCs) resulting from WP1 for a more refined analysis of the pilots' needs.</p><p>We also aligned with WP3 concerning the services to be SAREFised in the project, i.e., 66 services from 21 partners, based on 166 APIs, for a total of 864 parameters, which are documented in the D3.1 ("Repository of SAREFized energy components and devices") [28]   and D3.2 ("Repository of SAREFized non-energy components and devices") [29].</p><p>While the use cases from WP1 provided us with a rather high-level input to start with, WP3 offered the level of detail actually needed for the ontology development. A close collaboration was therefore carried out between T2.4 and WP3 to iteratively extract the requirements for the InterConnect ontologies, develop the ontologies, guide the partners to map their services into the ontologies, and validate the ontologies. These common activities contributed to an iterative improvement of the InterConnect ontologies that are presented in this document.</p><p>Section 6 presents some additional observations concerning our experience of using the use cases of WP1 and the services/API specifications/parameters of WP3 for extracting the requirements for the InterConnect ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">ONTOLOGY SPECIFICATION</head><p>This section provides an overview of the InterConnect ontologies, how they relate to and extend the SAREF suite of ontologies, and how they reuse other existing ontologies, such as the Time ontology, Ontology of units of Measurement (OM) and geographical ontologies. It further presents the newly developed modules with the aid of diagrams and notes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">GENERAL OVERVIEW AND NAMESPACES</head><p>Figure <ref type="figure">5</ref> provides an overview of the different modules that compose the InterConnect set of ontologies developed in T2.4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 5 -OVERVIEW OF INTERCONNECT ONTOLOGIES IN RELATION TO SAREF AND OTHER EXISTING ONTOLOGIES</head><p>As it is shown in Figure <ref type="figure">5</ref>, the InterConnect ontologies (depicted in white) extend <ref type="bibr" target="#b32">32</ref> or reuse <ref type="bibr" target="#b33">33</ref> the SAREF suite of ontologies (depicted in green) and other existing external ontologies (depicted in other colours) to express, for example, time, geographical, provenance and units of measure information.</p><p>The names and prefixes of the ontologies developed in InterConnect are shown in Table <ref type="table" target="#tab_1">1</ref>, together with their main concepts. The names and prefixes of the external existing ontologies reused in InterConnect are shown in Table <ref type="table">2</ref>, together with their main concepts of interest for InterConnect.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Prefix</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 6 -DATAPOINT, TIMESERIES AND MESSAGE</head><p>The ic-data:Datapoint is defined as a subclass of saref:Measurement and, as such, inherits the saref:hasValue and saref:hasTimestamp properties. Therefore, if the combination of a value and timestamp is sufficient to represent a datapoint, then the SAREF concepts for measurement can be directly reused. However, we noticed that often, especially when representing timeseries of datapoints in a forecast (see Forecast module in Section 4.3), a number of additional properties are needed. Therefore, we extended SAREF by assigning to the ic-data:Datapoint and the ic-data:TimeSeries the following properties:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Temporal properties</head><p>• ic-data:hasCreationTime, which defines the instant in which a data point or timeseries (or forecast, see Section 39) has been created in terms of a time:Instant from the Time ontology<ref type="foot" target="#foot_11">36</ref> . Note that the creation time is not the same as the time at which the quantity is in effect, which is expressed by the icdata:hasEffectivePeriod property. For example, if a temperature is forecasted today at 12:30 (creation time of the forecast) for the following day between 14:45 and 15:45 (time when the temperature is expected to be in effect), the then creation time is 12:30 of today. • ic-data:hasEffectivePeriod, which connects to the time:Interval (with a beginning and an end) in which the quantity of a data point was, is, or will be in effect.</p><p>In the example above, the effective period of the forecasted temperature begins tomorrow at 14:45 and ends at 15:45. • ic-data:hasTemporalResolution, which defines the distance, as a time:TemporalDuration<ref type="foot" target="#foot_12">37</ref> , between two data points measured at different times. This makes sense if the measured data points in a time-series are equidistant in time. For example, the temporal resolution of the forecasted temperature in the example mentioned above is 1 hour, i.e., the difference between the end time (15:45) and start time (14:45) of the effective period of each data point in a time-series.</p><p>• ic-data:hasUpdateRate, which defines the rate at which a data point or timeseries (or forecast, see Section 39) is being updated. If the time-series gets regularly updated, then the time between two updates can be recorded here.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Measurement properties</head><p>• ic-data:containsQuantity, which defines a direct connection to the OM ontology <ref type="bibr">38</ref> .In this way, a datapoint contains an om:Quantity, which has a value (om:hasValue property) that is a om:Measure, which in turn has a numerical value (om:hasNumericalValue property) and has a unit (om:hasUnit property) that is an om:Unit.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Usage properties</head><p>• ic-data:hasUsage, which gives some additional information about the usage of a data-point, i.e., to define for which purpose the data-point or time-series is used, for example as an upper limit, lower limit or a baseline (i.e., expected value), a maximum versus minimum value, or a consumption versus a production value.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Provenance properties</head><p>• ic-data:producedBy, which defines the origin (or provenance) at which the datapoint or timeseries are produced. This origin is defined as an agent that can be a person, an organization or a software component. <ref type="bibr">38</ref> The Ontology of units of Measure (OM) is dedicated to measurements, their dimensions and conversions between different units and scales. As such, it contains all the information necessary for those who want to model quantities in detail. On the other hand, SAREF was conceived to be simple and "borrow" units of measure instances from an existing ontology (such as OM or any other ontology that defines units of measure) to express, for example, that a temperature is measured in degrees Celsius (while ignoring the details of how degrees Celsius are defined in terms of scales). In InterConnect, we made the design choice to have both the OM path and the SAREF path, depending on the needs, i.e., one may want to follow 1) the detailed OM path that is more focused on the concept of Quantity, or 2) the shorter SAREF path that is more focused on the concept of Measurement. As a result, to define, for example, a data-point (called ex:dp1) that represents a temperature of 28 degrees Celsius, one of the following two options based on Figure <ref type="figure">6can</ref>  Whatever the choice is, the reasoner behind the InterConnect ontology will infer that the ex:dp1 data-point is an ic-data:DataPoint (option1) but also a saref:Measurement(option 2) because the ic-data:DataPoint is a subclass of saref:Measurement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Topological properties</head><p>• ic-tplg:hasTopologicalAssociation, which connects a datapoint with a topological location (ic-tplg:TopologicalLocation). For further details, see the Topology module in Section 4.9.</p><p>Finally, Figure <ref type="figure">6</ref> shows the concept of message (ic-data:Message class) which has a creation time, an effective period, a provenance relation to indicate where the message is coming from (ic-data:producedBy relation) and an optional text field (icdata:hasTextValue relation) where the content of the message can be specified, as the ic-data:Message is used in some use cases by the InterConnect pilots to display recommendations to the users.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">FORECAST (IC-FC)</head><p>The forecast module (ic-fc) is conceived to provide a clear characterization of the most common forecasting data. During the ontology requirement specification process with the InterConnect partners, we noticed that a distinction was needed between point forecasts versus stochastic forecasts, as well as the various ways to express stochastic forecasts.</p><p>Therefore, the ic-fc module takes into account this distinction. It reuses the ic-data module (see Section 4.2), which defines time-series and data-points that are important elements of forecasting. It also reuses the ic-topology module (see Section 4.9), which defines the forecast location (geographical but also topological, for example, the grid segment). Figure <ref type="figure">7</ref> shows the concepts that we designed for defining forecasts. In order to keep the figure readable, we focused on the new concepts, and we did not extensively visualize the concepts already presented in Figure <ref type="figure">6</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Forecast types</head><p>• ic-fc:StochasticForecast is the base type for all forecasts that have stochastic or probabilistic data points. This means we place restrictions on the type of data points a stochastic forecast consists of. We have three predefined stochastic forecasts.</p><p>o ic-fc:GaussianStochasticForecast contains a forecast following the Gaussian distribution. All its data points are therefore of the type GaussianDataPoint as defined in the ic-data module. Each data point of this forecast type therefore has the mandatory ic-fc:hasStandardDeviation property.</p><p>o ic-fc:QuantileForecast gives the option of manually defining the quantile for which a particular value is intended. The respective quantiles can be added via the ic-fc:hasQuantile property.</p><p>o if-fc:TrajectoriesForecast contains various simple time-series that describe possible alternatives. Each individual time-series is an instance of the ic-data:TimeSeries class.</p><p>• if-fc:PointForecast contains exclusively simple data points without a stochastic or probabilistic element. Each data point is expressed as an instance of icdata:DataPoint.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Forecast properties</head><p>• ic-fc:hasQuantile, which assigns to the data point the percentage of values that are below this value. In other words, a data point with quantile 90 indicates that 90% of other measurements are (estimated to be) lower.</p><p>• ic-fc:hasStandardDeviation is a mandatory property for Gaussian forecast data points. The standard deviation (i.e., the square root of the average of the squared deviations of the values subtracted from their average value) can be described with this property.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 7 -FORECAST</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">INCENTIVE TABLE (IC-INC)</head><p>Figure <ref type="figure" target="#fig_0">8</ref> shows the incentive table (ic-inc) module that reuses the time-series and data-point concepts from the ic-data module.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 8 -INCENTIVE TABLE</head><p>An incentive table is used to describe an incentive type in the form of costs (relative or absolute), CO2 emissions or renewable energy percentage that can be associated to power value slots (expressed as a time-series of power data-points). An incentive table also defines a scope type (ic-inc:ScopeType) to indicate whether it is a preliminary or committed version. It additionally presents some specific attributes to indicate whether it is writeable or requires an update.</p><p>Moreover, the incentive table has tier upper limit, tier lower limit and tier incentive based on time series (ic-data:TimeSeries) defining power tiers for which different incentives apply.</p><p>Figure <ref type="figure" target="#fig_3">9</ref> shows the units of measure used in an incentive table to define power values and incentive based on costs (ic-uom:euroPerKilowattHour). Also see Section 4.8 for the units of measure module (ic-uom).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 9 -UNITS OF MEASURE RELATED TO THE INCENTIVE TABLE</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5">POWER LIMIT (IC-PWLM)</head><p>Figure <ref type="figure">10</ref> shows the power limit module (ic-pwlm) that reuses the data-point concept from the ic-data module. The ic-pwlm module also reuses the device and state concepts from SAREF, extending the saref:State class with additional states needed by the InterConnect pilots for the power limit use case, namely ic-pwlm:PowerLimitState and icpwlm:FailsafeState.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 10 -POWER LIMIT</head><p>A power limit (ic-pwlm:PowerLimit) is defined as the maximum value for power consumption and/or production that must not be exceeded by e.g. a (group of) device(s), a building, or also a district. The value of a power limit is expressed using a icdata:DataPoint (see Section 4.2. Optionally, the limit may come with a time period of validity based on duration (time:Duration). This is e.g., used for grid congestion management. Additional constraints may apply, such as that premises may be subject to a contractual limitation to power consumed and/or produced. This is shown in Figure <ref type="figure">10</ref> using the ic-pwlm:isBoundTo relation between a device and its contractual power limit (icpwlm:ContractualPowerLimit). Moreover, a device may have nominal power consumption and/or production values (ic-pwlm:NominalPowerLimit) that are defined by the manufacturer and must not be exceeded, so that the power limit must stay within these constraints. A device must acknowledge (ACK) a received power limit. Figure <ref type="figure">10</ref> further shows that a power limit is associated with a state (ic-pwlm:PowerLimitState), meaning that a power limit may be toggled active or inactive.</p><p>In case the communication between a device and the energy manager is interrupted, fail-safe values apply (ic-pwlm:FailsafePowerLimit) and the device enters fail-safe state until the communication is re-established.</p><p>For all values, the passive sign convention is used, i.e., positive power values apply to consumption and negative values apply to production. However, since this convention can lead to misinterpretations when exchanging data, we recommend to explicitly set for a certain power value whether it is production or consumption by using one the two additional instances ic-data:production and ic-data:consumption that we have defined as rdf:type of the ic-data:Usage class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6">USER (IC-USER)</head><p>Figure <ref type="figure" target="#fig_6">11</ref> shows the ic-user module that extends the SAREF core ontology with concepts related to users, their profiles and preferences.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 11 -USER PROFILE AND PREFERENCE</head><p>A user is defined as a subclass of the more general foaf:Agent, which can be a person, an organization or a group (i.e., a collection of individual agents). A user in InterConnect can be, for example, a resident that lives in a building, a building manager or an agent that provides a service in a building (e.g., cleaning, maintenance, security). Optionally, some personal data about the user can be specified (ic-user:PersonalInfo). A user can have various profiles (ic-user:UserProfile) depending on the situation, for example, a profile for working, one for relaxing and one for travelling. Each user's profile includes some interests, such as, for example, an interest defined in a "relaxing" profile can be "music", "books" or "football". Note that existing tasks in SAREF (that define the goal for which a device is designed from a user perspective) could be suitable to describe also a user's interest and can be directly reused in the ic-user module (e.g., saref:Comfort, saref:Entertainment, saref:WellBeing, saref:EnergyEfficiency, saref:Safety) .</p><p>A user profile also includes preferences (ic-user:Preference) that specify the user's context in terms of time, activity and location, which can be indoor or outdoor. For example, in the abovementioned "relaxing" profile with interest "books", the preference can be "reading"</p><p>(defined as ic-user:Activity) in the "living room" (defined as a saref:BuildingSpace) between 20:00 and 22:00 (defined as time:Interval). Moreover, this preference can be associated with a certain device (saref:Device) and related commands (saref:Command)</p><p>to set some property in the environment surrounding the user (saref:Property). In the example under consideration of the "relaxing" profile with "reading" activity, this can result in commands such as "dim the lights in the living room to 50%", "set the light colour to pink" and "activate the privacy curtains".</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.7">FLEXIBILITY (IC-FLEX)</head><p>The flexibility ontology module (ic-flex) is by design tightly integrated with SAREF, SAREF4ENER and various other InterConnect modules, namely the power limit (ic-pwlm), incentive table (ic-inc), S2 (ic-s2), data-point (ic-data) and forecast (ic-fc) modules. Figure <ref type="figure">12</ref> shows this integration.</p><p>The main concept of the ic-flex module is the ic-flex:FlexOffer, which allows to represent a flexibility offer (or schedule) as a combination of multiple time-series, data-points and forecasts. For example, we can create a flexibility offer that includes a time-series ex:Tpower of power values, combined with a time-series ex:T-costs of associated costs.</p><p>Alternatively, if the costs are the same for all the power values in the offer, we can associate a single data-point ex:D-costs to the entire ex:T-power time-series. Figure <ref type="figure">12 further</ref> shows that it is possible to specify a creation time (ic-data:hasCreationTime), validity period (ic-data:hasEffectivePeriod) and provenance (ic-data:producedBy) for the offer, on top of the creation time, validity period and provenance already specified for the time-series and data-points included in the offer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 12 -FLEXIBILITY</head><p>The additional key aspect that we captured in the ic-flex module is that a flex offer can also include various categories of flexibility, which we modelled as subclasses of the icflex:FlexibilityProfile class (which in turn is a subclass of saref:Profile<ref type="foot" target="#foot_13">39</ref> ) as follows<ref type="foot" target="#foot_14">40</ref> :</p><p>• Power profile flexibility is implemented using the existing SAREF4ENER. This type of flexibility is typical for devices that perform a task (with a clear start and end) with a corresponding power profile that is known or can be predicted. Their main flexibility comes from the ability to change the start time of that power profile. Note that the existing s4ener:PowerProfile in SAREF4ENER was modelled based on EEBUS SPINE, but we have now additionally aligned it with the power profile specified in the pR EN 50492-12-2 that describes the S2 interface (see Section 3.3).</p><p>• Tariff based flexibility (ic-flex:TariffBased) is implemented using the incentive table module (see Section 4.4).</p><p>• Power limit flexibility (ic-pwlm:PowerLimit) is implemented using the power limit module (Section 4.5).</p><p>• Power Envelope flexibility (ic-flex:PowerEnvelope) is implemented using the S2 ontology that follows the S2 specification. It is used for devices that can be influenced to use a minimum and/or maximum amount of power over time. The flexibility manager cannot control the amount of power produced or consumed by the device directly, but it can dictate power limits, which can change over time.</p><p>• Demand driven flexibility (ic-flex:DemandDriven) is implemented using the S2 ontology that follows the S2 specification. It can be used for systems that are flexible in the type of energy carrier they use but are not capable of buffering or storing energy.</p><p>• Operation mode flexibility (ic-flex:OperationMode) is implemented using the S2 ontology that follows the S2 specification. It is for devices that have the possibility to control the amount of power they produce or consume, without significant effects on their future flexibility options. These devices are modelled as a state machine, where each state (referred to as an operation mode) has an energy production or consumption associated with it.</p><p>• Fill rate based flexibility (ic-flex:FillRateBased) is implemented using the S2 ontology that follows the S2 specification. It can be used for devices that have the ability to store or buffer energy. How energy is stored or buffered does not matter, as long as there is a means to measure how full the storage or buffer is.</p><p>The S2 ontology (ic-s2 module) has been designed to thoroughly follow the S2 specification of the EN50491-12-2 standard (see Section 3.3). As ic-s2 reflects the S2 underlying data model, it is a rather detailed ontology compared to the more general nature of the ic-flex module represented in Figure <ref type="figure">12</ref>. For this reason, the ic-s2 module is not presented in this document, but is available in the public InterConnect ontology repository 41 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.8">UNITS OF MEASURE (IC-UOM)</head><p>The Ontology of units of Measure (OM) is dedicated to measurements, their dimensions and conversions between different units and scales. As such, it contains all the information necessary for those who want to model quantities in detail. OM is often used to provide instances of units of measure for the saref:UnitOfMeasure class. We also reused OM for this purpose. However, we noticed that OM lacked some energy-specific types of units that were required by the InterConnect pilots. Therefore, we created the unit of measure (ic-uom) module that extends OM with the following quantities (and associated units of measure), which are shown in Figure <ref type="figure" target="#fig_3">9</ref>:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Additional quantities</head><p>• ic-uom:ActivePower: Active or real power, to be measured in watt (W).</p><p>• ic-uom:ApparentPower: Apparent power, the magnitude of complex power, to be measured in volt-ampere (VA), equivalent to watt.</p><p>• ic-uom:ReactivePower: Reactive power, to be measured in volt-ampere reactive (var), equivalent in dimension to watt.</p><p>• ic-uom:CarbondioxideEquivalentMass to measure CO2 emissions.</p><p>• ic-uom:AmountOfMoneyPerCommodity was modelled for the commodity of energy and power, such that measurements can specify the amount of money spent for energy or power, such as euro per kilowatt hour or another value per megawatt hour.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.9">TOPOLOGY (IC-TPLG)</head><p>As shown in Error! Reference source not found.Figure <ref type="figure">6</ref> (as part of the ic-data module), the topology (ic-tplg) module defines the ic-tplg:hasTopologicalAssociation property to connect a datapoint, timeseries or forecast with a topological location (ictplg:TopologicalLocation). For example, a measurement (or data-point) might be taken in a specific room, a power average might have been measured by a specific meter, a forecast might be valid for a specific region or grid segment, a power limit can be issued for a certain grid connection point. Therefore, a topological association does not necessarily link to a geographical location. However, in case it corresponds to a geographical location, then this can be expressed, in terms of latitude and longitude (as a geo:SpatialThing), or as a building space within a building using SAREF for Building (s4bldg:BuildingSpace) or a geographical feature from the Geonames ontology (gn:Feature) which contains postal codes and country codes. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">STANDARDIZATION</head><p>This section discusses our plans for submitting the InterConnect ontologies presented in this document to standardization.</p><p>We believe that the impact of a large-scale project such InterConnect is strongly related to the extent it can connect to various existing initiatives, link them together, build new innovations on top of them, while engaging a broader and more diverse community of stakeholders for adoption and validation of the results, compared to where it started. Standardization is an enabler to achieve this impact, as it provides the environment and infrastructure to create shared consensus and disseminate outputs among (large communities of) stakeholders. In particular, when talking about ontologies, they are perceived as useful tools to foster (semantic) interoperability among different systems, platforms and application domains (like smart homes, buildings and grids in the case of InterConnect), yet to difficult to be used in practice. As it is shown by the AIOTI initiative to build an ontology landscape to enable stakeholders to choose the right ontology for a specific purpose and domain [21],</p><p>understanding which ontologies are available, what are they about and how they can be used is paramount. Moreover, an important criterion for a stakeholder to opt for a certain ontology is whether it is related to a standardization body that, beside its creation, can also guarantee the maintenance and evolution over time of the ontology under consideration. That is why initiatives like SAREF, to which ETSI has guaranteed full support and commitment since its creation in 2014, turned out to be so successful and widely adopted.</p><p>Along this line of thinking, the InterConnect ontologies presented in this document have been created starting from ongoing standardization initiatives, especially SAREF, but also reusing and linking together several existing ontologies created and maintained by other standardization bodies such as W3C (e.g., Time ontology and WGS84 vocabulary) and OGC (e.g., GeoSPARQL ontology). We also reused and extended the Ontology of units of Measure (OM), which is a well-known and widely adopted ontology dedicated to measurements and quantities. All this by involving a large stakeholder community of non-ontology experts from different domains (i.e., the InterConnect partners) that with their domain expertise and experience have contributed to improve and broaden the scope and application of the SAREF suite of ontologies. This community of stakeholders is now ready to deploy in practice innovations built on top of these ontologies for the next two years, creating the first successful story in Europe of such a large-scale, harmonized, ontology-based implementation that for the first time goes across three vertical domains, namely smart homes, buildings and grids. In order to maximise the impact of the ontology work carried out in T2.4, the plan of InterConnect is to submit the results back to standardization, as it is shown in Figure <ref type="figure">13</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIGURE 13 -INTERCONNECT ONTOLOGIES: ENVISIONED PROPOSAL FOR STANDARDIZATION</head><p>A key result reached with our work is the creation of four new modules fully dedicated to energy flexibility, namely the flexibility (ic-flex), S2 (ic-s2), incentive table (ic-inc) and power limit (icpwlm) ontologies depicted in Figure <ref type="figure">13</ref>. The ic-s2 module is based on the EN50491-12-2 standard and complements the already existing SAREF4ENER V1 specification, which was originally based on EEBUS SPINE, but has now been reviewed to accommodate also the S2 specification of power profiles. Note that both SAREF4ENER V1 and ic-s2 are rather detailed ontologies, as they reflect the S2 and EEBUS SPINE underlying data models, which</p><p>InterConnect has merged and harmonized together. On top of SAREF4ENER V1 and ic-s2, we have also created the more general ic-flex ontology, which allows to express a flex offer in a less detailed, yet correct and coherent manner for the stakeholders that are less interested in the specific categories of flexibility defined in SAREF4ENER V1 and ic-s2. To complete the picture of the newly created energy flexibility modules, the ic-inc ontology describes incentives based on EEBUS SPINE<ref type="foot" target="#foot_15">42</ref> , while the ic-pwlm ontology describes power limits, merging EEBUS SPINE and S2 concepts in a harmonized way. As depicted in Figure <ref type="figure">13</ref>, our envisioned standardization proposal is to submit the combination of these InterConnect energy flexibility modules to ETSI SmartM2M TC as an updated version of SAREF4ENER (V2).</p><p>The impact we create with these ontologies is twofold. On the one hand, we contribute to the ongoing SAREF standardization in ETSI with an updated version of SAREF4ENER (V2) that not only includes more stakeholders than SAREF4ENER V1 (i.e., the InterConnect partners and the additional CENELEC stakeholders involved in S2), but has also a broader and more complete coverage of the smart energy domain, which includes flexibility and a power limit use case, as strongly recommended in the DSF study report [11]  Moreover, we plan to submit ETSI SmartM2M TC the following contributions:</p><p>• The ic-dev module as an extension the saref:Device concept of SAREF core, which encompasses a variety of new devices and sensors not yet covered by SAREF.</p><p>• The ic-data module as an extension to the saref:Measurement concept of SAREF core, which encompasses: 1) a more complete specification of a data point that is not necessarily restricted to observed measurements, like currently in SAREF; and 2) a fully specified concept of timeseries that at the moment is modelled only (in a rather simple way) in the SAREF4EHAW extension.</p><p>• The ic-fc module to introduce in the SAREF suite of ontologies the new concept of forecast. This is especially relevant to the discussions taking place in SmartM2M TC on how SAREF can be used in Artificial Intelligence with and for Machine Learning.</p><p>• The ic-user module to introduce the concept of user and their preferences regarding scenes and settings for a smart, comfortable and energy efficient environment. This is also relevant in the abovementioned discussions on how SAREF can be used in Artificial Intelligence. These concepts can be used for example, as basis for innovative recommendation systems based on knowledge graphs (rather than traditional ML) that can explain why certain decisions have been taken (explainable AI).</p><p>• The ic-tplg module, which can extend the current SAREF core with the concept of topological location to describe, for example, grid connection points, grid segments, market segments and regulation zones.</p><p>Differently from the other modules, the ic-uom module with the additional energy-related units of measure needed by the InterConnect pilots has been submitted directly to the Ontology of units of Measure (OM) maintainers. Indirectly, this will benefit also the SAREF suite of ontologies which recommends the use of existing ontologies (such as, but not limited to, the OM ontology) to populate the saref:UnitOfMeasure class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">CONCLUSIONS</head><p>This document presented the work carried out in Task 2.4 ("Semantic interoperability framework") towards interoperable and secure standards and ontologies. After introducing the followed approach, we focused on its first step, i.e., the ontology requirement specification activity, by examining the related initiatives, standards, use cases and API specifications used as input for the subsequent step of ontology development. We then presented the resulting InterConnect ontologies, which have been divided in several modules to facilitate their development and increase usability. We further outlined our motivation and plans for submitting the results of this work to standardization. This section presents our conclusions based on the experience of T2.4 with the InterConnect ontologies and identifies some topics as future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1">OBSERVATIONS</head><p>Approach. The ETSI approach for SAREF development that we have adopted also for the InterConnect ontologies was never applied before in such a large-scale setting. This entailed unprecedented challenges. For example, concerning the number of use cases to be considered in the ontological requirement specification step: while the ETSI Specialist Task Forces (STFs) carried out in the past six years have considered an average of 3 use cases per SAREF extension <ref type="bibr">44</ref> , in InterConnect we have analysed 112 use cases, 66 services, 166</p><p>APIs and 864 parameters. Therefore, we faced an information overload. However, after an initial analysis based on the most relevant use cases (leveraging also the domain knowledge of the InterConnect partners during the workshops) that resulted in 350+ requirements, we observed that the situation stabilised, i.e., the addition of more use cases was not resulting in new requirements. We observed the same also when we analysed the 864 parameters coming from the 116 APIs specifications available in the project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Workshops of Stakeholders.</head><p>In the past, TNO with other ontology experts in ETSI used to conduct stakeholders' workshops for the development of SAREF and its extensions in person with a large number of stakeholders (60+). The face-to-face interaction with the stakeholders proved to be an extremely successful aspect, especially to increase the understanding and <ref type="bibr">44</ref> For example, in the ETSI TR 103 506 about the SAREF extension for smart cities (SAREF4CITY), 3 use cases were analysed and a list of 147 Competency Questions (61 general and 86 domain-specific) was produced. In the ETSI TR 103 508 about the SAREF extension for automotive (SAREF4AUTO), 4 use cases were analysed and a list of 107 Competency Questions was produced.</p><p>acceptance of the resulting ontologies. In order to make these workshops manageable and productive, a best practice was to divide the participants in different (small) groups and work in parallel, drawing ontology concepts and relations on a whiteboard. Due to the COVID19 restrictions in place since the beginning of the InterConnect project, it has never been possible to gather the InterConnect partners together in person. Therefore, the ontology stakeholders' workshops have been conducted entirely online, facing new challenges such as, for example, how to collect ontology requirements online in an effective manner with a large number of stakeholders. In particular, for the first ontology requirement specification workshop, we tackled the challenge by replacing a plenary workshop with three separate sessions with different groups of partners. Although we believe that the desired goal was reached, we also want to emphasize that this major limitation affected the pace (slower) and the resources (higher) invested to achieve the result compared to the face-to-face setting used in the past.</p><p>DSF study actions and recommendations. Section 3.3 contains the actions and recommendations produced by the DSF study [11] that we have taken into account in the development of the InterConnect ontologies. We have addressed them throughout our work (and this document) as follows:</p><p>• A-2, A-4, A-5 (action owner: SmartM2M TC): Some additional meter types (i.e., water meter) and related measurements (i.e., water flow properties 45 and water meter properties <ref type="bibr">46</ref> ), have been in the meantime added to SAREF via the extension for the water domain (SAREF4WATR) <ref type="bibr">47</ref> . In InterConnect, we have additionally included more meter types for gas, heat and power (see ic-dev module) and units of measure for volume and pressure (see ic-uom module).</p><p>• A-6 (action owner: IEC/ CENELEC TC13 WG14, but also SAREF users in general):</p><p>For the ad-hoc adjustments on SAREF/SAREF4ENER needed in InterConnect (resulting in the ontologies presented in this document), we will submit requests to ETSI SmartM2M TC (see Section 5), so that updated versions of SAREF that incorporates these adjustments could possibly be released.</p><p>• A-8, A-9 (action owner: IEC TC57): An official, standard OWL version of the CIM is not yet available and, as expected in [11], this also hinders the task to provide a standard alignment with SAREF/SAREF4ENER. In InterConnect, we have provided the partners with the basics to model the Grid topology (see ic-tplg module), if needed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>45</head><p>Water meter properties are s4watr:BatteryRemainingTime, s4watr:MeterOnTime, s4watr:BatteryLastChange, s4watr:MeterOperatingTime, s4watr:BatteryOperatingTime However, an extensive ontology for Grid connection and topology is out of scope of InterConnect, which should rather reuse what is already available for this purpose (e.g., an official, standard OWL version of the IEC CIM, which does not exist). Ontological alignment with models for Smart Grid such as IEC CIM is a long process that possibly involves different SDOs. InterConnect resulted only in some initial enablers (see ic-tplg module). • R-I: The SAREF4ENER V2 developed in this work, which is planned to be submitted to ETSI in 2022 (see Section 5), fully covers the S2 interface.</p><p>• R-IV: A power limitation use case was considered and resulted in the power limit module (see Section 4.5).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Documentation.</head><p>The collaborative development of the ontologies presented in this document took place in an internal repository for the InterConnect partners, in which 75 issues were discussed and implemented in the ontologies in a period of 10 months (February 2021-December 2021). A public repository<ref type="foot" target="#foot_18">48</ref> and a Wiki 49 have now been created for external stakeholders to host the documentation and the source files of the ontologies. As the specification provided in this document is expected to evolve in the next two years due to the deployment feedback of the pilots, the latest and always up-to-date documentation and files for the ontologies are to be found in the abovementioned public repository and Wiki.</p><p>Intermediary results (such as, workshops recordings, slide decks, forms used to collect requirements, etc.) are stored in an internal repository for the InterConnect partners but are available upon request.</p><p>Security. It is relevant to notice that there are not security-related concepts encoded in the InterConnect ontologies, in line with the best practice promoted by ETSI of encoding security and access control in the underlying communication layer (e.g., the oneM2M communication</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>8</head><label>8</label><figDesc>FIGURE -LEVELS OF INTEROPERABILITY -GWAC INTEROPERABILITY FRAMEWORK [15] _______ 4 FIGURE -OVERVIEW OF SAREF CORE ONTOLOGY [16] ______________________________ 7 FIGURE -ONTOLOGY DEVELOPMENT PROCESS [2] _________________________________ 8 FIGURE -INTERCONNECT ONTOLOGY DEVELOPMENT PROCESS AND TIMELINE _____________ 9 FIGURE -OVERVIEW OF INTERCONNECT ONTOLOGIES IN RELATION TO SAREF AND OTHER EXISTING ONTOLOGIES _____________________________________________________________11 FIGURE -DATAPOINT, TIMESERIES AND MESSAGE _________________________________11 FIGURE -FORECAST _______________________________________________________12 FIGURE -INCENTIVE TABLE __________________________________________________14</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE</head><label></label><figDesc>FIGURE -UNITS OF MEASURE RELATED TO THE INCENTIVE TABLE ______________________15</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 10 -FIGURE 11 -FIGURE 13 -</head><label>101113</label><figDesc>FIGURE 10 -POWER LIMIT ____________________________________________________18 FIGURE 11 -USER PROFILE AND PREFERENCE ______________________________________20 FIGURE 12 -FLEXIBILITY _____________________________________________________20 FIGURE 13 -INTERCONNECT ONTOLOGIES: ENVISIONED PROPOSAL FOR STANDARDIZATION ____22</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>• A- 9 (</head><label>9</label><figDesc>action owner: IEC TC57): When an official OWL version of CIM is developed for the purpose of DSF, IEC TC 57 should use the SAREF series of ontologies (especially SAREF4ENER) as input. The alignment proposed in this study, together with the domain expertise coming from IEC TC 57 (for CIM) and SmartM2M TC (for SAREF4ENER) could be beneficial or the suggested task. • A-11 (action owner CLC/ TC205): Align the KNX ontology with SAREF/SAREF4ENER for the purpose of having only one ontology for interoperability. • A-12 (action owner CLC/ TC205): Since CENELEC EN 50090/KNX and CENELEC EN 50631-1/SPINE are both covered by CLC/TC 205 Home and Building Electronic Systems (HBES) and are both used for DSF, we suggest TC 205 to align these standards that cover the same interface (S2) in order to avoid confusion.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>be chosen: OM-based modelling (option1) ex:dp1 rdf:type ic-data:DataPoint . ex:dp1 ic-data:hasQuantity ex:qt1 . ex:qt1 rdf:type om:Temperature . ex:qt1 om:hasScale om:CelsiusScale . ex:qt1 om:hasValue ex:vt1 . ex:vt1 om:hasUnit om:CelsiusScale . ex:vt1 om:hasNumericalValue "28"^^&lt;http://www.w3.org/2001/XMLSchema#decimal&gt; . SAREF-based modelling (option 2) ex:dp1 rdf:type saref:Measurement . ex:dp1 saref:relatesToProperty saref:Temperature . ex:dp1 saref:hasValue "28"^^&lt;http://www.w3.org/2001/XMLSchema#decimal&gt; . ex:dp1 saref:isMeasuredIn om:CelsiusScale .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>The ic-tplg module further offers the possibility to specify electrical phases (A, B, C, and Neutral) as instances of the ic-tplg:ACMeasurementPhase class. It also defines the instances L1, L2, and L3 that can be used as equivalent of A, B and C. Electrical phases are linked to a saref:Device via the ic-tplg:hasMeasurementPhase property. Moreover,</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>• A- 11 (</head><label>11</label><figDesc>action owner CLC/ TC205): The alignment with KNX for flexibility purposes has been taken a step forward by InterConnect with the creation of the flexibility modules (ic-flex and ic-s2). The alignment with the KIM ontology (KNX IoT ontology) is yet open and could be taken a step forward by InterConnect, for example, issuing a specific "KNX challenge" in the upcoming open calls of WP8. • A-12 (action owner CLC/ TC205): by harmonizing the different approaches of EEBUS SPINE (CENELEC EN 50631-1/SPINE) and S2, within the common umbrella of SAREF, the work carried out in T2.4 has contributed with a considerable step forward towards interoperability.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="13,57.38,88.75,480.55,231.99" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="21,51.15,88.75,492.75,230.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="22,70.90,274.64,453.50,325.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="24,51.05,545.06,495.97,163.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="33,51.05,303.24,496.22,381.85" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="40,51.05,356.70,496.05,402.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="42,54.10,206.36,487.07,394.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="47,51.88,88.75,491.55,383.54" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="52,51.05,136.15,490.54,373.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE 1 -PREFIXES AND NAMESPACES OF THE INTERCONNECT ONTOLOGIES</head><label>1</label><figDesc></figDesc><table><row><cell></cell><cell>Namespace</cell><cell>Main concepts</cell></row><row><cell>ic-data</cell><cell>http://ontology.tno.nl/interconnect/datapoint#</cell><cell>Datapoint, TimeSeries, Message, Utility Purpose</cell></row><row><cell>ic-dev</cell><cell>http://ontology.tno.nl/interconnect/device#</cell><cell>Device, State, Function</cell></row><row><cell>ic-flex</cell><cell>http://ontology.tno.nl/interconnect/flexibility#</cell><cell>Flex Offer, Flexibility Source, Control Type, Power Envelope</cell></row><row><cell></cell><cell></cell><cell>Forecast, Point Forecast, Stochastic</cell></row><row><cell>ic-fc</cell><cell>http://ontology.tno.nl/interconnect/forecast#</cell><cell>Forecast (Gaussian, Quantile,</cell></row><row><cell></cell><cell></cell><cell>Trajectory), Gaussian Data Point</cell></row><row><cell>ic-inc</cell><cell>http://ontology.tno.nl/interconnect/incentivetable#</cell><cell>Incentive Table, Incentive Tiers, Scope and Type</cell></row><row><cell>ic-pwlm</cell><cell>http://ontology.tno.nl/interconnect/powerlimit#</cell><cell>Power Limit (Nominal, Contractual and Failsafe)</cell></row><row><cell></cell><cell></cell><cell>Topological Location, Grid Segment,</cell></row><row><cell>ic-tplg</cell><cell>http://ontology.tno.nl/interconnect/topology#</cell><cell>Market Segment, Regulation Zone,</cell></row><row><cell></cell><cell></cell><cell>Electrical Phases</cell></row><row><cell>ic-uom</cell><cell>http://ontology.tno.nl/interconnect/units#</cell><cell>Additional Units of Measure (not considered yet in SAREF)</cell></row><row><cell></cell><cell></cell><cell>User, User Profile, Preference,</cell></row><row><cell>ic-user</cell><cell>http://ontology.tno.nl/interconnect/user#</cell><cell>Priority, Interest, Activity, Time,</cell></row><row><cell></cell><cell></cell><cell>Location</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_0"><p>For SAREF, the namespace for the core ontology is: https://saref.etsi.org/core</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_1"><p>An object property is a property that relates two classes of the ontology, whilst a data property is a property that relates a class with a data type, such as, for example, a string or an integer.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_2"><p>https://lot.linkeddata.es</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_3"><p>For an explanation of the different types of standards, specifications and reports, see https://www.etsi.org/standards/typesof-standards</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_4"><p><ref type="bibr" target="#b10">11</ref> https://saref.etsi.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_5"><p>org/<ref type="bibr" target="#b12">12</ref> https://saref.etsi.org/sources/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_6"><p>prEN 50491-12-2 Part 2: Interface between the Home/Building CEM and Resource manager(s)-Data model and messaging. Voting closes on 31-12-2021. If accepted, the publication of prEN 50491-12-2 is planned for 30-06-2022.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="32" xml:id="foot_7"><p>Note that the "extend" relation is used when a module B extends a module A by defining additional (more specific) concepts. Therefore, the existence of module B depends on module A, while module A can exist without module B. For example, SAREF4ENER extends the saref:Device and saref:Profile concepts with the more specific s4ener:Device and s4ener:PowerProfile concepts. SAREF can exist without SAREF4ENER, while SAREF4ENER depends on SAREF for its existence.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="33" xml:id="foot_8"><p>Note that the "reuse" relation is used when a module A shall reuse another module B as its main building block. Therefore, module B is mandatory for the existence of module A (not vice-versa). For example, the Forecast module shall reuse (the Timeseries and Datapoint concepts of) the ic-data module to exist, but a Datapoint (or a Timeseries) can exist without a Forecast.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="34" xml:id="foot_9"><p>Note that an empty data-point (i.e., without a quantity and associated value) is used in InterConnect to denote a missing value, for example, in a time-series of measurements where some entries are missing.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="35" xml:id="foot_10"><p>Time series can be a result of prediction algorithm, i.e., a forecast. However, the concept of Forecast is defined in a separate ontology module (see Section 4.3) since a Datapoint (or a Timeseries) can exist without a Forecast (while by design the Forecast module shall reuse the Timeseries and Datapoint concepts defined the ic-data module).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="36" xml:id="foot_11"><p>In contrast, the timestamp associated to the creation time for a measurement in SAREF is directly (on purpose) associated with an xsd:dateTime datatype (therefore not via the Time ontology) to keep things as simple as possible. We argue that in InterConnect, once the partners using the ontologies have been explained and understood how to use the Time ontology, it was not a burden to go via the full path.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="37" xml:id="foot_12"><p>Note that, as depicted in Figure6, the Time ontology provides two ways of expressing duration. The first way is to use a numerical value associated with a duration unit, for example, "30 minutes", or "3 days". However, when adopting this solution, if one wants to express a duration of "2 hours and 30 minutes", should translate it to only one unit of duration, namely 150 minutes (or otherwise round it to 2 hours, ignoring the 30 minutes). In this case, the second option can be used (i.e., time:DurationDescription), which allows to write the duration under consideration as desired (i.e., "2 hours and 30 minutes") using the Gregorian calendar as a Temporal Reference System (TRS).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="39" xml:id="foot_13"><p>A saref:Profile is defined as "a specification associated to a device to collect information about a certain Property (e.g., Energy) for optimizing its usage in the home, office or building in which the device is located. This specification is about a certain Property (saref:isAbout), can be calculated over a time span (saref:hasTime) and can be associated to some costs (saref:hasPrice). An example is the Power Profile defined in the SAREF4ENER extension that can be associated to a device for optimizing the Energy efficiency in the home, office or building in which the device is located.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="40" xml:id="foot_14"><p>The definitions are reused from pR EN 50492-12-2, where also more information on the various flexibility types can be found.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="42" xml:id="foot_15"><p>Note that ic-inc is based only on EEBUS SPINE and not on S2 because the concept of incentive table does not exist in EN50491-12-2</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="46" xml:id="foot_16"><p>Water flow properties are s4watr:FlowVolume, s4watr:FlowPressure, s4watr:FlowRate, s4watr:FlowTemperature</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="47" xml:id="foot_17"><p>https://saref.etsi.org/saref4watr</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="48" xml:id="foot_18"><p>https://gitlab.inesctec.pt/interconnect-public/ontology</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>LIST OF TABLES</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">DATAPOINT, TIMESERIES AND MESSAGE (IC-DATA)</head><p>Error! Reference source not found. shows the main module of the InterConnect ontologies, namely the ic-data ontology that defines data-points, time-series and messages.</p><p>The ic-data:Datapoint is an atomic piece of information about a certain observable quantity in nature that can contain a numerical value and a corresponding unit of measure <ref type="bibr" target="#b34">34</ref> .</p><p>An ic-data:TimeSeries is related to the ic-data:Datapoint class via the icdata:hasDatapoint (0..N) property and is defined as an ordered sequence of datapoints of a quantity that is observed at spaced (not necessarily equally spaced) time intervals 35 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">50 | 60</head><p>the ic-tplg module allows to define the difference between two electrical phases, which is measured in voltage, as instances of the ic-tplg:ACMeasurementPhaseDifference class. For example, the ic-tplg:PhaseToNeutralVoltageA instance defines the difference "phase to neutral voltage A".</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.10">DEVICE AND SENSOR (IC-DEV)</head><p>The device (ic-dev) module defines additional types of device and sensor that are used in the InterConnect pilots and, therefore, needed to be explicitly modelled in the ontology:</p><p>Additional devices (Bases) has been implemented at the level of the interoperability layer that is used for the actual exchange of knowledge. The security of the interoperability layer and its instantiation in the various pilots has been addressed in D2.2 [27] and D5.3 [32]. Because of the design of the interoperability layer, it is possible to include Ontology Based Access Control 50 (OBAC) in future versions of the InterConnect ecosystem to increase the level of granularity in access control and protection of privacy. This is beyond the scope of the current D2.3 deliverable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2">NEXT STEPS</head><p>We envision the following next steps regarding the usage, maintenance and evolution of the InterConnect ontologies presented in this document:</p><p>• Provide feedback to Tasks 2.1 and 2.2 in WP2 with respect to ontology related issues that might have architectural implications. For example, the categorisation of semantic concepts in different ontologies might contain important information for the planned deliverable D2.4 which will contain a potentially revised reference architecture.</p><p>• Keep collecting and analysing feedback from usage of the ontologies in WP3 and WP7, adapt ontologies when there is an improvement in interoperability across the pilots. Use the InterConnect ontology repository for developers and the Wiki as a means of collecting feedback and dissemination.</p><p>• Iterate across the ontologies once more that are related to the DSO interface from WP4 to determine if the InterConnect set of ontologies contain all concepts needed for the DSO (e.g., 'topology aspects of low voltage grids that connect Smart Homes and Buildings').</p><p>• Make sure that the connectors to the Interoperability Layer as engineered in WP5 support the use of the InterConnect ontologies.</p><p>• Provide information on the use of the InterConnect ontologies to WP8, so it can provide a means for easy on boarding of parties for the open (pilot) calls.</p><p>• Transfer knowledge (ontologies, observations, lessons learned, etc.) to WP9 for the international collaboration (ETSI, CEN/CENELEC, etc.) with respect to industry standards.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The NeOn Methodology framework: A scenario-based methodology for ontology development</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernandez-Lopez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied ontology</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="107" to="145" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">TR 103 411: SmartM2M Smart Appliances SAREF extension investigation</title>
+		<author>
+			<persName><surname>Etsi</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Methodology for the Design and Evaluation of Ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grüninger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Fox</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IJCAI&apos;95, Workshop on Basic Ontological Issues in Knowledge Sharing</title>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">SmartM2M; SAREF extension investigation; Requirements for Smart Cities</title>
+		<idno>ETSI TR 103 506</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<idno>ETSI TS 103 264</idno>
+		<title level="m">SmartM2M; Smart Applications; Reference Ontology and oneM2M Mapping</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">to 11): SAREF Technical Specification series</title>
+		<idno>ETSI TS 103 410</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<idno>ETSI TS 103 673</idno>
+		<title level="m">Streamlining the Development of SAREF and its Extensions</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note>SmartM2M; SAREF Development Framework and Workflow</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Toward principles for the design of ontologies used for knowledge sharing</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gruber</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Human-Computer Studies</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">5-6</biblScope>
+			<biblScope unit="page" from="907" to="992" />
+			<date type="published" when="1995">1995</date>
+			<publisher>Elsevier</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+		</author>
+		<title level="m">SMART 2013/0077 -Study on Semantic Assets for Smart Appliances Interoperability, D-S4 Final Report</title>
+		<meeting><address><addrLine>Brussels</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Commission</publisher>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Created in Close Interaction with the Industry: The Smart Appliances REFerence (SAREF) Ontology</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Hartog</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Roes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Formal Ontologies Meet Industry. FOMI 2015</title>
+		<title level="s">Lecture Notes in Business Information Processing</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Cuel</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Young</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<biblScope unit="volume">225</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Directorate-General for Communications Networks, Content and Technology</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">European Commission</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Strabbing</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">European Commission</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Roelofsen</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">European Commission</orgName>
+			</affiliation>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Study on ensuring interoperability for enabling Demand Side Flexibility</title>
+		<imprint>
+			<publisher>Publications</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title/>
+		<idno type="DOI">10.2759/26799.</idno>
+		<ptr target="https://data.europa.eu/doi/10.2759/26799" />
+	</analytic>
+	<monogr>
+		<title level="j">Office</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m">ETSI TS 103 410-1 SmartM2M; Extension to SAREF; Part 1: Energy Domain V1</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">SmartM2M; IoT Standards landscape and future evolutions</title>
+		<idno>ETSI TS: 103 375</idno>
+		<ptr target="https://www.etsi.org/deliver/etsi_tr/103300_103399/103375/01.01.01_60/tr_103375v010101p.pdf" />
+		<imprint>
+			<date type="published" when="2016">2016. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Semantic Interoperability</title>
+		<author>
+			<persName><surname>Aioti</surname></persName>
+		</author>
+		<ptr target="https://www.iab.org/wp-content/IAB-uploads/2016/03/AIOTIWG03Report2015-SemanticInteroperability.pdf" />
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">GridWise Interoperability Context-Setting Framework</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Widergren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ambrosio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Drummond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Gunther</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Gilchrist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cohen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<idno>ETSI TS: 103 264</idno>
+		<title level="m">SmartM2M; Smart Appliances; Reference Ontology and oneM2M Mapping</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Validating SAREF in a Smart Home Environment</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V D</forename><surname>Weerdt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">D</forename><surname>Boer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Nouwt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Research Conference on Metadata and Semantics Research</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Semantic IoT Solutions -A Developer Perspective</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Baqa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bilbao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Corchero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Esnaola-Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Fernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ö</forename><surname>Frånberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Girod-Genet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Guillemin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gyrard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Kaed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kung</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Baqa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bilbao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Corchero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Daniele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Esnaola-Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Fernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Franberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Girod-Gene</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Guillemin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gyrard</surname></persName>
+		</author>
+		<title level="m">Towards Semantic Interoperability Standards based on Ontologies</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Semantic Interoperability for the Web of Things</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Murdock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bassbouss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kraft</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Logvinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Alaya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Longstreth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bhowmik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Martigne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Brett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mladin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Chakraborty</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+		<ptr target="https://aioti.eu/wp-content/uploads/2021/12/AIOTI-Ontology-Landscape-Report-R1-Published.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">AIOTI WG Standardization -Semantic Interoperability Expert Group: Ontology Landscape Release</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">0</biblScope>
+			<date type="published" when="2021-12">December 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<ptr target="https://aioti.eu/wp-content/uploads/2019/10/AIOTI-WG3-SDOs-Alliance-Landscape-IoT-LSP-standrad-framework-R2" />
+		<title level="m">AIOTI WG Standardization -IoT LSP Standard Framework Concepts Release</title>
+		<imprint>
+			<date type="published" when="2019-10">October 2019</date>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Ontological User Modeling for Ambient Assisted Living Service Personalization. 5th International Embedded Systems Symposium (IESS)</title>
+		<author>
+			<persName><forename type="first">Maurício</forename><surname>Vargas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><surname>Pereira</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-90023-0_1ff.ffhal-01854167fINTERCONNECTDOCUMENTS</idno>
+		<imprint>
+			<date type="published" when="2015-11">Nov 2015</date>
+			<biblScope unit="page" from="3" to="14" />
+			<pubPlace>Foz do Iguaçu Brazil</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">InterConnect Grant Agreement number</title>
+		<imprint>
+			<biblScope unit="volume">857237</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">D1.1 Services and use cases for smart buildings and grids</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">D2.1 Secure Interoperable IoT Smart Home/Building and Smart Energy system Reference Architecture</title>
+		<imprint/>
+	</monogr>
+	<note>InterConnect project</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">InterConnect project. D2.2 &quot;Privacy and security design principles and implementation guidelines</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m">InterConnect project. D 3.1 &quot;Repository of SAREFized energy components and devices</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m">Repository of SAREFized non-energy components and devices</title>
+		<imprint/>
+	</monogr>
+	<note>InterConnect project. D 3.2 &quot;</note>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">D4.1 &quot;Functional Specification of DSO Standard Interface Application</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m">InterConnect project. D5.1 &quot;Concept, design and architecture of the interoperable marketplace toolbox</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m">InterConnect project. D5.3 &quot;Security, cyber-security and privacy protection action plan and results</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title level="m">InterConnect project. D5.4 &quot;Prototype for the interoperable marketplace toolbox</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">InterConnect project</title>
+	</analytic>
+	<monogr>
+		<title level="m">D9.1 Standards and regulatory bodies impact plan</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

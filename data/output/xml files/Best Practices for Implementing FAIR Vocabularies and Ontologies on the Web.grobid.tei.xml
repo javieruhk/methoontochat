@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Best Practices for Implementing FAIR Vocabularies and Ontologies on the Web</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2020-03-29">29 Mar 2020</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Daniel</forename><surname>Garijo</surname></persName>
+							<email>dgarijo@isi.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Information Sciences Institute</orgName>
+								<orgName type="institution">University of Southern California</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">María</forename><surname>Poveda-Villalón</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Best Practices for Implementing FAIR Vocabularies and Ontologies on the Web</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2020-03-29">29 Mar 2020</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A96A6D2276F0739679CB497A2963826A</idno>
+					<idno type="arXiv">arXiv:2003.13084v1[cs.DL]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Ontology metadata</term>
+					<term>Ontology publication</term>
+					<term>Ontology access</term>
+					<term>FAIR principles</term>
+					<term>Linked Data principles</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>With the adoption of Semantic Web technologies, an increasing number of vocabularies and ontologies have been developed in different domains, ranging from Biology to Agronomy or Geosciences. However, many of these ontologies are still difficult to find, access and understand by researchers due to a lack of documentation, URI resolving issues, versioning problems, etc. In this chapter we describe guidelines and best practices for creating accessible, understandable and reusable ontologies on the Web, using standard practices and pointing to existing tools and frameworks developed by the Semantic Web community. We illustrate our guidelines with concrete examples, in order to help researchers implement these practices in their future vocabularies.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>In the last decade, a series of initiatives for open data, transparency and open science have led to the development of a myriad of datasets and linked Knowledge Graphs on the Web. <ref type="foot" target="#foot_0">3</ref> Ontologies and vocabularies have been developed accordingly to represent the contents of these datasets and Knowledge Graphs and help in their integration and linking. However, while significant effort has been spent on making data Findable, Accessible, Interoperable and Reusable (FAIR) <ref type="bibr" target="#b17">[18]</ref>, ontologies and vocabularies are often difficult to access, understand and reuse. This may be due to several reasons, including a lack of definitions of ontology classes and properties; deprecated or unavailable imported ontologies, non-resolvable ontology URIs, lack of examples and diagrams in the documentation, or having scientific publications describing an ontology without any reference to its implementation.</p><p>The scientific community has started to acknowledge the need for ontologies to be properly documented, versioned, published and maintained following the Linked Data Principles <ref type="bibr" target="#b5">[6]</ref> and adapting the FAIR principles for data <ref type="bibr" target="#b7">[8]</ref>. But these recommendations do not include guidelines on how to implement them for a target vocabulary. In this chapter we address this issue by describing how to make an ontology or vocabulary comply with the FAIR principles, including examples summarizing best practices from the community and our own experience; and pointing to popular existing tools and frameworks.</p><p>Our guidelines are aimed at ontology engineers, and therefore the paper is structured according to their ontology development processes: Section 2 describes several design decisions for an ontology URI (naming conventions, versioning, permanent URIs); Section 3 describes how to create a documentation that is easy to reuse and understand by others (minimum metadata, diagrams to include); Section 4 illustrates how to make an ontology accessible and findable in the Web; Section 5 points to existing end-to-end frameworks that support the ontology publication process; and Section 6 concludes our paper. We consider the design and development of an ontology out of the scope of this paper, as it has been covered by methodologies for ontology development (e.g., LOT <ref type="foot" target="#foot_1">4</ref> or NeOn <ref type="bibr" target="#b13">[14]</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Accessible Ontology URI Design</head><p>Ontologies are digital artifacts, and therefore their URIs should follow the Linked Data Principles, <ref type="foot" target="#foot_2">5</ref> and use a URI namespace under the developer's control. The rationale is simple: only in a domain under our control we will be able to serve the right serialization of the ontology.</p><p>When creating an ontology, it is also important to think carefully about its name, prefix and URI design. Well engineered ontologies are costly to produce, and therefore they should be accessible to other potential users (e.g., by avoiding complex URIs) and easy to differentiate from existing vocabularies.</p><p>In this section we describe our proposed best practices for designing URIs for ontologies to make them unique, easy to remember, and easy to maintain. We acknowledge that naming conventions may be subjective, but these practices reflect our experience in ontology development over a wide range of domains (smart cities, open science, meteorology, neuroscience, etc.) and therefore provide a good starting point. We divide our guidelines over four main key points for accessible ontology URI design: how to select a name and prefix (Section 2.1), whether to use hash or slash namespaces (Section 2.2), whether to use opaque URIs (Section 2.3), how to incorporate semantic versioning in your ontology URI (Section 2.4) and how to make your ontology URI permanent (Section 2.5).</p><p>For illustrating purposes, we will be using an example ontology throughout this paper, with the following URI: https://w3id.org/example#.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Ontology name and prefix</head><p>The name and prefix of an ontology are in most cases related to its application domain. Short and simple names will help others remember your ontology easily. An extended practice is to use acronyms to abbreviate the title of longer ontologies, as in "The Data Catalog Ontology"<ref type="foot" target="#foot_3">6</ref> (with prefix dcat) or the "Friend of a Friend Ontology"<ref type="foot" target="#foot_4">7</ref> (with prefix foaf ).</p><p>Another aspect to consider when designing the name of your ontology is to avoid overlapping with other existing vocabularies. While it is possible to overload existing prefixes by assigning them a different URI, this often confuses potential re-users that are already familiar with the state of the art. A good strategy to prevent this problem is to look for existing prefixes in common vocabulary registries such as prefix.cc, <ref type="foot" target="#foot_5">8</ref> Linked Open Vocabularies (LOV) <ref type="bibr" target="#b14">[15]</ref> or Bioportal <ref type="bibr" target="#b16">[17]</ref>. In our example ontology, by doing a quick search LOV and Bioportal, we can see that our example ontology URI has not been defined. However, the prefix "example" has already been registered to refer to "example.org", a namespace defined to create sample URIs. Therefore we decide on exo (derived from example ontology) as our namespace prefix.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Hash versus slash URIs</head><p>When designing the URI of an ontology, it is important to determine whether the trailing element will be a hash (#) or a slash (/). On the one hand, using a hash makes serving the ontology easier, <ref type="foot" target="#foot_6">9</ref> as the client looking at the URI strips only the part of the URI before the hash symbol. Everything after the hash symbol is interpreted as a fragment identifier, and may be ignored or used by browsers to refer to the right section of the HTML documentation (if available). W3C standards usually follow the hash convention, and we will follow it in our example as well.</p><p>On the other hand, using a slash allows treating each element of the ontology as a separate entity that may be described in an independent manner. This can be useful for organizational purposes when the ontology is big (thousands of classes) and returning a full serialization or rendering a single HTML documentation may be deemed too slow, showing instead each class and property separately. The Open Biomedical Ontology network<ref type="foot" target="#foot_7">10</ref> is an example of this convention.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Opaque URIs for classes and properties</head><p>Opaque URIs obfuscate the name of classes and properties that are part of your ontology. For instance, let us assume we have an "ExampleClassA" in our example ontology. In order to use opaque URIs, instead of using "ExampleClassA" we would associate the class with an identifier such as "EXO C0001", and use it as part of its URI. This has two main advantages: First, if we decide to change the name of the class in the future, the URI of the class would not be affected by it.</p><p>Second, identifiers are language agnostic. For instance, someone using another alphabet (e.g., chinese, cyrillic, etc.) would be able to refer to the same URI with the corresponding label. Examples of ontologies that follow this convention can be found in the Open Biomedical Ontologies, but it is also followed by commonly used knowledge graphs such as Wikidata <ref type="bibr" target="#b15">[16]</ref>.</p><p>The main drawback of using opaque URIs is the difficulty of interpreting properly classes and properties, which usually requires additional tooling for displaying the right labels. For this reason, we will not use them in our example.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Ontology versioning</head><p>Ontologies often have multiple versions, and these should be appropriately annotated as part of the ontology metadata (e.g., with the property owl:versionIRI and owl:versionInfo).We recommend using semantic versioning 11 as a guideline for identifying the different versions of an ontology, as it has become a common practice in software engineering. In semantic versioning, each version id should follow the format X.Y.Z, where X represents a major version (e.g., defining a set of classes and properties to support new use cases), Y represents a minor version (e.g., adding a single property or class), and Z represents patches or quick bug fixes (updating a label, adding examples, etc.). In our example ontology, the first version is 1.0.0 (first major release), with the IRI "https://w3id.org/example/1.0.0", which we would represent in the ontology as follows: &lt;https://w3id.org/example&gt; rdf:type owl:Ontology ; owl:versionIRI &lt;https://w3id.org/example/1.0.0&gt; ; owl:versionInfo "1.0.0"@en .</p><p>As shown in the example, the version IRI is independent from the URI of the ontology ("https://w3id.org/example#"). It is discouraged to include version numbers as part of the ontology URI, as it would deeply affect interoperability of its instances. For example, consider we had used "https://w3id.org/example/1.0.0#" as the ontology URI, and we had populated a Knowledge Graph with two instances of "ExampleClassA": @prefix exo: &lt;https://w3id.org/example/1.0.0#&gt; . @prefix ex-inst: &lt;https://example.org/instance/&gt; . ex-inst:instance1 a exo:ExampleClassA . ex-inst:instance2 a exo:ExampleClassA .</p><p>If we now released another version of the ontology (1.0.1), all the URIs of ExampleClassA would change (highlighted in blue below): @prefix exo2: &lt;https://w3id.org/example/1.0.1#&gt; . @prefix ex-inst: &lt;https://example.org/instance/&gt; . ex-inst:instance1 a exo2:ExampleClassA . ex-inst:instance2 a exo2:ExampleClassA . This is an undesired behavior, because it makes ex-inst:instance1 and exinst:instance2 instances of two different classes (exo:ExampleClassA and exo2:exampleClassA) instead of a single one. Instead, we want all the instances of a class to be compatible across different ontology versions: @prefix exo: &lt;https://w3id.org/example#&gt; . @prefix ex-inst: &lt;https://example.org/instance/&gt; . ex-inst:instance1 a exo:ExampleClassA . ex-inst:instance2 a exo:ExampleClassA .</p><p>By following this convention, we can continue doing ontology releases with appropriate versioning, while keeping the classes and properties consistent in terms of their URI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5">Using permanent URIs</head><p>When publishing an ontology on the Web, it is recommended to think about its long term sustainability, specifically if it gets widely adopted. For example, what will happen to the domain used for the namespace URI of an ontology after several years? (i.e., when the funding for the related research project is over). Likewise, if the ontology is hosted on a server in a university or company, what will happen if the server name changes; or if the person in charge of maintaing it needs to move the ontology hosting to another institution?</p><p>Permanent URIs services are community driven initiatives designed to address these issues. The idea behind them is simple: instead of minting a URI for a resource, users may use these services to create a proxy URI which can then be redirected to wherever the target resource is stored at any point in time. That way, if the target resource is moved, developers just have to update its location without changing its permanent URL. There are several open, free services to create permanent URLs on the Web, among which purl.org <ref type="foot" target="#foot_8">12</ref> (now hosted by the Internet Archive) and w3id <ref type="foot" target="#foot_9">13</ref> (created by the W3C Permanent Identifier Community Group and supported by several companies) are perhaps the most commonly used. We recommend using permanent URIs in ontologies in order to support their long term sustainability. In fact, our example ontology uses a w3id: https://w3id.org/example. Creating a w3id is as simple as forking a GitHub repository and following the instructions in the readme file. <ref type="foot" target="#foot_10">14</ref> An advantage of w3id versus purl.org is that you have control on how to redirect the ontology to its different serializations (a full example is available in Section 4).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Generating Reusable Ontology Documentation</head><p>We refer to "ontology documentation" as the collection of documents and explanatory comments generated during the entire ontology building process <ref type="bibr" target="#b13">[14]</ref>.</p><p>These documents are critical for helping others understand an ontology: documentation provides context, accurate definitions and examples of the different concepts that are included. In fact, an important part of the documentation is usually provided within the ontology itself through ontology metadata and natural language annotations. However, some of the documents may be external to the ontology, such as the ontology requirements document, other sources used during the knowledge acquisition phase, the conceptualization diagrams, examples of use, etc.</p><p>In this section we describe our recommended best practices to generate ontology metadata and human oriented documentation, including diagramming guidelines to show the relationships between classes in a visual manner.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Ontology Metadata</head><p>When creating an ontology, it is crucial to describe it with appropriate metadata for others to understand it correctly. For example, if some of the classes are ambiguously defined, other researchers may misinterpret their meaning when incorporating them into their work. We distinguish two main categories of metadata in an ontology: the metadata associated with the ontology itself and the metadata associated with its elements (classes, object properties, datatype properties and individuals).</p><p>The metadata associated to the ontology itself is important to provide an overview and identify an ontology, understand its usage conditions and understand its provenance. Table <ref type="table" target="#tab_0">1</ref> shows our recommended and optional annotation properties for describing ontologies, along with candidate properties that can be reused from existing vocabularies and standards. 15 The recommended properties are license (critical for others to know how the ontology may be used; we recommend a CC-BY license); creator, contributor, creation date and previous version to track the provenance of the ontology and compare against earlier versions; namespace URI and version IRI to properly identify the ontology; and prefix, title and description to provide a quick overview on what the ontology does and how to properly refer to it. Finally, a citation is recommended for letting other users know how to attribute the authors of the ontology. For the rest of the section, we will be using the following namespaces: The optional properties included in Table <ref type="table" target="#tab_0">1</ref> are not critical to identify or reuse a target ontology, but provide additional insight and ease its understanding. These properties include having an abstract and see also with an additional overview of the ontology and links to related resources; a status to describe its maturity (first draft, specification, etc.); information about the backward compatibility or other incompatible versions of the ontology; the modification and issue dates; the original source that led to the definition of the ontology (requirement document, use cases, etc.); information about the publisher organization supporting the ontology; the DOI to accessed to a publication about the ontology; and information about the logo and diagrams that can be used as a visual aid for the ontology.</p><p>Table <ref type="table" target="#tab_1">2</ref> shows the recommended and optional metadata properties for classes, properties, data properties and individuals. Recommended metadata properties include a human-readable label to identify the term (using as many languages as needed); and a definition for the ontology term that is as accurate as possible. Definitions should be clear and illustrative, as classes and property names may have different meanings to different researchers.</p><p>The rest of the properties in Table <ref type="table" target="#tab_1">2</ref> are nice to have to improve the understanding of ontology terms. These include examples that illustrate how to use a term; its status (e.g., deprecated, under discussion, etc.); the rationale for including a term in the ontology (which may reflect consensus from a discussion); and the source material that motivated the inclusion of the term. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Creating a Human-Readable Documentation</head><p>Ontologies are usually designed in editors and then exported in formats (Turtle, RDF/XML, JSON-LD, etc.) that are difficult to navigate by humans. Researchers often address this issue by pointing to an associated paper or report, but these usually describe a scientific contribution rather than the definitions of each ontology concept in detail. A better solution is to create a documentation for all the terms in the ontology. Since this can be a time-consuming task, the Semantic Web community has developed tools to help ontology documentation. Given an OWL file as input, these tools generate an HTML documentation from the metadata included in the ontology itself (by retrieving the annotation properties recommended in Section 3.1), creating sections for all classes, properties, data properties and named individuals. Popular tools for ontology documentation include WIDOCO <ref type="bibr" target="#b2">[3]</ref> (an evolution of the Live OWL Documentation Environment <ref type="bibr" target="#b11">[12]</ref> that includes automated visualization diagrams through the WebVowl tool <ref type="bibr" target="#b8">[9]</ref>), Parrot <ref type="bibr" target="#b1">[2]</ref> or OwlDoc <ref type="foot" target="#foot_11">17</ref> (integrated with the Protégé Ontology editor <ref type="bibr" target="#b10">[11]</ref>). We recommend creating an HTML documentation for ontologies, as it makes them easier for others to understand and navigate on the Web. The tools introduced above are a good starting point for documentation generation, but we recommend expanding their results with additional motivation and context for the target ontology, pointers to the requirements and rationale; and custom diagrams with examples that illustrate how to use ontologies in practice.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Ontology visualization</head><p>Graphical representations of ontologies help users understand their structure, relationships and usage. Since there is no standard convention for ontology diagrams, developers have adopted several approaches, such as UML-alike diagrams in the SAREF ontologies;<ref type="foot" target="#foot_12">18</ref> semantic network oriented diagrams in the SSN Ontology;<ref type="foot" target="#foot_13">19</ref> or custom diagrams as in the Provenance Ontology.<ref type="foot" target="#foot_14">20</ref>  In the last years, conventions for ontology diagrams have been proposed (e.g., VOWL <ref type="bibr" target="#b9">[10]</ref> and Graffoo<ref type="foot" target="#foot_15">21</ref> ) but none have been standardized yet. In this section we suggest guidelines for generating ontology diagrams based on the UML Ont profile proposed at <ref type="bibr" target="#b3">[4]</ref>. <ref type="foot" target="#foot_16">22</ref> The rationale for our recommendation is that UML is commonly used in software engineering, and it is familiar to software developers. Subclasses are represented using the generalization arrow used in UML (1.e.i) or with a dependency arrow with the &lt;&lt;rdfs:subClassOf&gt;&gt; stereotype (1.e.ii); and equivalent classes are represented with double-sided UML depen-dency arrows with the &lt;&lt;owl:equivalentClass&gt;&gt; (1.f.i) stereotype or by a circle including the symbol """ (1.f.ii). Lastly, disjoint classes may be represented with double-sided UML dependency arrows, using the &lt;&lt;owl:disjointWith&gt;&gt; stereotype (1.g.i) or with a circle including the symbol "K" (1.g.ii).</p><p>Figure <ref type="figure" target="#fig_2">2</ref> illustrates guidelines on how to represent object properties. When the domain or range are not known (2.a), properties can be represented with dotted arrows (2.a.i); or with a diamond with the &lt;&lt;owl:ObjectProperty&gt;&gt; stereotype (2.a.ii). Subproperties may be represented with the UML dependency arrow with the &lt;&lt;owl:subPropertyOf&gt;&gt; stereotype linking the arrows that represent the involved object properties (2.b.i) or with an UML dependency unidirectional arrow with the &lt;&lt;owl:subPropertyOf&gt;&gt; stereotype linking the diamonds that represent the involved object properties (2.b.ii). When domain and range are known, properties can be represented with a solid line between source and target classes (2.c.i) or with a labelled diamond accompanied by dotted arrows labelled with &lt;&lt;rdfs:domain&gt;&gt; and &lt;&lt;rdfs:range&gt;&gt; respectively (2.c.ii). Equivalent (2.d) and inverse object properties (2.e) can be represented by using a bidirectional arrow with the &lt;&lt;owl:equivalentProperty&gt;&gt; and &lt;&lt;owl:inverseOf&gt;&gt; stereotypes between the lines (2.d.i and 2.e.i) or using diamond shapes (2.d.ii and 2.e.ii). Lastly, functional (2.f), transitive (2.g) and symmetric (2.h) object properties can be represented using a shared notation: either by adding the first initial of the property type (F, T or S) to the object property label attached to the arrow that represents the object property; or by a labelled diamond, which represents the object property itself, including the corresponding stereotype (e.g., &lt;&lt;owl:FunctionalProperty&gt;&gt;).</p><p>Figure <ref type="figure" target="#fig_3">3</ref> shows how to represent datatype properties. When the domain or range are not known (3.a) datatype properties may be represented as labelled dashed boxes attached to boxes representing classes (3.a.i); or as a diamond with &lt;&lt;owl:DatatypeProperty&gt;&gt;. Subproperties for datatypes may be represented with a UML dependency arrow with the &lt;&lt;owl:subPropertyOf&gt;&gt; stereotype linking the diamonds that represent the involved datatype properties (3.b). When the domain and/or range are known, the box representing the datatype property may be depicted with a solid line indicating that the domain of the datatype property is the attached class and the range may be included following the characters "::" after the datatype label (3.c.i). Alternatively, a labelled diamond may be used accompanied by dotted arrows labelled with the &lt;&lt;rdfs:domain&gt;&gt; and &lt;&lt;rdfs:range&gt;&gt; stereotypes respectively (3.c.ii). Equivalent datatype properties may be represented by a UML dependency bidirectional arrow with the &lt;&lt;owl:EquivalentProperty&gt;&gt; stereotype linking the diamonds that represent the datatype properties (3.d). Functional datatype properties may be represented by adding "(F)" to the datatype property label (3.e.i) or by a labelled diamond including the &lt;&lt;owl:FunctionalProperty&gt;&gt; stereotype (3.e.ii).</p><p>Finally, Figure <ref type="figure" target="#fig_4">4</ref> proposes how to represent individuals and class membership. Individuals or instances may be represented by labelled boxes with underlined names or identifiers (4.a). Class membership may be represented with labelled  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Ontology Publication on the Web</head><p>Once an ontology is fully implemented and documented, it is time to make it accessible and findable in the Web. In this section we briefly describe the best  practices to perform content negotiation to serve a target ontology in multiple formats (Section 4.1) and registries for describing new ontologies (Section 4.2).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Ontology Accessibility in Multiple Interoperable Formats</head><p>Ontologies should be made available in both human and machine readable manner using a single identifier: the ontology URI. This way we can make any ontology resolve to its HTML documentation when accessed by a user in a browser; and resolve to a standard RDF serialization when importing it in an ontology editor. In order to distinguish the target resource to serve (HTML or RDF serialization), we must implement a 303 See Other redirect, 23 a common practice in the Semantic Web community for doing content negotiaiton over URIs. This type of redirect indicates the location of a target resource in the server based on the received request, but has to be appropriately configured on the server where we are hosting the ontology. Fortunately, there are W3C best practices (recipes) on how to configure an Apache HTTP server -a commonly used type of server for serving files-for hash ended and slash ended ontologies. <ref type="foot" target="#foot_17">24</ref> Here we expand these practices with our example ontology to illustrate: 1) How to support multiple serializations of an ontology (HTML and Turtle); 2) how to support version redirection, as we would like all the versions of the ontology to be appropriately available, not only the latest; 3) How to specify if a serialization is not supported (for example, requests for JSON-LD will return a 406 non-acceptable code, rather than an RDF/XML serialization); and 4) how to implement a default response in case the user agent doing the request does not specify a target in the request (by default we return Turtle). The htaccess file to be placed in the server (in an "/example" folder) would look as follows: In order to test the redirection, the easiest way is just to paste the URI of the ontology in Protégé or in your browser and check that both load the right serialization. Another possibility is to use a curl command, 25 e.g., to retrieve the Turtle serialization: curl -sH "Accept: text/turtle" -L https://w3id.org/example# If interested in a particular version, we can use its version IRI. For example, for the documentation of version 1.0.0: curl -sH "Accept: text/html" -L https://w3id.org/example/1.0.0</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Making an Ontology Findable on the Web</head><p>Once an ontology is published in the Web, the next step is to ensure it can be easily found by others. There are three main activities that can help the visibility of an ontology:</p><p>1. Register the namespace prefix: prefix.cc, 26 is a crowdsourced registry where users can vote the most popular URL for a given prefix. 2. Register the ontology: There are a number of existing metadata registries that can be used for browsing existing ontologies <ref type="bibr">[15][17]</ref>. Our recommendation is to look first for domain-specific registries (e.g., Bioportal <ref type="bibr" target="#b16">[17]</ref> in the biomedical domain, Agroportal <ref type="bibr" target="#b6">[7]</ref> in Agronomy, etc.) commonly used by the target community of interest. When domain-specific registries do not exist, we suggest registering the ontology in a domain-generic metadata registry, such as Linked Open Vocabularies <ref type="bibr" target="#b14">[15]</ref> (which has a manual curation process to ensure that minimum metadata is provided) or FAIRsharing. 27 3. In-document annotations to help crawlers understand the metadata of the ontology when publishing it on the Web. For instance, annotations can be added in your HTML documentation through JSON-LD snippets: 28</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Ontology Documentation and Publication Frameworks</head><p>Semantic Web researchers and practitioners have developed methods and tools for easing ontology engineering, development, publication and exploitation. A number these tools have already been mentioned in the corresponding sections of this chapter, however, they are not always integrated as part of an end-to-end framework, and researchers have to use them separately. More recently, frameworks inspired in the software continuous integration practices have arisen to support ontology engineering activities in collaborative environments. These frameworks offer end-to-end solutions that support ontology engineers documenting, visualizing, testing and publishing their ontologies; and we recommend them as an entry point to adopt some of the practices described in this chapter. One example is OnToology <ref type="bibr" target="#b0">[1]</ref>, a web application<ref type="foot" target="#foot_18">29</ref> that orchestrates ontology documentation, evaluation and publication on the Web with permanent URLs. Another similar approach is VoCol <ref type="bibr" target="#b4">[5]</ref>, which provides ontology developers with feedback on syntax and other errors and gives access to a human-readable presentation of a target ontology. Finally, PoolParty <ref type="bibr" target="#b12">[13]</ref> is a commercial solution that also includes publication of thesauri, taxonomies and ontology management among other features.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Conclusions</head><p>In this chapter we have described implementation guidelines and recommendations for making ontologies findable (through metadata registries and annotations); accessible (through good practices in URI design and content negotiation), interoperable (showing how to serve ontologies in different standard serializations) and reusable (by describing the metadata and diagram guidelines needed for proper understanding) on the Web while following the Linked Data principles. A distinct feature of our guidelines is that we have illustrated how to carry out our recommendations with an example ontology and pointers to usable tools developed by the Semantic Web community in the last decade. Our recommendations reflect years of experience on ontology engineering and also summarize community discussions for ontology design and publication. Hence, we believe these guidelines are a comprehensive starting point for ontology developers who aim to make their ontologies FAIR and available on the Web.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Recommended notation for classes.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1</head><label>1</label><figDesc>depicts our proposed graphical representations for classes, class restrictions and class axioms. Named classes are represented by labelled boxes (1.a); while class restrictions or anonymous classes are represented by empty boxes (1.b). Intersection class descriptions are represented either by using an empty circle with the &lt;&lt;owl:intersectionOf&gt;&gt; stereotype (1.c.i); or an icon including the symbol "[" (1.c.ii). Similarly, union class descriptions may use an empty circle with the &lt;&lt;owl:unionOf&gt;&gt; stereotype (1.d.i); or an icon including the symbol "\"(1.d.ii).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Recommended notation for object properties.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Recommended notation for datatype properties.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Recommended notation for individuals.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Recommended and optional metadata for describing ontologies</figDesc><table><row><cell>16</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 .</head><label>2</label><figDesc>Recommended and optional properties for describing ontology terms</figDesc><table><row><cell cols="3">Property name Annotation Property Rationale</cell><cell>Guideline</cell></row><row><cell>Label</cell><cell>rdfs:label</cell><cell>Readibility</cell><cell>Recommended</cell></row><row><cell>Definition</cell><cell>rdfs:comment</cell><cell cols="2">Understanding Recommended</cell></row><row><cell>Example</cell><cell>vann:example</cell><cell cols="2">Understanding Optional</cell></row><row><cell>Status</cell><cell>sw:term status</cell><cell cols="2">Understanding Optional</cell></row><row><cell>Rationale</cell><cell>vaem:rationale</cell><cell cols="2">Understanding Optional</cell></row><row><cell>Source</cell><cell>dcterms:source</cell><cell>Provenance</cell><cell>Optional</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_0"><p>https://lod-cloud.net/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1"><p>https://lot.linkeddata.es/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_2"><p>https://www.w3.org/DesignIssues/LinkedData.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_3"><p>https://www.w3.org/TR/vocab-dcat-2/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_4"><p>http://xmlns.com/foaf/spec/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_5"><p>http://prefix.cc</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_6"><p>https://www.w3.org/wiki/HashVsSlash</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_7"><p>http://www.obofoundry.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_8"><p>https://archive.org/services/purl/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_9"><p>https://w3id.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="14" xml:id="foot_10"><p>https://github.com/perma-id/w3id.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="17" xml:id="foot_11"><p>https://protegewiki.stanford.edu/wiki/OWLDoc</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="18" xml:id="foot_12"><p>See the SAREF4AGRI extension https://w3id.org/def/saref4agri</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="19" xml:id="foot_13"><p>Semantic Sensor Network Ontology https://www.w3.org/TR/vocab-ssn/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_14"><p>PROV-O: The PROV Ontology http://www.w3.org/TR/prov-o/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_15"><p>Specification available at https://essepuntato.it/graffoo/specification</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="22" xml:id="foot_16"><p>The original UML Ont profile uses custom labels and dependencies to cover OWL 1 constructs. Here labels are mapped to the OWL and RDF(S) constructs.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="24" xml:id="foot_17"><p>http://www.w3.org/TR/swbp-vocab-pub/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="29" xml:id="foot_18"><p>http://ontoology.linkeddata.es/</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Automating ontology engineering support activities with OnToology</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alobaid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Santana-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corcho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Web Semantics</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Current practices and perspectives for metadata on web ontologies and rules</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">T</forename><surname>Alonso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Berrueta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Polo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fernndez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Metadata, Semantics and Ontologies</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">93</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">WIDOCO: A Wizard for Documenting Ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web ISWC 2017</title>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">10588</biblScope>
+			<biblScope unit="page" from="94" to="102" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">D1.1.2 updated version of the networked ontology model</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Haase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Brockmans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Palma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Euzenat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aquin</surname></persName>
+		</author>
+		<ptr target="http://www.neon-project.org" />
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<pubPlace>NeOn Project</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Universität Karlsruhe</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Tech. rep</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Vocol: An integrated environment to support version-controlled vocabulary development</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Halilaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Grangel-González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lange</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Auer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Coskun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lohmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">20th International Conference on Knowledge Engineering and Knowledge Management -EKAW 2016</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<meeting><address><addrLine>Bologna, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">10024</biblScope>
+			<biblScope unit="page" from="303" to="319" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Five stars of Linked Data vocabulary use</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Janowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hitzler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Adams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kolas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">I</forename><surname>Vardeman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semantic Web</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="173" to="176" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Agroportal: A vocabulary and ontology repository for agronomy</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jonquet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Toulet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Arnaud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Aubin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">D</forename><surname>Yeumo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Emonet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Graybeal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Laporte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pesce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Larmande</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers and Electronics in Agriculture</title>
+		<imprint>
+			<biblScope unit="volume">144</biblScope>
+			<biblScope unit="page" from="126" to="143" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">D2.2 fair semantics: First recommendations</title>
+		<author>
+			<persName><forename type="first">Le</forename><surname>Franc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Parland-Von Essen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bonino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lehvslaiho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Coen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Staiger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.3707985</idno>
+		<ptr target="https://doi.org/10.5281/zenodo.3707985" />
+		<imprint>
+			<date type="published" when="2020-03">Mar 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">WebVOWL: Web-based visualization of ontologies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lohmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Link</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Marbach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Negru</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of EKAW 2014 Satellite Events</title>
+		<meeting>EKAW 2014 Satellite Events</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">8982</biblScope>
+			<biblScope unit="page" from="154" to="158" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">VOWL 2: User-oriented visualization of ontologies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lohmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Negru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Haag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ertl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 19th International Conference on Knowledge Engineering and Knowledge Management (EKAW &apos;14)</title>
+		<meeting>the 19th International Conference on Knowledge Engineering and Knowledge Management (EKAW &apos;14)</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">8876</biblScope>
+			<biblScope unit="page" from="266" to="281" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">The Protégé project: a look back and a look forward</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AI Matters</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="4" to="12" />
+			<date type="published" when="2015-06">Jun 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">The Live OWL Documentation Environment: A Tool for the Automatic Generation of Ontology Documentation</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Peroni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Shotton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Vitali</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge Engineering and Knowledge Management</title>
+		<imprint>
+			<biblScope unit="volume">7603</biblScope>
+			<biblScope unit="page" from="398" to="412" />
+			<date type="published" when="2012">2012</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Berlin Heidelberg; Berlin; Heidelberg</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Poolparty: Skos thesaurus management utilizing linked data</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schandl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Blumauer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Extended Semantic Web Conference</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="421" to="425" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">NeOn Methodology for building ontology networks: specification, scheduling and reuse</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Surez-Figueroa</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+		<respStmt>
+			<orgName>Facultad de Informatica, Universidad Politcnica de Madrid</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D. thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Linked Open Vocabularies (LOV): A gateway to reusable semantic vocabularies on the Web</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">Y</forename><surname>Vandenbussche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A</forename><surname>Atemezing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villaln</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Vatant</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semantic Web</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="437" to="452" />
+			<date type="published" when="2017-01">Jan 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Wikidata: a free collaborative knowledgebase</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vrandei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krtzsch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="78" to="85" />
+			<date type="published" when="2014-09">Sep 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">BioPortal: enhanced functionality via new Web services from the National Center for Biomedical Ontology to access and use ontologies in software applications</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>Whetzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">H</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Nyulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Musen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucleic Acids Research</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="541" to="W545" />
+			<date type="published" when="2011-07">Jul 2011</date>
+		</imprint>
+	</monogr>
+	<note>suppl</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">The FAIR Guiding Principles for scientific data management and stewardship</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Wilkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dumontier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Aalbersberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Appleton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Axton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Blomberg</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Et</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Data</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">160018</biblScope>
+			<date type="published" when="2016-03">Mar 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

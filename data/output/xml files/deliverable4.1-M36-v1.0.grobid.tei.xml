@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<title level="a" type="main">H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EA7A62F62EE1BF340BA3BE3BBCE47D8B</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Executive Summary</head><p>This document presents the AURORAL ontology network for the rural environment status at the end of the related task T4.1 entitled "Adaptation of existing semantic data models for the rural environment". This task aims at supporting the semantic interoperability within AURORAL platform through common information models defined by ontologies implemented in standard languages like Ontology Web Language (OWL). In addition, this document includes a summary of the methodology for building ontologies followed and the ontology governance model.</p><p>Since there is a large number of domains and use cases to be considered in the conceptualization of AURORAL, the developed ontology is organized as a modular ontology network. In total, thirteen modules were developed for various use cases.</p><p>The structure of this deliverable is as follows:</p><p>• A description of the used ontology development methodology entitled Linked Open Terms (LOT) methodology. • A presentation of the ontology development infrastructure deployed in AURORAL.</p><p>• A description of an ontology governance process to determine the main principles and best practices followed during the development of the ontology.</p><p>• Finally, each ontology module is described in detail, indicating its requirements and the description of the current model.</p><p>The latest version of the AURORAL ontology development network and all development artifacts can be found on the AURORAL ontology portal (https://auroral.iot.linkeddata.es).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The Semantic interoperability within the AURORAL project is achieved through common ontologies to facilitate the exploitation and the transparency use of heterogeneous data collected from diverse domains. The goal of this document is to present the AURORAL ontology network that was used throughout the different components of AURORAL and by the different actors that will consume the information. This task is considered essential for the other work packages, WP5 and WP6, where the AURORAL ontology network serves as a shared vocabulary and model covering the data value chain required by the project.</p><p>As there is a broad number of use cases to be considered in the AURORAL conceptualization, thirteen modules were developed for diverse use cases categorized into six different domains. These domains are tourism, health, energy, mobility, dairy farming, and circular economy.</p><p>During the development of the AURORAL ontology network, existing and standard ontologies were considered, such as the ETSI Smart Applications REFerence (SAREF) ontology, The World Wide Web Consortium (W3C) Web of Things ontology, the time ontology, the unit of measure ontology, etc. AURORAL ontologies are formalized following Description Logics and implemented in the W3C Web Ontology Language standard OWL. This deliverable starts by describing the following methodology for the development of the AURORAL ontologies models, which is the Linked Open Terms (LOT) methodology. After that, an ontology governance process is suggested and detailed. The main goal of this section is to ensure a well-established ontology following a set of principles and best practices. After that, we will describe the ontology development infrastructure used. Finally, the different ontology modules are described before the document is wrapped with the conclusions section.</p><p>The main novelties of this document regarding previous versions are:</p><p>• A new section on the governance of the AURORAL ontology has been added. • Certain sections on the ontology's modules have been updated, namely: the core ontology, tourism, biomass, logistics and energy. • New sections on new modules have been added such as: CarBooking, farming, mobility, celltower and electrical vehicle charger.</p><p>The structure of this deliverable is as follows:</p><p>• Section 2 explains the methodology used to develop the AURORAL ontologies, namely the LOT methodology. • Section 3 describes the AURORAL ontology governance model.</p><p>• Section 4 describes the ontology development infrastructure.</p><p>• Section 5 presents an overview of the AURORAL ontology network.</p><p>• Sections 6 to 18 present the thirteen ontology modules.</p><p>• Section 19 concludes the document. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Ontology development methodology</head><p>This section presents the ontology development methodology used for the development of the AURORAL ontology network. This methodology includes four activities: 1) ontology requirements specification, 2) ontology implementation, 3) ontology publication, and 4) ontology maintenance. This development methodology is named Linked Open Terms (LOT) <ref type="bibr" target="#b3">[1]</ref> and is based on the NeOn methodology <ref type="bibr" target="#b4">[2]</ref>. It has been used and refined in previous ontology development processes of the European projects VICINITY <ref type="bibr" target="#b5">[3]</ref>, BIMMER <ref type="bibr" target="#b6">[4]</ref>, DELTA <ref type="bibr" target="#b7">[5]</ref>, COGITO <ref type="bibr" target="#b8">[6]</ref>, easyTV [7] among others, and has been adapted to the particularities of AURORAL. For this reason, it is important to mention that some parts of this section might be similar to other EU projects deliverables as they describe and adapt a common methodology.</p><p>Figure <ref type="figure">1</ref> shows an overview of the phases that are performed and the artefacts that result from them: the ontology requirements specification document (ORSD), the ontology implementation, the ontology available online, issues, bugs, etc. It should be mentioned that each phase is divided in a set of detailed activities that have been described in previous version of this deliverable.</p><p>Figure <ref type="figure">1</ref> -LOT: Ontology development methodology followed in AURORAL <ref type="bibr" target="#b3">[1]</ref> The aim of the requirements specification phase is to identify and define the requirements that the ontology to be created needs to fulfil. During this first activity, it is necessary to involve experts in the domain to generate the appropriate industry perspective and knowledge. The main following steps are: the definition of the main purpose and scope of the ontology, the data collection and use case specification, and the ontology requirements identification and validation.</p><p>During the ontology implementation phase, the ontology is built using a formal language (OWL) based on the requirements identified in the previous activity.</p><p>Taking as input the set of requirements collected in the previous activity, the ontology implementation activity is carried out through several sprints. To this end, the ontology developers schedule the ontology development according to the requirements that were identified, and the ontology development team builds the ontology iteratively by implementing only a certain number of requirements in each iteration. The output of each iteration is a new version of the ontology implementation.</p><p>The main steps of the ontology implementation are as follow:</p><p>• The conceptualization step that aims to create a semantic model from the identified requirements. • The encoding step interests in the implementation of the ontology in an implementation language such as OWL. • The evaluation step aims to evaluate the ontology before its online publication. The development of the ontology must guarantee that the developed ontology is consistent, does not have syntactic, modelling, or semantic errors, fulfils the requirements scheduled for the ontology.</p><p>During the ontology publication phase, the ontology development team provides an online ontology that is accessible both as a human-readable document and as a machine-readable file from its Uniform Resource Identifier (URI).</p><p>During the ontology maintenance phase, the ontology is updated, and new requirements can be proposed to be added to the ontology. Furthermore, during this activity, the ontology development team, together with domain experts and users, can identify and correct errors in the ontology. The main steps of this phase are the correction of a detected bug or update of the ontology when a new requirement or a modification were proposed. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Ontology governance</head><p>While in it important to have a well stablished methodology for building ontologies, in many organizations or projects involving many domains and diverse use cases, it is also of paramount importance to define a governance model to ensure common practices, principles and rules among ontology stakeholders. This is the case of the AURORAL project in which many domains are involved in the different use cases and the ontologies should be use used and may be extended by open call participants. The term governance was firstly introduced for data-oriented projects as: the exercise of authority and control (planning, monitoring and execution) over the management of data assets <ref type="bibr" target="#b9">[8]</ref>. The purpose of data governance is to ensure that the data is managed correctly, in accordance with policies and best practices. Another well-known framework for data governance is DAMA <ref type="bibr" target="#b10">[9]</ref>.</p><p>According to this framework data governance covers a set of principles and best practices related to diverse activities such as: data architecture, data modelling, data storage, data security, data integration and interoperability, data quality, metadata, data warehousing, reference and master data, and documents and content. Based on these definitions we could say that ontology governance aims to manage the various components involved in the ontology development process through a set of principles and best practices.</p><p>Regarding governance models for ontologies there exist different models such as GOMO, OBO, and IOF. A description of these models is given below:</p><p>GOMO: BASF company has proposed a Governance Operational Model for Ontologies called "GOMO" <ref type="bibr" target="#b11">[10]</ref>. This model is not publicly available. The main components of the GOMO model are: the principles, standards, best practices, training and outreach. Details about this model were not provided publicly.</p><p>• Principles: Set of high-level fundamental rules on how the organization should develop, publish, maintain, and consume ontologies. They provide a general framework, a basis for the other elements (in GOMO the standards, best practices, etc.). • Standards: Set of specifications that are to be followed when developing, publishing and maintaining ontologies. Each one is supplied with a Quality and Assurance criteria to allow human or software-based evaluation of whether that standard has been implemented correctly. Examples: Naming conventions, what are the formats that must be used in the ontology, how MUST/SHOULD the IRIs be structured, all the ontologies must include certain human-readable documentation components, etc. • Best practices: Set of recommendations and guidelines that explain and illustrate how to follow the principles and implement the standards during the ontology development process.</p><p>OBO: A list of 14 principles has been defined <ref type="bibr">[15]</ref> for evaluating Open Biological and Biomedical Ontologies (OBO). For each principle, an explanation of how it has been verified has been provided.</p><p>Here are some examples of these principles: The ontology must be openly available, the ontology is available in a common formal language, the ontology has textual definitions for its classes and properties, among others.</p><p>IOF: To build the Industry Ontology Foundry (IOF) <ref type="bibr" target="#b18">[16]</ref>, a set of 15 principles was defined during the development of this ontology. Among these principles, the ontology's architecture must follow a predefined structure that defines the general/common ontology, the domain ontology, the</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Proposed Governance model</head><p>In this section, we propose a model for the AURORAL ontology governance. Our model is composed of a set of roles, principles and best practices to ensure good management of the ontology development process. It should be noted that the proposed governance model is aligned to the previously defined methodology for building the ontologies. In the next sections we first introduce the defined principles, then the best practices defined for each principle and finally we introduce the roles considered during the governance model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1.">Principles</head><p>By analysing existing governance models (GOMO, OBO, IOF) for building ontologies the following 15 principles have been defined for the AURORAL governance model:</p><p>1. Scope and context: The ontology scope and context should be clearly defined before the ontology development process, that is, each ontology should be based on a well-stablished use case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Textual definitions:</head><p>The ontology must provide textual definition of the requirements and all ontology elements (concepts, properties, individuals, etc.).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Ontology architecture:</head><p>The ontology architecture should be specified, including the level of generalisation of the ontology to be developed: top-level ontologies, general or crossdomain ontologies and domain ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Common format:</head><p>The ontology should be encoded using standard languages such as OWL or RDF(S). 5. Modularity: The ontologies should be developed following a modular approach in accordance with the domains and scopes addressed. 6. Naming conventions: The ontology should follow the defined guidelines for ontology elements (concepts, properties, individuals, etc). 7. Knowledge reuse: The ontology should reuse existing ontologies, standards or knowledge sources whenever available. 8. Ontology quality: The ontology should meet quality criteria like coverage based on requirements, use of correct modelling decisions and lack of errors (semantic, syntactic, coherence, consistency). 9. URI and namespace: The ontology modules should have a unique and persistent URI. 10. Availability: The ontology should be openly available on the web in human and machinereadable formats. 11. Maintenance: The ontology development team should stablish and follow ontology maintenance processes and activities. 12. Versioning: A version strategy should be defined for the ontology versions and releases. <ref type="bibr" target="#b14">13</ref>. Roles: The different roles involved in the ontology lifecycle should be identified and assigned to corresponding persons or stakeholders. 14. Communication: Communication channels and strategies should be defined within the ontology stakeholders as well as external communities.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.2.">Best Practices</head><p>For each principle, a set of best practices were defined. These best practices are detailed below:</p><p>1. Scope and context: o Stablish meetings between the ontology development team and use case owners to discuss and clearly define the scope and context.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Textual definitions:</head><p>o Use a competency question or a natural language sentence to define the requirements. o Add human oriented identifiers (rdfs:label) and definitions (rdfs:comment) for all ontology elements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Ontology architecture:</head><p>o Analyse the ontology scope and requirements to identify the architecture layer in which the ontology to be developed fit.</p><p>o Analyse whether existing ontologies should be extended or generalized according to the needs. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.3.">Roles</head><p>During the existing governance models analysis 8 roles were identified for the AURORAL governance model. Table <ref type="table" target="#tab_3">1</ref> describes these roles, along with the roles and tasks associated with them and the corresponding AURORAL project partners associated to each role. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Use case expert</head><p>• Gather data about use cases and send it to the decision maker, the manager and the ontology developers.</p><p>• Formatting the data in an understandable format and language Pilots Domain experts</p><p>• Participate in meetings with the ontology developers to discuss the data and explain the domain terminology and the use case.</p><p>• Validate the model if it covers the domain knowledge or not.</p><p>• Suggest updates for the model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Experts from the pilots</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Software developers</head><p>• Participate in meetings with the ontology developers to discuss the use of the ontology in the software and explain the needs from the software regarding the ontologies. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Ontology development infrastructure</head><p>This section describes the ontology development infrastructure used to support the activities in the ontology development process described above.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Infrastructure to Support the Requirements Specification Activity</head><p>The ontology development team used spreadsheets to store the requirements per use case. These requirements were reorganized per domain and converted into an HTML file and uploaded to the AURORAL ontology portal with the most relevant information for users to facilitate the visualization. Figure <ref type="figure" target="#fig_4">3</ref> shows an excerpt of the requirements collected for the AURORAL ontology network and Figure <ref type="figure" target="#fig_5">4</ref> shows an excerpt of the HTML documentation of the AURORAL requirements.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Infrastructure to Support the Ontology Implementation Activity</head><p>To support the implementation activity, the ontology development team uses several tools to edit, store, and evaluate the ontology.</p><p>• For the ontology edition, the ontology development team uses Chowlk [26] and Protégé <ref type="bibr" target="#b18">[16]</ref> which allows the creation, visualisation, and manipulation of ontologies. • For ontology storage, the ontology development team uses GitHub <ref type="bibr">[30]</ref>. A GitHub repository is created for each ontology in the AURORAL ontology network. Each repository includes: o A folder with the implementation of the ontology. o A folder with the ontology modelling diagrams. o A folder with the documentation of the ontology. o A folder with the requirements and tests of the ontology.</p><p>The development team uses the OnToology <ref type="bibr" target="#b12">[11,</ref><ref type="bibr">38]</ref> tool to trigger continuous integration activities like ontology documentation generation using Widoco <ref type="bibr" target="#b13">[12]</ref> and evaluation using OOPS! <ref type="bibr" target="#b14">[13,</ref><ref type="bibr" target="#b20">40]</ref> and THEMIS [41].</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Infrastructure to Support the Ontology Publication Activity</head><p>To support the publication activity, the ontology development team creates an ontology portal online to make the ontology and all the associated information (repository, requirements, tests, releases, etc.) available to users. This ontology portal has different sections:</p><p>• Ontologies • Ontologies testing</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1.">Ontologies</head><p>The Ontologies section, which is the main section of the portal, shows the main information about the ontologies created in the AURORAL ontology network. The section follows a tabular approach that includes the following:</p><p>• Link to the ontology documentation published on the Web.</p><p>• Ontology Description • HTML description of the requirements identified by the domain experts.</p><p>• Link to each GitHub repository • Links to each GitHub issue tracker • Link to ontology releases page • Link to a list of payloads involved in the data exchange for AURORAL project.</p><p>Figure <ref type="figure" target="#fig_7">5</ref> shows an overview of the information exposed in the Auroral ontology portal.   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2.">Ontologies Testing</head><p>The section on Ontologies testing was based on different proposed tools such as the Ontology Pitfall Scanner! (OOPS!) <ref type="bibr" target="#b14">[13,</ref><ref type="bibr" target="#b20">40]</ref> and THEMIS <ref type="bibr">[41]</ref>.</p><p>OOPS! allows the detection of potential pitfalls that could lead to modelling errors. These pitfalls are classified into three distinct categories: minor pitfalls, important pitfalls, and critical pitfalls. Minor pitfalls are issues that do not pose serious problems. Important pitfalls indicate that, even if they are not critical, it is crucial to deal with them. On the other hand, critical pitfalls are likely to affect the consistency of the ontology and therefore it is imperative to address them. Figure <ref type="figure" target="#fig_9">7</ref> presents the given results of OOPS! for the tourism ontology. THEMIS allows the verification of the ontology regarding their functional requirements. Figure <ref type="figure" target="#fig_10">8</ref> presents a screenshot of the tourism ontology validation using Themis. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Infrastructure to Support the Ontology Maintenance Activity</head><p>To provide support for maintenance activity, ontology developers use the GitHub issue tracker, which manages and maintains the list of issues identified by domain experts and ontology developers. The GitHub issue tracker provides the status of the issue, assignee, and description and allows one to add comments to the issue to discuss it. Each issue tracker is associated with a GitHub repository and, consequently, with an ontology in the AURORAL ontology network.</p><p>To manage changes in the ontology, all new proposals and improvements must be agreed upon by all members of the ontology development team. If domain experts, users, or ontology developers wish to add, delete, or modify concepts in the ontology, they must create a new issue in the GitHub issue tracker associated with the ontology to be modified, which will be used to discuss the approval or rejection of the proposal.</p><p>As a result, 57 issues were created in the issue tracker, with the core ontology and adapters having the highest number of issues, with 19 questions for the core ontology and 29 for the adapters ontology.</p><p>Figure <ref type="figure" target="#fig_11">9</ref> shows the GitHub issue tracker for the tourism ontology. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Overview of the AURORAL ontology network</head><p>The goal of Task T4.1 is to develop the AURORAL ontology network by adapting existing semantic data models and ontologies for the rural environment. This ontology will be used throughout the different components of the AURORAL environment and the different actors that will consume and produce data.</p><p>The AURORAL ontology network will be based on existing data models and ontologies. Therefore, before the AURORAL ontology network is developed, a review of existing data models and ontologies to be reused has been performed. The following list enumerates the data models and ontologies considered relevant for the initial version of the AURORAL ontology network:</p><p>• W3C Thing Description (TD) Ontology <ref type="bibr">[21]</ref>. It represents the TD information model, which is one of the building blocks of the Web of Things (WoT). The TD ontology can also be used to process contextual information on Things and for alignments with other WoT-related ontologies. • W3C The Organization Ontology <ref type="bibr">[29]</ref>. It is designed to allow the publication of information on organizations and organizational structures, including government organizations. The ontology includes: (1) organizational structure, (2) reporting structure, (3) location information, and (4) organizational history.</p><p>• W3C ODRL Information Model 2.2 <ref type="bibr">[30]</ref>. The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms to represent statements about the usage of content and services. The ODRL Information Model describes the underlying concepts, entities, and relationships that form the foundational basis for the semantics of the ODRL policies.</p><p>• Ontology of units of Measure (OM) <ref type="bibr">[22]</ref>. This ontology defines concepts, objects, properties and instances that represent the different measures and units. It includes common units such as the meter and kilogram, as well as other units such as the mile or nautical mile, etc.</p><p>• Smart Appliances REFerence Ontology (SAREF) <ref type="bibr">[19]</ref>. It is a shared consensus model that facilitates the mapping of existing assets in the smart appliance domain. The main concepts of this ontology are: saref:Device, saref:Measurement, saref:Property, saref:service, among others.</p><p>• Geospatial Ontology (Geo) <ref type="bibr">[20]</ref>. It is a lightweight vocabulary that represents geospatial concepts and their properties.</p><p>• Friend Of A Friend Ontology (FOAF) <ref type="bibr">[31]</ref>. It is designed to present people and the relationships between them.</p><p>• Lexvo <ref type="bibr">[32]</ref>. It is designed to provide information about languages, words, characters, and other human language-related entities.</p><p>• Hypermedia Controls Ontology (Hctl) <ref type="bibr">[33]</ref>: It is designed for links and forms. It offers, among others, a means to reify RDF statements interpreted as links between Web resources. It also provides a versatile exchange format for links and forms in RESTful Web applications.</p><p>• Time ontology <ref type="bibr">[18]</ref>: provides a vocabulary for expressing time related concepts such as instants, date descriptions and intervals and their relations.</p><p>• Geonames ontology <ref type="bibr">[34]</ref>: It aims to present the geospatial information.</p><p>• Tmjourney ontology <ref type="bibr">[35]</ref>: describes information about mobility of the mean of transport. H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application</p><p>• dcat ontology <ref type="bibr">[36]</ref>: it is a vocabulary for publishing data catalogues on the Web, which was originally developed in the context of government data.</p><p>Thirteen ontologies have been developed and published in the AURORAL project. These include the AURORAL Core ontology, AURORAL Privacy ontology, AURORAL Tourism ontology, AURORAL Adapters ontology, AURORAL Biomass ontology, AURORAL Logistic ontology, AURORAL Marketplace ontology, AURORAL Energy ontology, AURORAL Car-booking ontology, AURORAL Mobility ontology, AURORAL Farming ontology, AURORAL Cell-tower ontology, and AURORAL Ev-charger ontology. Figure <ref type="figure" target="#fig_12">10</ref> presents the relation of these modules with the six domains. Each domain is linked to its related modules through different coloured lines. For example, The blue colour determines the modules that contain information about the mobility domain. Figure <ref type="figure">11</ref> shows an overview of these ontologies. Coloured boxes are used to represent the developed modules, while white boxes represent reused terms from existing ontologies. The main hierarchies between concepts are also included. These hierarchies are represented by arrows with white endings (triangles) and can be read as follows: the class in the origin of the arrow is a subclass of the class at the end of the arrow. Ad hoc relations between different modules and within modules are also present. Arrows are used to represent these properties between classes and to represent some RDF, RDFS, and OWL constructs. More precisely:</p><p>• Plain arrows with white triangles represent the subclass relationship between two classes.</p><p>The origin of the arrows is the class to be declared as a subclass of the class at the destination of the arrow. • Plain arrows between two classes indicate that the object property has declared as domain the class in the origin and as range the class in the destination of the arrow. The identifier of the object property is indicated within the arrow.</p><p>• Dashed labelled arrows between two classes indicate that the object property can be instantiated between the classes in the origin and the destination of the arrow. The identifier of the object property is indicated within the arrow. • Dashed arrows with the identifiers between stereotype signs (i.e., "&lt;&lt; &gt;&gt;") refer to OWL constructs that are applied to some ontology elements, that is, they can be applied to classes or properties depending on the OWL construct being used. • Dashed arrows with no identifier are used to represent the rdf:type relation, indicating that the element in the origin is an instance of the class in the destination of the arrow.</p><p>Datatype properties are denoted by rectangles attached to the classes, in a UML-oriented way. Dashed boxes represent data type properties that can be applied to the class to which it is attached, while plain boxes represent that the domain of the datatype property is declared to be the attached class.</p><p>For more details on the graphical notation used in diagrams in this and next sections, readers are invited to refer to Chowlk's visual notation <ref type="bibr">[26]</ref>.</p><p>The prefixes, and corresponding ontologies, created and reused in the AURORAL ontology are listed in Table <ref type="table" target="#tab_5">2</ref> and Table <ref type="table">3</ref>, respectively.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Core Ontology</head><p>This section presents an overview about the core ontology. The final conceptual model defined for this ontology is shown in Figure <ref type="figure" target="#fig_3">12</ref>. A list of 46 requirements [42] were defined to develop the ontology and a list of 96 tests <ref type="bibr">[43]</ref> were defined to evaluate it.</p><p>The main classes and properties of this module are the following:</p><p>• core:Organisation: is defined as an entity comprising one or more users; core:Organisation is a subclass of org:Organisation in order to reuse its properties. In AURORAL, an organization also has its own properties according to the requirements and its relation to core:Node, core:Notification, core:Audit, and core:User. The core:Organisation class is related also to other external classes, which are geo:SpatialThing and foaf:Image. • core:Notification is defined as the act of reporting a message to a set of users. This class has its own properties according to the requirements and is related to core:Organisation and core:User. • core:Node: is defined as the way to organise the users into distinct groups. It has the properties needed to meet the defined requirements and is related to core:Item. • core:User is defined as a person who belongs to an organisation. This class has its own properties, in order to accomplish the defined requirements, and is a subclass of foaf:Person. The core:User class is related to core:Role, core:Organisation, core:Audit, core:Node, core:Item, and to the external class foaf:Image. • core:Role is defined as the function assumed by a user inside the organisation. This class has as subclasses the different role types, which can be core:Dev_Ops, core:Admin, core:Dev_owner, core:User, core:Super_user, core:Service_provider, core:Infrastructure_operator, and core:System_integrator. • core:Item is defined as the physical object that is part of a list of things; core:Item is a subclass of wot:Thing and has two subclasses, core:Device and core:Service. • core:Audit is defined as the examination and evaluation of the organisations or users.</p><p>• core:service: is defined to represent the services of the Auroral project. It has several data properties such as provider, version, number of downloads, etc... It is linked to the lexvo:Language concept with the lexvo:language relationship to specify the language of the service provided. • core:Domain: is defined to identify the different domains of the service. Six domains are considered in the Auroral project, namely tourism, health, energy, mobility, dairy farming and bicycle economy. • core:Sensor: is defined to specify the sensor deployed in the Auroral project.</p><p>• core:Actuator: is defined to represent the actuator deployed in the Auroral project. Figure <ref type="figure">11</ref> shows the main classes and properties of the core ontology. For reasons of visibility, the figure does not contain all the details. Readers are invited to consult the portal site [39]. • core:Dataset: is defined to collect datasets that are used in AURORAL.</p><p>• core:TypeService: is defined to specify the type of service: a service could be a commodity service or not commodity. • core:Readability: presents the readability of a measurement. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Privacy Ontology</head><p>The AURORAL privacy ontology aims to model the privacy for the AURORAL project. A list of 7 requirements <ref type="bibr">[45]</ref> were defined to develop the ontology and a list of <ref type="bibr">11 tests [46]</ref> were proposed to evaluate it.</p><p>The final conceptual model defined for this ontology module is depicted in Figure <ref type="figure" target="#fig_4">13</ref>. The main classes and properties of this module are the following:</p><p>• priv:Policy: is defined as a principle of action adopted by a core:Item.</p><p>• priv:Rule: is defined as the specification of the state of the policy. It has two subclasses, priv:Permission and priv:Prohibition. The rule has a target (priv:RuleTarget) and an action (priv:Action). • priv:Action: is defined as the action to be taken by the policy. The priv:Action class has two members: priv:Accessibility and priv:Visibility. • priv:RuleTarget: is defined as the specification of which users are the target of the policy (in this case, priv:Friends or priv:All).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 13 -General overview of the main classes and properties of the AURORAL Privacy ontology</head><p>H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Tourism Ontology</head><p>The AURORAL tourism ontology aims to model the tourism-related data for the AURORAL project. A list of 19 requirements <ref type="bibr">[47]</ref> were defined to develop the ontology and a list of 22 tests <ref type="bibr">[48]</ref> were defined to evaluate it.</p><p>The conceptual model defined for the Tourism ontology module is depicted in Figure <ref type="figure" target="#fig_15">14</ref>. The main classes and properties of this module are the following:</p><p>• tour:Activity: is defined as an activity. The activity has a location, defined by geo:Point, a language, defined by dc:LinguisticSystem, has an image, a difficulty, defined by tour:Difficulty and is posted to a channel, defined by the class tour:Channel. • tour:Channel: Each activity is posted to a channel. Channels are usually used to group activities by theme (restaurants, tours, things to do, etc). • tour:Price: is the cheapest price for the activity. It's related to tour:Currency, indicating the currency (euros, dollars, etc). • tour:Difficulty: is defined as the difficulty of an activity or a tour. It can be very easy, easy, medium, hard, or very hard. • tour:Tour: is defined to determine that an activity can be a tour through the relation tour:hasTour with the class tour:Activity. • tour:Event: is defined to determine that an activity can be an event through the relation tour:hasEvent. • tour:Currency: is defined as the currency of the activity price (euros, dollars, etc...).</p><p>• tour:Emotion: is defined to present the users emotions about an activity: These emotions are: agree, disagree, and neutral. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.">Adapters Ontology</head><p>The adapters ontology developed for the AURORAL project aims to model the data related to adapters for the AURORAL project. To develop this ontology, a set of 51 requirements [49] was captured. These requirements are classified according to the type of the device. These requirements were identified from different use cases suggested by different pilots, mainly the pilot from Portugal and the pilots from Norway (Halogaland Health and Tourism). In addition, a set of 126 tests were proposed to evaluate it <ref type="bibr">[50]</ref>.</p><p>The main classes and properties of this module are the following:</p><p>• adapters:Device: is designed to realize a specific task. This task can be a detection of an occurred event or the initiation of an action. It has two sub-classes (sensor and actuator). • adapters:Sensor: responds to a stimulus, e.g., a change in the environment, or input data composed from the results of prior observations and generates a result. Sensors detect diverse properties defined by the object properties "saref:measuresProperty" with the range domain the saref:Property concept. It has several sub-classes (adapters:FloodSensor, adapters:EnergyMonitor, adapters:Motionsensor, etc.). o adapters:FloodSensor: is designed for detection of water leaks or detecting excessively high-water levels. It has attributes like the identifier and the battery level. o adapters:EnergyMonitor: is used to track and control real time energy use. It has different properties such as the returned energy, the total returned energy, etc. o adapters:MotionSensor: a motion sensor (or motion detector) is a device that is designed to detect and measure movement. o adapters:HumiditySensor: is a device that detects and measures water vapor in its environment and converts its findings into a corresponding electrical signal. o adapters:Thermometer: a thermometer is a device used to measure temperature. o adapters:GPSEmergencyButton: is a device used to detect the exact location of a specific thing or object. The detected data is the longitude, latitude, altitude, and the acceleration. o adapters:WaterAMR sensor: It sends data about the accumulated value of water in the current timestamp. o adapters:WeatherSensor: Is a component of an automatic weather station that detects the presence of hydrometers and determines their type (rain, snow, drizzle, etc.) and intensity. It detects data about the temperature, the humidity, the solar irradiation, the pressure, and the rain. o adapters:AmbientProperty: it groups the ambient properties that are detected by the deployed devices. These properties are the ambient temperature, the ambient humidity, the ambient flood, the ambient wind, and the ambient solar radiation properties, the precipitation, the weather, the noise, the visibility among others… o adapters:SpaceProperty: describes properties related to space such as the GPS latitude, the GPS altitude, the GPS longitude, the X-axis acceleration, the Y-axis acceleration, the Z-axis acceleration, the distance, etc. o adapters:EnergyProperty: this concept groups the properties related to energy such as: the battery level, the total returned energy, the total energy, the power factor, the grid voltage, and so one. o adapters:MotionProperty: it is about the motion and the vibration properties. o adapters:LightProperty: it describes the properties about luminance. o adapters:Sound: it defines the noise level properties. o adapters:Pressure: provides information about the pressure properties (for example the atmospheric pressure). o adapters:rain: refers to the accumulated precipitation. o adapters:SoilMoisture: presents the soil moisture: height and volume. o adapters:CarbonDioxide: regroups measurement about the CO2 concentration. o adapters:HealthProperty: presents properties related to the health of the person such as systolic blood pressure, diastolic blood pressure, protein, pulse rate and so on... Figure <ref type="figure" target="#fig_7">15</ref> shows only a fragment of the adapter ontology to ensure the visibility of the figure. For more details, readers are invited to consult the online version.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10.">Biomass Ontology</head><p>The biomass ontology presents the characteristics of biomass. A set of 19 requirements [51] was captured. The requirements for biomass characteristics are taken from the Spain Pilot use case. In addition, a set of 23 tests <ref type="bibr">[52]</ref> were defined to evaluate it.</p><p>The main concepts of the Biomass ontology are the following.</p><p>• biom:Biomass: defines the biomass (for example the Briquette) and their properties such as the unique identifier, the name, the trading Form, the dimension, etc. • biom:BiomassOrigin: is proposed to identify the source of the biomass. It has as data property the identifier and a description. The BiomassOrigin is linked to the BiomassGroup, BIomassSubGroup, BiomassType, and BiomassSubType, in the object properties hasGroup, hasSubGroup, belongsToType, hasSubType respectively. • biom:BiomassGroup: identifies the group to which a biomass belongs. According to ISO/FDIS 17225-1, there are five groups: woody biomass, herbaceous biomass, fruit biomass, aquatic biomass, and the group of mixtures and blends. • biom:BiomassSubGroup: specifies the main subgroups to which a biomass can belong. Each group for the four groups mentioned above is composed of subgroups. Taking the WoodyBiomass group as an example, it is composed of the following subgroups (forest plantation and other virgin wood, by products and residues from wood processing industry, used wood, and blends and mixtures). This concept is related to the Biomass concept with the relation hasSubGroup. • biom:BiomassType: determines the type of biomass. Each subgroup of each group is composed of various types. For example, the used wood sub-group of the woody biomass group has three types: the chemically untreated used wood, the chemically treated used wood, and the blends and mixtures. It is linked to the BiomassOrigin class with the relation belongsTo.</p><p>• biom:BiomassSubType: it specifies the subtypes of each type of biomass.For example, the type chemically, untreated used wood has three sub-types: Without bark, with bark, and bark. This class is related to the BiomassOrigin through the relation hasSubType. • biom:Humidity: determines the humidity of the biomass.</p><p>• biom:Ashes: presents the biomass ashes. Ash is the residue after combustion.</p><p>• biom:Quantity: it specifies the quantity of a biomass. There are four types of quantities namely: total quantity, current quantity, bought quantity, sold quantity. • biom:BoughtPerGroup: Bought quantity is classified according to the subGroup of biomass.</p><p>This class is defined to present the group of each sub-quantity. • Biom:SoldPerGroup: Sold quantity is classified according to the subGroup of biomass. This class is defined to present the group of each sub-quantity. • biom:SoldQuantityPerCaliber: Sold quantity is classified according to the caliber and the trading form: This class is related to the Trading form and the Caliber to present this information. • biom:TradingForm: defines the trading form of a biomass or a sold quantity.</p><p>• biom:Caliber: defines the caliber for each sold quantity of biomass. For reasons of clarity, Figure <ref type="figure" target="#fig_17">16</ref> presents the biomass group and the biomass sub-group. for more details about Biomass group, sub-group, type and sub-type readers are invited to consult the full version of the Biomass ontology.</p><p>To describe the hierarchy between biomass group, subgroup type and subtype, the SKOS ontology was reused by defining the skos:broader and skos:narrower between these classes.</p><p>To specify that one concept has a more generic meaning than another, the relation skos:broader is used. For example, to represent that biom:WoodyBiomass is more generic than biom:PlantationandForest, the relationship skos:broader is defined as follows: biom:PlantationandForest skos:broader biom:WoodyBiomass.</p><p>To specify that one concept has a more specific meaning than another, the skos:narrower relation is used.  The main concepts and relations between the concepts of the Biomass shipment ontology.</p><p>• ship:Product: This concept specifies the product that will be delivered like for example the Biomass. • ship:Shipment: This concept defines the main information of the shipment process namely the identifier and the created time. • ship:Company: This concept describes the company of the product that is delivered.</p><p>• ship:ShipmentUpdate: This concept tracks the updates in the product status during the shipment process. It has data properties like the identifier, the time update and the type. • ship:Transportation: This concept determines the means of transport of the product is shipment. • ship:Storage: determines the storage location in delivery during shipment update.</p><p>• ship:StoragePile: means any outdoor storage on a source's property of material. Every storage has a storage pile. • ship:Document: This concept specifies the document where the shipment update is reported.</p><p>• ship:DocumentType: This concept specifies the type of the used document to report the shipment update of the product. • Ship:address: specifies the pickup and the delivery address of a shipment • Ship:time: specifies the pickup and the delivery time of a shipment • core:User: reused from the core module to defines the engaged users in the logistic process:</p><p>There are two types of users: the sender and the receiver. • ship:Price: determines the buyer and the seller price of a shipment.</p><p>• ship:Currency: determines the currency of a price.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="12.">Marketplace Ontology</head><p>This section presents an overview of the AURORAL marketplace ontology, explaining and defining its main classes. To develop the Marketplace ontology, a set of 8 requirements [55] was captured. These requirements were taken from a use case provided by the Spain Pilot. In addition, a set of 6 tests [56] were defined to evaluate it.</p><p>The main concepts and relations between the concepts of the Marketplace ontology are:</p><p>• market:Seller: determines the seller of a given product.</p><p>• market:Product: determines the product on a marketplace.</p><p>• market:Customer : determines who is the customer of a given product.</p><p>• market:Stock : determines the quantity of a product in a stock.</p><p>• market:Category: determines the category of a product on a marketplace.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.">Energy Ontology</head><p>This section presents an Overview about the Energy module. To develop the energy ontology, a set of 16 requirements [57] was captured. Requirements about energy ontology were identified based on a use case provided by the Sweden Pilot. In addition, a set of <ref type="bibr">40 tests [58]</ref> were created to evaluate it.</p><p>The main concepts and relations of the Energy ontology are described below:</p><p>• saref:FeatureofInterest: This concept is reused to determine the energy collected for each feature of interest. In this ontology, the building and its municipality are the features of interest. • saref:Property: This concept determines the total energy consumption and intensity of energy use in a given building. For this need, the adapters:Energy concept was reused from the adapters ontology. • om:UnitOfMeasure: This concept determines the unit of the data collected, which can be watt, kilowatt, etc. • energ:SourceEnergy: It specifies the source of the collected energy, of which there are five.    </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="15.">Mobility Ontology</head><p>This section presents an overview of the AURORAL mobility module, explaining and defining its main classes. To develop the mobility ontology, a set of 18 requirements [61] was captured. These requirements were taken from a use case provided by the Austria Pilot. A set of 21 tests [62] were defined to evaluate the mobility ontology. I</p><p>The main concepts and relations of the mobility ontology are described below. This ontology reuses diverse concepts from the transmodel vocabularies [28] that is related to the transport systems.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="16.">Farming Ontology</head><p>This section presents an overview of the AURORAL Farming module, which presents information about the dairy production of cows. To develop the farming ontology, a set of 14 requirements [63] were taken from a use case provided by the Italian Pilot. A set of 20 tests <ref type="bibr">[64]</ref> were defined to evaluate it.</p><p>The main concepts and relations of the farming ontology are described below.  The main concepts and relations of this ontology are described below.</p><p>• core:Device presents information about a physical device. In this context the device is the cell:CellTower.  The main concepts and relationships of this ontology are described below.</p><p>• ev:EvCharger: presents the related information of the electrical vehicle (ev) charger device.</p><p>• ev:DataProvider: defines the data provider of the ev-charger.</p><p>• book:Address: this concept is reused from the car-booking ontology to present the address of the ev-charger that belongs to a country and has a geographical point. • ev:UsageType: defines the usage type of the ev-charger.</p><p>• cell:Operator: defines the information related to the operator of the ev-charger. This concept is reused from the cell-tower ontology.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="19.">Conclusion</head><p>This document describes the methodology and technological infrastructure used to create the AURORAL ontology network. In addition, it proposes a governance model designed to guarantee the interoperability, discoverability and comprehensibility of the ontologies developed. The governance model includes fundamental principles and best practices that guide the entire process of creating the AURORAL ontology network.</p><p>The AURORAL ontology network comprises thirteen modules that have been described along this document including the existing ontologies being reused during the AURORAL ontology network development. These modules have already been designed, implemented and published in various versions as can be observed online in the AURORAL ontology portal.</p><p>The "core" and "privacy" modules are at a more generic level than the other modules. The core ontology contains general information about the users, organizations, services, devices, etc. that are considered in the project. The privacy ontology models needed information to allow the confidentiality of data exchanged via the auroral platform. The adapters module contains information on the sensors used and their properties in various use cases. The other modules are more specific and are defined for a particular use case.</p><p>To ensure that the modules developed cover all the necessary requirements, a set of tests was developed. Themis was used to carry out this evaluation. In addition, to ensure that the ontology is well established, OOPS! was used to detect any pitfalls during ontology implementation. In addition, a set of payloads was defined for each module to facilitate understanding and use.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 - 11 Figure 2 - 16 Figure 3 -</head><label>1112163</label><figDesc>Figure 1 -LOT: Ontology development methodology followed in AURORAL [1]............................. 11 Figure 2 -Auroral governance model mappings to LOT methodology ........................................... 16 Figure 3 -Excerpt of AURORAL ontology requirements ................................................................. 20 Figure 4 -Excerpt of Auroral ontology requirements in HTML format .......................................... 21 Figure 5 -AURORAL ontology network portal ............................................................................... 23 Figure 6 -AURORAL Ontology Payloads Portal .............................................................................. 24 Figure 7 -Example of OOPS! results .............................................................................................. 25 Figure 8 -Example of Themis results ............................................................................................ 25 Figure 9 -Example of the GitHub issue tracker ............................................................................. 26 Figure 10 -Auroral ontology network and domains ...................................................................... 28 Figure 11 -Overview of AURORAL ontology modules .................................................................... 31 Figure 12 -General overview of the main classes and properties of the AURORAL Core ontology . 33 Figure 13 -General overview of the main classes and properties of the AURORAL Privacy ontology .................................................................................................................................................... 34 Figure 14 -General overview of the main classes and properties of the AURORAL Tourism ontology .................................................................................................................................................... 35 Figure 15 -General overview of the main classes and properties of the AURORAL Adapters ontology .................................................................................................................................................... 38 Figure 16-General Overview of the AURORAL Biomass ontology .................................................. 41 Figure 17 -General overview of the main classes and properties of the AURORAL Logistic ontology .................................................................................................................................................... 43 Figure 18 -General overview of the main classes and properties of the AURORAL MarketPlace ontology ....................................................................................................................................... 44 Figure 19 -General overview of the main classes and properties of the AURORAL Energy ontology .................................................................................................................................................... 46 Figure 20 -General overview of the main classes and properties of the AURORAL CarBooking ontology ....................................................................................................................................... 48 Figure 21 -General overview of the main classes and properties of the AURORAL Mobility ontology .................................................................................................................................................... 49 Figure 22 -General overview of the main classes and properties of the AURORAL Farming ontology .................................................................................................................................................... 50 Figure 23 -General overview of the main classes and properties of the AURORAL Cell-Tower ontology ....................................................................................................................................... 51 Figure 24 -General overview of the main classes and properties of the AURORAL EV-Charger ontology ....................................................................................................................................... 52</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Page 11 of 55 Reference: AURORAL_D4.1 Dissemination: Public Version 1.0</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Page 16 of 55 Reference: AURORAL_D4.1 Dissemination: Public Version 0.15</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 2 -</head><label>2</label><figDesc>Figure 2 -Auroral governance model mappings to LOT methodology</figDesc><graphic coords="16,110.30,72.00,621.30,404.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 3 -</head><label>3</label><figDesc>Figure 3 -Excerpt of AURORAL ontology requirements</figDesc><graphic coords="20,81.45,289.65,451.48,208.10" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 4 -</head><label>4</label><figDesc>Figure 4 -Excerpt of Auroral ontology requirements in HTML format</figDesc><graphic coords="21,81.45,72.00,441.74,244.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>Figure5shows an overview of the information exposed in the Auroral ontology portal. Figure6lists the payloads defined for each ontology. It contains examples defined in different formats (Turtle, Json-LD 1.1) for each ontology. It also contains the ontology context, which corresponds to the ontology representation in json-LD format, and the Shapes Constraint Language (SHACL) [43] for ontology validation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 5 -</head><label>5</label><figDesc>Figure 5 -AURORAL ontology network portal</figDesc><graphic coords="23,72.00,72.00,634.10,410.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 6 -</head><label>6</label><figDesc>Figure 6 -AURORAL Ontology Payloads Portal</figDesc><graphic coords="24,72.00,72.00,695.24,406.85" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 7 -</head><label>7</label><figDesc>Figure 7 -Example of OOPS! results</figDesc><graphic coords="25,72.00,242.22,451.30,110.10" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8 -</head><label>8</label><figDesc>Figure 8 -Example of Themis results</figDesc><graphic coords="25,72.00,416.58,451.80,256.04" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 9 -</head><label>9</label><figDesc>Figure 9 -Example of the GitHub issue tracker</figDesc><graphic coords="26,72.00,387.32,451.30,204.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 10 -</head><label>10</label><figDesc>Figure 10 -Auroral ontology network and domains</figDesc><graphic coords="28,142.15,255.98,310.53,289.15" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>15 Figure 11 -</head><label>1511</label><figDesc>Figure 11 -Overview of AURORAL ontology modules</figDesc><graphic coords="31,72.05,86.49,697.74,409.35" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>15 Figure 12 -</head><label>1512</label><figDesc>Figure 12 -General overview of the main classes and properties of the AURORAL Core ontology</figDesc><graphic coords="33,72.00,72.00,723.71,420.35" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 14 -</head><label>14</label><figDesc>Figure 14 -General overview of the main classes and properties of the AURORAL Tourism ontology</figDesc><graphic coords="35,124.62,442.56,348.55,302.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head></head><label></label><figDesc>o adapters:WasteBinSensor: It ensures a real time monitoring of the waste bins' status. It generates data about the distance and the deviated position. o adapters:SoilMoistureSensor: it measures the volumetric water content in soil. They provide data about the height and volume of water in soil. o adapters:PersonCounterSensor: It is used to count the number of people visiting a city. o adapters:QRGeneratorSensor: It calculates the number of people who visit a city and scan a QR code of that location. o adapters:LightBulb: Is a glass bulb or tube that produces light when it is supplied with electricity. o adapters:AirQualitySensor: This sensor is used to detect metrics to check the air quality. H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Page 37 of 55 Reference: AURORAL_D4.1 Dissemination: Public Version 0.15 o adapters:PresenceSensor: This concept detects the presence of a thing (Person or object) in a given place. o adapters:SmartPlug: Is a device that plugs into a standard wall socket and allows further devices to be plugged into it. o adapters:BatterySensor: is used to monitor the current, voltage, and temperature of rechargeable batteries. o adapters:PV: is an electronic device that converts the energy of light directly into electricity by the photovoltaic effect. • adapters:Actuator: is a device that is used by, or implements, an (actuation) procedure that changes the state of the world. It is related to the ssn:Property class through the object property sosa:forProperty, indicating the set of properties on which the actuator is based to trigger the action. It has the adapters:WaterValveActuator as sub-class. o adapters:WaterValveControl: it is used to control the water valve. It generates an acknowledgement message indicating that the command has been accepted. The generated command can be: ON, OFF, active, close. o adapters:Switch: is a device for making and breaking the connection in an electric circuit. o adapters:Relay: is the device that opens or closes the contacts to cause the operation of the other electric control. o adapters:SmartValve: is a device for remotely switching the supply of water, gas, electricity, etc. • saref:Property: refers to the observable properties concerning a particular domain or use case. It has diverse sub-classes as presented below.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 16</head><label>16</label><figDesc>Figure 16 describes the main classes and properties of the AURORAL Biomass ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head></head><label></label><figDesc>H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Page 41 of 55 Reference: AURORAL_D4.1 Dissemination: Public Version 0.15</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head>Figure 16 -</head><label>16</label><figDesc>Figure 16-General Overview of the AURORAL Biomass ontology</figDesc><graphic coords="41,74.49,72.00,671.09,397.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_20"><head>Figure 17</head><label>17</label><figDesc>Figure 17 describes the main classes and properties of the AURORAL Logistic ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_21"><head>Figure 17 -</head><label>17</label><figDesc>Figure 17 -General overview of the main classes and properties of the AURORAL Logistic ontology</figDesc><graphic coords="43,74.49,72.00,694.85,411.83" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_22"><head>Figure 18</head><label>18</label><figDesc>Figure 18 describes the main classes and properties of the AURORAL Biomass ontology.</figDesc><graphic coords="44,127.89,332.14,341.94,193.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_23"><head>Figure 18 -</head><label>18</label><figDesc>Figure 18 -General overview of the main classes and properties of the AURORAL MarketPlace ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_24"><head></head><label></label><figDesc>• energ:Price: It determines the price of energy consumed per Kilowatt. • energ:Consumer: It defines the different categories of energy consumers. • energ:PriceAgreement: This class specifies the type of agreement for energy consumption. The agreement types are: fixed agreement, variable agreement and standard agreement. • energ:CostPriceSeason: This concept specifies the cost of energy consumption, which changes according to the season. • energ:Season: This concept contains the four seasons (winter, autumn, spring, summer).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_25"><head>Figure 19</head><label>19</label><figDesc>Figure 19 describes the main classes and properties of the AURORAL Energy ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_26"><head>Figure 19 -</head><label>19</label><figDesc>Figure 19 -General overview of the main classes and properties of the AURORAL Energy ontology</figDesc><graphic coords="46,96.72,72.00,650.94,386.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_27"><head>Figure 20 -</head><label>20</label><figDesc>Figure 20 -General overview of the main classes and properties of the AURORAL CarBooking ontology</figDesc><graphic coords="47,120.77,353.12,356.21,166.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_28"><head>•</head><label></label><figDesc>mob:StopPoint: it determines the stop points of the bus during a tourism activity. • mob:EstimatedCall: this class defines the estimated call of a bus in a specific stop point. • mob:quay: defines the quay points of the estimated call. • mob:ScheduledTime: presents the scheduled time (arrival and departure times) of the estimated call. • mob:JourneyService: defines the journey service of the estimated call. • tmjourney:JourneyPattern: defines the journey patterns of the journey service. • tmjourney:Line: defines the line of a journey pattern. • tmjourney:MeanOfTransport: defines the different means of transport (bus, metro, rail, gondola, ferry, etc.) Error! Reference source not found. describes the main classes and properties of the AURORAL Mobility ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_29"><head>Figure 21 -</head><label>21</label><figDesc>Figure 21 -General overview of the main classes and properties of the AURORAL Mobility ontology</figDesc><graphic coords="48,72.00,421.57,451.25,315.55" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_30"><head>•</head><label></label><figDesc>saref:featureOfInterest: This class is reused from the SAREF ontology to represent the information of the feature of Interest in the farming domain which is the cow and the heifer. • cow:Animal: This class presents the information of the animal which is the feature of Interest. This class has two sub-classes: the cow:Cow and the cow:Heifer. • cow:Activity: this class presents information related to the activity of the animal. • cow:Breeding: This class presents the reproduction of the animal. • cow:Lactation: This class defines the lactation days of the cow. • cow:ReproductiveStatus: This class presents the reproductive status of the animal that could be: Pregnant, to undergo artificial insemination, does not need artificial insemination, recent delivery and inseminated. These statuses are defined as sub-classes of the cow:ReproductiveStatus class. • core:Sensor: This class is reused from the core ontology to represent the Accelerometer which is assigned to the animal to monitor its activities. • saref:Property: This class is reused from the SAREF ontology to present the measured property for the sensor assigned to the Animal. These properties are the adapters:XAxisAcceleration, the adapters:YAxisAcceleration and the adapters:ZAxisAcceleration . Error! Reference source not found. describes the main classes and properties of the AURORAL Farming ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_31"><head>Figure 22 -</head><label>22</label><figDesc>Figure 22 -General overview of the main classes and properties of the AURORAL Farming ontology</figDesc><graphic coords="49,72.00,479.54,451.20,260.97" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_32"><head></head><label></label><figDesc>• cell:Range: This class presents the range of the cell tower. • cell:Operator: this class presents information related to the operator of the cell tower. • cell:Network: this class presents the network provided by the cell tower. The types of the network are: LTE, GSM, UMTS, 4G, 5G, and CDMA. • cell:Country: this class defines the country where the cell tower is located. • geo:Point: this class presents the geographical position of the cell tower. Error! Reference source not found. describes the main classes and properties of the AURORAL Cell-Tower ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_33"><head>Figure 23 -</head><label>23</label><figDesc>Figure 23 -General overview of the main classes and properties of the AURORAL Cell-Tower ontology</figDesc><graphic coords="50,112.52,349.12,372.69,241.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_34"><head></head><label></label><figDesc>• ev:Connector: defines the connectors of the ev-charger: The connector has two different types: the current types and the Connector types. • saref:Property: is reused from the SAREF ontology to present the properties that are detected from the ev-charger. These properties are the Energy Property and the Status Property. Error! Reference source not found. describes the main classes and properties of the AURORAL EVcharger ontology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_35"><head>Figure 24 -</head><label>24</label><figDesc>Figure 24 -General overview of the main classes and properties of the AURORAL EV-Charger ontology</figDesc><graphic coords="51,72.00,407.08,475.65,306.74" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,147.63,353.12,300.02,184.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>Monitor the issues and suggestions done for the ontologies and stablish a procedure to answer and address the requests. 12. Versioning: o Stablish a versioning strategy defining which type of changes trigger a new version or minor revisions. o Keep updated and compile all resources related to a given version. Define the communication channels to be use for each situation, such as email, instant messaging and teleconference systems (Zoom, google meet), or issue trackers, to facilitate communication with relevant stakeholders. o The ontology development team should manage meetings relating to the ontology engineering process. o The ontology users, usually software developers, should manage meetings relating to the use of the ontology.</figDesc><table><row><cell>13. Roles:</cell></row><row><cell>o Identify the roles involved in the ontology lifecycle and assign them to specific</cell></row><row><cell>persons or teams.</cell></row><row><cell>14. Communication:</cell></row><row><cell>o</cell></row></table><note><p><p>4. Common format:</p>o Use OWL or RDF(S) languages encoded in several formats like turtle (ttl), n-triples, JavaScript Object Notation for Linked Data (json-ld) or RDF/XML. 5. Modularity: o Develop ontology modules according to the layer of each ontology in the architecture. o Define ontology modules according with the topic of concern maximizing cohesion and minimizing coupling. 6. Naming conventions: o Use CamelCase notation starting classes with capital letter and properties and individuals with lower case for the first word. 7. Knowledge reuse: o Look for existing ontologies or knowledge sources. o Reuse existing ontologies by owl:imports (hard reuse) or by referencing the ontology elements URIs (soft reuse). o When the reuse is not explicit by URIs, acknowledge the source by means of annotations. 8. Ontology quality: o Use ontology reasoners and validators. o Review modelling decisions with domain experts and ontology users. o Ensure the requirements coverage. 9. URI and identifier space: o Design ontology name and prefix for each ontology. o Choose between the slash and the hash in the prefix. o Use of permanent URIs. 10. Availability: o Publish the ontology under its URI using content negotiation. o Associate an open license to the ontology. o Publish an ontology portal with links to all ontology's resources. 11. Maintenance: o Set up an issue tracker for each ontology. o 15. Documentation: o Add detailed and updated metadata annotations to the ontology files. o Add detailed and updated metadata annotations to the ontology elements. o Generate human readable documentation in HTML format. o Generate payloads examples.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 1 -</head><label>1</label><figDesc>Ontology development roles for AURORAL model</figDesc><table><row><cell>Roles</cell><cell>Tasks</cell></row></table><note><p><p>Reference: AURORAL_D4.1 Dissemination: Public Version 0.15</p>• Publish the ontology online.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 2 -</head><label>2</label><figDesc>List of the ontologies created in the AURORAL Project</figDesc><table><row><cell>Prefix</cell><cell>Namespace</cell></row><row><cell>core</cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Dissemination: Public Version 1.0 application ontology, etc. The ontology must be well documented, the ontology must follow predefined naming conventions, etc. After reviewing and analysing existing governance models for ontologies available (note that for GOMO only main concepts are public) and considering AURORAL needs, the governance model described in the following sections has been defined</title>
+		<idno>AURORAL_D4.1 Dissemination: Public Version 1.0 Reference: AURORAL_D4.1</idno>
+		<imprint/>
+	</monogr>
+	<note>Reference: AURORAL_D4.1 Dissemination: Public Version 1.0</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Human oriented documentation should be provided through the ontology lifecycle, including requirements, scope and context, modelling description, examples, etc</title>
+		<author>
+			<persName><surname>Documentation</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">As mentioned, even though governance model principles are independent of the ontology development methodology, for the AURORAL case we have mapped the selected principles to the LOT methodology phases and activities. Such mappings are shown in Figure 2. Reference: AURORAL_D4.1 Dissemination: Public Version 0</title>
+		<ptr target="http://xmlns.com/foaf/0.1/omhttp://www.wurvoc.org/vocabularies/om-2/lexvohttp://lexvo.org/ontology#timehttps://www.w3.org/2006/time#geonameshttp://www.geonames.org/ontology#tmjourneyhttps://w3id.org/transmodel/journeys#dcathttp://www.w3.org/ns/dcat#" />
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+		</imprint>
+	</monogr>
+	<note>Reference: AURORAL_D4.1 Dissemination: Public Version 0.15 Figure 15 -General overview of the main classes and properties of the AURORAL Adapters ontology H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities. wider Rural Areas Large scale application Reference: AURORAL_D4.1 Dissemination: Public Version 0.15 20. References</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">LOT: An industrial oriented ontology engineering framework</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.2539305</idno>
+		<ptr target="http://doi.org/10.5281/zenodo.2539305" />
+	</analytic>
+	<monogr>
+		<title level="j">Engineering Applications of Artificial Intelligence</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<date type="published" when="2022">104755 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<title level="m">The NeOn Methodology for Ontology Engineering,» de Ontology engineering in a networked world</title>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">D2.2. Detailed Specification of the Semantic Model</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Heinz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kostelnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Serena</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chávez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bosché</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bountouni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fenz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Giannakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>González-Gerpe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kollmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kousouris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ntalaperas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Thanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Lampathaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Valero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vergeti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tavakolizadeh</surname></persName>
+		</author>
+		<title level="m">D4.2 BIMERR Ontology &amp; Data Model</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">T1.3 DELTA Ontology and Data Modelling Framework</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cimmino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Terzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Patsonakis</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<ptr target="https://cogito.iot.linkeddata.es/" />
+		<title level="m">COGITO ontologies</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Data governance activities: an analysis of the literature</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Alhassan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sammon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Daly</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Decision Systems</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="64" to="75" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">DAMA-DMBOK: data management body of knowledge</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>International</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<publisher>LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Ontology Management in an Industrial Environment: The BASF Governance Operational Model for Ontologies (GOMO)</title>
+		<author>
+			<persName><forename type="first">Ana</forename><surname>Iglesias-Molina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Bernabé-Díaz</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Antonio</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Deshmukh</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Prashant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paola</forename><surname>Espinoza-Arias</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ayllón-Benítez</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Aarón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alba</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Ponce-Bernabé</surname></persName>
+		</author>
+		<author>
+			<persName><surname>María</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sara</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ruckhaus</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Edna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oscar</forename><surname>Corcho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Sánchez-Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Luis</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022-07-10">2022. July 10-14, Madison</date>
+		</imprint>
+	</monogr>
+	<note>In: &quot;ISMB 2022</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Automating ontology engineering support activities with OnToology</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alobaid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Santana-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corcho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Web Semantics</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page">100472</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">WIDOCO: a wizard for documenting ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">» de International Semantic Web Conference</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Asunción</forename><surname>María</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mari</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carmen</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Oops!(ontology pitfall scanner!): An on-line tool for ontology evaluation</title>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal on Semantic Web and Information Systems (IJSWIS)</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="7" to="34" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The Semantic Web. ESWC 2022. Lecture H2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Reference: AURORAL_D4.1 Dissemination: Public Version 0</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chávez-Feria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-031-06981-9_20</idno>
+		<ptr target="https://doi.org/10.1007/978-3-031-06981-9_20" />
+	</analytic>
+	<monogr>
+		<title level="s">15 Notes in Computer Science</title>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Chowlk: from UML-Based Ontology Conceptualizations to OWL</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">OBO Foundry in 2021: operationalizing open data principles to evaluate ontologies</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jackson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Matentzoglu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Overton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Vita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Balhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>Buttigieg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">.</forename><forename type="middle">.</forename><surname>Peters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page">69</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">The industrial ontologies foundry (IOF) perspectives</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Karray</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Otte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rai</forename><surname>Neil</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rahul</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Themis: a tool for validating ontologies through requirements</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>García-Castro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SEKE</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="573" to="753" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">2020-DT-2020-1 AURORAL -Architecture for Unified Regional and Open digital ecosystems for Smart Communities and wider Rural Areas Large scale application Reference</title>
+		<idno>AURORAL_D4.1 Dissemination: Public Version 0.15</idno>
+		<ptr target="https://oops.linkeddata.es/response.jspH" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

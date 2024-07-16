@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Automating ontology engineering support activities with OnToology</title>
+				<funder>
+					<orgName type="full">I+D+i program</orgName>
+				</funder>
+				<funder ref="#_qfxXfW2">
+					<orgName type="full">Spanish Ministerio de Economía, Industria y Competitividad</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2018-10-09">9 October 2018</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Ahmad</forename><surname>Alobaid</surname></persName>
+							<email>aalobaid@fi.upm.es</email>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montengancedo s/n, 28660 Boadilla del Monte</addrLine>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Daniel</forename><surname>Garijo</surname></persName>
+							<email>dgarijo@isi.edu</email>
+							<affiliation key="aff1">
+								<orgName type="department" key="dep1">Information Sciences Institute</orgName>
+								<orgName type="department" key="dep2">Marina del Rey</orgName>
+								<orgName type="institution">University of Southern California</orgName>
+								<address>
+									<postCode>90292</postCode>
+									<settlement>Los Angeles, California</settlement>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">María</forename><surname>Poveda-Villalón</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montengancedo s/n, 28660 Boadilla del Monte</addrLine>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Idafen</forename><surname>Santana-Perez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montengancedo s/n, 28660 Boadilla del Monte</addrLine>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alba</forename><surname>Fernández-Izquierdo</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montengancedo s/n, 28660 Boadilla del Monte</addrLine>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Oscar</forename><surname>Corcho</surname></persName>
+							<email>ocorcho@fi.upm.es</email>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montengancedo s/n, 28660 Boadilla del Monte</addrLine>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Automating ontology engineering support activities with OnToology</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Journal of Web Semantics</title>
+						<title level="j" type="abbrev">Journal of Web Semantics</title>
+						<idno type="ISSN">1570-8268</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">57</biblScope>
+							<biblScope unit="page">100472</biblScope>
+							<date type="published" when="2018-10-09">9 October 2018</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">6E2FACC71AD840D85FDF26B48689F913</idno>
+					<idno type="DOI">10.1016/j.websem.2018.09.003</idno>
+					<note type="submission">Received 18 December 2017 Received in revised form 10 August 2018 Accepted 21 September 2018</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Ontology engineering Ontology evaluation Ontology documentation Ontology publication</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Due to the increasing uptake of semantic technologies, ontologies are now part of a good number of information systems. As a result, software development teams that have to combine ontology engineering activities with software development practices are facing several challenges, since these two areas have evolved, in general, separately. In this paper we present OnToology, an approach to manage ontology engineering support activities (i.e., documentation, evaluation, releasing and versioning). OnToology is a web-based application that builds on top of Git-based environments and integrates existing semantic web technologies. We have validated OnToology against a set of representative requirements for ontology development support activities in distributed environments, and report on a survey of the system to assess its usefulness and usability.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Since the late 1990s, several ontology engineering methodologies have been proposed to transform the art of developing ontologies into an engineering activity. Methodologies such as METHON-TOLOGY <ref type="bibr" target="#b0">[1]</ref>, On-To-Knowledge <ref type="bibr" target="#b1">[2]</ref> and the NeOn Methodology <ref type="bibr" target="#b2">[3]</ref> define clear guidelines, processes, activities and life cycles to guide ontology development.</p><p>Now that ontologies are being increasingly adopted in information systems, it is clear that ontology development tasks may also benefit from the application of common software engineering practices. Most of the ontology development support activities, such as documentation, visualization and evaluation, are usually performed individually, executing heterogeneous tools that make these activities cumbersome and time consuming. In addition, maintaining and keeping track of the generated resources for each version of an ontology has become a challenge for ontology developers.</p><p>The ontology engineering community has already shown progress towards adapting ontology development to agile software development methodologies <ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref>; as well as supporting collaborative ontology development throughout the use of commonpractice software engineering tools <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b7">8]</ref>. In fact, it is now common among ontology developers to use Git-based environments <ref type="bibr" target="#b8">[9]</ref> such as GitHub 1 (usual in software development) for keeping track of ontology revisions. However, existing approaches present either partial solutions ; require specialized skills that complicate their adoption (e.g., complex installation setup); or produce their outcome using idiosyncratic formats that are difficult to integrate into existing ontology development workflows.</p><p>In this paper we present OnToology, our approach towards addressing these issues. The main contributions of OnToology are:</p><p>(1) automation of coarse-grained support activities involved in ontology development, including documentation, versioning, evaluation and publication of ontologies that are maintained and versioned in a Git-based environment; (2) a workflow for continuous integration of support activities when new changes in the ontology are registered ; and (3) integration of the workflow with a collaborative environment. OnToology can support individuals and teams of developers working on an ontology. While distributed collaboration to change an ontology is naturally supported by Git, the required support activities have to be integrated into Git's lifecycle.</p><p>OnToology is a web-based system that integrates a set of existing tools for documentation, evaluation and publishing. By the time of writing this paper, OnToology has been used to produce the documentation, visualizations and evaluation of more than 100 projects and for the online publication of over 50 ontologies.</p><p>The paper is structured as follows. In Section 2, we describe a typical scenario we encounter during ontology development and the collection of requirements induced from it. Section 3 describes the structure of OnToology, user interaction, and the details of the generated resources. Section 4 presents the evaluation of our approach. A review of the related work is provided in Section 5. Section 6 concludes and presents future lines of work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Motivation scenario</head><p>In this section we illustrate a typical scenario that motivated the development of OnToology, based on the authors' years of experience developing ontologies and common use cases reported in state of the art ontology development methodologies <ref type="bibr" target="#b2">[3]</ref>.</p><p>Consider a team of ontology developers that are generating an ontology network in a particular domain. In order to build each ontology, the developers need to interact with domain experts that are not necessarily familiar with semantic technologies or ontologies. Therefore, such domain experts need visualizations and a human readable documentation to understand the taxonomy and relations included in a vocabulary, and assess whether it addresses their requirements. Once they conclude their assessment, they provide feedback to the ontology development team, which incorporates it in a new version/release of the ontology and starts a new documentation process.</p><p>Ontology developers also need to evaluate the quality of the generated ontologies during their development process, so as to identify potential errors before making them public as a new release. Due to the parallel development of the ontology network by different ontology developers, the team needs to make any quality report public to all its members, so they are aware of any potential issue with any published ontology.</p><p>When a version of the ontology network is ready to be released, the ontology development team needs to publish the ontologies online following best practices (i.e., content negotiation of the ontology in different standard formats and permanent URIs <ref type="bibr" target="#b9">[10]</ref>). After the ontology network is published, other researchers may extend any of its ontologies. Thus, new releases of ontologies in the network would need to explain new changes in their documentation so any third party can assess their impact.</p><p>Once the target ontologies are built and published, data producers may ellaborate a JSON-LD context<ref type="foot" target="#foot_0">2</ref> in order to publish data following their specification. These contexts need to be updated on every iteration <ref type="bibr" target="#b10">[11]</ref> to properly reflect the latest changes of the ontology network.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">System requirements</head><p>Based on the above scenario, we have collected the following set of general requirements to address it, which are later tackled by the features provided by OnToology in Section 4:</p><p>R1. Ontology Documentation: Ontology adopters often require human-readable documentation of developed ontologies with a definition of their classes, properties, and individuals; including figures illustrating its main structure.</p><p>R2. Automatic change-based resource generation: Automatically produced files (e.g., HTML documentation, figures of ontology visualizations, quality reports) need to be updated every time a new change in the ontology is registered.</p><p>R3. Coexistence with non-ontological resources: Automatically generated resources may reside within a given code repository without affecting the rest of the files in the project (e.g. source code).</p><p>R4. Compatibility with a collaborative workflow: Users often work with each other to develop ontologies, discussing issues and recording the reached consensus. Any tool or instrument designed to help them should be integrated within their workflow in a nonintrusive manner. For an adequate collaboration between multiple users, it is also required to control who is able to view and/or contribute to the project.</p><p>R5. Versioning: It is crucial to record changes between ontology versions and track the evolution of the ontology with the option to revert to an older version is required.</p><p>R6. Publication: When released, an ontology version must follow best practices for ontology publication 3 with appropriate content negotiation (i.e., HTML for humans, RDF for software agents) and updating its respective JSON-LD context if required. Publication of the ontology under a permanent URI is also required in some cases to ensure its long-term accessibility.</p><p>R7. Evaluation: Before publishing an ontology, it is crucial to detect potential modeling errors <ref type="bibr" target="#b2">[3]</ref> and be able to share them with the rest of the team.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">System description</head><p>In order to address the set of requirements introduced in Section 2, we have designed OnToology, 4 an open source web application that monitors changes in ontologies stored in a Git repository and triggers a series of actions for supporting the ontology development process. These actions include: (1) generation of customized documentation, diagrams and evaluations for each of the ontologies contained in a repository, according to a configuration set for each ontology; (2) generation of a landing page containing basic descriptions of the ontologies included in the repository as well as a dedicated web page per ontology with extended descriptions and metadata; and (3) publication of the ontology under a w3id permanent URI. 5  OnToology is based on existing technologies and best practices from both the software and ontological communities. We have integrated it with GitHub, one of the most popular hosting platforms for version control and collaborative development. GitHub serves as the main online infrastructure to maintain ontology versions as they are being developed and publish their associated resources. In addition, GitHub provides the ability to open issues and maintain discussions over a certain modeling decision, while giving the usual support to the rest of artifacts, processes, discussions, etc.</p><p>In this section we introduce the main features of OnToology, the user interaction with the system, and the main results that are produced.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">System architecture</head><p>As depicted in Fig. <ref type="figure" target="#fig_1">1</ref>, OnToology is composed of three main layers: the presentation layer, the logic layer, and the persistence layer.</p><p>The Presentation Layer exposes a web-based GUI, which allows for registering GitHub repositories. Given a repository, each ontology may be individually configured (enabling/disabling the automatic generation of resources).</p><p>The Logic Layer serves as the glue for integrating the different tools and services that compose OnToology. We can distinguish three main modules in this layer: the Change Monitor, Orchestration service, and the Integrator.</p><p>The Change monitor acts as a monitoring service for keeping track of changes in a GitHub repository. The Orchestration service controls the main actions of the system, and decides when to invoke the different tools integrated in the OnToology suite. Finally, the Integrator module is responsible for the execution of processes,  implemented within OnToology or third party applications. In this sense, the Integrator module handles the following functionalities:</p><p>• Documentation, including several resources generated by different tools. First, it generates an ontology HTML documentation, supported by the integration of WIDOCO <ref type="bibr" target="#b11">[12]</ref>, a standalone application for generating HTML documentation for an individual ontology. WIDOCO extracts metadata properties from ontologies, generates several serializations for content negotiation and creates a provenance summary that records the changes from earlier versions. Second, ontology diagrams are created by AR2DTool <ref type="bibr" target="#b12">[13]</ref>, a library for generating diagrams based on RDF-encoded information. AR2DTool is meant for drawing diagrams of ontologies, generating not only compiled figures (i.e. PNG files) but also their source code (i.e. GraphML<ref type="foot" target="#foot_1">6</ref> files) for users to further edit them. Third, OnToology generates a repository pre-visualization page, which is supported by the integration of VocabLite <ref type="bibr" target="#b13">[14]</ref>, an application designed to create of overview pages for a set of ontologies (and their metadata) in a repository.</p><p>• Evaluation, by means of OOPS! [15],<ref type="foot" target="#foot_2">7</ref> a web application for ontology diagnosis that automatically detects 33 types of pitfalls in OWL ontologies, including semantic and structural checks as well as best practices verification. For each identified pitfall in the ontology, OOPS! provides its title, description, list of ontology elements affected and its importance level (critical, important or minor). It is worth noting that OOPS! does not perform reasoning on the ontology, as it is a time-consuming task and costly in terms of resources. However, OOPS! detects pitfalls that may lead to reasoning issues. In case of need, users may execute reasoners over their ontologies within their ontology edition environment such as Protégé before registering them in OnToology.</p><p>• Publication, providing different features following ontology publication best practices. OnToology allows users to reserve a name for their ontology with a permanent URI following the scheme https://w3id.org/def/&lt;user-chosen-name&gt;. OnToology uses the w3id services to point to the location of the published ontology and its resources with content negotiation.</p><p>Alternatively, OnToology allows downloading a publicationready bundle containing all the resources needed to publish an ontology on a custom server.</p><p>• JSON-LD context, generated using owl2jsonld <ref type="bibr" target="#b15">[16]</ref>, a tool that maps the classes and relation from the ontology to JSON keys.</p><p>The Persistence Layer maintains an internal database for storing information about users and repositories, as well as the current status of the repositories (i.e., the progress while processing ontologies in a given repository). This allows users to be aware of the pending actions to be performed by OnToology (e.g., generating the documentation or diagrams, validating the ontology, etc.).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">User interaction with ontoology</head><p>OnToology is accessible through a web interface, which requires no installation and allows configuring which actions are triggered for each ontology.</p><p>Fig. <ref type="figure" target="#fig_2">2</ref> depicts an overview of the user interaction workflow with OnToology. The process starts after a user has created a GitHub repository, in which at least one ontology file is stored. Once the user adds the repository to OnToology, the system will ask for permission to add the ''OnToologyUser'' as a collaborator to the repository, and link a webhook for enabling notifications to OnToology when any changes are made to the repository. This set up phase is represented by the second step in the workflow in Fig. <ref type="figure" target="#fig_2">2</ref>.</p><p>After this, users can edit their ontology and once the changes are pushed to the GitHub repository, OnToology is notified through the corresponding webhook. A fork of the tracked repository will be created by OnToology and used as the working repository. The system then generates the appropriate files for all monitored ontologies, and pushes the changes to the forked repository. Finally, OnToology creates a pull request from the forked repository to the user's one in GitHub, including the new version of all the generated files. The user can then review the pull request and decide whether to accept it and merge it to the GitHub repository.</p><p>In most cases users need to customize some parts of the HTML documentation generated by OnToology, such as the ontology release date or additional information about the changes made. Once the resources have been produced and customized, users may want to publish the ontology online. Two different scenarios may occur:</p><p>• It is the first time the ontology is being published. The user can choose between: (i) publishing the ontology under a permanent URL using OnToology to handle the publication, or (ii) downloading a bundle containing the HTML documentation; ontology serializations; and an .htaccess file to handle the content negotiation in a server controlled by the user.</p><p>• If the ontology is already published, the user can choose between: (i) re-publishing the ontology under the same permanent id, or (ii) downloading a new bundle from OnToology web user interface for publication.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Generated resources</head><p>All resources generated by OnToology will be located in the tracked GitHub repository under a new folder called ''OnToology'', which includes a folder per ontology in the repository. Each ontology folder contains: (1) a documentation folder with the HTML documents divided by sections to facilitate their editing, (2) an evaluation folder with HTML-based report describing different pitfalls found in the ontology, (3) a diagrams folder containing depictions of the ontology with their source files for further customization. A detailed example of the resources generated by OnToology for a given vocabulary can be found in Appendix. OnToology is available as a web service, and its code has been released online <ref type="bibr" target="#b16">[17]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Evaluation</head><p>In this section we describe the validation of the system based on the coverage of the requirements presented in Section 2. Next, we introduce and discuss the results of a user survey we conducted, studying the usefulness, ease of use, ease of learning and satisfaction with the system. Finally, we present the community uptake and the adoption of OnToology in various ontology development projects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Requirement validation</head><p>The requirements for supporting ontology evaluation are covered by the integration of OOPS!, which produces a report including basic structural, semantic and best practices checks for an ontology (R7). The documentation of the ontology is produced by the combination of WIDOCO, VocabLite and AR2DTool (R1). The generation of these resources (e.g. documentation and evaluation) is triggered automatically after each ontology change (R2). With OnToology, users can contribute collaboratively to a registered repository (if they have the appropriate permission) and resources will be generated automatically as users push new changes to the repository (R4). The resources generated by OnToology will not interfere with other existing resources (e.g. source codes, readme files, etc.) as they are stored in a separate folder called ''OnToology'' in the top level of the repository (R3). OnToology supports the publication process by exporting a single bundle that a user can retrieve as a snapshot for publishing the ontologies, and if desired, OnToology enables the content negotiation of an ontology release, and publishes the files online with persistent URLs (R6).</p><p>OnToology benefits from a Git-based existing infrastructure that is widely used among the software development community (GitHub). This infrastructure supports several of the requirements presented in Section 2, such as having distinct roles for collaboration, and providing access to discussion channels by using discussion boards where users can reply and share their thoughts about a given design decision (R4). GitHub also allows for tracking the releases of an ontology and records how users contribute to a project with release tags (R5).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">User-based evaluation</head><p>We have conducted an evaluation process, collecting user feedback by means of an open call to the community of OnToology users. It should be mentioned that none of the participants received training or guidance on how to use OnToology beforehand in order to avoid bias towards the tool.</p><p>Users were asked to evaluate their interaction with OnToology, in terms of usefulness of the tool, its usability and overall satisfaction. In order to collect their feedback we have developed an online questionnaire, adapted from the USE Questionnaire (usefulness, satisfaction, and ease of use) <ref type="bibr" target="#b17">[18]</ref>, in which we have reduced the number of questions in order to make it more friendly for users. The feedback form consists of 16 quantitative questions divided into the aforementioned categories (usefulness, satisfaction and usability). These questions are rated in a Likert scale from 1 (strongly disagree) to 5 (strongly agree). Besides the quantitative questions, we included questions for profiling user expertise as well as for collecting comments on the tool.</p><p>The questionnaire and all the collected results, both raw and aggregated values, are available online. <ref type="foot" target="#foot_3">8</ref> We received 15 responses to the questionnaire, 66% from experts in ontology engineering, 26% from users who were familiar but not experts and 6% from users who were not familiar at all with ontology engineering. The quantitative results obtained through the user based evaluation are depicted in Table <ref type="table" target="#tab_0">1</ref>, showing the median and mean scores aggregated for the above-mentioned categories. For all the analyzed categories, the scores for the median and mean are above or equal to 3 (out of 5), being 2.5 the threshold for considering it a positive rating. In particular, those categories more relevant to OnToology features (i.e. usefulness and satisfaction), obtained high scores, whereas those related to the ease of use of the system (i.e. usability) are around 3. This fact shows that users actually perceived an improvement in their productivity during the ontology development process thanks to OnToology's features. However, it also indicates that there is still room for improvement regarding the user experience, as the ease of use and learning is not that well rated.</p><p>As part of the evaluation form we also included three open questions, asking the users about whether they have used other similar tools before and about the most negative and positive aspects of OnToology. Most of the users reported that they had not used any tool in this context. Regarding the negative aspects, most respondents stress the need for better documentation and a more informative interface (e.g., The ''publish ontology'' feature is quite hidden), which aligns with the ease of learning and usability scores obtained in our survey. Among the most positive aspects, users generally state that OnToology implements interesting features, saving them time when dealing with supporting activities, being fast and ''automatizing boring tasks'', without having to install or set up any environment.</p><p>Overall, we can consider that, based on the obtained results, OnToology addresses successfully user needs, listed in Section 2, being useful when carrying out the support activities related with ontology development.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Community uptake</head><p>Since OnToology was announced 9 and at the time of writing this paper, a total of 113 repositories containing more than 530 ontologies have been added to OnToology, 10 including projects from different knowledge domains such as energy, e-Science, smart cities, etc. Examples of these projects are OpenCityData, 11 BOT 12  or Eiffel. 13  Statistics of user activity in OnToology 14 indicate that the bundle download option has been used 29 times, while the ontology publication feature has been activated in 57 occasions. Thanks to this feature, the HTML documentation of ontologies hosted by OnToology has been accessed 843 times, while the different serializations of their RDF code have been requested 382 times.</p><p>As these statistics show, OnToology has been and still is used and helpful for users on the tasks related to publication of their ontologies, as most of them tend to publish their ontology using OnToology rather than downloading the corresponding bundle. More examples on the adoption of OnToology in different projects can be found in OnToology website. 15   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Related work</head><p>In recent years, different systems have been developed to support collaborative ontology development. One of the most 9 https://lists.w3.org/Archives/Public/public-vocabs/2015Jul/0003.html. 10 http://ontoology.github.io/OnToology/journalofwebsemantics/#ontologies. 11 https://github.com/opencitydata. 12 https://github.com/GeorgFerdinandSchneider/bot. 13 https://github.com/hartig/eiffel-rdf-vocabularies.    well-known tools is WebProtégé <ref type="bibr" target="#b18">[19]</ref>. Besides ontology editing functionalities, WebProtégé provides a discussion board and functionality for annotating ontology terms. Once an ontology is generated, developers may resort to their local installation of Protégé to produce documentation and diagrams using plug-ins. WebProtégé does not integrate features for the online publication of the ontology. Another collaborative approach is Moki <ref type="bibr" target="#b7">[8]</ref>, a tool for modeling ontologies based on MediaWiki. Moki provides either a light-weight view or a full source-code view of the ontology. It also integrates evaluation functionalities like a model checklist, quality indicators and ontology publication, but it does not provide any documentation functionalities.</p><p>Neologism <ref type="bibr" target="#b6">[7]</ref> was also designed to provide support for the online development process of ontologies, as a vocabulary editor and publishing system. Neologism provided an offline file-based model and an automatic diagram creation. However, Neologism did not address the evaluation and versioning of its ontologies. It should also be mentioned that this system is no longer maintained. A more recent effort is VoCol <ref type="bibr" target="#b8">[9]</ref>, designed as a tool to help collaborative vocabulary development and use Git repositories to maintain vocabulary-related files. VoCol provides support for project management, quality assurance, documentation and visualization components. Both Neologism and VoCol provide support for publishing ontologies and their documentation.  VocBench <ref type="bibr" target="#b19">[20]</ref> is an open source web application for editing thesauri. VocBench allows for collaborative management of the overall editorial workflow, by introducing different roles with specific competencies, and provides features for content validation and publication of vocabularies. Furthermore, it provides changes history and a SPARQL query service. However, VocBench does not provide any documentation or evaluation functionalities, and focuses only on SKOS models.</p><p>Table <ref type="table" target="#tab_1">2</ref> illustrates how these tools can be positioned according to the requirements defined in Section 2. For each requirement it is indicated whether a tool supports it by means of the symbol ''✓'' or whether is partially covered ''≈''. As shown in the table, none of these tools (except for OnToology) address all the identified support activities for ontology development. The most complete one in this regard is VoCol, as it allows easy documentation and publication of ontologies in an integrated solution. However, VoCol does not allow users to decide on a naming scheme when publishing their ontologies, it cannot assign permanent identifiers to an ontology and it is cumbersome to edit each of its produced outcomes (e.g., adding a new figure or paragraph in the documentation).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusions and future work</head><p>In this paper we have described OnToology, an approach for automating ontology engineering support activities including documentation, evaluation and publication. OnToology considers ontologies as a first class citizen in software development projects and provides means for their continuous integration. OnToology is built on top of GitHub, integrating a suite of existing tools and services to support different ontology development scenarios.  We have evaluated OnToology in terms of usefulness, usability and ease of use with a user survey, which has provided positive feedback regarding usefulness of and satisfaction with the tool. Whereas the study suggests that the interface could be improved in terms of usability, results show that the system is useful and that its features are relevant in the context of ontology development. Users value especially the features related to documentation and publication, as well as the ability to release their ontologies using OnToology features, without having to set up their own infrastructure.</p><p>Regarding future work, we are now integrating OnToology with other Git-based platforms more commonly used for private projects, such as Bitbucket 16 or GitLab. 17 We plan on adding reasoning capabilities to notify the user on potential inconsistencies in a configurable way. We also plan on integrating OnToology to publish ontologies with Linked Open Vocabularies <ref type="bibr" target="#b20">[21]</ref>.</p><p>Finally, in order to improve the usability and learning curve of OnToology, we are currently improving tutorials and the GUI of the system. For this task, we pay special attention to user suggestions collected in our GitHub project. 18 Following this idea, and while    keeping OnToology editor-agnostic, we plan to integrate the system with popular editors such as Protégé, allowing users to manage the version-release cycle directly while editing an ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix. OnToology: a running example</head><p>In this section we present a running example of an actual ontology developed by a subset of the authors of this paper. We show the steps that we followed using OnToology, accompanied with snapshots capturing the state of the tool.</p><p>1. Register the repository: We add the repository albaizq/smartlamppost to OnToology via the web interface (Fig. <ref type="figure" target="#fig_4">3</ref>). The repository already includes the ontology file smartlamppost.owl. 2. Authorize OnToology to access the repository: Due to the fact that this is our first repository using OnToology, GitHub asks us to authorize OnToology to access the repository. By clicking on ''Authorize Application'', as shown in Fig. <ref type="figure" target="#fig_5">4</ref>, we authorize OnToology to track our repository. As a result, ''OnToologyUser'' will be added as a collaborator and a webhook will be created to track future changes on the repository. OnToology forks the repository of the user to be the working repository. Next, OnToology will generate all the resources automatically (i.e., HTML documentation, diagrams, quality report, and JSON-LD Context) in the working repository OnToologyUser/smartlamppost. 3. Generation of the pull request: OnToology creates a pull request with all the generated resources from the working repository (OnToologyUser/smartlamppost) to the original one (albaizq/smartlamppost). We can see in GitHub the generated resources under the folder ''OnToology'' in the top level of the repository. Fig. <ref type="figure" target="#fig_6">5</ref> shows the pull request generated by OnToology. 4. Merge resources: After accepting this pull request, all the resources are merged into the repository. The structure of the generated resources is shown in Fig. <ref type="figure" target="#fig_7">6</ref>. Screenshots of the generated resources are show in Figs. 7, 8, 9, 10a and 10b. 5. Fix pitfalls: We address the issues raised by OOPS! and push the changes to the ontology in the target repository. OnToology will automatically generate the resources again with the updated ontology. The documentation has been updated to match the new changes, the class and taxonomy diagrams have been updated accordingly, and the new quality report shows the pitfalls of the updated ontology. OnToology will create a new pull request with the updated resources. We merge the new resources by accepting the pull request. 6. Publish the ontology: At this point, the new generated resources according to the updated ontology are in the repository. We finally have reached a stable release, and we would like to publish it. The OnToology web interface provides a button to publish the ontology with w3id service. We choose the name smartlammpost and, therefore, our ontology will be published in https://w3id.org/def/smartlampost. Fig. <ref type="figure" target="#fig_12">11</ref> shows the interface to reserve a name for the ontology, while Fig. <ref type="figure" target="#fig_13">12</ref> shows the OnToology interface with the URI where the ontology is published. 7. Discuss the new requirements: After some time, a new requirement appears and the ontology needs to be extended. But one of the developers has a doubt about a specific issue and asks the question in the discussion board. The team leader answers it and they start a discussion with other developers and agree about how to address the new requirement. 8. Update the ontology: Developers start updating the ontology to meet the new requirements and push the changes using Git. The resources will be regenerated for the new ontology and a pull request will be created. Changes are checked and the generated resources match the expectation. 9. Re-publish the ontology: The developers finish the implementation of the new requirements to the ontology and the team leader republishes it using the republish button in the web interface of OnToology. Fig. <ref type="figure" target="#fig_14">13</ref> shows the interface for re-publishing the ontology. The republish button will only be visible if the ontology has been published before, otherwise, it will not be shown.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>3 https://www.w3.org/TR/swbp-vocab-pub/. 4 http://ontoology.linkeddata.es/.5 http://w3id.org/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. OnToology Architecture.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. User workflow in OnToology.</figDesc><graphic coords="4,38.46,56.02,206.91,525.53" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>14 http://ontoology.github.io/OnToology/journalofwebsemantics/#stats. 15 http://ontoology.linkeddata.es/faqs.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Register a repository.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. OnToology authorization.</figDesc><graphic coords="5,317.04,125.39,240.13,190.81" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Pull request.</figDesc><graphic coords="5,317.04,350.08,240.13,111.66" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Merged resources.</figDesc><graphic coords="6,38.24,55.32,240.13,174.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Documentation resource.</figDesc><graphic coords="6,38.24,274.44,240.13,205.23" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Evaluation resource.</figDesc><graphic coords="6,307.23,55.32,240.13,275.05" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Context resource.</figDesc><graphic coords="6,307.23,379.20,240.13,220.35" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Ontology visualization.</figDesc><graphic coords="7,91.65,249.59,421.89,325.57" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. Reserve a name.</figDesc><graphic coords="8,38.24,55.32,240.13,70.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Fig. 12 .</head><label>12</label><figDesc>Fig. 12. Publication of the ontology.</figDesc><graphic coords="8,38.24,159.45,240.13,83.11" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. 13 .</head><label>13</label><figDesc>Fig. 13. Re-publication of the ontology.</figDesc><graphic coords="8,38.24,276.44,240.13,96.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>User survey results for usability satisfaction.</figDesc><table><row><cell></cell><cell>Usefulness</cell><cell>Ease of use</cell><cell>Ease of learning</cell><cell>Satisfaction</cell></row><row><cell>Median</cell><cell>4</cell><cell>3.5</cell><cell>4</cell><cell>4</cell></row><row><cell>Mean</cell><cell>4.2</cell><cell>3.5</cell><cell>3.7</cell><cell>3.9</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Comparison of tools for supporting collaborative ontology development.</figDesc><table><row><cell>Support category</cell><cell>Moki</cell><cell>Neologism</cell><cell>VocBench</cell><cell>VoCol</cell><cell>Web Protégé</cell><cell>OnToology</cell></row><row><cell>R1. Documentation</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>a v w</cell></row><row><cell>R2. Complementary resources</cell><cell>≈</cell><cell>≈</cell><cell></cell><cell>≈</cell><cell></cell><cell>a j o w</cell></row><row><cell>R3. Coexistence with non-ontological resources</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>R4. Compatible with a collaborative workflow</cell><cell></cell><cell></cell><cell>≈</cell><cell>g</cell><cell></cell><cell>g h</cell></row><row><cell>R5. Versioning</cell><cell></cell><cell></cell><cell>≈</cell><cell>g</cell><cell>≈</cell><cell>g h</cell></row><row><cell>R6. Publication and content negotiation</cell><cell></cell><cell></cell><cell></cell><cell>≈</cell><cell></cell><cell>w</cell></row><row><cell>R7. Evaluation</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>o</cell></row><row><cell>supported</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>≈ partially supported.</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table><note><p>a Supported by AR2DTool. g Supported by Git. h Supported by GitHub. j Supported by OWL2JSONLD. o Supported by OOPS! v Supported by VocabLite. w Supported by Widoco.</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0"><p>https://www.w3.org/TR/json-ld/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_1"><p>http://graphml.graphdrawing.org/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_2"><p>http://oops.linkeddata.es/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_3"><p>http://ontoology.github.io/OnToology/journalofwebsemantics/ #questionnaire.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments</head><p>This work has been partially supported by the project Datos 4.0: retos y soluciones (<rs type="grantNumber">TIN2016-78011-C4-4-R</rs>), funded by the <rs type="funder">Spanish Ministerio de Economía, Industria y Competitividad</rs>, and a predoctoral grant from the <rs type="funder">I+D+i program</rs> of the <rs type="institution">Universidad Politécnica de Madrid</rs>. The authors would like to thank the community of users who have contributed, requested features or provided feedback on OnToology and <rs type="person">Yolanda Gil</rs> for her comments and feedback.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_qfxXfW2">
+					<idno type="grant-number">TIN2016-78011-C4-4-R</idno>
+				</org>
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">METHONTOLOGY: from ontological art towards ontological engineering</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Juristo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Ontological Engineering AAAI97 Spring Symposium Series</title>
+		<meeting>the Ontological Engineering AAAI97 Spring Symposium Series</meeting>
+		<imprint>
+			<publisher>American Asociation for Artificial Intelligence</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Knowledge processes and ontologies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-P</forename><surname>Schnurr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intell. Syst</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="26" to="34" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">The NeOn Methodology framework: A scenario-based methodology for ontology development</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Ontol</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="107" to="145" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Auer</surname></persName>
+		</author>
+		<title level="m">th IEEE International Workshops on Enabling Technologies: Infrastructures for Collaborative Enterprises (WETICE 2006)</title>
+		<imprint>
+			<publisher>IEEE Computer Society</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="352" to="357" />
+		</imprint>
+	</monogr>
+	<note>The RapidOWL methodology-towards agile knowledge engineering</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Daga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<title level="m">Ontology Engineering in a Networked World</title>
+		<editor>
+			<persName><forename type="first">M</forename><forename type="middle">D C</forename><surname>Suárez-Figueroa</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="35" to="64" />
+		</imprint>
+	</monogr>
+	<note>Pattern-based ontology design</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">A simplified agile methodology for ontology development</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Peroni</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 13th OWL: Experiences and Directions Workshop and 5th OWL reasoner evaluation workshop</title>
+		<meeting>the 13th OWL: Experiences and Directions Workshop and 5th OWL reasoner evaluation workshop</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">2016. 2016</date>
+			<biblScope unit="page" from="55" to="69" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">R</forename><surname>Cyganiak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Basca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Corlosquet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schandl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Neologism</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>Easy Vocabulary Publishing</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Modeling, managing, exposing, and linking ontologies with a wiki-based tool</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bosca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Casu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dragoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rexha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC</title>
+		<meeting>LREC</meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page">1668</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">VoCol: an integrated environment to support version-controlled vocabulary development</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Halilaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Grangel-González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lange</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Auer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Coskun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lohmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 20th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<meeting>the 20th International Conference on Knowledge Engineering and Knowledge Management</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">2016. 2016</date>
+			<biblScope unit="page" from="303" to="319" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Berrueta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Phipps</surname></persName>
+		</author>
+		<ptr target="https://www.w3.org/TR/swbp-vocab-pub/" />
+		<title level="m">Best Practice Recipes for Publishing RDF Vocabularies, W3C</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Publishing linked statistical data: Aragón, a case study</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corcho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Santana-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Laguente</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Portolés</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Cano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Peris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Subero</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Joint Proceedings of the International Workshops on Hybrid Statistical Semantic Understanding and Emerging Semantics, and Semantic Statistics</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+	<note>Hybrid-SemStats</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">WIDOCO: A wizard for documenting ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Semantic Web Conference</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="94" to="102" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">I</forename><surname>Santana-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Siles</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.1317796</idno>
+		<ptr target="http://dx.doi.org/10.5281/zenodo.1317796" />
+	</analytic>
+	<monogr>
+		<title level="j">AR2DTool</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.1318782</idno>
+		<ptr target="http://dx.doi.org/10.5281/zenodo.1318782" />
+		<imprint>
+			<date type="published" when="2018-02">1.0.2, 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">OOPS! (OntOlogy Pitfall Scanner!): An on-line tool for ontology evaluation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Semant. Web Inf. Syst. (IJSWIS)</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="7" to="34" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">owl2jsonld 0.2.1, Convert OWL ontology to JSON-LD context</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Soiland-Reyes</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.10565</idno>
+		<ptr target="http://dx.doi.org/10.5281/zenodo.10565" />
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alobaid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Garijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Santana-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández-Izquierdo</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.1317786</idno>
+		<ptr target="http://dx.doi.org/10.5281/zenodo.1317786" />
+	</analytic>
+	<monogr>
+		<title level="j">OnToology</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Measuring usability with the USE questionnaire</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Lund</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Usability Interface</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="3" to="6" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Web-Protégé: A lightweight owl ontology editor for the web</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tudorache</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vendetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">OWLED</title>
+		<imprint>
+			<biblScope unit="volume">432</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">VocBench: A web application for collaborative development of multilingual thesauri</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Stellato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rajbhandari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Turbati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fiorelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Caracciolo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Lorenzetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Keizer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Pazienza</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">European Semantic Web Conference</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="38" to="53" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the</title>
+		<author>
+			<persName><forename type="first">P.-Y</forename><surname>Vandenbussche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A</forename><surname>Atemezing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Vatant</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Web, Semant. Web</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="437" to="452" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

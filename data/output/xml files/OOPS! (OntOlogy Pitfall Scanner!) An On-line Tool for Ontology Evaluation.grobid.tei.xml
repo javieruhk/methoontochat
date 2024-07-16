@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">OOPS! (OntOlogy Pitfall Scanner!)</title>
+				<funder ref="#_XpgJp8d #_uQdxNqS">
+					<orgName type="full">unknown</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IGI Global</publisher>
+				<availability status="unknown"><p>Copyright IGI Global</p>
+				</availability>
+				<date type="published" when="2014-04-01">2014-04-01</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">María</forename><surname>Poveda-Villalón</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Asunción</forename><surname>Gómez-Pérez</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mari</forename><forename type="middle">Carmen</forename><surname>Suárez-Figueroa</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution" key="instit1">María Poveda-Villalón</orgName>
+								<orgName type="institution" key="instit2">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution" key="instit1">Asunción Gómez-Pérez</orgName>
+								<orgName type="institution" key="instit2">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Ontology Engineering Group</orgName>
+								<orgName type="institution" key="instit1">Mari Carmen Suárez-Figueroa</orgName>
+								<orgName type="institution" key="instit2">Universidad Politécnica de Madrid</orgName>
+								<address>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">OOPS! (OntOlogy Pitfall Scanner!)</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal on Semantic Web and Information Systems</title>
+						<idno type="ISSN">1552-6283</idno>
+						<idno type="eISSN">1552-6291</idno>
+						<imprint>
+							<publisher>IGI Global</publisher>
+							<biblScope unit="volume">10</biblScope>
+							<biblScope unit="issue">2</biblScope>
+							<biblScope unit="page" from="7" to="34"/>
+							<date type="published" when="2014-04-01" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">B58BFD7549775C4AACF256434D3F2BB9</idno>
+					<idno type="DOI">10.4018/ijswis.2014040102</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Ontology</term>
+					<term>Ontology Evaluation</term>
+					<term>Ontology Quality</term>
+					<term>Ontology Validation</term>
+					<term>Pitfalls</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper presents two contributions to the field of Ontology Evaluation. First, a live catalogue of pitfalls that extends previous works on modeling errors with new pitfalls resulting from an empirical analysis of over 693 ontologies. Such a catalogue classifies pitfalls according to the Structural, Functional and Usability-Profiling dimensions. For each pitfall, we incorporate the value of its importance level (critical, important and minor) and the number of ontologies where each pitfall has been detected. Second, OOPS! (OntOlogy Pitfall Scanner!), a tool for detecting pitfalls in ontologies and targeted at newcomers and domain experts unfamiliar with description logics and ontology implementation languages. The tool operates independently of any ontology development platform and is available online. The evaluation of the system is provided both through a survey of users' satisfaction and worldwide usage statistics. In addition, the system is also compared with existing ontology evaluation tools in terms of coverage of pitfalls detected.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>The Linked Data (LD) effort has become a catalyst for the realization of the vision of the Semantic Web originally proposed by <ref type="bibr" target="#b5">Berners-Lee et al. (2001)</ref>. In this scenario, a large amount of data, annotated by means of ontologies, is shared on the Web. Such ontologies enrich the published data with semantics and help their integration. In other cases, ontologies are used to model data automatically extracted from web sources, which can be noisy and contain errors. Therefore, ontologies not only must be published according to LD principles 1 , but they also must be accurate and of high quality from a knowledge representation perspective in order to avoid inconsistencies or undesired inferences.</p><p>The correct application of ontology development methodologies (e.g., <ref type="bibr">METHONTOL-OGY (Fernández-López et al., 1999)</ref>, On-To-Knowledge <ref type="bibr" target="#b32">(Staab et al., 2001)</ref>, DILIGENT <ref type="bibr" target="#b22">(Pinto, Tempich, &amp; Staab, 2004)</ref>, or the NeOn Methodology <ref type="bibr" target="#b36">(Suárez-Figueroa et al., 2012)</ref>) benefits the quality of the ontology being built. However, such a quality is not totally guaranteed because ontologists face a wide range of difficulties and handicaps when modeling ontologies (Aguado de <ref type="bibr" target="#b0">Cea et al., 2008;</ref><ref type="bibr" target="#b6">Blomqvist, Gangemi, &amp; Presutti, 2009;</ref><ref type="bibr" target="#b27">Rector et al., 2004)</ref>, and this fact may cause the appearance of anomalies in ontologies. Therefore, in any ontology development project it is vital to perform the ontology evaluation activity since this activity checks the technical quality of an ontology against a frame of reference.</p><p>In the last decades a huge amount of research and work on ontology evaluation has been conducted. Some of these attempts define a generic quality evaluation framework <ref type="bibr" target="#b9">(Duque-Ramos et al., 2011;</ref><ref type="bibr" target="#b12">Gangemi et al., 2006;</ref><ref type="bibr" target="#b13">Gómez-Pérez, 2004;</ref><ref type="bibr" target="#b14">Guarino, &amp; Welty, 2009;</ref><ref type="bibr" target="#b33">Strasunskas, &amp; Tomassen, 2008)</ref>; others propose evaluating an ontology depending on its final (re)use <ref type="bibr" target="#b34">(Suárez-Figueroa, 2010)</ref>; some others propose quality models based on features, criteria, and metrics <ref type="bibr" target="#b7">(Burton-Jones et al, 2005)</ref>; whereas others present methods for pattern-based evaluation <ref type="bibr" target="#b8">(Djedidi, &amp; Aufaure, 2010;</ref><ref type="bibr" target="#b26">Presutti et al., 2008)</ref>.</p><p>As a consequence of the emergence of new methods and techniques, a few tools have been proposed. These tools ease the ontology diagnosis by reducing the human intervention. This is the case of XD-Analyzer 2 , a plug-in for NeOn Toolkit and Ontocheck 3 <ref type="bibr" target="#b30">(Schober et al., 2012)</ref>, a plug-in for Protégé. The former checks some structural and architectural ontology features, whereas the latter focuses on metadata aspects. Moki 4 <ref type="bibr" target="#b21">(Pammer, 2010)</ref>, a wiki-based ontology editor, also provides some evaluation features. Finally, Radon <ref type="bibr" target="#b17">(Ji et al., 2009)</ref> is a NeOn Toolkit plug-in that detects and handles logical inconsistencies in ontologies.</p><p>This paper presents two main contributions. The first contribution consists of a live and on-line catalogue of pitfalls 5 that extends previous works on modeling errors <ref type="bibr" target="#b1">(Allemang, &amp; Hendler, 2011;</ref><ref type="bibr" target="#b13">Gómez-Pérez, 2004;</ref><ref type="bibr" target="#b20">Noy, &amp; McGuinness, 2001;</ref><ref type="bibr" target="#b27">Rector et al., 2004)</ref> identified in the ontology engineering field including some persistent problems of accessibility emerging in the Linked Data field <ref type="bibr" target="#b2">(Archer, Goedertier, &amp; Loutas, 2012;</ref><ref type="bibr" target="#b15">Heath, &amp; Bizer, 2011;</ref><ref type="bibr" target="#b16">Hogan et al., 2010)</ref>. The second contribution, OOPS! (OntOlogy Pitfall Scanner!) represents a tool for diagnosing (semi-) automatically OWL 6 ontologies. This system aims to help ontology developers to evaluate ontologies and is focused on newcomers and those not familiar with description logics and ontology implementation languages. OOPS! operates independently of any ontology development platform and is available online at http://www.oeg-upm.net/oops. It should be noted here that the repair of the ontology is out of the scope of OOPS!.</p><p>In this paper we first present the catalogue of pitfalls, including a compendium of pitfalls extracted from the literature review and from the manual analysis of ontologies. A classification of such pitfalls according to the Structural, Functional and Usability-Profiling dimensions proposed in <ref type="bibr" target="#b12">Gangemi et al. (2006)</ref> is also provided. Then, for each pitfall, we incorporate its value of importance level <ref type="bibr">(critical, important, and minor)</ref> because not all the pitfalls are equally relevant and important. Next, we explain the internal architecture of OOPS! and describe the pitfalls detection methods used within the system. After that, an empirical analysis of the proposed catalogue carried out on 693 ontologies is presented. Then, we present the evaluation of the system based both on a survey of users' satisfaction and on evidence of the real use of the tool worldwide. After that, we review related works about ontology evaluation tools. Finally we draw the conclusions and provide future lines of work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COMMON PITFALLS IN ONTOLOGY DEVELOPMENT</head><p>One of the most common approaches for evaluating ontologies is to have a checklist of typical errors that other developers have made before. Thus the developer checks the ontology being built against such a list, detects the pitfalls, and corrects them. Our approach does not pretend to create another checklist but to reuse existing works where modeling problems have already been identified and to extend them by incorporating new pitfalls obtained through an empirical evaluation of ontologies already existing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Catalogue of Common Pitfalls</head><p>As our long-term goal is to create and maintain a live and on-line pitfall catalogue, we have followed the process sketched in Figure <ref type="figure">1</ref>. We started by manually analyzing ontologies and reviewing literature about ontology evaluation and Linked Data (LD).</p><p>Regarding works on ontology evaluation, we reviewed, reused, and included in the pitfall catalogue outcomes from <ref type="bibr" target="#b27">(Rector et al., 2004)</ref>, in which Rector et al. describe a set of common errors made by developers during the ontology modeling activity; from <ref type="bibr" target="#b13">Gómez-Pérez (2004)</ref>, in which Gómez-Pérez provides a classification of errors identified during the evaluation of consistency, completeness, and conciseness of ontology taxonomies; and from <ref type="bibr">Noy, and Mc-Guinness (2001)</ref>, where Noy and McGuinness present a methodology for creating ontologies and point out some common errors and how to avoid them. We have also reused and adapted to the ontology domain some research from the LD area: the main guidelines for LD publication and consumption <ref type="bibr" target="#b15">(Heath, &amp; Bizer, 2011)</ref>; the problems identified in <ref type="bibr" target="#b16">Hogan et al. (2010)</ref> for accessing RDF 7 on the Web; and the guidelines for creating persistent URIs included in <ref type="bibr" target="#b2">Archer, Goedertier, and Loutas (2012)</ref>.</p><p>The catalogue does not pretend to be an exhaustive, rigid and fixed checklist. Besides, in order to keep such a catalogue in continuous evolution we continue working with the manual evaluation of ontologies and aim to discover new pitfalls. We would welcome that OOPS! users and ontology experts propose new pitfalls to introduce them in the catalogue.</p><p>The current version of the catalogue 8 consists of a list of 40 pitfalls as well as their descriptions. In each pitfall we include provenance information if the pitfall being described was proposed in a previous work. The list includes the following pitfalls:</p><p>• P01. Creating Polysemous Elements: An ontology element whose name has different meanings is included in the ontology to represent more than one conceptual idea. For example, the class "Theatre" is used</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 1. Creation of the pitfall catalogue and maintenance process</head><p>to represent both the artistic discipline and the place in which a play is performed. • P02. Creating Synonyms as Classes: Several classes whose identifiers are synonyms are created and defined as equivalent. For example, the classes "Waterfall" and "Cascade" are defined as equivalents. This pitfall is related to the guidelines presented in <ref type="bibr" target="#b20">Noy, and McGuinness (2001)</ref>, which explain that synonyms for the same concept do not represent different classes. • P03. Creating the Relationship "is" Instead of Using "rdfs:subClassOf", "rdf:type" or "owl:sameAs": The "is" relationship is created in the ontology instead of using OWL primitives for representing the subclass relationship ("subclassOf"), the membership to a class ("instanceOf"), or the equality between instances ("sameAs"). An example of this pitfall is to define the class "Actor" in the following way 'Actor ≡ Person ⨅ ∃interprets.Actuation ⨅ ∃is.Man'. This pitfall is related to the guidelines for understanding the "is-a" relation provided in <ref type="bibr" target="#b20">Noy, and McGuinness (2001)</ref> of the information needed is not included in the ontology. This pitfall may be related to the requirements in the ontology requirements specification document (ORSD) not covered by the ontology, or to knowledge that can be added to the ontology to make it more complete. An example of this type of pitfall is to create the relationship "startsIn" in order to represent that the routes have a starting point in a particular location and to miss the relationship "endsIn" in order to represent that a route has an end point. When an ontology is imported into another, classes duplicated in both ontologies are normally defined as equivalent classes. However, the ontology developer misses the definition of equivalent properties in the cases of duplicated relationships and attributes. An example of this type of pitfalls is to fail to define the relations "hasMember" and "has-Member" as equivalent. • P13. Missing Inverse Relationships: This pitfall appears when any relationship (except for the symmetric ones) does not have an inverse relationship defined within the ontology. For example, the case in which the ontology developer omits the inverse definition between the relations "hasLan-guageCode" and "isCodeOf". • P14. Misusing "owl:allValuesFrom" <ref type="bibr" target="#b27">(Rector et al., 2004</ref>): This pitfall can appear in two different ways. Firstly, when the universal restriction ("allValuesFrom") is used as the default qualifier instead of the existential restriction ("someValues-From"). Secondly, when "allValuesFrom" is included to close off the possibility of further additions for a given property. An example of this type of pitfall is to define the class "Book" in the following way 'Book ≡ ∃producedBy.Writer ⨅ ∀uses.Paper' thus closing the possibility of adding "Ink" as an element used in the writing. • P15. Misusing "not some" and "some not" <ref type="bibr" target="#b27">(Rector et al., 2004)</ref>: The pitfall here is to confuse the representation of "some not" with "not some". An example of this type of pitfall is to define a vegetarian pizza as any pizza which has both some topping which is not meat and some topping which is not fish. This example is explained in more detail in <ref type="bibr" target="#b27">Rector et al. (2004)</ref> The ranges and/or domains of the properties (relationships and attributes) are defined by intersecting several classes in cases in which the ranges and/or domains should be the union of those classes. This pitfall is related both to the common error that appears when defining ranges and domains described in <ref type="bibr" target="#b27">Rector et al. (2004)</ref> and to the guidelines for defining these elements provided in <ref type="bibr" target="#b20">Noy, and McGuinness (2001)</ref>. An example of this type of pitfall is to create the relationship "takesPlaceIn" with one range declaration for the class "City" and other range declaration for the class "Nation", as this implementation represents the intersection of both ranges instead of the union. • P20. Misusing Ontology Annotations:</p><p>The contents of some annotation properties are swapped or misused. An example of this type of pitfall is to include in the rdfs:label annotation of the class "Crossroads" the following sentence 'the place of intersection of two or more roads'; and to include in the rdfs:comment annotation the word 'Crossroads'. • P21. Using a Miscellaneous Class: This means creating in a hierarchy a class containing the instances that do not belong to the sibling classes instead of classifying such instances as instances of the class in the upper level of the hierarchy. An example of this type of pitfall is to create the class "HydrographicalResource", and the subclasses "Stream" and "Waterfall", among others, and also the subclass "OtherRiverElement". • P22. Using Different Naming Criteria in the Ontology: Ontology elements are not named following the same convention within the whole ontology. Some notions about naming conventions are provided in <ref type="bibr" target="#b20">Noy, and McGuinness (2001)</ref>. For example, this pitfall appears when a class identifier starts with upper case, e.g. "Ingredient", whereas its subclass identifiers start with lower case, e.g. "flour" and "milk". • P23. Using Incorrectly Ontology Elements: An ontology element (class, relationship or attribute) is used to model a part of the ontology that should be modeled with a different element. A particular case of this pitfall regarding the misuse of classes and property values is addressed in <ref type="bibr" target="#b20">Noy, and McGuinness (2001)</ref>. An example of this type of pitfall is to create the relationship "isEcological" between an instance of "Car" and the instances "Yes" or "No", instead of creating an attribute "isEcological" whose range is Boolean. • P24. Using Recursive Definition: An ontology element is used in its own definition. An example of this type of pitfall is to create the relationship "hasFork" and to establish as its range the following: The set of restaurants that have at least one value for the relationship "hasFork".</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• P25. Defining a Relationship Inverse to</head><p>Itself: A relationship is defined as inverse of itself. In this case, this property could have been defined as "owl:SymmetricProperty" instead. An example of this type of pitfall is to create the relationship "hasBorderWith" and to state that "hasBorderWith" is its inverse relationship. • P26. Defining Inverse Relationships for a Symmetric One: A relationship is defined as "owl:SymmetricProperty", and such a relationship is defined as inverse of another relationship. For example, to create for the symmetric relationship "farFrom" an inverse relationship, e.g. itself, "farFrom". • P27. Defining Wrong Equivalent Relationships: Two relationships are defined as equivalent relations when they are not necessarily equivalent. An example of this type of pitfalls is to mix up common relationships that could hold between several types of entities, as "hasPart" defined in one ontology between human body parts and the relation "hasPart" defined in another ontology between research plans and research projects. • P28. Defining Wrong Symmetric Relationships: A relationship is defined as symmetric when the relationship is not necessarily symmetric. This situation can appear because the domain and range are too specific; for example, if we define the symmetric relationship "hasSpouse" between the concepts "Man" and "Woman" instead of using the concept "Person" both as domain and range of such a relationship.</p><p>• P29. Defining Wrong Transitive Relationships: A relationship is defined as transitive when the relationship is not necessarily transitive. An example of this type of pitfall is to create the relationship "participatesIn", whose domain is the union of the concepts "Team" and "Individual" and whose range is the concept "Event", and defining the relationship as transitive. • P30. Missing Equivalent Classes: When an ontology is imported into another, classes with the same conceptual meaning that are duplicated in both ontologies should be defined as equivalent classes in order to benefit the interoperability between both ontologies. However, the ontology developer may miss the definition of equivalent classes in the cases of duplicated concepts. An example of this pitfall is to fail to define the classes 'Trainer' (class in an imported ontology) and 'Coach' (class in the ontology about sports being developed) as equivalent classes. • P31. Defining Wrong Equivalent Classes: Two classes are defined as equivalent when they are not necessarily equivalent. For example, defining "Car" as equivalent to "Vehicle". • P32. Several Classes with the Same Label: Two or more classes have the same content in the rdfs:label annotation. For example, to link the label "Theatre" both with the building and the literary discipline, adding no more labels to them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• P33. Creating a Property Chain with</head><p>Just One Property: There is a property chain that includes only one property in the antecedent part. For example, to create the following property chain: isInChargeOf -&gt; supervises.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• P34. Untyped Class (Hogan et al., 2010):</head><p>A resource is used as a class without having been declared as a Class. An example of this type of pitfall is to create individuals of the class "Person" and to omit that "Person" is a class. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Pitfalls Classification</head><p>Since the list of pitfalls presented refers to different ontology perspectives, it is advisable to classify them according to some evaluation criteria. Users with an interest in a given aspect of ontology evaluation could easily identify the group of pitfalls in which they might be interested. For this reason, we have classified pitfalls according to the dimensions defined in <ref type="bibr" target="#b12">Gangemi et al. (2006)</ref>, namely: structural, functional and usability-profiling. Even though these dimensions are enough to classify all the pitfalls in the catalogue, a more fine-grained classification is provided to deal with specific aspects that following and extend the approach described in Poveda-Villalón, Suárez-Figueroa, and Gómez-Pérez (2010). Such classification is as follows:</p><p>• Structural Dimension ( Figure <ref type="figure">2</ref> represents such classification where each pitfall is classified according to at least one of the abovementioned aspects. Figure <ref type="figure">2</ref> also shows the importance level of each pitfall both by attaching a number between brackets to each pitfall title and by using different colors; thus "critical" pitfalls are written in black followed by "(1)", "important" pitfalls are in blue followed by "(2)" and "minor" pitfalls are in brown followed by "(3)".</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Extension with Pitfalls Importance Levels</head><p>It is obvious that not all the pitfalls are equally important; their impact in the ontology will depend on multiple factors. For this reason, the pitfall catalogue has been extended with information about how critical the pitfalls are. We have identified three levels:</p><p>• Critical (1): It is crucial to correct the pitfall. Otherwise, it could affect the ontology consistency, reasoning and applicability, among others. For example, the consequences of "P19. Swapping intersection and union" could lead to logical inconsistences in the ontology, which represents a critical error when reasoning over the populated ontology. • Important (2): Though not critical for ontology function, it is important to correct this type of pitfall. For example, the logical consequences of "P25. Defining a relationship inverse to itself" are the same as if such relationship were defined as symmetric. However, the latter option, that is, using the ontology implementation language constructors for the purpose they were conceived, is a sign of good modeling and understanding of the underlying semantics. • Minor (3): It does not represent a problem.</p><p>However, correcting it makes the ontology better organized and user friendly. For example, the pitfall "P22. Using different naming criteria in the ontology" is about the appearance of the ontology and does not compromise the proper ontology functioning.</p><p>These levels do not have clear boundaries in the sense that a particular pitfall in a level could be debatable depending on the modeling styles, ontology requirements, and context of use by an ontology application. For example, in Figure <ref type="figure">2</ref>. Pitfall classification this work we consider an important pitfall not to define domains and ranges for the properties, which is arguable, of course. In some developments, it could be considered a pitfall exactly the opposite (that is, specifying domains and ranges), as developers might be interested in increasing the interoperability of the model obtained instead of its explicit semantics or expressivity. In such a case, it would be enough if the evaluators define the fact of defining domains and ranges as a pitfall instead of doing it as we propose here. In this way, we provide a starting point for ontology evaluation that could be adapted to users' particular requirements.</p><p>In other cases, how critical a pitfall is depends on the context of use; for example, in a LD development project <ref type="bibr" target="#b15">(Heath, &amp; Bizer, 2011)</ref>, an ontology should be published according to the Linked Data rules and principles. In this scenario, the pitfalls "P37. Ontology not available on the Web", "P39. Ambiguous namespace", and "P40. Namespace hijacking" are crucial while they might not be important in the context of an isolated application where the ontology is not designed for sharing. Another pitfall related to LD context is "P36. URI contains file extension". In this case, it may be consider a minor pitfall as it does not affect the correct functioning of the ontology.</p><p>At the moment of including the importance levels in the catalogue, 35 out of the 40 pitfalls were already defined and published. In order to attach importance levels to the pitfalls, a study was carried out in which the users had to fill in a questionnaire providing the following information:</p><p>• Level of Confidence: How confident (s)he felt in the ontology evaluation or ontology modeling domains. • Importance Level of Each Pitfall: There was one question per pitfall (from P01 to P35) where the user had to select the importance level of the given pitfall. The possible values were "Critical", "Important" and "Minor" (see above). • Which Pitfalls are Not Important: A list with all the pitfalls was provided and the users were asked to indicate which pitfall would never represent a problem (not pitfalls that could be a problem only in some cases) for them. • Other Comments: A free text box for providing any comment or suggestions.</p><p>Researchers, mainly experts on ontology modeling or evaluation, within the semantic web community 10 and OOPS! users were invited to fill in the questionnaire. We received 55 responses. We have made the questionnaire available on-line at http://goo.gl/SEddMN in order to allow the community to continue with the assessment of the level of importance of the pitfalls. On the other hand, to assign importance levels to pitfalls according to the data gathered through the survey, we have first assigned weight to each response (3 for critical 11 , 2 for important, and 1 for minor) and to each expertise level (3 for experts, 2 for medium confidence, and 1 for low confidence). For those pitfalls selected as "not important", we have assigned the weight 0 in the corresponding response. The data generated from the survey responses and the ranking calculations are available at the URL: http://goo.gl/0IkbS2</p><p>Then we have ranked the pitfalls according to the well-known "weighted sum" technique and obtained the ranking shown in the first column from the left in Table <ref type="table" target="#tab_10">1</ref>.</p><p>Once the pitfalls are ranked, an interval should be defined in order to split the given ranking into 3 parts, one for each importance level. To do this, we have used a method based on the range of the weight values. More precisely, the range (highest weight -lowest weight) is divided into 3. Concretely, the range of the weighted sum ranking is 0.0193 (0.0379 -0.0186). The division of the range among 3 gives us an interval of 0.0064.</p><p>Finally, the range of the ranking is split into 3, resulting in the following intervals:</p><p>• Minor: From 0.0186 to 0.0250 (0.0186 + 0.0064) • Important: From 0.0250 to 0.0314 (0.0250 +0.0064) • Critical: From 0.0314 to 0.0379</p><p>In order to demonstrate that the ranking method selected is robust, we compared it with two other ranking methods, namely, the "lexicographic order" <ref type="bibr" target="#b19">(Miettinen, 1999)</ref> and the "centroid function" <ref type="bibr" target="#b4">(Barron, &amp; Barrett, 1996)</ref>. The rankings obtained for these methods are shown in Table <ref type="table" target="#tab_10">1</ref>, more precisely, in the second and third columns from the left respectively. For the case of the "centroid function" we have also calculated the intervals for the "Critical", "Important", and "Minor" categories in the same manner as explained for the "weighted sum". As the "lexicographic order" does not involve weights or ranges, it does not make sense to split the range in this fashion. More precisely, the lexicographic order is calculated as follows: first, the pitfalls are ordered according to the votes that the value "critical (3)" attained. The more votes attained, the higher the pitfall is placed in the ranking. For example, the P06 is first with 46 votes 12 . When two or more pitfalls have the same number of votes in this category, the information about the next importance levels is used to break the tie. For example, P29 and P14 have 37 votes for the value "critical", so the votes for "important (2)" are used, that is, the P14 is placed first with 12 votes, and P14 is next with 9 votes.</p><p>Once the rankings were computed, we analyzed the similitudes and differences between them. That is, given two rankings we measure how similar the orders established for the list of pitfalls are. To do so, we calculated the Kendall coefficient <ref type="bibr" target="#b38">(Winkler &amp; Hays, 1985)</ref>, being the values obtained for each pair of rankings the following 13 :</p><p>• Weighted Sum -Lexicographic Order: 0.882352941 • Weighted Sum -Centroid Function: 0.905882353 • Lexicographic Order -Centroid Function: 0.929411765</p><p>We can observe that the three values are very high; this fact means that the rankings are very similar and proves that the decision of choosing the weighted sum does not affect significantly the final classification. In fact, there is only one pitfall, "P24. Using recursive definition" that has been attached to different importance levels according to the weighted sum method (classified as "important") and to the centroid function method (classified as "critical").</p><p>When a new pitfall is inserted in the catalogue, an importance level has to be assigned to it. This importance level is decided in conjunction with the developers of OOPS!, experienced ontological engineers, and the users (if any) proposing the given pitfall. For the pitfalls P36 to P40, four experts in ontological engineering and vocabulary publication have defined the pitfalls and assigned their importance levels. As a result, the importance levels shown in Table <ref type="table" target="#tab_12">2</ref> have been attached to each pitfall.</p><p>Taking into account the importance levels extracted from the survey and those levels assigned by ontology experts, we have created a final classification of pitfalls as shown in Figure <ref type="figure" target="#fig_0">3</ref> 14 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OOPS! (ONTOLOGY PITFALL SCANNER!)</head><p>OOPS! is a web-based tool for diagnosing potential problems in ontologies that could lead to modeling errors. This tool is intended to help ontology developers, mainly newcomers, during the ontology validation activity <ref type="bibr">(Suárez-Figueroa, Aguado-de-Cea, &amp; Gómez-Pérez, 2013)</ref>. Currently, OOPS! provides mechanisms to (semi-)automatically diagnose 32 pitfalls of the 40 described in the pitfall catalogue as Figure <ref type="figure" target="#fig_0">3</ref> shows. This section is divided into two parts: the first subsection explains the internal architecture of OOPS!; and the second subsection describes the detection methods used within the system in order to spot pitfalls in the ontology analyzed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OOPS! Architecture</head><p>Figure <ref type="figure">4</ref> presents the underlying architecture of OOPS!. OOPS! is a web application based on Java EE 15 , HTML 16 , jQuery 17 , JSP 18 and CSS 19 technologies. In order to produce a list of evaluation results, OOPS! takes as input both the pitfall catalogue and an ontology.</p><p>The user interface consists of a webpage, in which the user enters either the ontology URI or its OWL code, which describes the ontology to be analyzed. Once the ontology is parsed using the Jena API 20 , the "Pitfall Scanner" module inspects the declared ontology 21 looking for pitfalls among those available in the catalogue. More precisely, the 32 pitfalls implemented are those that can be detected (semi-) automatically with the information provided by the ontology OWL code (T-box). Those pitfalls that require an external reference framework (e.g., an ontology requirement document, an A-box or corpora, and/or domain knowledge) or human intervention are not yet automated. During this scanning phase, the ontology elements prone to potential errors are detected, whereas some modeling suggestions are generated by the "Suggestion Scanner" module. Finally, the evaluation results are displayed in the web user interface, which shows the list of pitfalls detected, if any, and the ontology elements affected, as well as explanations describing the findings (Figure <ref type="figure">5</ref>). The web interface allows not only analyzing all the automated pitfalls, but also choosing specific pitfalls or predefined groups according to the This "Advanced evaluation" feature is linked from the homepage and available at index http:// www.oeg-upm.net/oops/advanced.jsp. Furthermore, to allow other programs and applications to use OOPS! pitfall detection methods, we have developed a web service 22 .</p><p>Next subsection describes the different approaches used to implement the methods for detecting pitfalls.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Pitfall Detection Methods</head><p>The pitfall catalogue covers many different aspects of ontologies, such as their internal structure, their associated or embedded humanreadable documentation, or their availability on the Web. As a consequence, the detection methods implemented to detect pitfalls make use of different techniques and technologies for diagnosing them. More precisely, the detection . The patterns can also include statements following the OWL functional syntax, mainly to indicate that the pattern checks the lack of such information. It should be noted that some pitfalls are detected by different patterns, for example, "P19. Swapping intersection and union"; in those cases the pitfall is detected when at least one of the patterns is identified in the ontology. • Lexical Content Analysis: The detection methods based on the analysis of lexical entities make use of the content of annotations (e.g., rdfs:label or rdfs:comment) and identifiers (the ID part of the element URI) for detecting pitfalls. These methods are used in 9 of the 32 implemented pitfalls.</p><p>For the pitfall "P22. Using different naming criteria in the ontology", the identifiers of the ontology elements are analyzed to check whether all of them use the same naming convection for example, if all the identifiers are formed according to the CamelCase rules. • Specific Characteristic Search: Five detection methods have been automated by checking general characteristics of the ontology not related to the internal structure of the ontology or to the content of the lexical entities. These characteris-tics could be related, for example, to the name given to the ontology as in the pitfall "P36. URI contains file extension", which is detected when the ontology URI refers to the technology or ontology language used during its development as RDF or OWL. Detailed technical information about detection methods for seeking a specific characteristic can be found in Poveda-Villalón et al. ( <ref type="formula">2013</ref>).</p><p>In addition, some pitfalls can appear several times in the same ontology while others may appear at most once, since they affect the whole ontology instead of its different elements (classes, properties and axioms, among others).</p><p>Figure <ref type="figure" target="#fig_1">8</ref> shows the type of technique(s) used for detecting each pitfall and its cardinality, that is, how many times such a pitfall could be spotted in a given ontology. For example, we can observe that the pitfall "P11. Missing domain or range in properties" is detected by seeking a given pattern and that it could appear more than once, or more precisely, it could appear as many times as relations are defined in the ontology.</p><p>There are cases where a detection method uses more than one technique as indicated in Figure <ref type="figure" target="#fig_1">8</ref>, with the rectangles located between two cells. For example, to detect "P30. Missing equivalent classes", OOPS! seeks a structural pattern, or more precisely, the lack of equivalence between classes. Then for each pair of classes not defined as equivalent, it is checked whether the concepts they represent could be synonyms according to WordNet <ref type="bibr" target="#b10">(Fellbaum, 1998)</ref>, so that possible equivalences between classed are proposed to the user. For "P31. Defining wrong equivalent classes" exactly the opposite is checked, that is, whether two concepts that are defined as equivalent are not considered synonyms in WordNet <ref type="bibr" target="#b10">(Fellbaum, 1998)</ref> in any context.</p><p>It should be noted that for some pitfalls, the detection methods applied might not cover all the possible situations in which a pitfall occurs but a subset of them. In these cases, the methods may be indicators, but for detecting non-simple pitfalls background knowledge might be needed. For example, while "P11. Missing domain or range in properties" is detected in all possible cases by the pattern presented in Figure <ref type="figure">6</ref>, it is not the case for "P05. Defining wrong inverse relationships". In this case, the current pattern will not cover the case of defining, in a math ontology, the relationship "lessThan" as inverse of "greaterThan" instead of "lessThanOrEqual", as some background and common sense knowledge is needed. We plan to improve these methods by incorporating linguistic techniques and resources as proposed in Suárez-Figueroa, Kamel, and Poveda-Villalón (2013).</p><p>In other cases, a detected pitfall might not represent a factual error, and this might be due to specific modeling decision or requirements. For example, "P02. Creating synonyms as classes" might be implemented in some cases in order to support backwards compatibility between different versions of the same ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MOST COMMON PITFALLS</head><p>In order to know which are the most frequent errors in ontology development, we have recorded the number of pitfalls detected in each ontology analyzed with OOPS! To carry out this task we used the 32 pitfalls implemented up to February 2014.</p><p>When analyzing OOPS! execution logs, we could observe that • Between November 14 th , 2011 and February 17 th , 2014, 1971 executions were carried out. During these executions, the ontology analyzed was identified by its URI in 1809 cases, whereas the ontology was "anonymous" (its URI was not defined or it was "null") in 162 cases. • From these 1809 ontologies identified, some URIs indicate that the same ontology has been evaluated several times. We have filtered duplicated URIs, keeping only the first execution per URI. As a result, we counted 610 different ontologies. Further studies will take into account all the executions per URI and analyze the evolution of the pitfalls appearing. • With regard to the 162 anonymous ontologies, we have removed executions with equal results, assuming that they belong to the same ontology, thus avoiding duplications. As a result, we counted 83 different anonymous ontologies. • Overall, OOPS! has analyzed 693 ontologies 23 (610 with URI and 83 anonymous). This set of random ontologies submitted by OOPS! users contains upper level ontologies, as well as domain ontologies. These ontologies were developed either by domain experts, students, newcomers or ontology experts.</p><p>Finally, Figure <ref type="figure" target="#fig_2">9</ref> shows in how many ontologies each pitfall implemented in OOPS! has been diagnosed. The table reveals that most common pitfalls in ontologies are those related to the lack of explicit human and machinereadable information. However, these pitfalls do not correspond to those defined as critical by ontology practitioners but to those defined as "important" or "minor".</p><p>It should be noted that up to September 2013 only 21 were implemented and since then 11 new pitfalls have been implemented and included in the system, more precisely from P30 to P40, marked with a * in Figure <ref type="figure" target="#fig_2">9</ref>. Therefore these new 11 pitfalls have been observed within 241 different ontologies instead of the 693 previously mentioned.</p><p>This study is complemented with a deeper analysis, described in Keet, Suárez-Figueroa, and Poveda-Villalón (2013), about pitfalls detected in (1) ontologies registered in OOPS! log;</p><p>(2) ontologies developed by students; and (3) well-known ontologies developed by experts. In this analysis, the authors conclude that in most of the cases there is no clear evidence of noteworthy differences between the ontologies extracted from OOPS! log, the ones developed by students and the well-known ontologies. Therefore, even though the lack or appearance of pitfalls is considered a sign of quality, it could not be considered a measure of maturity in ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>USER-BASED EVALUATION</head><p>OOPS! main goal is to get ontology evaluation closer to ontology developers, mainly newcomers and domain experts who are not familiar with description logics and ontology implementation languages.</p><p>In order to have an impression of the users' satisfaction when using OOPS!, a feedback form 24 is available online. On this form users can express their impressions after using the system. The answers to the questionnaire received so far reveal that (a) the tool clearly shows which is the problem detected; (b) OOPS! is a useful system; and (c) users would use it again and recommend it to their colleagues. Some users also pointed out some drawbacks such as (a) only rdfs:label and rdfs:comment are considered as annotation but not skos 25 or dc 26 annotations; and (b) OOPS! does not provide suggestions about how to solve a problem.</p><p>In that questionnaire, users also indicated how the system effectively improved the ontologies and helped in the process of ontology curation. In this regard, users mainly pointed out that OOPS! was useful for (a) discovering potential missing statements (e.g. human readable annotations, domain and range declarations and property characterization as inverse, among others), (b) detecting incorrect pairs of inverse properties, (c) enriching property definitions (e.g. by adding the symmetric or transitive characteristic). Besides being used to diagnose ontologies, OOPS! has also been useful as part of the ontology assessment process in the context of ontologies for human behavior recognition, as explained in <ref type="bibr" target="#b29">Rodríguez et al. (2014)</ref>.</p><p>We have also received feedback and suggestions by email in which users show their agreement or disagreement regarding, for example, (a) the pitfall "P13. Missing inverse relationships", which is one of the typical debatable modeling decisions; or (b) when any pitfall detected affects ontology elements that belong to an imported ontology. More detailed information about this type of user evaluation can be found at <ref type="bibr" target="#b24">(Poveda-Villalón, Suárez-Figueroa, &amp; Gómez-Pérez, 2012)</ref>.</p><p>Next, we present some evidence of how OOPS! has been used and adopted worldwide 27 up to February 17 th , 2014. To do so, we have analyzed the log files from the server (from March 1 st , 2012 to February 17 th , 2014). From these logs we have deduced that OOPS! homepage has been visited over 3000 times from 69 different countries, and that the system has been executed around 2000 times 28 from 48 countries. It should be noted that the total number of dif-ferent IP addresses for accessing and executing OOPS! is 1446 and 535, respectively.</p><p>Focusing on the ten countries from where OOPS! has been executed most, Figure <ref type="figure">10</ref> shows how many times OOPS! has been executed in each country, how many single users have run it (different IPs), and how many users have executed the system more than once. These figures show that, in general, most of OOPS! users execute the system more than once.</p><p>It is worth mentioning that the OOPS! web service 29 has been integrated by third-party software; more precisely, it has been integrated into the Ontohub repository 30 . Finally, the system has been distributed for local installation within some private enterprises since their security policies do not allow them to submit the ontologies to an external website.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RELATED WORK</head><p>While in the introduction of this work a number of methods and techniques on ontology evaluation have been reviewed, in this section we focus on existing tools. More precisely, we review topology-based tools for ontology evaluation, that is, those tools focused on the internal Figure <ref type="figure">10</ref>. Map with the top 10 countries executing OOPS! structure (classes, properties, instances, and the explicit and formal relations between them) of the ontology. Basic systems as syntax validators (e.g., RDF Validation Service 31 or Manchester OWL Validator 32 ) are out of scope as they only check whether the ontology is compliant with the given ontology implementation language.</p><p>There are systems that depend on an associated ontology editor. This is the case of XD-Analyzer 33 , a plug-in for NeOn Toolkit 34 , and Ontocheck 35 <ref type="bibr" target="#b30">(Schober et al., 2012)</ref>, a plug-in for Protégé. The former checks some structural features (such as lack of domain and range definitions, use of intersection in domain and ranges, isolated entities, lack of annotations, and missing types, among others) and architectural features (e.g., unused imported ontologies), whereas the latter focuses on metadata aspects (e.g., annotations and naming conventions). The wiki-based ontology editor Moki 36 <ref type="bibr" target="#b21">(Pammer, 2010</ref>) also provides some evaluation features (e.g., lack of annotation and orphaned elements). In addition, even though there is some overlap, the number of problems detected by these tools is lower than the current list of pitfalls detected by OOPS!. In order to provide a detailed comparison, Table <ref type="table" target="#tab_13">3</ref> shows which pitfall could be detected by OOPS! and the different tools mentioned above. In addition, the right column shows which pitfall could be detected by means of a reasoner and specific test cases designed to identify each type of error.</p><p>Regarding web-based systems, we can consider OQuaRE 37 , which extracts quality measurements from the ontology structure and compares these measurements to certain predefined values. The main drawbacks of this tool are that it does not point out any specific problem and that it does not give any information about how to improve the ontology.</p><p>Finally, we can mention command-line tools such a Eyeball 38 , which is also available as Java API, a fact that makes its use more suitable for users with technological background. A graphical user interface in the form of a desktop application is also provided; however, the interface is still in an experimental phase. On the other hand, the problems detected by this tool have little overlap with OOPS!. Its main drawbacks are the technical knowledge needed to use it and the installation process required.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CONCLUSION AND FUTURE WORK</head><p>Evaluating an ontology that is being designed is a vital activity in any ontology development project. A number of approaches for ontology evaluation and tools have been proposed in the literature in the last decades.</p><p>In this work we have focused on a diagnosis method based on a checklist of common errors against which the ontology is compared. Our first contribution, in the form of a live catalogue of pitfalls, represents an extension of previous works about common problems in ontologies.</p><p>The automation of the detection process of 32 pitfalls included in the catalogue leads us to our second contribution: OOPS! (OntOlogy Pitfall Scanner!), an online tool for (semi-) automatic ontology diagnosis. This tool aims to help developers, mainly newcomers, during the ontology evaluation activity. OOPS! represents a step forward within ontology evaluation tools since (a) it enlarges the list of errors detected by most recent and available systems, such as MoKi <ref type="bibr" target="#b21">(Pammer, 2010)</ref>, XD-Analyzer and OntoCheck <ref type="bibr" target="#b30">(Schober et al., 2012)</ref>; (b) it is fully independent of any ontology development environment; (c) it works with the main web browsers (Firefox, Chrome, Safari, and Internet Explorer); and (d) its modular design facilitates the inclusion or removal of detection methods. In addition, the system could also be used for ontology selection. For example, when an organization wants to publish an existent data set as LD, the publisher has to choose one or more ontologies to model the published data. In this case, OOPS! could be used to compare the candidate ontologies along different quality dimensions.</p><p>It can be stated that the approach here presented has been widely accepted by the semantic web community and experts in other areas. Our approach is supported by the following facts:  To sum up, it could be stated that the approach proposed in this work has proof of being on the right track since it has become useful for ontology practitioners and for newcomers willing to evaluate their ontologies. All along the paper we have tried to show how both the catalogue and the tool are maintained and evolved according to users' feedback and research results.</p><p>Even though there are still several complex issues to address, our immediate future work will concentrate on the automation of the remaining 8 pitfalls and the enhancement of some of the already implemented ones. This extension might require increasing the users' interaction with the system by keeping them on the loop and using natural language processing techniques as proposed in <ref type="bibr" target="#b37">Suárez-Figueroa, Kamel, and Poveda-Villalón (2013)</ref>. Future lines of work should create and incorporate guidelines into OOPS! in order to repair the ontology according to the detected pitfalls.</p><p>Focusing on the LOD scenario in which a huge amount of data is annotated by making use of ontologies, an immediate line of work is to consider such data during the evaluation with the purpose of enhancing the results. As a first step, mismatches between the model defined and the instantiated data could be detected as well as inconsistencies.</p><p>Another line of work would involve making the system scalable for ontologies that contain a high number of terms. At the moment of writing this paper the system presents important delays with big ontologies, as for example DBpedia ontology 41 , being the main bottleneck the number of object properties defined in the ontologies.</p><p>More ambitious plans include allowing users to define their own pitfalls or to contextualize existing ones and providing the mechanisms to interpret and process the pitfalls without manual encoding.</p><p>Finally, the integration of OOPS! within existing ontology editors, such as WebProtege 42 or the NeOn Toolkit, would be very convenient for the users since they would not need to change platforms to repair their ontologies after the diagnosis phase.</p><p>It should be observed that the term "pitfall" is used all along this paper for characteristics that often represent a problem or that could lead to errors in ontologies; however, this is not always the case. In other words, depending on the ontology at hand, pitfalls can or cannot represent an actual error. The online version of the catalogue is available at http://www.oeg-upm.net/oops/catalogue.jsp. Previous versions were included in <ref type="bibr" target="#b23">Poveda-Villalón, Suárez-Figueroa, and Gómez-Pérez (2010)</ref> and <ref type="bibr" target="#b24">Poveda-Villalón, Suárez-Figueroa, and Gómez-Pérez (2012)</ref>. 9 Pitfalls "17. Specializing a hierarchy exceedingly" and "P18. Specifying the domain or range exceedingly" were previously titled "P17. Specializing too much a hierarchy" and "P18. Specifying too much the domain or the range" respectively. 10</p><p>The call was launched through several mailing list used by the semantic web community and through particular emails sent to known OOPS! users, mainly experts on ontology modeling or evaluation. 11 It is worth mentioning, since it could seem contradictory, that for processing the data and ranking the pitfalls we have assigned the value 3 for critical pitfalls, so that they appear in the top positions. However, for assigning importance levels within the catalogue we have set the "critical" position in 1, since the critical pitfalls should be corrected in first place.</p><p>12 See file "SurveyImportanceLevelsLexcico-graphicOrder.pdf" at http://goo.gl/0IkbS2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>13</head><p>The data and calculations for obtaining the coefficients are available at http://goo.gl/ QeSyHX Asunción Gómez-Pérez is Full Professor at <ref type="bibr">UPM (2007)</ref>, Director of the Artificial Intelligence department <ref type="bibr">(2008)</ref>, Director of the Ontology Engineering Group (1995, 8 th group in the UPM ranking), Director of the <ref type="bibr">Master (2010) and</ref><ref type="bibr">Ph.D Program (2013)</ref> on Artificial Intelligence, Director of the Co-founder of the COM joint institute between Santander Bank and UPM <ref type="bibr">(2012</ref><ref type="bibr">). PhD in Computer Science (1993)</ref> and Master on Business Administration <ref type="bibr">(1992)</ref>. Before joining <ref type="bibr">UPM, she was visiting (1994</ref><ref type="bibr">UPM, she was visiting ( -1995) )</ref> as a postdoc the Knowledge Systems Laboratory at Stanford University. She has supervised 18 Ph.D thesis, she has coordinated 4 EU projects SEALS, SemSorGrid4Env and Ontogrid and now she is coordinating LIDER. She has participated 21 EU projects <ref type="bibr">(FP5,</ref><ref type="bibr">FP6 and FP7)</ref>   <ref type="bibr">IRIT (Toulouse)</ref> in 2012. She is co-editor of the book "Ontology Engineering in a Networked World" (Springer 2012). She co-organized sessions, conferences, workshops, and tutorials in international events such as <ref type="bibr">ESWC 2014</ref><ref type="bibr">, TKE 2012</ref><ref type="bibr">, ISWC 2012</ref><ref type="bibr">, EKAW 2012</ref><ref type="bibr">, EKAW 2008</ref><ref type="bibr">, ESWC 2008</ref><ref type="bibr">, and WWW 2006.</ref> </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Classification of pitfalls by level of importance</figDesc><graphic coords="14,72.00,92.94,378.00,405.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 8 .</head><label>8</label><figDesc>Figure 8. Classification of pitfalls based on the techniques used for their diagnoses</figDesc><graphic coords="19,149.22,92.94,187.56,110.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 9 .</head><label>9</label><figDesc>Figure 9. Most frequent pitfalls diagnosed by OOPS! in a set of 693 ontologies</figDesc><graphic coords="20,102.06,92.94,317.88,159.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>6 http://www.w3.org/TR/owl-ref/ 7 http://www.w3.org/TR/rdf-primer/ 8</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>14Figure 3</head><label>3</label><figDesc>Figure 3 also indicates which pitfalls are currently implemented by OOPS!.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="3,54.00,460.39,378.00,187.61" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,54.00,455.47,378.00,192.53" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="15,103.50,92.94,279.00,191.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="15,107.09,345.76,271.81,240.76" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="21,81.00,450.72,324.00,197.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Missing Basic Information: Some</head><label></label><figDesc></figDesc><table><row><cell>the same time B is a superclass of A. An</cell></row><row><cell>example of this type of pitfall is represented</cell></row><row><cell>by the class "Professor" as subclass of</cell></row><row><cell>"Person", and the class "Person" as subclass</cell></row><row><cell>of "Professor".</cell></row><row><cell>• P07. Merging Different Concepts in the</cell></row><row><cell>Same Class: A class whose identifier refers</cell></row><row><cell>to two or more different concepts is cre-</cell></row><row><cell>ated. An example of this type of pitfall is</cell></row><row><cell>the creation of the class "StyleAndPeriod".</cell></row><row><cell>• P08. Missing Annotations: Ontology</cell></row><row><cell>terms lack annotations properties such as</cell></row><row><cell>rdfs:label or rdfs:comment. An example of</cell></row><row><cell>this type of pitfall is to create a class and to</cell></row><row><cell>fail to provide human readable annotations</cell></row><row><cell>attached to such a class.</cell></row><row><cell>• P09.</cell></row><row><cell>.</cell></row><row><cell>• P04. Creating Unconnected Ontology</cell></row><row><cell>Elements: Ontology elements (classes,</cell></row><row><cell>relationships or attributes) are created with</cell></row><row><cell>no relation to the rest of the ontology. An</cell></row><row><cell>example of this type of pitfall is to create</cell></row><row><cell>the relationship "memberOfTeam" and to</cell></row><row><cell>miss the class representing teams; thus,</cell></row><row><cell>the relationship created is isolated in the</cell></row><row><cell>ontology.</cell></row><row><cell>• P05. Defining Wrong Inverse Relation-</cell></row><row><cell>ships: Two relationships are defined</cell></row><row><cell>as inverse relations when they are not</cell></row><row><cell>necessarily inverse. An example of this</cell></row><row><cell>type of pitfall is to define "isSoldIn" and</cell></row><row><cell>"isBoughtIn" as inverse relationships.</cell></row><row><cell>• P06. Including Cycles in the Hierarchy</cell></row><row><cell>(Gómez-Pérez, 2004; Noy, &amp; McGuin-</cell></row><row><cell>ness, 2001): A cycle between two classes</cell></row><row><cell>in the hierarchy is included in the ontology</cell></row><row><cell>even though the ontology is not intended</cell></row><row><cell>to have such classes as equivalent. That</cell></row><row><cell>is, some class A has a subclass B, and at</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>• P10. Missing Disjointness (Gómez- Pérez, 2004; Noy, &amp; McGuinness, 2001; Rector et al., 2004): The</head><label></label><figDesc></figDesc><table><row><cell>"Writer" and the relationship range should</cell></row><row><cell>be "LiteraryWork". This pitfall is related</cell></row><row><cell>to the common error that appears when</cell></row><row><cell>defining the ranges and domains described</cell></row><row><cell>in Rector et al. (2004).</cell></row><row><cell>• P12</cell></row><row><cell>ontology</cell></row><row><cell>lacks disjoint axioms between classes or</cell></row><row><cell>between properties that should be defined</cell></row><row><cell>as disjoint. For example, we can create the</cell></row><row><cell>classes "Odd" and "Even" (or the classes</cell></row><row><cell>"Prime" and "Composite") without being</cell></row><row><cell>disjoint; such representation is incomplete</cell></row><row><cell>with regard to the definition of these types</cell></row><row><cell>of numbers.</cell></row><row><cell>• P11. Missing Domain or Range in Prop-</cell></row><row><cell>erties: Relationships and/or attributes with-</cell></row><row><cell>out domain or range (or none of them) are</cell></row><row><cell>included in the ontology. An example of this</cell></row><row><cell>type of pitfall is to create the relationship</cell></row><row><cell>"hasWritten", with no domain nor range</cell></row><row><cell>specification, in an ontology about art in</cell></row><row><cell>which the relationship domain should be</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>. Missing Equivalent Properties:</head><label></label><figDesc></figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>. • P16. Misusing Primitive and Defined Classes (Rector et al., 2004): This pitfall</head><label></label><figDesc></figDesc><table><row><cell>implies failing to make the definition 'com-</cell></row><row><cell>plete' rather than 'partial' (or 'necessary</cell></row><row><cell>and sufficient' rather than just 'necessary).</cell></row><row><cell>It is critical to understand that, in general,</cell></row><row><cell>nothing will be inferred to be subsumed</cell></row><row><cell>under a primitive class by the classifier</cell></row><row><cell>(Rector et al., 2004). This pitfall implies</cell></row><row><cell>that the developer does not understand the</cell></row><row><cell>open world assumption. An example of</cell></row><row><cell>this pitfall is to create the primitive class</cell></row><row><cell>'CheesyPizza ⊏ Pizza ⨅ ∃hasTopping.</cell></row><row><cell>Cheese' instead of creating it as a defined</cell></row><row><cell>class in the following way: 'CheesyPizza</cell></row><row><cell>≡ Pizza ⨅ ∃hasTopping.Cheese'. This</cell></row><row><cell>example is explained in more detail in</cell></row><row><cell>Rector et al. (2004).</cell></row><row><cell>• P17</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>. Specializing a Hierarchy Exceed- ingly 9 : The</head><label></label><figDesc></figDesc><table><row><cell>hierarchy in the ontology is</cell></row><row><cell>specialized in such a way that the final</cell></row><row><cell>leaves cannot have instances since they</cell></row><row><cell>are actually instances and should have</cell></row><row><cell>been created as such instead of as classes.</cell></row><row><cell>Authors in Noy, and McGuinness (2001)</cell></row><row><cell>provide guidelines for distinguishing be-</cell></row><row><cell>tween a class and an instance when mod-</cell></row><row><cell>eling hierarchies. An example of this type</cell></row><row><cell>of pitfall is to create the classes "Madrid",</cell></row><row><cell>"Barcelona" and "Sevilla", among others,</cell></row><row><cell>as subclasses of "Place".</cell></row><row><cell>• P18</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>. Specifying the Domain or the Range Exceedingly (Noy, &amp; McGuinness, 2001; Rector et al., 2004): This pitfall</head><label></label><figDesc></figDesc><table><row><cell>means</cell></row><row><cell>failing to find a domain or a range general</cell></row><row><cell>enough. An example of this type of pitfall</cell></row><row><cell>is to restrict the domain of the relationship</cell></row><row><cell>"isOfficialLanguage" to the class "City",</cell></row><row><cell>instead of allowing the class "Country" or</cell></row><row><cell>a more general concept such as "Geopo-</cell></row><row><cell>liticalObject" to have an official language.</cell></row><row><cell>• P19</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>. Swapping Intersection and Union:</head><label></label><figDesc></figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head></head><label></label><figDesc>An example of this type of pitfall is to link individual by the relation "hasPart" and to omit that "hasPart" is an object property.</figDesc><table><row><cell>that you control." An example of this pit-</cell><cell></cell></row><row><cell>fall is to use "http://www.w3.org/2000/01/</cell><cell></cell></row><row><cell>rdf-schema#Property" that is not de-</cell><cell></cell></row><row><cell>fined in the rdf namespace (http://www.</cell><cell></cell></row><row><cell cols="2">• P36. URI Contains File Extension w3.org/2000/01/rdf-schema#) instead of</cell></row><row><cell>using "http://www.w3.org/1999/02/22-</cell><cell>(Archer, Goedertier, &amp; Loutas, 2012):</cell></row><row><cell>rdf-syntax-ns#Property", that is actually</cell><cell>This involves including file extensions as</cell></row><row><cell>defined in the rdfs namespace (http://www.</cell><cell>".owl", ".rdf", ".ttl", ".n3" and ".rdfxml" in</cell></row><row><cell>w3.org/1999/02/22-rdf-syntax-ns#).</cell><cell>an ontology URI. An example of this pitfall</cell></row><row><cell></cell><cell>is to define an ontology uri as "http://www.</cell></row><row><cell></cell><cell>biopax.org/release/biopax-level3.owl"</cell></row><row><cell></cell><cell>containing the extension ".owl" related to</cell></row><row><cell></cell><cell>the technology used.</cell></row><row><cell></cell><cell>tag where the ontology metadata should</cell></row><row><cell></cell><cell>be provided. An example of this pitfall</cell></row><row><cell></cell><cell>could be found at the "Creative Commons</cell></row><row><cell></cell><cell>Rights Expression Language (cc)" ontol-</cell></row><row><cell></cell><cell>ogy (URI: http://creativecommons.org/</cell></row><row><cell></cell><cell>ns) that does not have any owl:Ontology</cell></row><row><cell></cell><cell>declaration in its RDF file even though</cell></row><row><cell></cell><cell>it has other OWL elements used as, for</cell></row><row><cell></cell><cell>example, owl:equivalentProperty (at the</cell></row><row><cell></cell><cell>moment of carrying out this work).</cell></row><row><cell cols="2">• P39. Ambiguous Namespace: This means</cell></row><row><cell></cell><cell>failing to define both the ontology URI</cell></row><row><cell></cell><cell>and the xml:base namespace. An example</cell></row><row><cell></cell><cell>of this pitfall could be found at "Basic</cell></row><row><cell></cell><cell>Access Control ontology (acl)" (URI:</cell></row><row><cell></cell><cell>http://www.w3.org/ns/auth/acl) that has no</cell></row><row><cell></cell><cell>owl:Ontology tag nor xml:base definition.</cell></row><row><cell cols="2">• P40. Namespace Hijacking (Heath, &amp; Bi-</cell></row><row><cell></cell><cell>zer, 2011): This means reusing or referring</cell></row><row><cell></cell><cell>to terms from other namespaces not actually</cell></row><row><cell></cell><cell>defined in such namespace. This pitfall is</cell></row><row><cell></cell><cell>related to the Linked Data publishing guide-</cell></row><row><cell></cell><cell>lines provided in Heath, and Bizer (2011):</cell></row><row><cell></cell><cell>"Only define new terms in a namespace</cell></row></table><note><p><p><p>• P35. Untyped Property</p><ref type="bibr" target="#b16">(Hogan et al., 2010)</ref></p>: A resource is used as a property without having been declared as a rdf:Property or as some subclass of it. • P37. Ontology Not Available: This involves omitting to provide online description or documentation of the ontology when looking up its URI. An example of this pitfall could be the following case: "Ontology Security (ontosec)" (URI: http://www. semanticweb.org/ontologies/2008/11/On-tologySecurity.owl) which is not available online as RDF nor as HTML (at the moment of carrying out this work). • P38. No OWL Ontology Declaration: This means failing to declare the owl:Ontology</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Gangemi et al., 2006): It</head><label></label><figDesc></figDesc><table><row><cell></cell><cell>• No Inference (Poveda-Villalón,</cell></row><row><cell></cell><cell>Suárez-Figueroa, &amp; Gómez-Pérez,</cell></row><row><cell></cell><cell>2010): This aspect refers to checking</cell></row><row><cell></cell><cell>whether desirable or expected knowl-</cell></row><row><cell></cell><cell>edge could actually be inferred from</cell></row><row><cell></cell><cell>the given ontology.</cell></row><row><cell></cell><cell>• Wrong Inference (Poveda-Villalón,</cell></row><row><cell></cell><cell>Suárez-Figueroa, &amp; Gómez-Pérez,</cell></row><row><cell></cell><cell>2010): This aspect refers to the evalu-</cell></row><row><cell></cell><cell>ation of the inference of erroneous or</cell></row><row><cell></cell><cell>invalid knowledge.</cell></row><row><cell></cell><cell>• Ontology Language: This aspect</cell></row><row><cell></cell><cell>refers to checking whether the ontol-</cell></row><row><cell></cell><cell>ogy is compliant both with the ontol-</cell></row><row><cell></cell><cell>ogy language specification and with</cell></row><row><cell></cell><cell>the syntax in which the ontology is</cell></row><row><cell></cell><cell>formalized.</cell></row><row><cell></cell><cell>• Functional Dimension (Gangemi et al.,</cell></row><row><cell></cell><cell>2006): This is related to the intended use of</cell></row><row><cell></cell><cell>a given ontology; thus the focus is on the</cell></row><row><cell></cell><cell>ontology conceptualization. The following</cell></row><row><cell></cell><cell>aspects are taken into account within this</cell></row><row><cell></cell><cell>dimension:</cell></row><row><cell></cell><cell>• Requirement Completeness (Poveda-</cell></row><row><cell></cell><cell>Villalón, Suárez-Figueroa, &amp; Gómez-</cell></row><row><cell></cell><cell>Pérez, 2010): This aspect deals with the</cell></row><row><cell></cell><cell>coverage of the requirements specified</cell></row><row><cell></cell><cell>in the ORSD by the ontology.</cell></row><row><cell></cell><cell>• Application Context: This aspect refers</cell></row><row><cell></cell><cell>to the adequacy of the ontology for a</cell></row><row><cell></cell><cell>given application or use case.</cell></row><row><cell>is focused on syntax and formal</cell><cell>• Usability</cell></row><row><cell>semantics. For this dimension we consider</cell><cell></cell></row><row><cell>the following aspects:</cell><cell></cell></row><row><cell>• Modeling Decisions (Poveda-Villalón,</cell><cell></cell></row><row><cell>Suárez-Figueroa, &amp; Gómez-Pérez,</cell><cell></cell></row><row><cell>2010): This aspect involves evaluating</cell><cell></cell></row><row><cell>whether developers use the primitives</cell><cell></cell></row><row><cell>provided by ontology implementation</cell><cell></cell></row><row><cell>languages in a correct way, and if there</cell><cell></cell></row><row><cell>are modeling decisions that could be</cell><cell></cell></row><row><cell>improved.</cell><cell></cell></row><row><cell>• Real World Modeling or Common</cell><cell></cell></row><row><cell>Sense (Poveda-Villalón, Suárez-</cell><cell></cell></row><row><cell>Figueroa, &amp; Gómez-Pérez, 2010):</cell><cell></cell></row><row><cell>This aspect deals with the knowledge</cell><cell></cell></row><row><cell>that domain experts expect to appear</cell><cell></cell></row><row><cell>in the ontology, but is not represented.</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>-Profiling Dimension (Gangemi et al., 2006): It</head><label></label><figDesc></figDesc><table><row><cell>refers to the communication</cell></row><row><cell>context of an ontology. For this dimension</cell></row><row><cell>we contemplate the following aspects:</cell></row><row><cell>• Ontology Understanding (Poveda-</cell></row><row><cell>Villalón, Suárez-Figueroa, &amp; Gómez-</cell></row><row><cell>Pérez, 2010): This aspect involves</cell></row><row><cell>evaluating any kind of information</cell></row><row><cell>that can help the user to understand</cell></row><row><cell>the ontology.</cell></row><row><cell>• Ontology Clarity (Poveda-Villalón,</cell></row><row><cell>Suárez-Figueroa, &amp; Gómez-Pérez,</cell></row><row><cell>2010): This aspect refers to the prop-</cell></row><row><cell>erties of ontology elements of being</cell></row><row><cell>easily recognizable and understood</cell></row><row><cell>by the user.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 1 .</head><label>1</label><figDesc>Pitfalls (from P01 to P35) ranked according to the (a) weighted sum, (b) lexicographic order and (c) centroid function techniques</figDesc><table><row><cell></cell><cell>(a) Weighted</cell><cell></cell><cell>(b) Lexicographic order</cell><cell cols="2">(c) Centroid</cell><cell></cell></row><row><cell></cell><cell>sum</cell><cell></cell><cell></cell><cell></cell><cell>function</cell><cell></cell></row><row><cell></cell><cell>Order</cell><cell>Weight</cell><cell>Order</cell><cell>Order</cell><cell>Weight</cell><cell></cell></row><row><cell></cell><cell>P06. Including cycles in the hierarchy</cell><cell>0.0379</cell><cell>P06</cell><cell>P06</cell><cell>0.0366</cell><cell></cell></row><row><cell></cell><cell>P19. Swapping intersection and union</cell><cell>0.0375</cell><cell>P19</cell><cell>P19</cell><cell>0.0359</cell><cell></cell></row><row><cell></cell><cell>P01. Creating polysemous elements</cell><cell>0.0367</cell><cell>P03</cell><cell>P29</cell><cell>0.0351</cell><cell></cell></row><row><cell></cell><cell>P03. Creating the relationship</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>"is" instead of using ''rdfs:subClassOf'', ''rdf:type'' or</cell><cell>0.0364</cell><cell>P01</cell><cell>P01</cell><cell>0.0346</cell><cell></cell></row><row><cell></cell><cell>''owl:sameAs''</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>P29. Defining wrong transitive relationships</cell><cell>0.0348</cell><cell>P29</cell><cell>P03</cell><cell>0.0346</cell><cell></cell></row><row><cell>Critical</cell><cell>P28. Defining wrong symmetric relationships</cell><cell>0.0344</cell><cell>P14</cell><cell>P31</cell><cell>0.0343</cell><cell></cell></row><row><cell>(1)</cell><cell>P31. Defining wrong equivalent classes</cell><cell>0.0343</cell><cell>P31</cell><cell>P15</cell><cell>0.0336</cell><cell>Critical (1)</cell></row><row><cell></cell><cell>P05. Defining wrong inverse relationships</cell><cell>0.0342</cell><cell>P16</cell><cell>P14</cell><cell>0.0336</cell><cell></cell></row><row><cell></cell><cell>P14. Misusing ''owl:allValuesFrom''</cell><cell>0.0341</cell><cell>P15</cell><cell>P28</cell><cell>0.0335</cell><cell></cell></row><row><cell></cell><cell>P27. Defining wrong equivalent relationships</cell><cell>0.0340</cell><cell>P27</cell><cell>P16</cell><cell>0.0333</cell><cell></cell></row><row><cell></cell><cell>P15. Misusing "not some" and "some not"</cell><cell>0.0335</cell><cell>P28</cell><cell>P27</cell><cell>0.0330</cell><cell></cell></row><row><cell></cell><cell>P16. Misusing primitive and defined classes</cell><cell>0.0335</cell><cell>P05</cell><cell>P05</cell><cell>0.0318</cell><cell></cell></row><row><cell></cell><cell>P23. Using incorrectly ontology elements</cell><cell>0.0303</cell><cell>P24</cell><cell>P24</cell><cell>0.0312</cell><cell></cell></row><row><cell></cell><cell>P24. Using recursive definition</cell><cell>0.0303</cell><cell>P12</cell><cell>P23</cell><cell>0.0303</cell><cell></cell></row><row><cell></cell><cell>P12. Missing equivalent properties</cell><cell>0.0301</cell><cell>P10</cell><cell>P12</cell><cell>0.0303</cell><cell></cell></row><row><cell></cell><cell>P34. Untyped class</cell><cell>0.0284</cell><cell>P23</cell><cell>P10</cell><cell>0.0287</cell><cell></cell></row><row><cell></cell><cell>P10. Missing disjointness</cell><cell>0.0283</cell><cell>P34</cell><cell>P34</cell><cell>0.0286</cell><cell></cell></row><row><cell></cell><cell>P35. Untyped property</cell><cell>0.0281</cell><cell>P35</cell><cell>P30</cell><cell>0.0283</cell><cell></cell></row><row><cell>Important (2)</cell><cell>P25. Defining a relationship inverse to itself P30. Missing equivalent classes</cell><cell>0.0279 0.0279</cell><cell>P11 P25</cell><cell>P35 P11</cell><cell>0.0283 0.0275</cell><cell>Important (2)</cell></row><row><cell></cell><cell>P18. Specifying the domain or range exceedingly</cell><cell>0.0272</cell><cell>P26</cell><cell>P25</cell><cell>0.0273</cell><cell></cell></row><row><cell></cell><cell>P26. Defining inverse relationships for a symmetric one</cell><cell>0.0272</cell><cell>P18</cell><cell>P26</cell><cell>0.0270</cell><cell></cell></row><row><cell></cell><cell>P17. Specializing a hierarchy exceedingly</cell><cell>0.0267</cell><cell>P17</cell><cell>P18</cell><cell>0.0267</cell><cell></cell></row><row><cell></cell><cell>P11. Missing domain or range in properties</cell><cell>0.0252</cell><cell>P30</cell><cell>P17</cell><cell>0.0261</cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="3">continued on following page</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 1 .</head><label>1</label><figDesc>Continued</figDesc><table><row><cell></cell><cell>(a) Weighted</cell><cell></cell><cell>(b) Lexicographic order</cell><cell cols="2">(c) Centroid</cell><cell></cell></row><row><cell></cell><cell>sum</cell><cell></cell><cell></cell><cell></cell><cell>function</cell><cell></cell></row><row><cell></cell><cell>Order</cell><cell>Weight</cell><cell>Order</cell><cell>Order</cell><cell>Weight</cell><cell></cell></row><row><cell></cell><cell>P04. Creating unconnected ontology elements</cell><cell>0.0248</cell><cell>P04</cell><cell>P07</cell><cell>0.0253</cell><cell></cell></row><row><cell></cell><cell>P09. Missing basic information</cell><cell>0.0245</cell><cell>P07</cell><cell>P04</cell><cell>0.0253</cell><cell></cell></row><row><cell></cell><cell>P33. Creating a property chain with just one property</cell><cell>0.0240</cell><cell>P02</cell><cell>P09</cell><cell>0.0245</cell><cell></cell></row><row><cell></cell><cell>P02. Creating synonyms as classes</cell><cell>0.0239</cell><cell>P09</cell><cell>P33</cell><cell>0.0237</cell><cell></cell></row><row><cell></cell><cell>P07. Merging different concepts in the same class</cell><cell>0.0234</cell><cell>P33</cell><cell>P02</cell><cell>0.0236</cell><cell></cell></row><row><cell>Minor (3)</cell><cell>P21. Using a miscellaneous class</cell><cell>0.0222</cell><cell>P21</cell><cell>P32</cell><cell>0.0226</cell><cell>Minor (3)</cell></row><row><cell></cell><cell>P32. Several classes with the same label</cell><cell>0.0219</cell><cell>P13</cell><cell>P21</cell><cell>0.0226</cell><cell></cell></row><row><cell></cell><cell>P13. Missing inverse relationships</cell><cell>0.0201</cell><cell>P32</cell><cell>P13</cell><cell>0.0215</cell><cell></cell></row><row><cell></cell><cell>P22. Using different naming criteria in the ontology</cell><cell>0.0189</cell><cell>P20</cell><cell>P20</cell><cell>0.0206</cell><cell></cell></row><row><cell></cell><cell>P20. Misusing ontology annotations</cell><cell>0.0187</cell><cell>P08</cell><cell>P08</cell><cell>0.0205</cell><cell></cell></row><row><cell></cell><cell>P08. Missing annotations</cell><cell>0.0186</cell><cell>P22</cell><cell>P22</cell><cell>0.0200</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12"><head>Table 2 .</head><label>2</label><figDesc>Importance levels for pitfalls assigned by experts</figDesc><table><row><cell>Pitfalls</cell></row></table><note><p>pitfall classification presented in this paper.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>Table 3 .</head><label>3</label><figDesc>Comparative of pitfall coverage between tools (✓ pitfall covered by the tool -* pitfall that could be detected by a reasoner and specific test cases)</figDesc><table><row><cell>Pitfall</cell><cell>OOPS!</cell><cell>XD-Tools</cell><cell>Moki</cell><cell>Onto-check</cell><cell>Reasoner</cell></row><row><cell>P01. Creating polysemous elements</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P02. Creating synonyms as classes</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P03. Creating the relationship "is" instead of using ''rdfs:subClassOf'', ''rdf:type'' or</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>''owl:sameAs''</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">P04. Creating unconnected ontology elements ✓</cell><cell>✓</cell><cell>✓</cell><cell></cell><cell></cell></row><row><cell>P05. Defining wrong inverse relationships</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P06. Including cycles in the hierarchy</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P07. Merging different concepts in the same class</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P08. Missing annotations</cell><cell>✓</cell><cell>✓</cell><cell>✓</cell><cell>✓</cell><cell></cell></row><row><cell>P09. Missing basic information</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P10. Missing disjointness</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P11. Missing domain or range in properties</cell><cell>✓</cell><cell>✓</cell><cell>✓</cell><cell></cell><cell></cell></row><row><cell>P12. Missing equivalent properties</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P13. Missing inverse relationships</cell><cell>✓</cell><cell>✓</cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P14. Misusing ''owl:allValuesFrom''</cell><cell></cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P15. Misusing "not some" and "some not"</cell><cell></cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P16. Misusing primitive and defined classes</cell><cell></cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P17. Specializing a hierarchy exceedingly</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P18. Specifying the domain or range</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>exceedingly</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P19. Swapping intersection and union</cell><cell>✓</cell><cell>✓</cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P20. Misusing ontology annotations</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P21. Using a miscellaneous class</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P22. Using different naming criteria in the ontology</cell><cell>✓</cell><cell></cell><cell></cell><cell>✓</cell><cell></cell></row><row><cell>P23. Using incorrectly ontology elements</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P24. Using recursive definition</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P25. Defining a relationship inverse to itself</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P26. Defining inverse relationships for a symmetric one</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">P27. Defining wrong equivalent relationships ✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell cols="2">P28. Defining wrong symmetric relationships ✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P29. Defining wrong transitive relationships</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P30. Missing equivalent classes</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P31. Defining wrong equivalent classes</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P32. Several classes with the same label</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P33. Creating a property chain with just one property</cell><cell>✓</cell><cell></cell><cell></cell><cell>*</cell><cell></cell></row><row><cell>P34. Untyped class</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>P35. Untyped property</cell><cell>✓</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">continued on following page</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_15"><head></head><label></label><figDesc>as main researchers, and in more than 40 national projects funded by Spanish research agencies and companies. Her main research interests are ontologies, semantic technologies, linked data and the semantic Web. She has published more than 150 papers and two books on Ontological Engineering. Her works on Ontological Engineering about Methontology and the NeON methodology are world-wide known. She has been co-director of the summer school on Ontological Engineering and the Semantic Web since 2003 up to 2011. She acts as reviewers in journals and conferences related with semantic technologies. Mari Carmen Suárez-Figueroa is a teaching assistant at the Escuela Técnica Superior de Ingenieros Informáticos, Universidad Politécnica de Madrid (UPM) and a senior researcher at the Ontology Engineering Group. She graduated in Computer Science in 2001 and got the PhD in Artificial Intelligence in 2010. She has received an Outstanding Award granted by the UPM PhD Commission. Her research lines include ontology development methodologies, ontology development in different domains, ontology evaluation, ontology design patterns, and linked data. In these areas, she has participated in several European and Spanish projects. She has been research visitor at University of Liverpool in 2004, at KMi (Open University) in 2007, and at</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014 9</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_1"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_2"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014 15</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_3"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014 19</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_4"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_5"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014 29</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="34" xml:id="foot_6"><p>International Journal on Semantic Web and Information Systems, 10(2), 7-34, April-June 2014</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>ACKNOWLEDGMENT</head><p>We are very grateful to <rs type="person">Rosario Plaza</rs> for her revisions of the English language; to <rs type="person">Antonio Jiménez</rs> and <rs type="person">Alfonso Mateos</rs> for their comments and help on statistics; to <rs type="person">Mariano Fernández-López</rs> for his revision and suggestions on the ontology part; to <rs type="person">Miguel García</rs> for his technical support; to all the anonymous reviewers, and finally, to OOPS! users. This work has been partially supported by the <rs type="projectName">Spanish</rs> project "<rs type="projectName">4V: volumen, velocidad, variedad y validez en la gestión innovadora de datos</rs>" (<rs type="grantNumber">TIN2013-46238-C4-2-R</rs>).</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funded-project" xml:id="_XpgJp8d">
+					<orgName type="project" subtype="full">Spanish</orgName>
+				</org>
+				<org type="funded-project" xml:id="_uQdxNqS">
+					<idno type="grant-number">TIN2013-46238-C4-2-R</idno>
+					<orgName type="project" subtype="full">4V: volumen, velocidad, variedad y validez en la gestión innovadora de datos</orgName>
+				</org>
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Natural language-based approach for helping in the reuse of ontology design patterns</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aguado De Cea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-87696-0_6</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Knowledge engineering: Practice and patterns</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="32" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Allemang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hendler</surname></persName>
+		</author>
+		<title level="m">Semantic web for the working ontologist: Effective modeling in RDFS and OWL</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">P</forename><surname>Archer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Goedertier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Loutas</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="volume">7</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC</title>
+		<imprint>
+			<publisher>PwC EU Services</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Decision quality using ranked attribute weights</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">H</forename><surname>Barron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">E</forename><surname>Barrett</surname></persName>
+		</author>
+		<idno type="DOI">10.1287/mnsc.42.11.1515</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Management Science</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1515" to="1523" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The semantic web</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Berners-Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hendler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Lassila</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/scientificamerican0501-34</idno>
+		<idno type="PMID">11341160</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific American</title>
+		<imprint>
+			<biblScope unit="volume">284</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="28" to="37" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Experiments on pattern-based ontology design</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Blomqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1597735.1597743</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fifth International Conference on Knowledge Capture</title>
+		<meeting>the Fifth International Conference on Knowledge Capture</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="41" to="48" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A semiotic metrics suite for assessing the quality of ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Burton-Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">C</forename><surname>Storey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Sugumaran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ahluwalia</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.datak.2004.11.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Data &amp; Knowledge Engineering</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="84" to="102" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">ONTO-EVOAL an ontology evolution approach guided by pattern modeling and quality evaluation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Djedidi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Aufaure</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Foundations of information and knowledge systems</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="286" to="305" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">OQuaRE: A SQuaRE-based approach for evaluating the quality of ontologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Duque-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Fernández-Breis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stevens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Aussenac-Gilles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Research and Practice in Information Technology</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">159</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">WordNet: An electronic lexical database</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Fellbaum</surname></persName>
+		</author>
+		<ptr target="http://www.cogsci.princeton.edu/wn" />
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Building a chemical ontology using methontology and the ontology design environment. Intelligent Systems and their Applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Sierra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Sierra</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="37" to="46" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Catenacci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ciaramita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lehmann</surname></persName>
+		</author>
+		<title level="m">Modelling ontology evaluation and validation</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="140" to="154" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Ontology evaluation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-24750-0_13</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on ontologies</title>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="251" to="273" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">An overview of OntoClean</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Welty</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-92673-3_9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook on ontologies</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="201" to="220" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Linked data: Evolving the web into a global data space</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Heath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bizer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Synthesis Lectures on the Semantic Web: Theory and Technology</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="136" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Weaving the pedantic web</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hogan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Harth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Passant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Decker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Polleres</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+	<note>In Linked Data on the Web Workshop</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">RaDON-repair and diagnosis in ontology networks</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Haase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hitzler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stadtmüller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The semantic web: Research and applications</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="863" to="867" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The current landscape of pitfalls in ontologies</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Keet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5th International Conference on Knowledge Engineering and Ontology Development</title>
+		<meeting>the 5th International Conference on Knowledge Engineering and Ontology Development</meeting>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Non-linear multiobjective optimization</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Miettinen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<publisher>Kluwer Academic Publishers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Ontology development 101: A guide to creating your first ontology</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Mcguinness</surname></persName>
+		</author>
+		<idno>SMI-2001-0880</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Standford Medical Informatics</title>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">PhD thesis: Automatic support for ontology evaluation review of entailed statements and assertional effects for OWL ontologies</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pammer</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+		<respStmt>
+			<orgName>Engineering Sciences. Graz University of Technology</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">DILIGENT: Towards a fine-grained methodology for distributed, loosely-controlled and evolvInG</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S</forename><surname>Pinto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tempich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th European Conference on Artificial Intelligence</title>
+		<meeting>the 16th European Conference on Artificial Intelligence</meeting>
+		<imprint>
+			<publisher>IOS Press</publisher>
+			<date type="published" when="2004">2004. 2004</date>
+			<biblScope unit="volume">110</biblScope>
+			<biblScope unit="page">393</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A double classification of common pitfalls in ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Ontology Quality at the 17th International Conference on Knowledge Engineering and Knowledge Management</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-33876-2_24</idno>
+		<title level="m">Validating ontologies with oops! In Knowledge Engineering and Knowledge Management</title>
+		<meeting><address><addrLine>Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="267" to="281" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Detecting good practices and pitfalls when publishing vocabularies on the web</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Vatant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop on Ontology Patterns at the 12th International Semantic Web Conference</title>
+		<meeting>the Workshop on Ontology Patterns at the 12th International Semantic Web Conference</meeting>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">NeOn D2.5.1: A library of ontology design patterns: Reusable solutions for collaborative design of networked ontologies</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Presutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>David</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aguado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+	<note>NeOn project. (FP6-27595</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">OWL pizzas: Practical experience of teaching OWL-DL: Common errors &amp; common patterns</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rector</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Drummond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Horridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rogers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Knublauch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stevens</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page">63</biblScope>
+		</imprint>
+	</monogr>
+	<note>In Engineering Knowledge in the Age of the Semantic Web</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Heidelberg</forename><surname>Springer Berlin</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-30202-5_5</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A survey on ontologies for human behavior recognition</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">D</forename><surname>Rodríguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Cuéllar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lilius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Calvo-Flores</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2523819</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">43</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Schober</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tudose</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Svatek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Boeker</surname></persName>
+		</author>
+		<title level="m">OntoCheck: Verifying ontology naming conventions and metadata completeness in Protégé</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Semantics</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">Suppl 2</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Knowledge processes and ontologies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">P</forename><surname>Schnurr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/5254.912382</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="26" to="34" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">The role of ontology in enhancing semantic searches: The EvOQS framework and its initial validation</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Strasunskas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Tomassen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Knowledge and Learning</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="398" to="414" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<title level="m">NeOn methodology for building ontology networks: Specification, scheduling and reuse</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+		<respStmt>
+			<orgName>Universidad Politécnica de Madrid</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD Thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Lights and shadows in creating a glossary about ontology engineering</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A D</forename><surname>Cea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<idno type="DOI">10.1075/term.19.2.03sua</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Terminology</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="202" to="236" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Ontology engineering in a networked world</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-24794-1</idno>
+		<editor>&amp; Gangemi, A.</editor>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Benefits of natural language techniques in ontology evaluation: The OOPS! case</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Suárez-Figueroa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kamel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poveda-Villalón</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 10th International Conference on Terminology and Artificial Intelligence</title>
+		<meeting>the 10th International Conference on Terminology and Artificial Intelligence</meeting>
+		<imprint>
+			<publisher>TIA</publisher>
+			<date type="published" when="2013">2013. 2013</date>
+			<biblScope unit="page" from="107" to="110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Statistics: Probability, inference, and decision</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Winkler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">L</forename><surname>Hays</surname></persName>
+		</author>
+		<ptr target="http://neon-toolkit.org/wiki/XDTools" />
+		<imprint>
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">21 At the moment of writing this document no inference is used during the evaluation process</title>
+		<ptr target="http://www.w3.org/Style/CSS/20http://jena.sourceforge.net/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">The filtered data, that is</title>
+		<ptr target="http://goo.gl/DWSTNW" />
+	</analytic>
+	<monogr>
+		<title level="m">Due to privacy issues the ontologies&apos; URIs have been renamed</title>
+		<imprint/>
+	</monogr>
+	<note>without duplicates, from OOPS! log is available at</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<ptr target="http://www.oeg-upm.net/oops/use.html" />
+		<title level="m">Detailed use statistics are</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">28 It is worth mentioning that these executions are those registered in the server log since May 2012. This log is different from the OOPS! log of executions that gathers ontologies and results since</title>
+		<imprint>
+			<date type="published" when="2011-11">November 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Her research activities focus on Ontological Engineering, Knowledge Representation and the Semantic Web. Previously she finished her studies as an engineer in Computer Science (2009) by Universidad Politécnica de Madrid, and then she moved to study the Artificial Intelligence Research Master finished in 2010 in the same university</title>
+		<ptr target="http://protegewiki.stanford.edu/wiki/WebPro-tegeMaría" />
+	</analytic>
+	<monogr>
+		<title level="m">She has collaborated during a four-month research stay in 2013 with Mondeca</title>
+		<meeting><address><addrLine>París, France</addrLine></address></meeting>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>Department of the Computer Science Faculty of Universidad Politécnica de Madrid, in the Ontology Engineering Group</orgName>
+		</respStmt>
+	</monogr>
+	<note>Poveda-Villalón is a Ph.D student at the Artificial Intelligence. month stay in 2012 with the Free University of Berlin and with the University of Liverpool in a three-month stay in 2011</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

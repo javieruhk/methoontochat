@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">On-To-Knowledge Methodology (OTKM)</title>
+				<funder>
+					<orgName type="full">EU</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">York</forename><surname>Sure</surname></persName>
+							<email>sure@aifb.uni-karlsruhe.de</email>
+						</author>
+						<author>
+							<persName><forename type="first">Steffen</forename><surname>Staab</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Ontoprise GmbH</orgName>
+								<address>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="laboratory">L3S Leaming Lab Hannover</orgName>
+								<address>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rudi</forename><surname>Studer</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Ontoprise GmbH</orgName>
+								<address>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">FZI Research Center for Information Technologies Knowledge Management Department (WIM)</orgName>
+								<address>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="laboratory">L3S Leaming Lab Hannover</orgName>
+								<address>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Institute AIFB</orgName>
+								<orgName type="institution">University of Karlsruhe Postfach</orgName>
+								<address>
+									<postCode>76128</postCode>
+									<settlement>Karlsruhe</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">On-To-Knowledge Methodology (OTKM)</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">4265B283FC10974C48F5D744C6BA84B2</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this chapter we present the On-To-Knowledge Methodology (OTKM) for introducing and maintaining ontology based knowledge management applications into enterprises with a focus on Knowledge Processes and Knowledge Meta Processes. While the former process circles around the usage of ontologies, the latter process guides their initial set up. We illustrate our methodology by an example from a case study on skills management.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1">Introduction</head><p>In recent years Knowledge Management (KM) has become an important success factor for enterprises. Increasing product complexity, globalization, virtual organizations or customer orientation are developments that ask for a thorough and systematic management of knowledge -within an enterprise and between several cooperating enterprises. Obviously, KM is a major issue for human resource management, enterprise organization and enterprise culture -nevertheless, information technology (IT) plays the crucial enabler for many aspects of KM. As a consequence, KM is an inherently interdisciplinary subject.</p><p>IT-supported KM solutions are built around some kind of organizational memory <ref type="bibr" target="#b0">[1]</ref> that integrates informal, semi-formal and formal knowledge in order to facilitate its access, sharing and reuse by members of the organization(s) for solving their individual or collective tasks <ref type="bibr" target="#b6">[7]</ref>. In such a context, knowledge has to be modelIed, appropriately structured and interlinked for supporting its flexible integration and its personalized presentation to the consumer. Ontologies have shown to be the right answer to these structuring and modeling problems by providing a formal conceptualization of a particular domain that is shared by a group of people in an organization <ref type="bibr" target="#b22">[23,</ref><ref type="bibr" target="#b13">14]</ref>.</p><p>There exist various proposals for methodologies that support the systematic introduction of KM solutions into enterprises. One of the most prominent methodologies is CommonKADS that puts emphasis on an early feasibility study as weH as on constructing several models that capture different kinds of knowledge needed for realizing a KM solution <ref type="bibr" target="#b25">[26]</ref>. TypicaHy, these methodologies conftate two processes that should be kept separate in order to achieve a dear identification of issues <ref type="bibr" target="#b27">[28]</ref>: whereas the first process addresses aspects of introducing a new KM solution into an enterprise as weH as maintaining it (the so-called "Knowledge Meta Process"), the second process addresses the handling of the already set-up KM solution (the so-caHed "Knowledge Process") (see Figure <ref type="figure">6</ref>.1). E.g. in the approach described in <ref type="bibr" target="#b24">[25]</ref>, one can see the mixture of aspects from the different roles that, e.g. "knowledge identification" and "knowledge creation" play. The Knowledge Meta Process would certainly have its focus on knowledge identification and the Knowledge Process would rather stress knowledge creation. However, Knowledge Management is a process which is not only govemed by IT. Hence, one needs to keep the balance between human problem solving and automated IT solutions. This balancing distinguishes KM from traditional knowledge-based systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Knowledge Process</head><p>Fig. <ref type="figure">6</ref>.1. Two orthogonal processes with feedback loops</p><p>The here presented methodology was developed and applied in the EU project On-To-Knowledge<ref type="foot" target="#foot_0">5</ref>  <ref type="bibr" target="#b5">[6]</ref>. We now describe some general issues when implementing and inventing knowledge management applications. Then we focus on the knowledge meta process and the knowledge process and illustrate the instantiation of the knowledge meta process by an example from a skiHs management case study of the On-To-Knowledge project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2">Implementation and Invention of KM Applications</head><p>To implement and invent any KM application, one has to consider different processes (cf Figure <ref type="figure">6</ref>.2). We experienced mainly three major process that influenced our case study, i.e. "Knowledge Meta Process", "Human Issues" and "Software Engineering". These processes are not completely separate but also interfere. As mentioned in the introduction, KM is an inherently interdisciplinary subject which is not only governed by information technology (lT). Hence, one needs to keep the balance between human problem solving and automated IT solutions. As a rule of thumb it was carefully estimated by KM experts at a "Dagstuhl Seminar on Knowledge Management"6 (cf <ref type="bibr" target="#b23">[24]</ref>) that in "real life" IT support cannot cover more than 10-30% of KM. Fig. <ref type="figure">6</ref>.2. Relevant processes for developing and deploying KM applications Human issues (HI) and the related cultural environment of organizations heavily influence the acceptance of KM. It is often mentioned in discussions that the success of KM -and especially KM applications -strongly depends on the acceptance by the involved people. As a consequence, "quick wins" are recommended for the initial phase of implementing any KM strategy. The aim is to quickly convince people that KM is useful for them and adds value to their daily work.</p><p>Software engineering (SE) for knowledge management applications has to fit to the other processes. Especially the requirements coming from the knowledge processes need to be reflected.</p><p>In the following sections we will now focus on the Knowledge Meta Process as the core process and illustrate some cross-links to the other mentioned processes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3">Knowledge Meta Process</head><p>The Knowledge Meta Process (cf Figure <ref type="figure">6</ref>.3) consists of five main steps. Each step has numerous sub-steps, requires a main decision to be taken at the end and results in a specific outcome. The main stream indicates steps (phases) that finally lead to an ontology based KM application. The phases are "Feasibility Study", "Kickoff", "Refinement", "Evaluation" and "Application &amp; Evolution". Below every box depicting a phase the most important sub-steps are listed, e.g. "Refinement" consists of the sub-steps "Refine semi-formal ontology description", "Formalize into target ontology" and "Create prototype" etc. Each document-ftag above a phase indicates major outcomes of the step, e.g. "Kickoff" results in an "Ontology Requirements Specification Document (ORSD)" and the "Semi-formal ontology description" etc. Each node above a ftag represents the major decisions that have to be taken at the end to proceed to the next phase, e.g. whether in the Kickoff phase one has captured sufficient requirements. The major outcomes typically serve as decision support for the decisions to be taken. The phases "Refinement -Evaluation -Application &amp; Evolution" typically need to be performed in iterative cycles. One might notice that the development of such an application is also driven by other processes, e.g. software engineering and human issues. We will only briefty mention some human issues in the example section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.1">Feasibility Study</head><p>Any knowledge management system may function properly only if it is seamlessly integrated in the organization in which it is operational. Many factors other than technology determine success or failure of such a system. To analyze these factors, we initially start with afeasibility study <ref type="bibr" target="#b25">[26]</ref>, e.g. to identify problemJopportunity areas and potential solutions. In general, a feasibility study serves as adecision support for econornical, technical and project feasibility, determining the most promising focus area and target solution.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.2">Kickoff</head><p>In the kickoff phase the actual development of the ontology begins. Sirnilar to requirements engineering and as proposed by <ref type="bibr" target="#b9">[10]</ref> we start with an ontology requirements specification document (ORSD). The ORSD describes what an ontology should support, sketching the planned area of the ontology application and listing, e.g. valuable knowledge sources for the gathering of the semi-formal ontology description. The ORSD should guide an ontology engineer to decide about inclusion and exclusion of concepts and relations and the hierarchical structure of the ontology.  In this early stage one should look for already developed and potentially reusable ontologies. The outcome of this phase is (beside the ontology requirement specification docurne nt (ORSD» a semi-formal description of the ontology, i.e. a graph of named nodes and (un-)named, (un-)directed edges, both of which may be Iinked with further descriptive text e.g. in form of mi nd maps (cf <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b29">30]</ref>). If the requirements are sufficiently captured, one may proceed with the next phase. The decision is typically taken by ontology engineers in collaboration with domain experts. "Sufficiently" in this context means, that from the current perspective there is no need to proceed with capturing or analyzing knowledge. However, it might be the case that in later stages gaps are recognized. Therefore, the ontology development process is cyclic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.3">Refinement</head><p>During the kick-off and refinement phase one might distinguish in general two concurrent approaches for modeling, in particular for refining the serni-formal ontology description by considering relevant knowledge sources: top-down and bottom-up. In a top-down-approach for modeling the domain one starts by modeling concepts and relationships on a very generic level. Subsequently these items are refined. This approach is typically done manually and leads to a high-quality engineered ontology. Available top-level ontologies may here be reused and serve as a starting point to develop new ontologies. In our example scenario we encountered a middle-out approach, i.e. to identify the most important concepts which will then be used to obtain the remainder of the hierarehy by generalization and speeialization. However, with the support of an automatie doeument analysis, a typical bottom-up-approaeh may be applied. There, relevant eoneepts are extraeted semi-automatieally from available doeuments. Based on the assumption that most eoneepts and eoneeptual struetures of the domain as weIl the eompany terminology are deseribed in doeuments, applying knowledge aequisition from text for ontology design helps building ontologies automatieally.</p><p>To formalize the initial semi-formal deseription of the ontology into the target ontology, ontology engineers firstly form a taxonomy out ofthe semi-formal deseription of the ontology and add relations other than the "is-a" relation whieh forms the taxonomical strueture. The ontology engineer adds different types of relations as analyzed e.g. in the eompeteney questions to the taxonomie hierarehy. However, this step is eyc1ie in itself, meaning that the ontology engineer now may start to interview domain experts again and use the already formalized ontology as a base for diseussions. It might be helpful to visualize the taxonomie hierarchy and give the domain experts the task to add attributes to eoncepts and to draw relations between coneepts (e.g. we presented them the taxonomy in form of a mind map as mentioned in the previous seetion). The ontology engineer should extensively document the additions and remarks to make ontologie al eommitments made during the design explicit.</p><p>The outcome of this phase is the "target ontology", that needs to be evaluated in the next step. The major decision that needs to be taken to finalize this step is whether the target ontology fulfills the requirements eaptured in the previous kiekoff phase. Typically an ontology engineer eompares the initial requirements with the eurrent status of the ontology. This decision will typieally be based on the personal experienee of ontology engineers. As a good rule of thumb we diseovered that the first ontology should provide enough "flesh" to build a prototypical applieation. This applieation should be able to serve as a first prototype system for evaluation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.4">Evaluation</head><p>We distinguish between three different types of evaluation: (i) teehnology-foeussed evaluation, (ii) user-focussed evaluation and (iii) ontology-focused evaluation.</p><p>Our evaluation framework for technology-focussed evaluation consists of two main aspeets: (i) the evaluation of properties of ontologies generated by development tools, (ii) the evaluation of the teehnology properties, i.e. tools and applications which inc1udes the evaluation of the evaluation tool properties themselves. In an overview these aspeets are structured as follows:(i) Ontology properties (e.g. language eonformity (Syntax), eonsisteney (Semanties» and (ii) teehnology properties (e.g. interoperability, turn around ability, sealability ete.).</p><p>The framework shown above eoneentrates on the technical aspeets of ontologies and related ontologies. However, the aspeet of user-focussed evaluation remains open. The most important point from our perspective is to evaluate whether users are satisfied by the KM application. More speeifie, whether an ontology based applieation is at least as good as already existing applieations that solve similar tasks.</p><p>Beside the above mentioned process oriented and pragmatic evaluation methods, one also need to formally evaluate ontologies. One of the most prominent approaches here is the OntoClean approach (cf e.g. <ref type="bibr" target="#b14">[15]</ref>), which is based on philosophical notions. Applying this approach leads to more correct hierarchies of ontologies.</p><p>The outcome of this phase is an evaluated ontology, ready for the roll-out into a productive system. However, based on our own experiences we expect in most cases several iterations of "Evaluation -Refinement -Evaluation" until the outcome supports the decision to roll-out the application. The major decision that needs to be taken for finalizing this phase is whether the evaluated ontology fulfills all evaluation criteria relevant for the envisaged application of the ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.5">Application &amp; Evolution</head><p>The application of ontologies in productive systems, or, more specifically, the usage of ontology based systems, is being described in the following Section 6.4 that illustrates the knowledge process.</p><p>The evolution of ontologies is primarily an organizational process. There have to be strict rules to the update, insert and delete processes of ontologies (cf <ref type="bibr" target="#b28">[29]</ref>). We recommend, that ontology engineers gather changes to the ontology and initiate the switch-over to a new version of the ontology after thoroughly testing all possible effects to the application. Most important is therefore to clarify who is responsible for maintenance and how it is performed and in wh ich time intervals is the ontology maintained.</p><p>The outcome of an evolution cycle is an evolved ontology, i.e. typically another version of it. The major decision to be taken is when to initiate another evolution cycle for the ontology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.4">Knowledge Process</head><p>Once a KM application is fully implemented in an organization, knowledge processes essentially circle around the following steps (cf Figure <ref type="figure">6</ref>.4).</p><p>• Knowledge creation and/or import of documents and meta data, i.e. contents need to be created or converted such that they fit the conventions of the company, e.g. to the knowiedge management infrastructure of the organization; • then knowledge items have to be captured in order to elucidate importance or interlinkage, e.g. the Iinkage to conventionalized vocabulary of the company by the creation of relational metadata; • retrieval of and access to knowledge satisfies the "simple" requests for knowledge by the knowledge worker; • typically, however, the knowiedge worker will not only recall knowledge items, but she will process it for further use in her context. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5">Example: Skills Management @ Swiss Life</head><p>We now give an example of the Knowledge Meta Process instantiation of a skills management case study at Swiss Life (cf. <ref type="bibr" target="#b17">[18]</ref>). Skills management makes skills of employees explicit. Within the case study existing skill databases and documents (like e.g. personal homepages) are integrated and expanded. Two aspects are covered by the case study: first, explicit skills allow for an advanced expert search within the intranet. Second, one might explore his/her future career path by matching current skill profiles vs. job profiles. To ensure that all integrated knowledge sources are used in the same way, ontologies are used as a common mean of interchange to face two major challenges. Firstly, being an international company located in Switzerland, Swiss Life has internally four officiallanguages, viz. German, English, French and Italian. Secondly, there exist several spellings of same concepts, e.g. "WinWord" vs.</p><p>"MS Word". To tackle these problems, ontologies offer extern al representations for different languages and allow for representation of synonymity. Figure <ref type="figure">6</ref>.5 shows a screenshot from the skills management application. The prototype enables any employee to integrate personal data from numerous distributed and heterogeneous sources into a single coherent personal homepage.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.1">Feasibility Study</head><p>For identifying factors which can be central for the success or failure of the ontology development and usage we made a requirement analysis of the existing skills management environment and evaluated the needs for a new skills management system. We identified mainly the human resources department and the management level of all other departments as actors and stakeholders for the skills management. After finding the actors and stakeholders in the skills management area, we named the ontology experts for each department, which are preferably from the associated training group of each department.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.2">Kickoff</head><p>The departments private insurance, human resources and IT constitute three different domains that were the starting point for an initial prototype. The task was to develop a skills ontology for the departments containing three trees, viz. for each department one. The three trees should be combined under one root with cross-links in between. The root node is the abstract concept "skills" (which means in German "KenntnisselFaehigkeiten") and is the starting point to navigate through the skills tree from the top.</p><p>During the kickoff phase two workshops with three domain experts <ref type="foot" target="#foot_2">7</ref> were held. The first one introduced the domain experts to the ideas of ontologies. Additional potential knowledge sources were identified by the domain experts, that were exhaustively used for the development of the ontologies, e.g. a book of the Swiss Association of Data Processing ("Schweizerischer Verband fuer Datenverarbeitung") describing professions in the computing area in a systematic way similar to an ontology. Obviously, this was an excellent basis to manually build the skills ontology for the IT domain. First experiments with extracting an ontology semi-automatically by using information extraction tools did not satisfy the needs for a clearly structured and easily understandable model of the skills. The domain experts and potential users feIt very uncomfortable with the extracted structures and rather chose to build the ontology by themselves "manually". To develop the first versions ofthe ontologies, we used a mind mapping tool ("MindManager"). It is typically used for brainstorming sessions and provides simple facilities for modelling hierarchies very quickly. The early modelling stages for ontologies contain elements from such brainstorming sessions (e.g. the gathering of the semi-formal ontology description).</p><p>During this stage a lot of "concept islands" were developed, which were isolated sets of related terms. These islands are subdomains of the corresponding domain and are self-contained parts like "operating systems" as sub domain in the IT domain. After developing these concept islands it was necessary to combine them into a single tree. This was a more difficult part than assembling the islands, because the islands were interlaced and for some islands it was possible to add them to more than -. one other island, which implies awkward skills trees that contain inconsistencies after merging. For each department one skills tree was built in separate workshops. A problem that came up very early was the question where to draw the li ne between concepts and instances. E.g. is the programming language Java instantiated by "jdk1.3" or is "jdk1.3" so generic that it still belongs to the concept-hierarchy? Another problem was the size of the ontology. What is the best depth and width of each skills tree? OUf solution was, that it depends on the domain and should be determined by the domain expert.</p><p>As result of the kick-off phase we obtained the serni-formal ontology descriptions for the three skins trees, which were ready to be formalized and integrated into a single skins ontology. At this stage the skins trees reached a maturity that the combination of them caused no major changes for the single skins trees.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.3">Refinement</head><p>During the refinement phase we formalized and integrated the serni-formal ontology descriptions into a single coherent skins ontology. An important aspect during the formalization was (i) to give the skins proper names that uniquely identify each skin and (ii) to decide on the hierarchical structure of the skins. We discussed two different approaches for the hierarchical ordering: we discovered that categorization of skins is typically not based on an is-a-taxonomy, but on a much weaker HASSUBTOPIC relationship that has implications for the inheritance of attached relations and attributes. However, for our first prototype this distinction made no difference due to rnissing cross-taxonornical relationships. But, according to <ref type="bibr" target="#b14">[15]</ref>, subsumption provided by i s -a taxonornies is often misused and a later formal evaluation of the skins ontology according to the proposed OntoClean methodology possibly would have resulted in a change of the ontology.</p><p>In a second refinement cyc1e we added one more relation type, an "associative relation" between concepts. They express relations outside the hierarchic skins tree, e.g. a relation between "HTML" and "JSP", which occur not in the same tree, but correspond with each other, because they are based on the same content. "HTML" is in the tree "mark-up languages", while the tree "scripting languages" contains "JSP". This is based on the basic characteristics and the history of both concepts, which changed over time. But in reality they have a c10se relationship, which can be expressed with the associative relation.</p><p>The other task in this phase was to integrate the three skins ontologies into one skins ontology and elirninate inconsistencies in the domain ontology parts and between them. Because the domain ontologies were developed separately, the merger ofthem caused some overlaps, which had to be resolved. This happened for example in the computer science part of the skins trees, where the departments IT and private insurance have the same concepts like "Trofit" (which is a Swiss Life specific application). Both departments use this concept, but each uses a different view. The IT from the development and the private insurance from the users view. Additionally the personal skills of any employee are graded according to a generic scale of four levels: basic knowledge, practical experience, competency, and top specialist. The employees will grade their own skins themselves. As known from personal contacts to other companies (e.g. Credit Suisse, ABB and IBM), such an approach proved to produce highly reliable information.</p><p>As a result at the end of the refinement phase the "target skills ontology" consisted of about 700 concepts, which could be used by the employees to express their skin profile.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.4">Application &amp; Evolution</head><p>The evaluation of the prototype and the underlying ontology was unfortunately skipped due to internal restructuring at Swiss Life which led to a c10sing down of the whole case study.</p><p>Still, we considered the fonowing aspects for the evolution of our skins management application: The competencies needed from employees are a moving target. Therefore the ontologies need to be constantly evaluated and maintained by experts from the human resource department. New skins rnight be suggested by the experts themselves, but mainly by employees. Suggestions inc1ude both, the new skin itself as weIl as the position in the skills tree where it should be placed. While employees are suggesting only new skills, the experts decide which skills should change in name and/or position in the skills tree and, additionally, decide which skill will be deleted. This was seen as necessary to keep the ontology consistent and to avoid that e.g. similar if not the same concept appear even in the same branch. For each ontology (and domain) there should exist adesignated ontology manager who decides if and how the suggested skill is integrated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.6">Related Work on Methodologies</head><p>A first overview on methodologies for ontology engineering can be found in <ref type="bibr" target="#b7">[8]</ref>. More recently, there have been joint efforts of OntoWeb<ref type="foot" target="#foot_3">8</ref> members, who produced an extensive state-of-the-art overview of methodologies for ontology engineering (cf <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b8">9]</ref>). There exist also deliverables on guidelines and best practices for industry (cf <ref type="bibr" target="#b18">[19,</ref><ref type="bibr" target="#b19">20]</ref>) with a focus on applications for E-Commerce, Information Retrieval, Portals and Web Communities. With respect to this work, especially the following approaches are noteworthy.</p><p>CommonKADS <ref type="bibr" target="#b25">[26]</ref> is not per se a methodology for ontology development. It covers aspects from corporate knowledge management, through knowledge analysis and engineering, to the design and implementation of knowledge-intensive information systems. CommonKADS has a focus on the initial phases for developing knowledge management applications, we therefore relied on CommonKADS for the early feasibility stage. E.g. a number of worksheets is proposed that guide through the process of finding potential users and scenarios for successful implementation of knowledge management.</p><p>Cyc <ref type="bibr" target="#b20">[21]</ref> arose from experience of the development of the Cyc knowledge base (KB)9, which contains a huge amount of common sense knowledge. Cyc has been used during the experimentation in the High Performance Knowledge Bases (HPKB), a research program to advance the technology of how computers acquire, represent and manipulate knowledge lO • Until now, this methodology is only used for building the Cyc KB. However, Cyc has different micro-theories showing the knowledge of different domains from different viewpoints. In some areas, several microtheories can be used, and each micro-theory can be seen from different perspectives and with different assumptions. The Cyc project strongly enhanced the visibility of the knowledge engineering community, but at the same time it suffered from his very high goal to model "the world". Recently this goal has been lowered and now one has divided this too complex task into smaller ones,e.g. the Cyc top-level ontology was separated.</p><p>Recently, the DOGMA modelling approach <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b26">27]</ref> has been presented. The database-inspired approach relies on the explicit decomposition of ontological re-sources into ontology bases in the form of simple binary facts called lexons and into so-called ontological commitments in the form of description mIes and constraints.</p><p>The Enterprise Ontology <ref type="bibr">[35] [36]</ref> proposed three main steps to engineer ontologies: (i) to identify the purpose, (ii) to capture the concepts and relationships between these concepts, and the terms used to refer to these concepts and relationships, and (iii) to codify the ontology. In fact, the principles behind this methodology influenced many work in the ontology community and they are also reflected in the steps kickoff and refinement of our methodology and extended them.</p><p>The KACTUS <ref type="bibr" target="#b2">[3]</ref> approach requires an existing knowledge base for the ontology development. They propose to use means of abstraction, i.e. a bottom-up strategy, to extract on ontology out of the knowledge base as soon as an application in a similar domain is built. METHONTOLOGY <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b9">10]</ref> is a methodology for building ontologies either from scratch, reusing other ontologies as they are, or by a process of re-engineering them. The framework enables the construction of ontologies at the "knowledge level". The framework consists of: identification of the ontology development process where the main activities are identified (evaluation, configuration, management, conceptualization, integration implementation, etc.); a lifecyc1e based on evolving prototypes; and the methodology itself, which specifies the steps to be taken to perform each activity, the techniques used, the products to be output and how they are to be evaluated. METHONTOLOGY is partially supported by WebODE. Our combination ofthe On-To-Knowledge Methodology and OntoEdit (cf <ref type="bibr" target="#b29">[30,</ref><ref type="bibr" target="#b30">31]</ref>) is quite sirnilar to the combinations of METHONTOLOGY and WebODE (cf <ref type="bibr" target="#b1">[2]</ref>. In fact, they are the only duet that has reached a comparable level of integration of tool and methodology.</p><p>SENSUS <ref type="bibr" target="#b32">[33]</ref> is a top-down and middle-out approach for deriving domain specific ontologies from huge ontologies. The approach does not cover the engineering of ontologies as such, therefore offers a very specialized methodo10gy.</p><p>TOVE <ref type="bibr" target="#b33">[34]</ref> proposes a formalized method for building ontologies based on competency questions. We found the approach of using competency questions, that describe the questions that an ontology shou1d be ab1e to answer, very he1pfu1 and integrated it in our methodology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.7">Conclusion</head><p>The described methodo10gy was deve10ped and app1ied in the On-To-Know1edge project. One of the core contributions of the methodology that could not be shown here is the 1inkage of available too1 support with case studies by showing when and how to use too1s during the process of deve10ping and mnning onto10gy based applications in the case studies (cf. <ref type="bibr" target="#b31">[32]</ref>).</p><p>Lessons 1earned during setting up and emp10ying the methodology in the On-To-Know1edge case studies inc1ude: (i) different processes drive KM projects, but "Human Issues" might dorninate other ones (as already outlined by Davenport <ref type="bibr" target="#b4">[5]</ref>), (ii) guidelines for domain experts in industrial contexts have to be pragmatic, (Hi) collaborative ontology engineering requires physical presence and advanced tool support and (iv) brainstorming is very helpful for early stages of ontology engineering, especially for domain experts not farniliar with modelling (more details on be found e.g. in <ref type="bibr" target="#b29">[30,</ref><ref type="bibr" target="#b30">31]</ref>).</p><p>In this chapter we have shown a process oriented methodology for introducing and maintaining ontology based knowledge management systems. eore to the methodology are Knowledge Processes and Knowledge Meta Processes. While Knowledge Meta Processes support the setting up of an ontology based application, Knowledge Processes support its usage. Still, there are many open issues to solve, e.g. how to handle a distributed process of emerging and aligned ontologies that is likely to be the scenario in the semantic web.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>' 6 .Fig. 6 . 3 .</head><label>663</label><figDesc>Fig. 6.3. The Knowledge Meta Process</figDesc><graphic coords="5,55.02,53.78,319.81,220.21" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 6 . 4 .</head><label>64</label><figDesc>Fig. 6.4. The Knowledge Process</figDesc><graphic coords="8,61.98,55.58,274.69,229.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Fig. 6.5. Skills Management Case Study @ Swiss Life</figDesc><graphic coords="10,52.44,51.80,327.49,286.45" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_0"><p>http://www.ontoknowledge.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_1"><p>http://dagstuhl-km-2000.aitb.uni-karlsruhe.de/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_2"><p>Thanks to Urs Gisler, Valentin Schoeb and Patrick Shann from Swiss Life for their efforts during the ontology modelling.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_3"><p>OntoWeb, a European thematic network, see hup://www.ontoweb.org for further information.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_4"><p>9 Cyc knowledge base, see http://www.cyc.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_5"><p>com 10 HPKB, see http://reliant.teknowledge . com/HPKB/about/about .html</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head n="6.8">Acknowledgments</head><p>The research presented in this chapter greatly benefits from contributions of our colleagues at the <rs type="institution">Institute AIFBlUniversity of Karlsruhe</rs>, the closely related company <rs type="person">Ontoprise GmbH</rs> and our project partner <rs type="institution">SwissLife from On-To-Knowledge</rs>. We thank especially <rs type="person">Hans-Peter Schnurr</rs> (now <rs type="affiliation">Ontoprise GmbH</rs>) and <rs type="person">Hans Akkermans</rs> (<rs type="affiliation">VU Amsterdam</rs>) for their seminal work while setting up the baseline version of this methodology. Part of this work has been financed by the <rs type="funder">EU</rs> in the project IST-1999-101320n-To-Knowledge.</p></div>
+			</div>
+			<listOrg type="funding">
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Toward a technology for organizational memories</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Abecker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bemardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hinkelmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kuehn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sintek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="40" to="48" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">WebODE: a scalable workbench for ontological engineering</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Arpfrez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corcho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Femandez-Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proeeedings of the First International Conferenee on Knowledge Capture (K-CAP) Oet. 21-23</title>
+		<meeting><address><addrLine>Vietoria, Re., Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001. 2001</date>
+		</imprint>
+	</monogr>
+	<note>G6mez-perez</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Building and reusing ontologies for electrical network applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bemaras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Laresgoiti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Corera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proeeedings of the European Conferenee on ArtificialIntelligenee (ECAI&apos;96)</title>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Use your head</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Buzan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1974">1974</date>
+			<publisher>BBC Books</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Working Knowledge -How organisations manage what they know</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Davenport</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Prusak</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<publisher>Havard Business School Press</publisher>
+			<pubPlace>Boston, Massachusetts</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Davies</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fensel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Van Harmelen</surname></persName>
+		</author>
+		<title level="m">On-To-Knowledge</title>
+		<imprint>
+			<publisher>Semantie Web enabled Knowledge Management. J. Wiley and Sons</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Methods and tools for corporate knowledge management</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dieng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giboin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ribiere</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. Journal of Human-Computer Studies</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="598" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Femandez-L6pez. Overview of methodologies for building ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proeeedings of the IJCAl-99 Workshop on Ontologies and Problem-Solving Methods: Lessons Learned and Future Trends</title>
+		<imprint>
+			<publisher>CEUR Publications</publisher>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">A survey on methodologies for developing, maintaining, integrating, evaluating and reengineering ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Femandez-L6pez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Euzenat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kalfoglou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Pisanelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schorlemmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Steve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Stojanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Stumme</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+		<respStmt>
+			<orgName>Universidad Politecnia de Madrid</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Building a chemical ontology using Methontology and the Ontology Design Environment</title>
+	</analytic>
+	<monogr>
+		<title level="j">Intelligent Systems</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Femandez-L6pez</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Sierra</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Sierra</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">G6mez-perez. A framework to verify know ledge sharing technology</title>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems withApplication</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="519" to="529" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m">Proceedings of the 13th International Conference on Knowledge Engineering and Knowledge Management: Ontologies and the Semantic Web (EKAW 2002), volume 2473 of Lecture Notes in Artificial Intelligence (LNAI)</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Benjamins</surname></persName>
+		</editor>
+		<meeting>the 13th International Conference on Knowledge Engineering and Knowledge Management: Ontologies and the Semantic Web (EKAW 2002), volume 2473 of Lecture Notes in Artificial Intelligence (LNAI)<address><addrLine>Siguenza, Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Femandez-L6pez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corcho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">T</forename><surname>Ahn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Aussenac-Gilles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bemardos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Christophides</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Corby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Crowther</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Engels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Esteban</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gandon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kalfoglou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Karvounarakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>L6pez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lozano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Magkanaraki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Manzano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Motta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Noy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Plexousakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+		<respStmt>
+			<orgName>Universidad Politecnia de Madrid</orgName>
+		</respStmt>
+	</monogr>
+	<note>Technical roadmap. OntoWeb deliverable 1.1.2</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Towards principles for the design of ontologies used for knowledge sharing</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Gruber</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Human-Computer Studies</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">5/6</biblScope>
+			<biblScope unit="page" from="907" to="928" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Evaluating ontological decisions with OntoClean</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Welty</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications ofthe ACM</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="61" to="65" />
+			<date type="published" when="2002-02">February 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Hendler</surname></persName>
+		</author>
+		<title level="m">Proceedings of the First International Semantic Web Conference: The Semantic Web (ISWC 2002), volume 2342 of Lecture Notes in Computer Science (LNCS)</title>
+		<meeting>the First International Semantic Web Conference: The Semantic Web (ISWC 2002), volume 2342 of Lecture Notes in Computer Science (LNCS)<address><addrLine>Sardinia, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Formal ontology engineering in the DOGMA approach</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jarrar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Meersman</surname></persName>
+		</author>
+		<editor>Meersman et al.</editor>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="1238" to="1254" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Introducing ontology-based skills management at a large insurance company</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Lau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings ofthe Modellierung 2002</title>
+		<meeting>the Modellierung 2002<address><addrLine>Tutzing, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002-03">March 2002</date>
+			<biblScope unit="page" from="123" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Successful scenarios for ontology-based applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Akkermans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L-M</forename><surname>Bouladoux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dieng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Handschuh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hegarty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Persidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Tamma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Trousse</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+	<note>OntoWeb deliverable 2.1, France Telecom R&amp;D</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Best practices and guidelines</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bouillon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bryan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dieng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Femandez-L6pez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>G6mez-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ecoub\et</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Persidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+	<note>OntoWeb deliverable 2.2, France Telecom R&amp;D</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Building large knowledge-based systems. Representation and inference in the CYC project</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">B</forename><surname>Lenat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Guha</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1990">1990</date>
+			<publisher>Addison-Wesley</publisher>
+			<pubPlace>Reading, Massachusetts</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Meersman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tari</surname></persName>
+		</author>
+		<title level="m">Proceedings ofthe Confederated International Conferences: On the Move to Meaningful Internet Systems (CoopIS, DOA, and ODBASE 2002), volume 2519 of Lecture Notes in Computer Science (LNCS)</title>
+		<meeting>the Confederated International Conferences: On the Move to Meaningful Internet Systems (CoopIS, DOA, and ODBASE 2002), volume 2519 of Lecture Notes in Computer Science (LNCS)<address><addrLine>Irvine, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of Califomia</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Using AI in knowledge management: Knowledge bases and ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>O'leary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="34" to="39" />
+			<date type="published" when="1998-06">May/June 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Knowledge management: An interdisciplinary approach</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>O'leary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems, Special Issue on Knowledge Management</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Managing Knowledge</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Probst</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Romhardt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Raub</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<publisher>J. Wiley and Sons</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Knowledge Engineering and Management -The CommonKADS Methodology</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Schreiber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Akkerrnans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Anjewierden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>De Hoog</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Shadbolt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Van De Velde</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Wielinga</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<publisher>The MIT Press</publisher>
+			<pubPlace>Cambridge, Massachusetts; London, England</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Special Section on Semantic Web and Data Management</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Spyns</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Meersman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jarrar</surname></persName>
+		</author>
+		<ptr target="http://www.acm.orglsigmodlrecordl" />
+	</analytic>
+	<monogr>
+		<title level="j">SIGMOD Record -Web Edition</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Meersman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Sheth</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<date type="published" when="2002-02">December &apos;02 2002</date>
+		</imprint>
+	</monogr>
+	<note>Data modelling versus ontology engineering</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Knowledge processes and ontologies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-P</forename><surname>Schnurr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Intelligent Systems, Special Issue on Knowledge Management</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="26" to="34" />
+			<date type="published" when="2001">Jan-uarylFebrary 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">User-driven ontology evolution management</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Stojanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Maedche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Motik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Stojanovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">G6mez-Perez and Benjamins</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="285" to="300" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">OntoEdit: Collaborative ontology development for the semantic web</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Erdmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Angele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wenke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Horrocks and Hendler</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="221" to="235" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">OntoEdit: Guiding ontology development by methodology and inferencing</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Angele</surname></persName>
+		</author>
+		<editor>Meersman et al.</editor>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="1205" to="1222" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">On-To-Knowledge Methodology -final version</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Studer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">On-To-Knowledge deliverable</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+		<respStmt>
+			<orgName>Institute AIFB, University of Karlsruhe</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Toward distributed use of largescale ontologies</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Swartout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ramesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Knight</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Russ</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Symposium on Ontological Engineering 0/ AAAI</title>
+		<meeting><address><addrLine>Stanford, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Ontologies: Principles, methods and applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Uschold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grueninger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge Sharing and Review</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="1996-06">June 1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Towards a methodology for building ontologies</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Uschold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>King</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Basic OntologicalIssues in Knowledge Sharing, held in conjunction with IJCAI-95</title>
+		<meeting><address><addrLine>Montreal, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The enterprise ontology</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Uschold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>King</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Moralee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zorgios</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge Engineering Review</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="31" to="89" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">METHONTOLOGY: From Ontological Art Towards Ontological Engineering</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Mariano</forename><surname>Ferndndez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Laboratorio de Inteligencia Artificial Facultad de Inform~itica Universidad Polittcnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montegancedo sn. Boadilla del Monte</addrLine>
+									<postCode>28660</postCode>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Asunci6n</forename><surname>G6mez-P~rez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Laboratorio de Inteligencia Artificial Facultad de Inform~itica Universidad Polittcnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montegancedo sn. Boadilla del Monte</addrLine>
+									<postCode>28660</postCode>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Natalia</forename><surname>Juristo</surname></persName>
+							<email>natalia@delicias.dia.fi.upm.es</email>
+							<affiliation key="aff0">
+								<orgName type="department">Laboratorio de Inteligencia Artificial Facultad de Inform~itica Universidad Polittcnica de Madrid</orgName>
+								<address>
+									<addrLine>Campus de Montegancedo sn. Boadilla del Monte</addrLine>
+									<postCode>28660</postCode>
+									<settlement>Madrid</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">METHONTOLOGY: From Ontological Art Towards Ontological Engineering</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">08DA945656A237A10E8E48716388CE17</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.0" ident="GROBID" when="2024-07-16T18:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper does not pretend either to transform completely the ontological art in engineering or to enumerate exhaustively the complete set of works that has been reported in this area. Its goal is to clarify to readers interested in building ontologies from scratch, the activities they should perform and in which order, as well as the set of techniques to be used in each phase of the methodology. This paper only presents a set of activities that conform the ontology development process, a life cycle to build ontologies based in evolving prototypes, and METHONTOLOGY, a well-structured methodology used to build ontologies from scratch. This paper gathers the experience of the authors on building an ontology in the domain of chemicals.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>*</head><p>As you do not plan a trip without knowing your destination (your goal), you should not start the From: AAAI Technical Report SS-97-06.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Until now, a big quantity of ontologies have been developed by different groups, under different approaches, and using different methods and techniques. However a few works have been published about how to proceed, showing the practices, design criteria, activities, methodologies, and tools used to build them. The consequence is clear, the absences of standardized activities, life cycles, and systematic methodologies as well as a set of well-defined design criteria, techniques and tools make the ontologies development a craft rather than an engineering activity. So, the art will became engineering when there exist a definition and standardization of a life cycle that goes from requirements definition to maintenance of the finished product, as well as methodologies and techniques that drive their development.</p><p>One of the main problems that Knowledge Engineers (KEs) have when building expert systems is the difficulty of getting a set of requirements for the system. Requirements specify how the system will behave. Since experts are not usually able to describe in a concrete and complete way how they behave in the application domain, it is hard for KEs to specify the future behavior of the Knowledge-Based Systems (KBS). So, KBS are usually built incrementally using evolving prototypes in which the deficiencies of the final product of each cycle can be used as the specification of the next prototype. In ontologies do not occur the same. Ontologies are built to be reused or shared anytime, anywhere, and independently of the behavior and domain of the application that uses them. So, ontologists should be able to specify, at least partially, a big portion of the needed vocabulary that the ontology will cover for a given domain. This is the main difference between ontologies and K.BS development processes. Consequently, methodologies used to build KBSs can not completely be applied to build ontologies.</p><p>In the following sections, this paper presents a set of activities that conforms the ontology development process (section #2), a life cycle of ontologies (section #3) METHONTOLOGY (section #4), a method to build ontoiogies from scratch.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Ontology Development Process</head><p>The ontology development process refers to what activities you need to carry out when building your ontologies: However, the ontology development process does not imply an order of execution of such activities. Its goal is to identify the list of activities to be completed. Usually verbs are used to refer to such activities.</p><p>The ontology development process is composed of the following:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>*</head><p>Before building your ontology, you should plan the main tasks to be done, how they will be arranged, how much time you need to perform them and with which resources (people, software and hardware).</p><p>development of your ontology without knowing its purpose and scope. So, try to answer the questions: why this ontology is being built and what are its intended uses and end-users. Then, specify or write the answers in an ontology requirements specification document. As an example of an informal and formal specification of two independent ontoiogies in the domain of modeling enterprise, to cite the Enterprise ontology (by Uschold) and the TOVE ontology (by Gruninger). Although their outputs are almost the same (a set of terms), the degree of formality in writing their requirements specification documents are different. The Enterprise ontology has been specified in natural language and the TOVE ontology using a set of competence questions <ref type="bibr">(Uschold &amp; Gruninger 1996)</ref>.</p><p>Unless you wish to build a toy ontology or unless you are an expert in the domain, you will elicit knowledge using KBSs knowledge elicitation techniques. As a result, you should be able to list the sources of knowledge and give, a rough description of how you carried out the processes, and of the techniques you used. The most extensive work on capturing knowledge was reported by <ref type="bibr">Uschold and Gruninger (Uschoid &amp; Gruninger 1996)</ref>.</p><p>Once you have acquired enough knowledge you conceptualize it in a conceptual model that describes the problem and its solution. A set of intermediate representations for conceptualizing a domain ontology of objects were presented by <ref type="bibr">G6mez-P6rez and colleagues at (G6mez-P6rez, Fern~indez, &amp; De Vicente 1996)</ref>.</p><p>To transform the conceptual model into a formal or semi-compatible model, you need to formalize it using frame-oriented or description logic representation systems.</p><p>Ontoiogies are built to be reused. In this way, duplication of work in building ontologies has less sense than its duplication when you build a traditional Knowledge Base. So, you should reuse existing ontologies. Try to integrate as much as possible existing ontologies in your ontology. A method to integrate ontoiogically heterogeneous taxonomic knowledge and its application to the medical domain was presented by Gangemi and colleagues in <ref type="bibr">(Gangemi, Steve, &amp; Giacomelli 1996)</ref>. <ref type="bibr">Farquhar and colleagues (Farquar et al. 1995)</ref> have identified four kind of relationships between ontologies that have been integrated: inclusion, polymorphic refinement, circular dependencies and restrictions.</p><p>Their ontology server provides a semantic model for ontology inclusion in order to avoid conflict between symbols.</p><p>To make your ontology computable, you need to implement it in a formal language. As a reference framework for selecting target languages, we would cite the comparative study performed by Speel and colleagues at <ref type="bibr">(Speel et al. 1995)</ref>  To maintain the ontology is an important activity to be done carefully. Guidelines for maintaining ontologies are also needed.</p><p>We remark that the ontology development process does not imply an order on the execution of such tasks. Its goal is only to identify the list of activities to be done.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Ontology Life Cycle</head><p>"Don't build your house starting by the roof", says a Spanish proverb to advice that activities require an order and that they should be divided and carry out step by step in a planned way, in order to succeed. In the previous section, we divided the ontology development process in a set of activities. However, we did not indicate the order and depth in which such activities should be done. It is obvious that planification and maintenance are the first and the last, but it is not clear whether or not knowledge acquisition is totally or partially simultaneous with the specification and conceptualization activities, if conceptualization precedes to the integration and this one goes before the implementation, if the evaluation and documentation are sequential to the implementation or if they should be done as all the activities move forward, and if you should carry out an activity totally or partially before starting the following.</p><p>First, the ontology life cycle answers the previous questions identifying the set of stages though which the ontology moves during its life. Making an analogy, we could say that the ontology development process is similar to the production chains in a manufacturing domain as the ontology is to the final product that such production chain creates. Just as the life cycle of human beings moves forward sequentially and irreversibly through the following states: childhood, adolescence, youth, maturity and old age, the ontology life cycle moves forward through the following states: specification, conceptualization, formalization, integration, implementation and maintenance. So, the ontology development process transforms the initial product (the need you have to build the ontology) into a final product (the evaluated, documented ontology, codified in a formal language). The previous states through which the ontology pass conforms its life cycle, as it is shown in figure <ref type="figure">1</ref>. Knowledge Acquisition, evaluation of ontologies and documentation arc tasks that are carried out during the whole life of the ontology as figure <ref type="figure">1</ref> shows. In fact, unless the ontologist is an expert in the application domain, most of the acquisition is done simultaneously with the requirements specification phase and decreases as the ontology development process moves forward. In order to prevent error propagation, most of evaluation should be done during the earliest stages of the ontology development process. Finally, you should produce detailed documentation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Activity</head><p>Second, the ontology life cycle shows when you should perform the activities to move from a given state to the next and in how much depth. Some life cycle models have been described in Software Engineering and transferred to Knowledge Engineering (Aionso et ai. 1996). As we said before, the main problem facing KE when (s)be begins new KBS is to build a requirements specification document. Unlike, an ontologist must be able to partially specify a set of requirements before building an ontology, which will constitute the initial core of the ontology. So, the ontology life cycle is closer to a classic software life cycle than it is to a KBS life cycle.</p><p>The waterfall life cycle defined by Royce (Royce 1987) is the traditional life cycle model in Software Engineering. In this model, activities are sequential in the sense that you cannot move onto the next activity until you have completely finished the previous one. This model forces the ontologist to identify all the terms at the beginning, and the implementation must be a mirror of the specification, that is, it must satisfy the complete requirements specification document. Its main inconvenient is that the ontology is static, you cannot include, remove or modify terms in it. Obviously the use of a waterfall life cycle model is not adequate due to the absence of a complete requirements specification at the earliest stages of the development process and due to the evolution of the ontologies definitions over time. Figure <ref type="figure">2</ref>.a shows how the system grows under this approach. The incremental life cycle <ref type="bibr">(McCracken &amp; Jackson 1982)</ref> solves some problems, allowing the partial specification of the requirements. According to this approach, the ontology would grow by layers, allowing the inclusion of new definitions only when a new version is planned. This model prevents the inclusion of new definitions if they are not planned, but it does permit an incremental development. Figure <ref type="figure">2</ref>.b shows how the ontology grows according this approach. Finally, the evolving prototype life cycle solves the previous problems since the ontology grows depending on the needs. Indeed, this model lets you to modify, add, and remove definitions in the ontology at any time. So, we think that the evolving prototypes are appropriate life cycle for building ontologies.  Obviously, it is almost impossible to take the three above contributions to propose a general method for building any kind of ontology or meta-ontology. This section presents METHONTOLOGY, a structured method to build ontologies. It is based on the experience acquired in developing an ontology in the domain of chemicals.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Specification</head><p>The goal of the specification phase is to produce either an informal, semi-formal or formal ontology specification document written in natural language, using a set of intermediate representations or using competency questions, respectively. METHONTOLOGY proposes that at least the following information be included:</p><p>a)</p><p>The purpose of the ontology, including its intended uses, scenarios of use, end-users, etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>b)</head><p>Level of formality of the implemented ontology, depending on the formality that will be use to codify the terms and their meaning. Uschold (Uschold Gruninger 1996) classifies the degree or level of formality in a range of: highly informal, semiinformal, semi-formal or rigorously formal ontologies, depending on whether terms and their meanings are codified in a language between natural language and a rigorous formal language. c) Scope, which includes the set of terms to be represented, its characteristics and granularity. The formality of the ontology specification document varies on its degree of formality depending on if you use natt, ral language, competency questions or a middle-out approach. For example, in a middle-out approach, in the scoping activity, you can use a glossary of terms to gather the set of terms that must be included in the ontology, whether or not you know their meaning at this stage of the ontology development process. It is also advisable to group concepts in concepts classifications trees (G6mez-P&amp;ez, Fernandez, &amp; De Vicente). The use of these intermediate representations will allow you not only to verify, at the earliest possible stage, relevant terms missed and to include them in the specification document, but also to remove terms that are synonyms and not relevant in your ontology anymore. The goal of these checks is to guarantee the conciseness and completeness of the ontology specification document. Figure <ref type="figure" target="#fig_4">4</ref> shows a short example of an ontology requirements specification document in the domain of chemicals.</p><p>Uschold <ref type="bibr">(Uschoid &amp; Gruninger 1996)</ref> gives excellent argument on the use of a middle-out as opposed the classic bottom-up and top-down approach in identifying the main terms of your glossary. The main advantage of the middle-out approach is that it allows you to identify the primary concepts of the ontology you are starting on. After reaching agreement on such terms and their definition you can move on to specialize or generalize them, only if they are necessary. As a result, the terms that you use are more stable, and less re-work and overall effort are required.</p><p>Since you can not prove the total completeness of your ontology specification document (any time, anywhere, someone may find a new relevant term to be included), you must guarantee in a good ontology specification document must have the following properties: * Concision, that is, each and every term is relevant, and there are no duplicated or irrelevant terms.</p><p>ONTOLOGY REQUIREMENT SPECIFICATION DOCUMENT Domain: Chemicals Date: May, 15th 1996 Conceptualized-by: Asunci6n G6mez-P,~rez Implemented-by: Muriano Fernandez-L6pez</p><p>Purpoee: Ontology about chemical substances to be used when information about chemical elements is required in teaching, manufacturing. analysis, etc. This ontology coul be used to ascertain, e.g..the atomic weight of the element Sodium.</p><p>Level of Formality: Semi-formal.</p><p>Scope  Partial completeness, which is related with the coverage of the terms, the stopover problem and level of granularity of each and every term.</p><p>Consistency, which refers to all terms and their meanings making sense in the domain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Knowledge Acquisition</head><p>It is important to bear in mind that knowledge acquisition is an independent activity in the ontology development process. However, it is coincident with other activities. As we told before, most of the acquisition is done simultaneously with the requirements specification phase, and decreases as the ontology development process moves forward.</p><p>Experts, books, handbooks, figures, tables and even other ontologies are sources of knowledge from which the knowledge can he elucidated using in conjunction techniques such us: brainstorming, interviews, formal and informal analysis of texts, and knowledge acquisition tools. For example, if you have no a clear idea of the purpose of your ontology, brainstorming technique, informal interviews with experts, and inspecting similar ontologies will allow you to elaborate a first glossary with terms potentially relevant. To refine the list of terms and their meaning, formal and informal analysis of text techniques in books and handbooks in conjunction with structured and non-structured interviews with experts might be used to include or remove terms in the glossary. Interviews to expert might help you to build concepts classifications trees and to contrast them against figures given in books.</p><p>The techniques we used in the knowledge acquisition phase of the chemical ontology were: * Non-structured interviews with experts, to build a preliminary draft of the requirements specification document.</p><p>* Informal text analysis, to study the main concepts given in books and handbooks. This study enables you to fill in the set of intermediate representations of the conceptualization.</p><p>* Formal text analysis. The first thing to do is to identify the structures to be detected (definition, affirmation, etc.) and the kind of knowledge contributed by each one (concepts, attributes, values, and relationships).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>*</head><p>Structured interviews with experts to get specific and detailed knowledge about concepts, their properties and their relationships, to evaluate the conceptual model once the conceptualization activity has been finished, and to evaluate implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Conceptualization</head><p>In this activity, you will structure the domain knowledge in a conceptual model that describes the problem and its solution in terms of the domain vocabulary identified in the ontology specification activity. The first thing to do is to build a complete Glossary of Terms (GT). Terms include concepts, instances, verbs and properties. So, the GT identifies and gathers all the useful and potentially usable domain knowledge and its meanings. Note that you do not start from scratch when you develop your GT. If you made a good specification document, many terms will have been identified in that document. Other will be identified as the ontology construction process advances. Then, these new terms must be included in the GT.</p><p>Once you have almost completed the GT, you must group terms as concepts and verbs. Each set of concepts/verbs would include concepts/verbs that are closely related to other concepts/verbs inside the same group as opposed to other groups. Indeed, for each set of related concepts and related verbs, a concepts classification tree and a verbs diagram is built. After they have been built, you can split your ontology development process into different, but related, teams. Those related with concepts, should follow the guidelines presented by <ref type="bibr">G6mez-Ptrez and colleagues in (G6mez-Ptrez, Fern;</ref><ref type="bibr">indez, &amp; De Vicente 1996)</ref>, and those encharged of conceptualizing verbs are presented at (Vicente 1997). Figure <ref type="figure">5</ref> graphically summarizes the intermediate representations used in the conceptualization phase.</p><p>Concepts will be described using (G6mez-Ptrez, Fern;tndez, &amp; De Vicente 1996): Data Dictionary, which describes and gathers all the useful and potentially usable domain concepts, their meanings, attributes, instances, etc.; tables of instance attributes, which provide information about the attribute or about its values at the instance; tables of class attributes, to describe the concept itselL not its instances; tables of constants, used to specify information related to the domain of knowledge that always take the same value; tables of instances, which define instances; and attributes classification trees, to graphically display attributes and constants related in the inference sequence of the root attributes, as well as the sequence of formulas or rules to be executed to infer such attributes.</p><p>Verbs represent actions in the domain. They could be described using (Vicente 1997): Verbs Di ctionary, to express the meaning of verbs in a declarative way; tables of conditions, which specify a set of conditions to be satisfied before executing an action, or a set of conditions to be guaranteed after the execution of an action. Finally, to say that tables of formulas and tables of rules gather knowledge about formulas and rules. Note that both branches use these two intermediate representations. In sum, METHONTOLOGY produces in this phase a conceptual model expressed as a set of well-defined deliverables that will allow to the final users: (a) ascertain whether or not an ontology is useful and usable for a given application without inspecting its source code; and (b) to compare the scope and completeness of several ontologies, their reusability, and shareability by analyzing the knowledge expressed in each IR.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">IData</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Integration</head><p>With the goal of speeding up the construction of your ontology, you might consider reuse of definitions already built into other ontologies instead of starting from scratch. In this case, we propose the following: I.</p><p>Inspect meta-ontologies (i.e., in Cyc, in Ontolingua .... ) to select those that better fit your conceptualization. The goal is to guarantee that the sets of new and reused definitions are based upon the same set of basic terms. If existing meta-ontologies are not appropriate for your ontology, you should start the definition and implementation of a new meta-ontoiogy in a formal language.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.</head><p>Whether or not you reuse existing meta-ontologies, the next step is to find out which libraries of ontologies provide definitions of terms whose semantic and implementation is coherent with the terms identified in your conceptualization. Once you have chosen the most appropriate terms, if the metaontology upon which those terms have been built is different of the meta-ontology used to build the yours, you should check the existence of translators to transform definitions into your target language.</p><p>Sometimes it might occur that a term in your conceptualization (e.g., centimeter), that should be included in a given ontology (e.g., Standard Units in Ontolingua) not provided by the ontology server. In this case, you should justify the need to include the missed definitions as well as the benefits of such inclusion to the ontolc, gy maintainer.</p><p>As a result of this activity, METHONTOLOGY proposes the development of an integration document, summarizing: the meta-ontology you will use and, for each and every term whose definition is going to be used: the name of the term in the conceptual model, the name of the ontology from which you will take its definition, the name of the definition and its arguments in the ontology, as shown in figure <ref type="figure">6</ref>. Figure <ref type="figure">6</ref>. An example of an integration document</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.">Implementation</head><p>Ontologies implementation requires the use of an environment that supports the meta-ontology and ontoiogies selected at the integration phase. The result of this phase is the ontology codified in a formal language such us: CLASSIC, BACK, LOOM, Ontolingua, Prolog, C++ or in your favorite language.</p><p>Any ontology development environment should provide, at least: a iexical and syntactic analyzer to guarantee the absence of lexical and syntactic errors; translators, to guarantee the portability of the definitions into other target languages; an editor, to add, remove or modify definitions; a browser, to inspect the library of ontologies and their definitions; a searcher, to look for the most appropriate definitions; evaluators, to detect incompleteness, inconsistencies and redundant knowledge: an automatic maintainer, to manage the inclusion, removal or modification of existing definitions, and so on.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6.">Evaluation</head><p>A framework for evaluating knowledge sharing technology (software, ontologies and documentation) has been presented by G6mez P&amp;ez and colleagues in (G6mez-Ptrez, Juristo, &amp; Pazos 1995). Evaluation means to carry out a technical judgment of the ontologies, their software environment and documentation with respect to a frame of reference (in our case the requirements specification document) during each phase and between phases of their life cycle. Evaluation subsumes the terms Verification and Validation. Verification refers to the technical process that guarantees the correctness of an ontology, its associated software environments, and documentation with respect to a frame of reference during each phase and between phases of their life cycle. Validation guarantees that the ontologies, the software environment and documentation correspond to the system that they are supposed to represent. Based on the experience of verifying Ontolingua ontologies, a set of guidelines and how to look for incompleteness, inconsistencies and redundancies have been presented in (Gtmez-Ptrez 1997).</p><p>The output proposed by METHONTOLOGY for this activity is many evaluation document in which the ontologist will describe how the ontology has been evaluated, the techniques used, the kind of errors found in each activity, and the sources of knowledge used in the evaluation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.7.">Documentation</head><p>There are not consensuated guidelines on how to document ontologies. In many cases, the only documentation available is in the code of the ontology, the natural language text attached to formal definitions, and papers published in conference proceedings and journals settings out important questions of the ontology already build. This problem is the result of a vicious circle: almost anyone documents ontologies due to there are no guidelines to perform it, there are no guidelines to document ontologies because of the absence of methodologies to build ontoiogies, and there are no standard methodologies to build ontologies due to ontologist do not write, during the whole ontology development process, the steps they follow to build ontoiogies.</p><p>METHONTOLOGY pretends to break this circle including the documentation as an activity to be done during the whole ontology development process. In fact, after the specification phase, you get a requirements specification document; after the knowledge acquisition phase, a knowledge acquisition document; after the conceptualization, a conceptual model document that includes a set of intermediate representations that describe the application domain; after the formalization, a formalization document; after the integration, an integration document; after the implementation, the implementation document; and during the evaluation, an evaluation document.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion</head><p>In this paper we have reduced the existing gap between ontological art and ontological engineering by: i.</p><p>Identifying a set of activities to be done during the ontology development process. They are: planify, specify, acquire knowledge, conceptualize, formalize, integrate, implement, evaluate, document, and maintain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.</head><p>Proposing the evolving prototype as the life cycle that better fits with the ontology life cycle. The life of an ontology moves on through the following states: specification, conceptualization, formalization, integration, implementation, and maintenance. The evolving prototype life cycle allows the ontologist to go back from any state to other if some definition is missed or wrong. So, this life cycle permits the inclusion, removal or modification of definitions anytime of the ontology life cycle. Knowledge acquisition, documentation and evaluation are support activities that are carried out during the majority of these states.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3.</head><p>Defining METHONTOLOGY, a well structured methodology to build ontologies from scratch. The methodologies includes a set of activities, techniques to carry out each one, and deliverables to be produced after the execution of such activities using its attached techniques. METHONTOLOGY highly recommend the reuse of existing ontologies</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>Figure 1. States and activities</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Figure 2. How the ontology grows?</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Figure 3 summarizes the activities proposed and what are equivalent.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3.Relationship between phases of two methodologies</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Ontology requirements specification in the domain of chemicals.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>: List of 103 elements of substances: Lithium, Sodium, Chlorine ....</figDesc><table><row><cell>List of concepts: Halogen.~, noble-gases, semi.metal, metal .....</cell></row><row><cell>At least information about the following properties: atomic-number.</cell></row><row><cell>atomic-weight, atomic.wdume.at-20-degrees-celsiu.~, boiling-point,</cell></row><row><cell>densi~...at-20-degree.~'-celsi~, electronegativi~.', electron-a1~mity,</cell></row><row><cell>and .~3"mbol.</cell></row></table><note><p><p>Sources of Knowledge: Handbook of Chemisto ~ and Physics. 65th edition.</p>CRC-Press, Inc. 1984-1985.    </p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>ua Term in your Ontology to be reused Name of the Conceptualization term in the ontology</head><label></label><figDesc></figDesc><table><row><cell cols="2">Glossary of Terms [</cell><cell></cell></row><row><cell>Dictionaries</cell><cell></cell><cell></cell></row><row><cell>ITables of Instance Attributes ITables of Class Attributes ITables of Constants</cell><cell>Verbs Dictionary Table of Conditions</cell><cell></cell></row><row><cell>[Tables of Instances</cell><cell></cell><cell></cell></row><row><cell>[Attributes Classification Trees</cell><cell></cell><cell></cell></row><row><cell cols="2">Table of Formulas Table of Rules Figure 5. Set of Intermediate Representations in the</cell><cell cols="2">Meta-Ontoi%7 The frame-ontoio~), in Ontolin| Kilometer Standard-Units in Ontolin~ua Kilometer</cell></row><row><cell>conceptualization phase.</cell><cell></cell><cell>Centimeter</cell><cell>Standard-Units in Ontolin~:ua Undefined</cell></row><row><cell></cell><cell></cell><cell>Exponent</cell><cell>KIF-Numbers in Ontolin~ua</cell><cell>Expt</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Mat6</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Alonso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Juristo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J.L.; Pazos, J. Software Engineering and Knowledge Engineering: Towards a Common Life-Cycle. Journal of Systems and Software. N*</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="65" to="79" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Collaborative Ontology Construction for Information Integration</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Farquhar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fikes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rice</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995-08">August 1995</date>
+			<pubPlace>Ca</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Knowledge Systems Laboratory. Stanford University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+	<note>KSL-95-63</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">ONIONS: an ontological methodology for taxonomic knowledge integration. Working notes of the workshop Ontological Engineering. ECAI&apos;96. Pags</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Steve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Giacomelli</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="29" to="40" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>G6mez-P6rez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Juristo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pazos</surname></persName>
+		</author>
+		<title level="m">Evaluation and Assessment of Knowledge Sharing Technology</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
