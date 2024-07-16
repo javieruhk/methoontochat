@@ -45,13 +45,13 @@ Note: It is assumed that the required dependencies are installed.
 docker run --rm --init --ulimit core=0 -p 8070:8070 lfoppiano/grobid:0.8.0
 ```
 
-4) Execute the `preprocessing_corpus_files` script, specifying the folder to process.
+4) Execute the `preprocessing_corpus_files.py` script, specifying the folder to process.
 
 ### Instructions to upload preprocessed files to Pinecone
 
 1) Ensure your preprocessed files are stored in a Google Drive repository.
 
-2) Open the `creating_index_pinecone` script.
+2) Open the `creating_index_pinecone.py` script.
 
 3) Introduce your Pinecone key in the script.
 
