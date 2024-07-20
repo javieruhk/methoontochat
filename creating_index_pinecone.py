@@ -1,4 +1,5 @@
 from google.colab import drive
+import streamlit as st
 from pinecone import Pinecone
 from pinecone import ServerlessSpec
 from langchain.document_loaders.directory import DirectoryLoader
@@ -40,7 +41,7 @@ drive.mount('/content/drive')
 #path = '/content/drive/MyDrive/TFM/data/Teóricos + Prácticos'
 path = '/content/drive/MyDrive/TFM/data/Teóricos + Prácticos filtrados'
 
-pinecone_api_key = "3a8a5a1b-bb75-4ace-8f34-75791988c1a0"
+pinecone_api_key = st.secrets["langchain_api_secret"]
 pc = Pinecone(api_key=pinecone_api_key)
 index_name = 'methoontochat'
 
